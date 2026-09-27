@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zani Digjital - Lajmi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    </style>
+</head>
+<body>
+    <!-- Pjesa e lartë (Navbar) -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="bg-blue-600 text-white font-bold text-xl px-2 py-1 rounded">Z</span>
+                <span class="font-extrabold text-xl tracking-tight text-gray-900">zanidigjital</span>
+            </a>
+            <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-blue-600 transition">&larr; Kthehu te Ballina</a>
+        </div>
+    </nav>
+
+    <!-- Këtu do të ngarkohet lajmi -->
+    <main class="max-w-3xl mx-auto mt-10 px-4 mb-20" id="lajmi-container">
+        <div class="text-center py-20">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p class="mt-4 text-gray-500 font-medium">Lajmi po ngarkohet...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-8 text-center text-gray-400 text-sm">
+        <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
+    </footer>
+
+    <script>
+        // Lexon URL-në për të gjetur lajmin e saktë
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleLink = urlParams.get('link');
+
+        async function loadArticle() {
+            if (!articleLink) {
+                document.getElementById('lajmi-container').innerHTML = '<h1 class="text-2xl font-bold text-red-600">Lajmi nuk u gjet!</h1><a href="index.html" class="text-blue-600 mt-4 inline-block">&larr; Kthehu mbrapa</a>';
+                return;
+            }
+
+            try {
+                // Merr databazën tënde json
+                const response = await fetch('lajmet.json');
+                const news = await response.json();
+                
+                // Gjen lajmin specifik
+                const article = news.find(n => n.link_origjinal === articleLink);
+
+                if (article) {
+                    // Dizajni i brendshëm i lajmit
+                    document.getElementById('lajmi-container').innerHTML = `
+                        <div class="mb-6 flex items-center gap-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold uppercase px-3 py-1 rounded-full">${article.kategoria}</span>
+                            <span class="text-gray-400 text-sm font-medium">${article.koha}</span>
+                        </div>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-8">${article.titulli}</h1>
+                        
+                        ${article.imazhi ? `<img src="${article.imazhi}" alt="Fotoja e lajmit" class="w-full h-auto rounded-2xl shadow-md mb-10 object-cover max-h-[500px]">` : ''}
+                        
+                        <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed whitespace-pre-line text-lg">
+                            ${article.permbajtja}
+                        </div>
+                    `;
+                    document.title = article.titulli + " - Zani Digjital";
+                } else {
+                    document.getElementById('lajmi-container').innerHTML = '<h1 class="text-2xl font-bold text-red-600">Lajmi nuk ekziston më.</h1><a href="index.html" class="text-blue-600 mt-4 inline-block">&larr; Kthehu mbrapa</a>';
+                }
+            } catch (error) {
+                document.getElementById('lajmi-container').innerHTML = '<p class="text-red-500">Pati një gabim në sistem.</p>';
+            }
+        }
+
+        loadArticle();
+    </script>
+</body>
+</html>
