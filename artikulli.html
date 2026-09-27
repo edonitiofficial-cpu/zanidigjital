@@ -23,7 +23,7 @@
 
     <header>
         <a href="index.html" class="logo">
-            <!-- Vendos emrin e saktë të logos tënde këtu (psh: logo.png, logo.jpg) -->
+            <!-- Logoja e përditësuar në logo.jpg -->
             <img src="logo.jpg" alt="Zani Digjital">
         </a>
         <a href="index.html" class="nav-link">← Kthehu te Ballina</a>
@@ -35,7 +35,8 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const lajmiId = urlParams.get('id');
+        // I tregojmë të kërkojë për disa variante të fjalës (id, lajmi, index)
+        const lajmiId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
 
         if (lajmiId !== null) {
             fetch('lajmet.json')
@@ -43,7 +44,6 @@
                 .then(data => {
                     const lajmi = data[lajmiId];
                     if (lajmi) {
-                        // Krijon paragrafë automatikisht për çdo rresht të ri
                         let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                         
                         document.getElementById('artikulli-container').innerHTML = `
@@ -58,14 +58,15 @@
                             </div>
                         `;
                     } else {
-                        document.getElementById('artikulli-container').innerHTML = '<h2>Lajmi nuk u gjet!</h2>';
+                        document.getElementById('artikulli-container').innerHTML = '<h2>Lajmi nuk u gjet në databazë!</h2>';
                     }
                 })
                 .catch(error => {
                     document.getElementById('artikulli-container').innerHTML = '<h2>Pati një problem gjatë ngarkimit të lajmit.</h2>';
                 });
         } else {
-            window.location.href = 'index.html';
+            // E heqim ridrejtimin automatik që ta shohim ku është problemi nëse ndodh prapë
+            document.getElementById('artikulli-container').innerHTML = '<h2>Problem me linkun!</h2><p>Linku nga faqja kryesore është: ' + window.location.search + '</p><br><a href="index.html">Kthehu te Ballina</a>';
         }
     </script>
 </body>
