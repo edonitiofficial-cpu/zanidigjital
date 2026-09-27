@@ -14,7 +14,7 @@
 </head>
 <body class="text-gray-900">
 
-  <!-- Header identik me ballinën (Tani me të gjitha rubrikat) -->
+  <!-- Header -->
   <header class="bg-white sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <a href="index.html" class="flex-shrink-0">
@@ -53,17 +53,15 @@
         </div>
       </div>
 
-      <!-- Hapësira Reklamuese 1 -->
-      <div class="bg-gray-100 border border-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group shadow-inner">
-         <span class="text-sm font-bold uppercase tracking-widest group-hover:scale-110 transition duration-300">Hapësirë Reklamuese</span>
-         <span class="text-xs mt-2">300 x 250</span>
-      </div>
+      <!-- Hapësira Reklamuese 1 (Burger) -->
+      <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm hover:opacity-90 hover:shadow-md transition duration-300">
+          <img src="burger.png" alt="Reklama 1" class="w-full h-auto object-cover">
+      </a>
 
-      <!-- Hapësira Reklamuese 2 -->
-      <div class="bg-gray-100 border border-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group shadow-inner">
-         <span class="text-sm font-bold uppercase tracking-widest group-hover:scale-110 transition duration-300">Hapësirë Reklamuese</span>
-         <span class="text-xs mt-2">300 x 250</span>
-      </div>
+      <!-- Hapësira Reklamuese 2 (Karrige/Mobilje) -->
+      <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm hover:opacity-90 hover:shadow-md transition duration-300">
+          <img src="chair.png" alt="Reklama 2" class="w-full h-auto object-cover">
+      </a>
 
     </aside>
   </main>
@@ -95,7 +93,7 @@
                 }
 
                 if (lajmi) {
-                    // Renderimi i lajmit të plotë në të majtë
+                    // Renderimi i lajmit
                     let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                     
                     document.getElementById('artikulli-container').innerHTML = `
@@ -110,7 +108,7 @@
                         </div>
                     `;
 
-                    // Renderimi i sugjerimeve në të djathtë (Merr 5 lajmet e para por përjashton atë që po lexojmë)
+                    // Renderimi i sugjerimeve
                     const sugjerime = [];
                     for(let i=0; i < data.length; i++) {
                         if(i !== lajmiIndex) {
