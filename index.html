@@ -19,7 +19,6 @@
   <header class="bg-white sticky top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <a href="#" onclick="filterNews('Krye')" class="flex-shrink-0">
-        <!-- Sigurohu që emri i logos është i saktë këtu -->
         <img src="logo.jpg" alt="ZaniDigjital Logo" class="h-10 object-contain">
       </a>
       
@@ -39,8 +38,8 @@
     
     <!-- Seksioni Hero (Lajmet Kryesore) -->
     <section id="hero-section" class="grid grid-cols-1 lg:grid-cols-3 gap-4 hidden">
-      <!-- Lajmi Kryesor i Madh (Merr 2 kolona në Desktop) -->
-      <a href="#" id="hero-main" target="_blank" class="lg:col-span-2 relative rounded-2xl overflow-hidden group block h-[400px] lg:h-[500px]">
+      <!-- Lajmi Kryesor i Madh -->
+      <a href="#" id="hero-main" class="lg:col-span-2 relative rounded-2xl overflow-hidden group block h-[400px] lg:h-[500px]">
         <img id="hero-main-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
         <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-6 lg:p-8">
           <span id="hero-main-cat" class="bg-blue-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full w-max mb-3">Kategori</span>
@@ -52,7 +51,7 @@
       <!-- Dy Lajme Anësore -->
       <div class="flex flex-col gap-4">
         <!-- Lajmi Anësor 1 -->
-        <a href="#" id="hero-sub1" target="_blank" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
+        <a href="#" id="hero-sub1" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
           <img id="hero-sub1-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
           <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-5">
              <span id="hero-sub1-cat" class="text-blue-400 text-xs font-bold uppercase mb-1">Kategori</span>
@@ -60,7 +59,7 @@
           </div>
         </a>
         <!-- Lajmi Anësor 2 -->
-        <a href="#" id="hero-sub2" target="_blank" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
+        <a href="#" id="hero-sub2" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
           <img id="hero-sub2-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
           <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-5">
              <span id="hero-sub2-cat" class="text-blue-400 text-xs font-bold uppercase mb-1">Kategori</span>
@@ -73,7 +72,7 @@
     <!-- Pjesa e Poshtme: Grid + Sidebar -->
     <section class="flex flex-col lg:flex-row gap-8">
       
-      <!-- Lista e lajmeve tjera (Top Stories) -->
+      <!-- Lista e lajmeve tjera -->
       <div class="lg:w-3/4">
         <div class="mb-6 border-b pb-2">
           <h2 id="category-title" class="text-2xl font-extrabold tracking-tight">Të Fundit</h2>
@@ -98,7 +97,6 @@
           </ul>
         </div>
 
-        <!-- Promo Banner (Si në dizajn) -->
         <div class="bg-[#0f172a] rounded-2xl p-6 text-white shadow-lg">
           <h4 class="font-bold text-lg mb-2">Përmbledhja Ditore</h4>
           <p class="text-gray-400 text-sm mb-4">Lajmet kryesore direkt në emailin tuaj.</p>
@@ -142,19 +140,19 @@
       document.getElementById('hero-main-cat').innerText = items[0].kategoria;
       document.getElementById('hero-main-time').innerText = items[0].koha;
       document.getElementById('hero-main-img').src = items[0].imazhi || 'https://via.placeholder.com/800x500?text=ZaniDigjital';
-      document.getElementById('hero-main').href = items[0].link_origjinal;
+      document.getElementById('hero-main').href = 'artikulli.html?link=' + encodeURIComponent(items[0].link_origjinal);
 
       // Lajmi 2
       document.getElementById('hero-sub1-title').innerText = items[1].titulli;
       document.getElementById('hero-sub1-cat').innerText = items[1].kategoria;
       document.getElementById('hero-sub1-img').src = items[1].imazhi || 'https://via.placeholder.com/400x250?text=ZaniDigjital';
-      document.getElementById('hero-sub1').href = items[1].link_origjinal;
+      document.getElementById('hero-sub1').href = 'artikulli.html?link=' + encodeURIComponent(items[1].link_origjinal);
 
       // Lajmi 3
       document.getElementById('hero-sub2-title').innerText = items[2].titulli;
       document.getElementById('hero-sub2-cat').innerText = items[2].kategoria;
       document.getElementById('hero-sub2-img').src = items[2].imazhi || 'https://via.placeholder.com/400x250?text=ZaniDigjital';
-      document.getElementById('hero-sub2').href = items[2].link_origjinal;
+      document.getElementById('hero-sub2').href = 'artikulli.html?link=' + encodeURIComponent(items[2].link_origjinal);
     }
 
     function renderGrid(items) {
@@ -165,14 +163,14 @@
       }
       grid.innerHTML = items.map(item => `
         <article class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col cursor-pointer">
-          <a href="${item.link_origjinal}" target="_blank" class="block relative h-40 overflow-hidden">
+          <a href="artikulli.html?link=${encodeURIComponent(item.link_origjinal)}" class="block relative h-40 overflow-hidden">
             ${item.imazhi ? `<img src="${item.imazhi}" alt="" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">` : '<div class="w-full h-full bg-gray-200"></div>'}
             <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-gray-900 text-[10px] font-bold uppercase px-2 py-1 rounded-md shadow-sm">${item.kategoria}</span>
           </a>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
               <h2 class="text-[17px] font-extrabold mt-1 mb-2 leading-snug text-gray-900 hover:text-blue-600 transition line-clamp-3">
-                <a href="${item.link_origjinal}" target="_blank">${item.titulli}</a>
+                <a href="artikulli.html?link=${encodeURIComponent(item.link_origjinal)}">${item.titulli}</a>
               </h2>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-50 text-xs text-gray-400 font-medium flex items-center justify-between">
@@ -188,10 +186,10 @@
       if (cat === 'Krye') {
         titleEl.innerText = 'Të Fundit';
         renderHero(allNews);
-        renderGrid(allNews.slice(3)); // Heq 3 lajmet e para nga gridi se janë te Hero
+        renderGrid(allNews.slice(3)); 
       } else {
         titleEl.innerText = cat;
-        document.getElementById('hero-section').classList.add('hidden'); // Fsheh Hero kur shikon kategori specifike
+        document.getElementById('hero-section').classList.add('hidden'); 
         renderGrid(allNews.filter(n => n.kategoria === cat));
       }
     }
