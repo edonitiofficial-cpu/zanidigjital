@@ -2,7 +2,8 @@ import os
 import json
 import feedparser
 import time
-import re  # SHTUAR: Për të kërkuar fotot e fshehura brenda tekstit
+import re
+import urllib.request
 from google import genai
 from datetime import datetime
 
@@ -28,8 +29,9 @@ def load_news():
     return []
 
 def save_news(news_list):
+    # Kapaciteti i rritur në 100 lajme
     with open(DB_FILE, "w", encoding="utf-8") as f:
-        json.dump(news_list[:60], f, ensure_ascii=False, indent=2)
+        json.dump(news_list[:100], f, ensure_ascii=False, indent=2)
 
 def rewrite_with_ai(original_title, original_summary):
     prompt = f"""
@@ -73,29 +75,25 @@ def main():
 
     for feed_url in RSS_FEEDS:
         parsed = feedparser.parse(feed_url)
-        for entry in parsed.entries[:4]: 
+        # Rritja e sasisë: Provon të marrë 15 lajme të fundit nga çdo portal
+        for entry in parsed.entries[:15]: 
             link = entry.get("link", "")
             if link in existing_links:
                 continue
 
             title = entry.get("title", "")
             summary = entry.get("summary", "")
-
-            # ZGJIDHJA PËR FOTOT: Roboti tani kërkon në 3 vende të ndryshme
             image_url = ""
             
-            # 1. Mënyra standarde
             if "media_content" in entry and len(entry.media_content) > 0:
                 image_url = entry.media_content[0].get("url", "")
             
-            # 2. Kontrollon te "enclosures" (siç bëjnë disa portale)
             if not image_url and "links" in entry:
                 for l in entry.links:
                     if l.get("type", "").startswith("image") or l.get("rel", "") == "enclosure":
                         image_url = l.get("href", "")
                         break
                         
-            # 3. Gërmon brenda tekstit për ta gjetur foton e fshehur
             if not image_url:
                 match = re.search(r'<img[^>]+src="([^">]+)"', summary)
                 if match:
@@ -105,11 +103,27 @@ def main():
                 match = re.search(r'<img[^>]+src="([^">]+)"', entry.content[0].value)
                 if match:
                     image_url = match.group(1)
+                    
+            if not image_url and link:
+                try:
+                    req = urllib.request.Request(link, headers={'User-Agent': 'Mozilla/5.0'})
+                    html = urllib.request.urlopen(req, timeout=5).read().decode('utf-8', errors='ignore')
+                    match = re.search(r'<meta property="og:image" content="([^"]+)"', html)
+                    if match:
+                        image_url = match.group(1)
+                except Exception as e:
+                    pass
+            
+            # Anashkalon vetëm lajmet pa fotografi origjinale
+            if not image_url:
+                print(f"Lajmi u anashkalua sepse nuk kishte foto origjinale: {title}")
+                continue
 
             print(f"\nDuke përpunuar: {title}")
             ai_result = rewrite_with_ai(title, summary)
             
-            time.sleep(5)
+            # PAUZA E ARTË (15 Sekonda) - Kjo i jep kohë robotit dhe nuk na bllokon kurrë nga Google
+            time.sleep(15)
 
             if ai_result:
                 article = {
