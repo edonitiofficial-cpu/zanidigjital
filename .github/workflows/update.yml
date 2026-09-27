@@ -12,8 +12,8 @@ jobs:
       - name: Merr dosjet e projektit
         uses: actions/checkout@v4
 
-      - name: Bëj gati gjuhën Python
-        uses: setup-python@v5
+      - name: Bej gati gjuhen Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -30,4 +30,4 @@ jobs:
           git config --global user.name "ZaniDigjital Bot"
           git config --global user.email "bot@zanidigjital.com"
           git add lajmet.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "U publikuan lajme të reja" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "U publikuan lajme te reja" && git push)
