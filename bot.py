@@ -5,9 +5,8 @@ import time
 import re
 import urllib.request
 from google import genai
-from datetime import datetime
+from datetime import datetime, timedelta
 
-# Sistemi i ri: Mbledhim të 5 çelësat
 api_keys = [
     os.environ.get("GEMINI_API_KEY"),
     os.environ.get("GEMINI_API_KEY_2"),
@@ -15,7 +14,6 @@ api_keys = [
     os.environ.get("GEMINI_API_KEY_4"),
     os.environ.get("GEMINI_API_KEY_5")
 ]
-# Heqim çdo çelës që mund të jetë bosh për siguri
 api_keys = [k for k in api_keys if k]
 
 current_key_index = 0
@@ -62,7 +60,6 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    # Tentojmë derisa të gjejmë një çelës që punon
     while current_key_index < len(api_keys):
         try:
             response = client.models.generate_content(
@@ -82,7 +79,6 @@ def rewrite_with_ai(original_title, original_summary):
                 print(f"⚠️ Çelësi {current_key_index + 1} u harxhua për sot. Po kaloj te çelësi tjetër...")
                 current_key_index += 1
                 if current_key_index < len(api_keys):
-                    # Ndërrojmë çelësin dhe e provojmë prapë të njëjtin lajm
                     client = genai.Client(api_key=api_keys[current_key_index])
                     continue
                 else:
@@ -103,6 +99,7 @@ def main():
         parsed = feedparser.parse(feed_url)
         for entry in parsed.entries[:15]: 
             link = entry.get("link", "")
+            # Këtu roboti injoron lajmet që i ka publikuar njëherë (ndalimi i duplikateve)
             if link in existing_links:
                 continue
 
@@ -154,7 +151,8 @@ def main():
                     "permbajtja": ai_result.get("permbajtja"),
                     "kategoria": ai_result.get("kategoria", "Lajme"),
                     "imazhi": image_url,
-                    "koha": datetime.now().strftime("%d/%m/%Y %H:%M"),
+                    # Shtuar +2 orë për t'u përshtatur me orën e Kosovës
+                    "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
                     "link_origjinal": link
                 }
                 new_entries.append(article)
