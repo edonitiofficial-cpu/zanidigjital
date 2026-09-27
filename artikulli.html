@@ -1,84 +1,146 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zani Digjital - Lajmi</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; color: #333; }
-        header { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
-        .logo img { height: 40px; } 
-        .nav-link { text-decoration: none; color: #666; font-size: 14px; font-weight: 500; }
-        .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .meta-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 13px; font-weight: bold; }
-        .kategoria { color: #0d6efd; text-transform: uppercase; }
-        .data { color: #888; font-weight: normal; }
-        h1 { font-size: 28px; line-height: 1.4; margin-top: 0; margin-bottom: 20px; }
-        .imazhi-kryesor { width: 100%; border-radius: 8px; margin-bottom: 25px; }
-        .permbajtja { font-size: 17px; line-height: 1.7; color: #444; }
-        .permbajtja p { margin-bottom: 15px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zani Digjital - Lajmi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+    .permbajtja p { margin-bottom: 1.25rem; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
 </head>
-<body>
+<body class="text-gray-900">
 
-    <header>
-        <a href="index.html" class="logo">
-            <img src="logo.jpg" alt="Zani Digjital">
-        </a>
-        <a href="index.html" class="nav-link">← Kthehu te Ballina</a>
-    </header>
-
-    <div class="container" id="artikulli-container">
-        <p style="text-align:center;">Duke ngarkuar lajmin...</p>
+  <!-- Header identik me ballinën (Tani me të gjitha rubrikat) -->
+  <header class="bg-white sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="logo.jpg" alt="ZaniDigjital Logo" class="h-10 object-contain">
+      </a>
+      
+      <nav id="main-categories" class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-wider text-gray-500">
+        <a href="index.html" class="hover:text-blue-600 transition">Krye</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Lajme</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Kosovë</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Politikë</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Ekonomi</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Sport</a>
+        <a href="index.html" class="hover:text-blue-600 transition">Teknologji</a>
+      </nav>
     </div>
+  </header>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        // Tani jemi gati të kapim çfarëdo që na jep ballina:
-        const paramLink = urlParams.get('link'); 
-        const paramId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
+  <main class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+    
+    <!-- Pjesa e Majtë: Artikulli Kryesor -->
+    <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100" id="artikulli-container">
+        <p class="text-center text-gray-500">Duke ngarkuar lajmin...</p>
+    </article>
 
-        if (paramLink || paramId !== null) {
-            fetch('lajmet.json')
-                .then(response => response.json())
-                .then(data => {
-                    let lajmi = null;
+    <!-- Pjesa e Djathtë: Sugjerimet dhe Reklamat -->
+    <aside class="lg:w-1/3 space-y-6">
+      
+      <!-- Seksioni i Sugjerimeve -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b pb-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-500"></span> Lexo më shumë
+        </h3>
+        <div id="sugjerime-container" class="space-y-4">
+           <p class="text-gray-400 text-sm">Po ngarkon sugjerimet...</p>
+        </div>
+      </div>
+
+      <!-- Hapësira Reklamuese 1 -->
+      <div class="bg-gray-100 border border-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group shadow-inner">
+         <span class="text-sm font-bold uppercase tracking-widest group-hover:scale-110 transition duration-300">Hapësirë Reklamuese</span>
+         <span class="text-xs mt-2">300 x 250</span>
+      </div>
+
+      <!-- Hapësira Reklamuese 2 -->
+      <div class="bg-gray-100 border border-gray-200 rounded-2xl h-[300px] flex flex-col items-center justify-center text-gray-400 relative overflow-hidden group shadow-inner">
+         <span class="text-sm font-bold uppercase tracking-widest group-hover:scale-110 transition duration-300">Hapësirë Reklamuese</span>
+         <span class="text-xs mt-2">300 x 250</span>
+      </div>
+
+    </aside>
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 py-8 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-gray-500 text-sm font-medium">&copy; 2026 ZaniDigjital. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLink = urlParams.get('link'); 
+    const paramId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
+
+    if (paramLink || paramId !== null) {
+        fetch('lajmet.json')
+            .then(response => response.json())
+            .then(data => {
+                let lajmi = null;
+                let lajmiIndex = -1;
+                
+                if (paramLink) {
+                    lajmiIndex = data.findIndex(item => item.link_origjinal === paramLink);
+                    lajmi = data[lajmiIndex];
+                } else if (paramId !== null) {
+                    lajmiIndex = parseInt(paramId);
+                    lajmi = data[lajmiIndex];
+                }
+
+                if (lajmi) {
+                    // Renderimi i lajmit të plotë në të majtë
+                    let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                     
-                    // Nëse ballina dërgon linkun origjinal, e kërkojmë në databazë:
-                    if (paramLink) {
-                        lajmi = data.find(item => item.link_origjinal === paramLink);
-                    } 
-                    // Nëse ballina dërgon numrin e lajmit:
-                    else if (paramId !== null) {
-                        lajmi = data[paramId];
+                    document.getElementById('artikulli-container').innerHTML = `
+                        <div class="flex items-center gap-4 mb-4 text-sm font-bold">
+                            <span class="text-blue-600 uppercase tracking-wider">${lajmi.kategoria}</span>
+                            <span class="text-gray-400 font-normal">🕒 ${lajmi.koha}</span>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6">${lajmi.titulli}</h1>
+                        <img src="${lajmi.imazhi}" class="w-full h-auto rounded-xl object-cover mb-8 shadow-sm" alt="${lajmi.titulli}">
+                        <div class="permbajtja text-[17px] text-gray-700 leading-relaxed font-medium">
+                            ${permbajtjaHTML}
+                        </div>
+                    `;
+
+                    // Renderimi i sugjerimeve në të djathtë (Merr 5 lajmet e para por përjashton atë që po lexojmë)
+                    const sugjerime = [];
+                    for(let i=0; i < data.length; i++) {
+                        if(i !== lajmiIndex) {
+                            sugjerime.push({ ...data[i], originalId: i });
+                        }
+                        if(sugjerime.length === 5) break; 
                     }
 
-                    if (lajmi) {
-                        let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
-                        
-                        document.getElementById('artikulli-container').innerHTML = `
-                            <div class="meta-info">
-                                <span class="kategoria">${lajmi.kategoria}</span>
-                                <span class="data">${lajmi.koha}</span>
+                    document.getElementById('sugjerime-container').innerHTML = sugjerime.map(s => `
+                        <a href="artikulli.html?id=${s.originalId}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
+                            <img src="${s.imazhi}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
+                            <div class="flex-1">
+                                <span class="text-[10px] text-blue-500 font-bold uppercase tracking-wider">${s.kategoria}</span>
+                                <h4 class="text-[13px] font-extrabold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-2 mt-1">
+                                    ${s.titulli}
+                                </h4>
                             </div>
-                            <h1>${lajmi.titulli}</h1>
-                            <img src="${lajmi.imazhi}" class="imazhi-kryesor" alt="${lajmi.titulli}">
-                            <div class="permbajtja">
-                                ${permbajtjaHTML}
-                            </div>
-                        `;
-                    } else {
-                        document.getElementById('artikulli-container').innerHTML = '<h2>Lajmi nuk u gjet në databazë!</h2>';
-                    }
-                })
-                .catch(error => {
-                    document.getElementById('artikulli-container').innerHTML = '<h2>Pati një problem gjatë ngarkimit të lajmit.</h2>';
-                });
-        } else {
-            // Nëse s'ka fare link (as ID, as Link), atëherë kthehet në ballinë
-            window.location.href = 'index.html';
-        }
-    </script>
+                        </a>
+                    `).join('');
+
+                } else {
+                    document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Lajmi nuk u gjet në databazë!</h2>';
+                }
+            })
+            .catch(error => {
+                document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Pati një problem gjatë ngarkimit të lajmit.</h2>';
+            });
+    } else {
+        window.location.href = 'index.html';
+    }
+  </script>
 </body>
 </html>
