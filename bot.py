@@ -1,13 +1,12 @@
 import os
 import json
 import feedparser
-import google.generativeai as genai
+from google import genai
 from datetime import datetime
 
-# Lidhja me Google Gemini (Çelësi merret në mënyrë të sigurt nga GitHub)
+# Lidhja me sistemin e ri të Google GenAI
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-1.5-flash")
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Portalet nga ku do marrim lajmet
 RSS_FEEDS = [
@@ -28,7 +27,6 @@ def load_news():
     return []
 
 def save_news(news_list):
-    # Ruajmë maksimumi 60 lajmet më të fundit që portali të jetë i shpejtë
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:60], f, ensure_ascii=False, indent=2)
 
@@ -46,7 +44,10 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         text = response.text.strip()
         if text.startswith("```json"):
             text = text[7:-3].strip()
@@ -64,7 +65,6 @@ def main():
 
     for feed_url in RSS_FEEDS:
         parsed = feedparser.parse(feed_url)
-        # Skanon 4 lajmet e fundit për çdo portal (në total 12 lajme në çdo kontroll)
         for entry in parsed.entries[:4]: 
             link = entry.get("link", "")
             if link in existing_links:
