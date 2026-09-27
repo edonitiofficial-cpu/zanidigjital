@@ -1,6 +1,7 @@
 import os
 import json
 import feedparser
+import time
 from google import genai
 from datetime import datetime
 
@@ -43,7 +44,6 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    # Përdorim fiks modelin e ri që na kërkoi Google në mesazhin e gabimit
     modelet = ['gemini-3.8-flash']
     
     for emri_modelit in modelet:
@@ -91,6 +91,9 @@ def main():
 
             print(f"\nDuke përpunuar: {title}")
             ai_result = rewrite_with_ai(title, summary)
+            
+            # PAUZA 5 SEKONDA (ZGJIDH PROBLEMIN E GOOGLE)
+            time.sleep(5)
 
             if ai_result:
                 article = {
