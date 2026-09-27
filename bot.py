@@ -4,7 +4,7 @@ import feedparser
 import time
 import re
 import urllib.request
-import difflib # Moduli i ri për të gjetur lajmet e ngjashme
+import difflib
 from google import genai
 from datetime import datetime, timedelta
 
@@ -43,7 +43,8 @@ def load_news():
 
 def save_news(news_list):
     with open(DB_FILE, "w", encoding="utf-8") as f:
-        json.dump(news_list[:100], f, ensure_ascii=False, indent=2)
+        # Kapaciteti i ri: 2000 lajme në arkivë
+        json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
 
 def rewrite_with_ai(original_title, original_summary):
     global current_key_index, client
@@ -106,11 +107,10 @@ def main():
             if link in existing_links:
                 continue
 
-            # Filtri 2: Bllokimi bazuar në ngjashmërinë e Titujve (Zgjidhja jote)
+            # Filtri 2: Bllokimi bazuar në ngjashmërinë e Titujve
             is_duplicate = False
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
-                # Krahason titullin e ri me titujt në portal, nëse ngjashmëria është mbi 55% e bllokon
                 similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
                 if similarity > 0.55:
                     is_duplicate = True
