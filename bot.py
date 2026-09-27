@@ -43,8 +43,8 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    # Lista e modeleve më të reja të Google. Provon njërin pas tjetrit.
-    modelet = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash', 'gemini-pro']
+    # Shtojmë modelet standarde dhe i themi të printojë arsyen e gabimit!
+    modelet = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash', 'gemini-pro']
     
     for emri_modelit in modelet:
         try:
@@ -59,7 +59,8 @@ def rewrite_with_ai(original_title, original_summary):
                 text = text[3:-3].strip()
             return json.loads(text)
         except Exception as e:
-            print(f"Modeli {emri_modelit} nuk punoi, po provoj tjetrin...")
+            # KJO ËSHTË PJESA KRYESORE QË SHTUAM
+            print(f"Modeli {emri_modelit} nuk punoi. Arsyeja nga Google: {e}")
             continue
             
     print("Asnjë model nuk u gjet i vlefshëm.")
@@ -89,7 +90,7 @@ def main():
                         image_url = l.get("href", "")
                         break
 
-            print(f"Duke përpunuar: {title}")
+            print(f"\nDuke përpunuar: {title}")
             ai_result = rewrite_with_ai(title, summary)
 
             if ai_result:
@@ -107,9 +108,9 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        print(f"Sukses! U shtuan {len(new_entries)} lajme të reja në Zani Digjital.")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja në Zani Digjital.")
     else:
-        print("S'ka lajme të reja për momentin.")
+        print("\nS'ka lajme të reja për momentin.")
 
 if __name__ == "__main__":
     main()
