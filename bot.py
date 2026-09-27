@@ -4,7 +4,6 @@ import feedparser
 from google import genai
 from datetime import datetime
 
-# Lidhja me sistemin e ri të Google GenAI
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY)
 
@@ -43,20 +42,28 @@ def rewrite_with_ai(original_title, original_summary):
       "kategoria": "Zgjidh VETËM njërën nga këto sipas kontekstit: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, ose Hulumtime"
     }}
     """
-    try:
-        response = client.models.generate_content(
-            model='gemini-1.5-flash',
-            contents=prompt
-        )
-        text = response.text.strip()
-        if text.startswith("```json"):
-            text = text[7:-3].strip()
-        elif text.startswith("```"):
-            text = text[3:-3].strip()
-        return json.loads(text)
-    except Exception as e:
-        print(f"Gabim: {e}")
-        return None
+    
+    # Lista e modeleve më të reja të Google. Provon njërin pas tjetrit.
+    modelet = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash', 'gemini-pro']
+    
+    for emri_modelit in modelet:
+        try:
+            response = client.models.generate_content(
+                model=emri_modelit,
+                contents=prompt
+            )
+            text = response.text.strip()
+            if text.startswith("```json"):
+                text = text[7:-3].strip()
+            elif text.startswith("```"):
+                text = text[3:-3].strip()
+            return json.loads(text)
+        except Exception as e:
+            print(f"Modeli {emri_modelit} nuk punoi, po provoj tjetrin...")
+            continue
+            
+    print("Asnjë model nuk u gjet i vlefshëm.")
+    return None
 
 def main():
     existing_news = load_news()
