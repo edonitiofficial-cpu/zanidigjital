@@ -1,18 +1,19 @@
 name: Motori i Zani Digjital
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   workflow_dispatch:
+  schedule:
+    - cron: '0 */2 * * *' # Ekzekutohet automatikisht cdo 2 ore
 
 jobs:
   update-news:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Merr dosjet e projektit
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Bej gati gjuhen Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -23,11 +24,16 @@ jobs:
       - name: Ekzekuto rishkrimin e lajmeve
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
+          GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
+          GEMINI_API_KEY_4: ${{ secrets.GEMINI_API_KEY_4 }}
+          GEMINI_API_KEY_5: ${{ secrets.GEMINI_API_KEY_5 }}
         run: python bot.py
 
       - name: Ruaj dhe publiko online
         run: |
-          git config --global user.name "ZaniDigjital Bot"
-          git config --global user.email "bot@zanidigjital.com"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add lajmet.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "U publikuan lajme te reja" && git push)
+          git commit -m "U shtuan lajme te reja" || echo "S'ka lajme te reja"
+          git push
