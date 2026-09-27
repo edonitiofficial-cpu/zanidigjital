@@ -2,6 +2,7 @@ import os
 import json
 import feedparser
 import time
+import re  # SHTUAR: Për të kërkuar fotot e fshehura brenda tekstit
 from google import genai
 from datetime import datetime
 
@@ -80,19 +81,34 @@ def main():
             title = entry.get("title", "")
             summary = entry.get("summary", "")
 
+            # ZGJIDHJA PËR FOTOT: Roboti tani kërkon në 3 vende të ndryshme
             image_url = ""
+            
+            # 1. Mënyra standarde
             if "media_content" in entry and len(entry.media_content) > 0:
                 image_url = entry.media_content[0].get("url", "")
-            elif "links" in entry:
+            
+            # 2. Kontrollon te "enclosures" (siç bëjnë disa portale)
+            if not image_url and "links" in entry:
                 for l in entry.links:
-                    if l.get("type", "").startswith("image"):
+                    if l.get("type", "").startswith("image") or l.get("rel", "") == "enclosure":
                         image_url = l.get("href", "")
                         break
+                        
+            # 3. Gërmon brenda tekstit për ta gjetur foton e fshehur
+            if not image_url:
+                match = re.search(r'<img[^>]+src="([^">]+)"', summary)
+                if match:
+                    image_url = match.group(1)
+            
+            if not image_url and "content" in entry and len(entry.content) > 0:
+                match = re.search(r'<img[^>]+src="([^">]+)"', entry.content[0].value)
+                if match:
+                    image_url = match.group(1)
 
             print(f"\nDuke përpunuar: {title}")
             ai_result = rewrite_with_ai(title, summary)
             
-            # PAUZA 5 SEKONDA (ZGJIDH PROBLEMIN E GOOGLE)
             time.sleep(5)
 
             if ai_result:
