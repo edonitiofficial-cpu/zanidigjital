@@ -23,7 +23,6 @@
 
     <header>
         <a href="index.html" class="logo">
-            <!-- Logoja e përditësuar në logo.jpg -->
             <img src="logo.jpg" alt="Zani Digjital">
         </a>
         <a href="index.html" class="nav-link">← Kthehu te Ballina</a>
@@ -35,14 +34,26 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        // I tregojmë të kërkojë për disa variante të fjalës (id, lajmi, index)
-        const lajmiId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
+        
+        // Tani jemi gati të kapim çfarëdo që na jep ballina:
+        const paramLink = urlParams.get('link'); 
+        const paramId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
 
-        if (lajmiId !== null) {
+        if (paramLink || paramId !== null) {
             fetch('lajmet.json')
                 .then(response => response.json())
                 .then(data => {
-                    const lajmi = data[lajmiId];
+                    let lajmi = null;
+                    
+                    // Nëse ballina dërgon linkun origjinal, e kërkojmë në databazë:
+                    if (paramLink) {
+                        lajmi = data.find(item => item.link_origjinal === paramLink);
+                    } 
+                    // Nëse ballina dërgon numrin e lajmit:
+                    else if (paramId !== null) {
+                        lajmi = data[paramId];
+                    }
+
                     if (lajmi) {
                         let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                         
@@ -65,8 +76,8 @@
                     document.getElementById('artikulli-container').innerHTML = '<h2>Pati një problem gjatë ngarkimit të lajmit.</h2>';
                 });
         } else {
-            // E heqim ridrejtimin automatik që ta shohim ku është problemi nëse ndodh prapë
-            document.getElementById('artikulli-container').innerHTML = '<h2>Problem me linkun!</h2><p>Linku nga faqja kryesore është: ' + window.location.search + '</p><br><a href="index.html">Kthehu te Ballina</a>';
+            // Nëse s'ka fare link (as ID, as Link), atëherë kthehet në ballinë
+            window.location.href = 'index.html';
         }
     </script>
 </body>
