@@ -43,8 +43,8 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    # Shtojmë modelet standarde dhe i themi të printojë arsyen e gabimit!
-    modelet = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash', 'gemini-pro']
+    # Përdorim fiks modelin e ri që na kërkoi Google në mesazhin e gabimit
+    modelet = ['gemini-3.8-flash']
     
     for emri_modelit in modelet:
         try:
@@ -59,7 +59,6 @@ def rewrite_with_ai(original_title, original_summary):
                 text = text[3:-3].strip()
             return json.loads(text)
         except Exception as e:
-            # KJO ËSHTË PJESA KRYESORE QË SHTUAM
             print(f"Modeli {emri_modelit} nuk punoi. Arsyeja nga Google: {e}")
             continue
             
