@@ -4,6 +4,7 @@ import feedparser
 import time
 import re
 import urllib.request
+import difflib # Moduli i ri për të gjetur lajmet e ngjashme
 from google import genai
 from datetime import datetime, timedelta
 
@@ -99,11 +100,26 @@ def main():
         parsed = feedparser.parse(feed_url)
         for entry in parsed.entries[:15]: 
             link = entry.get("link", "")
-            # Këtu roboti injoron lajmet që i ka publikuar njëherë (ndalimi i duplikateve)
+            title = entry.get("title", "")
+            
+            # Filtri 1: Bllokimi bazuar në Link
             if link in existing_links:
                 continue
 
-            title = entry.get("title", "")
+            # Filtri 2: Bllokimi bazuar në ngjashmërinë e Titujve (Zgjidhja jote)
+            is_duplicate = False
+            for existing_item in existing_news + new_entries:
+                existing_title = existing_item.get("titulli", "")
+                # Krahason titullin e ri me titujt në portal, nëse ngjashmëria është mbi 55% e bllokon
+                similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
+                if similarity > 0.55:
+                    is_duplicate = True
+                    break
+            
+            if is_duplicate:
+                print(f"Anashkalohet (Lajm i ngjashëm nga portal tjetër): {title}")
+                continue
+
             summary = entry.get("summary", "")
             image_url = ""
             
@@ -137,7 +153,7 @@ def main():
                     pass
             
             if not image_url:
-                print(f"Lajmi u anashkalua sepse nuk kishte foto origjinale: {title}")
+                print(f"Anashkalohet (Nuk ka foto origjinale): {title}")
                 continue
 
             print(f"\nDuke përpunuar: {title}")
@@ -151,7 +167,6 @@ def main():
                     "permbajtja": ai_result.get("permbajtja"),
                     "kategoria": ai_result.get("kategoria", "Lajme"),
                     "imazhi": image_url,
-                    # Shtuar +2 orë për t'u përshtatur me orën e Kosovës
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
                     "link_origjinal": link
                 }
