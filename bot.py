@@ -7,10 +7,24 @@ import urllib.request
 from google import genai
 from datetime import datetime
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=GEMINI_API_KEY)
+# Sistemi i ri: Mbledhim të 5 çelësat
+api_keys = [
+    os.environ.get("GEMINI_API_KEY"),
+    os.environ.get("GEMINI_API_KEY_2"),
+    os.environ.get("GEMINI_API_KEY_3"),
+    os.environ.get("GEMINI_API_KEY_4"),
+    os.environ.get("GEMINI_API_KEY_5")
+]
+# Heqim çdo çelës që mund të jetë bosh për siguri
+api_keys = [k for k in api_keys if k]
 
-# Portalet nga ku do marrim lajmet
+current_key_index = 0
+if not api_keys:
+    print("Gabim: Nuk u gjet asnjë API Key!")
+    exit()
+
+client = genai.Client(api_key=api_keys[current_key_index])
+
 RSS_FEEDS = [
     "https://telegrafi.com/feed/",
     "https://indeksonline.net/feed/",
@@ -29,11 +43,12 @@ def load_news():
     return []
 
 def save_news(news_list):
-    # Kapaciteti i rritur në 100 lajme
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:100], f, ensure_ascii=False, indent=2)
 
 def rewrite_with_ai(original_title, original_summary):
+    global current_key_index, client
+    
     prompt = f"""
     Je gazetar për portalin "ZaniDigjital". Rishkruaj këtë lajm në shqip, pa lënë gjurmë kopjimi.
     Titulli: {original_title}
@@ -47,12 +62,11 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    modelet = ['gemini-3.8-flash']
-    
-    for emri_modelit in modelet:
+    # Tentojmë derisa të gjejmë një çelës që punon
+    while current_key_index < len(api_keys):
         try:
             response = client.models.generate_content(
-                model=emri_modelit,
+                model='gemini-3.8-flash',
                 contents=prompt
             )
             text = response.text.strip()
@@ -61,11 +75,23 @@ def rewrite_with_ai(original_title, original_summary):
             elif text.startswith("```"):
                 text = text[3:-3].strip()
             return json.loads(text)
-        except Exception as e:
-            print(f"Modeli {emri_modelit} nuk punoi. Arsyeja nga Google: {e}")
-            continue
             
-    print("Asnjë model nuk u gjet i vlefshëm.")
+        except Exception as e:
+            error_msg = str(e)
+            if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                print(f"⚠️ Çelësi {current_key_index + 1} u harxhua për sot. Po kaloj te çelësi tjetër...")
+                current_key_index += 1
+                if current_key_index < len(api_keys):
+                    # Ndërrojmë çelësin dhe e provojmë prapë të njëjtin lajm
+                    client = genai.Client(api_key=api_keys[current_key_index])
+                    continue
+                else:
+                    print("❌ Të gjithë 5 çelësat u harxhuan për sot!")
+                    return None
+            else:
+                print(f"Modeli dështoi nga një gabim tjetër: {e}")
+                return None
+                
     return None
 
 def main():
@@ -75,7 +101,6 @@ def main():
 
     for feed_url in RSS_FEEDS:
         parsed = feedparser.parse(feed_url)
-        # Rritja e sasisë: Provon të marrë 15 lajme të fundit nga çdo portal
         for entry in parsed.entries[:15]: 
             link = entry.get("link", "")
             if link in existing_links:
@@ -114,7 +139,6 @@ def main():
                 except Exception as e:
                     pass
             
-            # Anashkalon vetëm lajmet pa fotografi origjinale
             if not image_url:
                 print(f"Lajmi u anashkalua sepse nuk kishte foto origjinale: {title}")
                 continue
@@ -122,7 +146,6 @@ def main():
             print(f"\nDuke përpunuar: {title}")
             ai_result = rewrite_with_ai(title, summary)
             
-            # PAUZA E ARTË (15 Sekonda) - Kjo i jep kohë robotit dhe nuk na bllokon kurrë nga Google
             time.sleep(15)
 
             if ai_result:
