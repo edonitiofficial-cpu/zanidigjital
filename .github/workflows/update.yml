@@ -3,7 +3,7 @@ name: Motori i Zani Digjital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 6-22 * * *'
+    - cron: '25 * * * *'
 
 jobs:
   update-news:
@@ -31,5 +31,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add lajmet.json
-          git commit -m "U shtuan lajme te reja" || echo "S'ka lajme te reja"
+          git commit -m "U shtuan lajme te reja automatikisht" || echo "S'ka lajme te reja"
           git push
