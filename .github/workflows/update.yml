@@ -3,8 +3,8 @@ name: Motori i Zani Digjital
 on:
   workflow_dispatch:
   schedule:
-    # Fillon në 08:00 të mëngjesit dhe përfundon në 24:00 të natës sipas orës së Kosovës (tani ekzekutohet çdo 1 orë)
-    - cron: '0 6-22 * * *'
+    # Fillon në 08:15 të mëngjesit dhe përfundon në 00:15 të natës sipas orës së Kosovës (ekzekutohet çdo orë në minutën e 15-të)
+    - cron: '15 6-22 * * *'
 
 jobs:
   update-news:
