@@ -62,6 +62,9 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
+    max_retries = 2
+    retry_count = 0
+    
     while current_key_index < len(api_keys):
         try:
             response = client.models.generate_content(
@@ -77,15 +80,30 @@ def rewrite_with_ai(original_title, original_summary):
             
         except Exception as e:
             error_msg = str(e)
-            if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                print(f"⚠️ Çelësi {current_key_index + 1} u harxhua për sot. Po kaloj te çelësi tjetër...")
+            
+            # Sistemi i ri mbrojtës për gabimin 503 të Google
+            if "503" in error_msg or "UNAVAILABLE" in error_msg:
+                if retry_count < max_retries:
+                    print(f"⏳ Serveri i Google është i zënë (503). Po pres 30 sekonda për ta provuar prapë (Përpjekja {retry_count + 1}/{max_retries})...")
+                    time.sleep(30)
+                    retry_count += 1
+                    continue
+                else:
+                    print(f"❌ Serveri i Google mbeti i bllokuar pas {max_retries} provash për këtë lajm. Po e anashkalojmë.")
+                    return None
+                    
+            # Rotacioni i çelësave (Kufiri ditor/shpejtësisë)
+            elif "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                print(f"⚠️ Çelësi {current_key_index + 1} u harxhua. Po kaloj te çelësi tjetër...")
                 current_key_index += 1
+                retry_count = 0  # Rifillo numërimin e provave për çelësin e ri
                 if current_key_index < len(api_keys):
                     client = genai.Client(api_key=api_keys[current_key_index])
                     continue
                 else:
                     print("❌ Të gjithë 5 çelësat u harxhuan për sot!")
                     return None
+                    
             else:
                 print(f"Modeli dështoi nga një gabim tjetër: {e}")
                 return None
