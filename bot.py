@@ -52,7 +52,7 @@ def rewrite_with_ai(original_title, original_summary):
     """
     
     try:
-        # Përdorim modelin e përditësuar Llama 3.1
+        # Përdorim modelin e ri Llama 3.3 që është plotësisht aktiv
         chat_completion = client.chat.completions.create(
             messages=[
                 {
@@ -60,7 +60,7 @@ def rewrite_with_ai(original_title, original_summary):
                     "content": prompt,
                 }
             ],
-            model="llama-3.1-70b-versatile",
+            model="llama-3.3-70b-versatile",
             temperature=0.5,
         )
         text = chat_completion.choices[0].message.content.strip()
