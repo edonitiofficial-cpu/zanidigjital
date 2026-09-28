@@ -5,24 +5,16 @@ import time
 import re
 import urllib.request
 import difflib
-from google import genai
+from groq import Groq
 from datetime import datetime, timedelta
 
-api_keys = [
-    os.environ.get("GEMINI_API_KEY"),
-    os.environ.get("GEMINI_API_KEY_2"),
-    os.environ.get("GEMINI_API_KEY_3"),
-    os.environ.get("GEMINI_API_KEY_4"),
-    os.environ.get("GEMINI_API_KEY_5")
-]
-api_keys = [k for k in api_keys if k]
-
-current_key_index = 0
-if not api_keys:
-    print("Gabim: Nuk u gjet asnjë API Key!")
+# Marrim çelësin e vetëm të Groq
+api_key = os.environ.get("GROQ_API_KEY")
+if not api_key:
+    print("Gabim: Nuk u gjet GROQ_API_KEY!")
     exit()
 
-client = genai.Client(api_key=api_keys[current_key_index])
+client = Groq(api_key=api_key)
 
 RSS_FEEDS = [
     "https://telegrafi.com/feed/",
@@ -43,12 +35,9 @@ def load_news():
 
 def save_news(news_list):
     with open(DB_FILE, "w", encoding="utf-8") as f:
-        # Kapaciteti i ri: 2000 lajme në arkivë
         json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
 
 def rewrite_with_ai(original_title, original_summary):
-    global current_key_index, client
-    
     prompt = f"""
     Je gazetar për portalin "ZaniDigjital". Rishkruaj këtë lajm në shqip, pa lënë gjurmë kopjimi.
     Titulli: {original_title}
@@ -62,53 +51,28 @@ def rewrite_with_ai(original_title, original_summary):
     }}
     """
     
-    max_retries = 2
-    retry_count = 0
-    
-    while current_key_index < len(api_keys):
-        try:
-            response = client.models.generate_content(
-                model='gemini-3.8-flash',
-                contents=prompt
-            )
-            text = response.text.strip()
-            if text.startswith("```json"):
-                text = text[7:-3].strip()
-            elif text.startswith("```"):
-                text = text[3:-3].strip()
-            return json.loads(text)
-            
-        except Exception as e:
-            error_msg = str(e)
-            
-            # Sistemi i ri mbrojtës për gabimin 503 të Google
-            if "503" in error_msg or "UNAVAILABLE" in error_msg:
-                if retry_count < max_retries:
-                    print(f"⏳ Serveri i Google është i zënë (503). Po pres 30 sekonda për ta provuar prapë (Përpjekja {retry_count + 1}/{max_retries})...")
-                    time.sleep(30)
-                    retry_count += 1
-                    continue
-                else:
-                    print(f"❌ Serveri i Google mbeti i bllokuar pas {max_retries} provash për këtë lajm. Po e anashkalojmë.")
-                    return None
-                    
-            # Rotacioni i çelësave (Kufiri ditor/shpejtësisë)
-            elif "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                print(f"⚠️ Çelësi {current_key_index + 1} u harxhua. Po kaloj te çelësi tjetër...")
-                current_key_index += 1
-                retry_count = 0  # Rifillo numërimin e provave për çelësin e ri
-                if current_key_index < len(api_keys):
-                    client = genai.Client(api_key=api_keys[current_key_index])
-                    continue
-                else:
-                    print("❌ Të gjithë 5 çelësat u harxhuan për sot!")
-                    return None
-                    
-            else:
-                print(f"Modeli dështoi nga një gabim tjetër: {e}")
-                return None
-                
-    return None
+    try:
+        # Përdorim modelin Llama 3 që është fantastik për shqipen
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            model="llama3-70b-8192",
+            temperature=0.5,
+        )
+        text = chat_completion.choices[0].message.content.strip()
+        if text.startswith("```json"):
+            text = text[7:-3].strip()
+        elif text.startswith("```"):
+            text = text[3:-3].strip()
+        return json.loads(text)
+        
+    except Exception as e:
+        print(f"❌ Gabim nga Groq AI: {e}")
+        return None
 
 def main():
     existing_news = load_news()
@@ -121,11 +85,9 @@ def main():
             link = entry.get("link", "")
             title = entry.get("title", "")
             
-            # Filtri 1: Bllokimi bazuar në Link
             if link in existing_links:
                 continue
 
-            # Filtri 2: Bllokimi bazuar në ngjashmërinë e Titujve
             is_duplicate = False
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
@@ -135,7 +97,7 @@ def main():
                     break
             
             if is_duplicate:
-                print(f"Anashkalohet (Lajm i ngjashëm nga portal tjetër): {title}")
+                print(f"Anashkalohet (Lajm i ngjashëm): {title}")
                 continue
 
             summary = entry.get("summary", "")
@@ -171,13 +133,14 @@ def main():
                     pass
             
             if not image_url:
-                print(f"Anashkalohet (Nuk ka foto origjinale): {title}")
+                print(f"Anashkalohet (Nuk ka foto): {title}")
                 continue
 
-            print(f"\nDuke përpunuar: {title}")
+            print(f"\nDuke përpunuar me Groq: {title}")
             ai_result = rewrite_with_ai(title, summary)
             
-            time.sleep(15)
+            # Groq është super i shpejtë, mjaftojnë 2 sekonda pritje!
+            time.sleep(2)
 
             if ai_result:
                 article = {
@@ -194,9 +157,9 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja në Zani Digjital.")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
     else:
-        print("\nS'ka lajme të reja për momentin.")
+        print("\nS'ka lajme të reja.")
 
 if __name__ == "__main__":
     main()
