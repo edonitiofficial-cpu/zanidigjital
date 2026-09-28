@@ -37,42 +37,72 @@ def save_news(news_list):
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
 
-def rewrite_with_ai(original_title, original_summary):
+def fetch_full_text(url):
+    """Hyn në faqen origjinale dhe nxjerr tekstin e plotë të artikullit"""
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
+        html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8', errors='ignore')
+        # Nxjerrim vetëm përmbajtjen brenda paragrafëve <p>
+        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', html, re.DOTALL | re.IGNORECASE)
+        # Pastrojmë tag-et e tjera HTML brenda paragrafëve
+        text = " ".join([re.sub(r'<[^>]+>', '', p).strip() for p in paragraphs])
+        # Limitojmë në ~800 fjalë për të mos mbingarkuar Groq
+        words = text.split()
+        if len(words) < 20: 
+            return ""
+        return " ".join(words[:800])
+    except Exception as e:
+        return ""
+
+def rewrite_with_ai(original_title, full_text, original_summary):
+    # Nëse s'ka tekst të plotë, përdorim përmbledhjen e RSS
+    text_to_process = full_text if len(full_text) > 100 else original_summary
+    
     prompt = f"""
-    Je gazetar për portalin "ZaniDigjital". Rishkruaj këtë lajm në shqip, pa lënë gjurmë kopjimi.
-    Titulli: {original_title}
-    Përmbledhja: {original_summary}
+    Je gazetar profesionist për portalin "ZaniDigjital". Rishkruaj këtë lajm në shqip, duke u bazuar në tekstin e plotë të mëposhtëm, pa lënë gjurmë kopjimi.
+    
+    Titulli origjinal: {original_title}
+    Teksti: {text_to_process}
 
     Më kthe VETËM një format JSON fiks si ky më poshtë:
     {{
       "titulli": "Titulli i ri tërheqës",
-      "permbajtja": "Teksti i rishkruar profesionalisht (rreth 2-3 paragrafë).",
-      "kategoria": "Zgjidh VETËM njërën nga këto sipas kontekstit: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, ose Hulumtime"
+      "permbajtja": "Teksti i rishkruar profesionalisht dhe i plotë (rreth 3-4 paragrafë).",
+      "kategoria": "Zgjidh VETËM njërën nga: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, Hulumtime"
     }}
     """
     
-    try:
-        # Përdorim modelin e saktë që shfaqet në platformën Groq
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-            ],
-            model="openai/gpt-oss-120b",
-            temperature=0.5,
-        )
-        text = chat_completion.choices[0].message.content.strip()
-        if text.startswith("```json"):
-            text = text[7:-3].strip()
-        elif text.startswith("```"):
-            text = text[3:-3].strip()
-        return json.loads(text)
-        
-    except Exception as e:
-        print(f"❌ Gabim nga Groq AI: {e}")
-        return None
+    # Sistemi i ri mbrojtës nga Limitimet (Provo 3 herë)
+    for attempt in range(1, 4):
+        try:
+            chat_completion = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                model="openai/gpt-oss-120b",
+                temperature=0.5,
+            )
+            text = chat_completion.choices[0].message.content.strip()
+            if text.startswith("```json"):
+                text = text[7:-3].strip()
+            elif text.startswith("```"):
+                text = text[3:-3].strip()
+            return json.loads(text)
+            
+        except Exception as e:
+            error_msg = str(e)
+            if "429" in error_msg or "rate limit" in error_msg.lower():
+                print(f"⚠️ Groq po kërkon pushim (429). Po pres 40 sekonda (Përpjekja {attempt}/3)...")
+                time.sleep(40)
+            else:
+                print(f"❌ Gabim nga Groq AI: {e}")
+                return None
+                
+    print("❌ Dështoi pas 3 përpjekjesh. Po e anashkalojmë këtë lajm.")
+    return None
 
 def main():
     existing_news = load_news()
@@ -136,10 +166,15 @@ def main():
                 print(f"Anashkalohet (Nuk ka foto): {title}")
                 continue
 
-            print(f"\nDuke përpunuar me Groq: {title}")
-            ai_result = rewrite_with_ai(title, summary)
+            print(f"\nDuke përpunuar: {title}")
             
-            time.sleep(2)
+            # Hyn në faqen origjinale dhe merr artikullin e plotë!
+            full_text = fetch_full_text(link)
+            
+            ai_result = rewrite_with_ai(title, full_text, summary)
+            
+            # Pauzë 5 sekonda mes çdo lajmi për të qenë të sigurt nga limitet
+            time.sleep(5)
 
             if ai_result:
                 article = {
