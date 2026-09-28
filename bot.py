@@ -8,7 +8,6 @@ import difflib
 from groq import Groq
 from datetime import datetime, timedelta
 
-# Marrim çelësin e vetëm të Groq
 api_key = os.environ.get("GROQ_API_KEY")
 if not api_key:
     print("Gabim: Nuk u gjet GROQ_API_KEY!")
@@ -38,15 +37,11 @@ def save_news(news_list):
         json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
 
 def fetch_full_text(url):
-    """Hyn në faqen origjinale dhe nxjerr tekstin e plotë të artikullit"""
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
         html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8', errors='ignore')
-        # Nxjerrim vetëm përmbajtjen brenda paragrafëve <p>
         paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', html, re.DOTALL | re.IGNORECASE)
-        # Pastrojmë tag-et e tjera HTML brenda paragrafëve
         text = " ".join([re.sub(r'<[^>]+>', '', p).strip() for p in paragraphs])
-        # Limitojmë në ~800 fjalë për të mos mbingarkuar Groq
         words = text.split()
         if len(words) < 20: 
             return ""
@@ -55,24 +50,76 @@ def fetch_full_text(url):
         return ""
 
 def rewrite_with_ai(original_title, full_text, original_summary):
-    # Nëse s'ka tekst të plotë, përdorim përmbledhjen e RSS
     text_to_process = full_text if len(full_text) > 100 else original_summary
     
     prompt = f"""
-    Je gazetar profesionist për portalin "ZaniDigjital". Rishkruaj këtë lajm në shqip, duke u bazuar në tekstin e plotë të mëposhtëm, pa lënë gjurmë kopjimi.
+    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital" në Kosovë. Ti menaxhon të gjitha rubrikat e portalit, përfshirë Politikë, Kosovë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto dhe rubrikat e tjera.
+    Detyra jote është ta rishkruash lajmin në gjuhën shqipe, në stil profesional të gazetarisë në Kosovë, duke u bazuar VETËM në informacionin që gjendet në tekstin origjinal.
     
-    Titulli origjinal: {original_title}
-    Teksti: {text_to_process}
-
-    Më kthe VETËM një format JSON fiks si ky më poshtë:
+    RREGULLA TË PANEGOCIUESHME PËR SAKTËSINË:
+    MOS SHTO ASNJË INFORMACION që nuk gjendet në tekstin origjinal.
+    MOS SHPIK emra, data, vende, deklarata, shifra, funksione, ngjarje apo detaje të tjera.
+    MOS NDRYSHO kuptimin e asaj që është thënë në tekstin origjinal.
+    Nëse teksti përmban deklarata të një personi, ruaje saktë kuptimin e deklaratës. Mos i atribuo personit diçka që nuk e ka thënë.
+    Nëse një informacion nuk është i qartë në tekstin origjinal, MOS E PLOTËSO me hamendësim.
+    Mos përdor njohuri nga jashtë tekstit origjinal për ta plotësuar lajmin.
+    Mos krijo përfundime, analiza apo opinione të reja.
+    Mos e ekzagjero lajmin dhe mos përdor formulime sensacionaliste që nuk mbështeten në tekst.
+    Emrat e personave, institucioneve, partive, organizatave, qyteteve dhe vendeve duhet të ruhen saktë.
+    Shifrat, datat, përqindjet, rezultatet dhe statistikat duhet të ruhen saktë.
+    
+    RREGULLA TË GJUHËS:
+    Shkruaj në gjuhën shqipe të pastër, natyrale dhe me rrjedhshmëri logjike.
+    Shkruaj në stilin e gazetarisë profesionale në Kosovë.
+    NDALOHET RREPTËSISHT përkthimi fjalë-për-fjalë dhe përdorimi i anglicizmave kur ekziston një shprehje natyrale në shqip.
+    Përshtati fjalitë në mënyrë që të tingëllojnë sikur janë shkruar fillimisht në shqip.
+    Mos përdor fjalë të panevojshme vetëm për ta zgjatur tekstin.
+    Mos përdor përsëritje të panevojshme të të njëjtit informacion.
+    
+    STRUKTURA E LAJMIT:
+    Ndaje lajmin në 4 ose 5 paragrafë të shkurtër.
+    Asnjë paragraf nuk guxon të ketë më shumë se 2 ose 3 fjali.
+    Çdo paragraf duhet të ketë rrjedhë logjike me paragrafin paraprak.
+    Paragrafi i parë duhet të paraqesë thelbin e lajmit.
+    Paragrafët në vijim duhet të japin detajet kryesore sipas rëndësisë.
+    Nëse ka deklarata, vendosi në kontekstin përkatës dhe mos ua ndrysho kuptimin.
+    Mos përdor lista, pika, emoji apo tituj të brendshëm brenda përmbajtjes, përveç nëse ato janë të domosdoshme për kuptimin e lajmit.
+    Përdor dy hapësira të reja (\\n\\n) për të ndarë qartë paragrafët.
+    
+    TITULLI:
+    Krijo një titull të ri, profesional dhe të qartë.
+    Titulli duhet të bazohet vetëm në informacionin e tekstit origjinal.
+    Mos përdor tituj mashtrues ose "clickbait".
+    Mos shto në titull informacione që nuk janë në tekst.
+    Mos e bëj titullin të panevojshëm të gjatë.
+    
+    KATEGORIZIMI:
+    Zgjidh VETËM njërën nga kategoritë e mëposhtme:
+    Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, Hulumtime
+    Zgjidh kategorinë që përputhet më saktë me temën kryesore të lajmit.
+    
+    RREGULLA PËR RASTET E PAQARTA:
+    Nëse teksti është shumë i shkurtër, MOS SHTO informacion për ta bërë më të gjatë.
+    Nëse mungojnë të dhëna, puno vetëm me ato që janë dhënë.
+    Nëse një fjali e tekstit origjinal është e paqartë, mos shpik interpretim.
+    Nëse ka kundërthënie në tekst, ruaje informacionin pa krijuar një version të ri të fakteve.
+    Nëse teksti nuk mjafton për 4 paragrafë të plotë, përdor më pak paragrafë në vend që të shpikësh informacion.
+    
+    Titulli origjinal:
+    {original_title}
+    
+    Teksti origjinal:
+    {text_to_process}
+    
+    Më kthe VETËM një objekt JSON valid, pa markdown, pa ```json dhe pa asnjë tekst tjetër.
+    Formati duhet të jetë FIKS:
     {{
-      "titulli": "Titulli i ri tërheqës",
-      "permbajtja": "Teksti i rishkruar profesionalisht dhe i plotë (rreth 3-4 paragrafë).",
-      "kategoria": "Zgjidh VETËM njërën nga: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, Hulumtime"
+      "titulli": "Titulli i ri profesional",
+      "permbajtja": "Paragrafi i parë.\\n\\nParagrafi i dytë.\\n\\nParagrafi i tretë.\\n\\nParagrafi i katërt.",
+      "kategoria": "Njëra nga kategoritë e lejuara"
     }}
     """
     
-    # Sistemi i ri mbrojtës nga Limitimet (Provo 3 herë)
     for attempt in range(1, 4):
         try:
             chat_completion = client.chat.completions.create(
@@ -83,7 +130,7 @@ def rewrite_with_ai(original_title, full_text, original_summary):
                     }
                 ],
                 model="openai/gpt-oss-120b",
-                temperature=0.5,
+                temperature=0.3,
             )
             text = chat_completion.choices[0].message.content.strip()
             if text.startswith("```json"):
@@ -168,12 +215,9 @@ def main():
 
             print(f"\nDuke përpunuar: {title}")
             
-            # Hyn në faqen origjinale dhe merr artikullin e plotë!
             full_text = fetch_full_text(link)
-            
             ai_result = rewrite_with_ai(title, full_text, summary)
             
-            # Pauzë 5 sekonda mes çdo lajmi për të qenë të sigurt nga limitet
             time.sleep(5)
 
             if ai_result:
