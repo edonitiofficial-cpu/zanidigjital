@@ -52,7 +52,7 @@ def rewrite_with_ai(original_title, original_summary):
     """
     
     try:
-        # Përdorim modelin Llama 3 që është fantastik për shqipen
+        # Përdorim modelin e përditësuar Llama 3.1
         chat_completion = client.chat.completions.create(
             messages=[
                 {
@@ -60,7 +60,7 @@ def rewrite_with_ai(original_title, original_summary):
                     "content": prompt,
                 }
             ],
-            model="llama3-70b-8192",
+            model="llama-3.1-70b-versatile",
             temperature=0.5,
         )
         text = chat_completion.choices[0].message.content.strip()
@@ -139,7 +139,7 @@ def main():
             print(f"\nDuke përpunuar me Groq: {title}")
             ai_result = rewrite_with_ai(title, summary)
             
-            # Groq është super i shpejtë, mjaftojnë 2 sekonda pritje!
+            # Kemi vendosur vetëm 2 sekonda pritje, Groq është rrufe!
             time.sleep(2)
 
             if ai_result:
