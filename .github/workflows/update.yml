@@ -3,7 +3,6 @@ name: Motori i Zani Digjital
 on:
   workflow_dispatch:
   schedule:
-    # Fillon në 08:15 të mëngjesit dhe përfundon në 00:15 të natës sipas orës së Kosovës (ekzekutohet çdo orë në minutën e 15-të)
     - cron: '15 6-22 * * *'
 
 jobs:
@@ -20,15 +19,11 @@ jobs:
           python-version: '3.11'
 
       - name: Instalo modulet
-        run: pip install feedparser google-genai
+        run: pip install feedparser groq
 
       - name: Ekzekuto rishkrimin e lajmeve
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
-          GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
-          GEMINI_API_KEY_4: ${{ secrets.GEMINI_API_KEY_4 }}
-          GEMINI_API_KEY_5: ${{ secrets.GEMINI_API_KEY_5 }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python bot.py
 
       - name: Ruaj dhe publiko online
