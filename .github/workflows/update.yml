@@ -1,14 +1,23 @@
+
 name: Motori i Zani Digjital
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '25 * * * *'
+    - cron: '17,47 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zani-digjital-news
+  cancel-in-progress: false
 
 jobs:
   update-news:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 20
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -28,8 +37,15 @@ jobs:
 
       - name: Ruaj dhe publiko online
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git config user.name "GitHub Actions"
+
           git add lajmet.json
-          git commit -m "U shtuan lajme te reja automatikisht" || echo "S'ka lajme te reja"
+
+          if git diff --cached --quiet; then
+            echo "S'ka lajme të reja"
+            exit 0
+          fi
+
+          git commit -m "U shtuan lajme te reja automatikisht"
           git push
