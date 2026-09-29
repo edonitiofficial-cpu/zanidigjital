@@ -1,4 +1,3 @@
-
 name: Motori i Zani Digjital
 
 on:
@@ -28,7 +27,7 @@ jobs:
           python-version: '3.11'
 
       - name: Instalo modulet
-        run: pip install feedparser groq
+        run: pip install feedparser groq trafilatura
 
       - name: Ekzekuto rishkrimin e lajmeve
         env:
