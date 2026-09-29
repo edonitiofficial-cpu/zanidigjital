@@ -2,8 +2,10 @@ name: Motori i Zani Digjital
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [ndiz_motorin]
   schedule:
-    - cron: '17,47 * * * *'
+    - cron: '17,47 * * * *' # E lëmë si plan B
 
 permissions:
   contents: write
