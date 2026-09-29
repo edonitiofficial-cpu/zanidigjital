@@ -5,6 +5,7 @@ import time
 import re
 import urllib.request
 import difflib
+import trafilatura
 from groq import Groq
 from datetime import datetime, timedelta
 
@@ -38,22 +39,22 @@ def save_news(news_list):
 
 def fetch_full_text(url):
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
-        html = urllib.request.urlopen(req, timeout=10).read().decode('utf-8', errors='ignore')
-        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', html, re.DOTALL | re.IGNORECASE)
-        text = " ".join([re.sub(r'<[^>]+>', '', p).strip() for p in paragraphs])
-        words = text.split()
-        if len(words) < 20: 
-            return ""
-        return " ".join(words[:800])
+        # Përdorim trafilatura për të shkëputur lajmin e pastër, pa menu apo reklama
+        downloaded = trafilatura.fetch_url(url)
+        if downloaded:
+            text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, no_fallback=True)
+            if text:
+                words = text.split()
+                # Kthejmë deri në 600 fjalë të pastra
+                return " ".join(words[:600])
+        return ""
     except Exception as e:
+        print(f"Gabim gjatë nxjerrjes së tekstit me trafilatura: {e}")
         return ""
 
-def rewrite_with_ai(original_title, full_text, original_summary):
-    text_to_process = full_text if len(full_text) > 100 else original_summary
-    
+def rewrite_with_ai(original_title, full_text):
     prompt = f"""
-    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital" në Kosovë. Ti menaxhon të gjitha rubrikat e portalit, përfshirë Politikë, Kosovë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto dhe rubrikat e tjera.
+    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital" në Kosovë. Ti menaxhon të gjitha rubrikat e portalit.
     Detyra jote është ta rishkruash lajmin në gjuhën shqipe, në stil profesional të gazetarisë në Kosovë, duke u bazuar VETËM në informacionin që gjendet në tekstin origjinal.
     
     RREGULLA TË PANEGOCIUESHME PËR SAKTËSINË:
@@ -61,62 +62,31 @@ def rewrite_with_ai(original_title, full_text, original_summary):
     MOS SHPIK emra, data, vende, deklarata, shifra, funksione, ngjarje apo detaje të tjera.
     MOS NDRYSHO kuptimin e asaj që është thënë në tekstin origjinal.
     Nëse teksti përmban deklarata të një personi, ruaje saktë kuptimin e deklaratës. Mos i atribuo personit diçka që nuk e ka thënë.
-    Nëse një informacion nuk është i qartë në tekstin origjinal, MOS E PLOTËSO me hamendësim.
-    Mos përdor njohuri nga jashtë tekstit origjinal për ta plotësuar lajmin.
-    Mos krijo përfundime, analiza apo opinione të reja.
-    Mos e ekzagjero lajmin dhe mos përdor formulime sensacionaliste që nuk mbështeten në tekst.
-    Emrat e personave, institucioneve, partive, organizatave, qyteteve dhe vendeve duhet të ruhen saktë.
-    Shifrat, datat, përqindjet, rezultatet dhe statistikat duhet të ruhen saktë.
-    
-    RREGULLA TË GJUHËS:
-    Shkruaj në gjuhën shqipe të pastër, natyrale dhe me rrjedhshmëri logjike.
-    Shkruaj në stilin e gazetarisë profesionale në Kosovë.
-    NDALOHET RREPTËSISHT përkthimi fjalë-për-fjalë dhe përdorimi i anglicizmave kur ekziston një shprehje natyrale në shqip.
-    Përshtati fjalitë në mënyrë që të tingëllojnë sikur janë shkruar fillimisht në shqip.
-    Mos përdor fjalë të panevojshme vetëm për ta zgjatur tekstin.
-    Mos përdor përsëritje të panevojshme të të njëjtit informacion.
     
     STRUKTURA E LAJMIT:
-    Ndaje lajmin në 4 ose 5 paragrafë të shkurtër.
+    Ndaje lajmin në 3, 4 ose 5 paragrafë të shkurtër (në varësi të sasisë së informacionit).
     Asnjë paragraf nuk guxon të ketë më shumë se 2 ose 3 fjali.
-    Çdo paragraf duhet të ketë rrjedhë logjike me paragrafin paraprak.
-    Paragrafi i parë duhet të paraqesë thelbin e lajmit.
-    Paragrafët në vijim duhet të japin detajet kryesore sipas rëndësisë.
-    Nëse ka deklarata, vendosi në kontekstin përkatës dhe mos ua ndrysho kuptimin.
-    Mos përdor lista, pika, emoji apo tituj të brendshëm brenda përmbajtjes, përveç nëse ato janë të domosdoshme për kuptimin e lajmit.
-    Përdor dy hapësira të reja (\\n\\n) për të ndarë qartë paragrafët.
+    Përdor dy hapësira të reja (\\n\\n) për të ndarë qartë paragrafët. Kjo është thelbësore për formatimin JSON.
     
     TITULLI:
-    Krijo një titull të ri, profesional dhe të qartë.
-    Titulli duhet të bazohet vetëm në informacionin e tekstit origjinal.
-    Mos përdor tituj mashtrues ose "clickbait".
-    Mos shto në titull informacione që nuk janë në tekst.
-    Mos e bëj titullin të panevojshëm të gjatë.
+    Krijo një titull të ri, profesional dhe të qartë, pa clickbait.
     
     KATEGORIZIMI:
     Zgjidh VETËM njërën nga kategoritë e mëposhtme:
     Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, Hulumtime
-    Zgjidh kategorinë që përputhet më saktë me temën kryesore të lajmit.
-    
-    RREGULLA PËR RASTET E PAQARTA:
-    Nëse teksti është shumë i shkurtër, MOS SHTO informacion për ta bërë më të gjatë.
-    Nëse mungojnë të dhëna, puno vetëm me ato që janë dhënë.
-    Nëse një fjali e tekstit origjinal është e paqartë, mos shpik interpretim.
-    Nëse ka kundërthënie në tekst, ruaje informacionin pa krijuar një version të ri të fakteve.
-    Nëse teksti nuk mjafton për 4 paragrafë të plotë, përdor më pak paragrafë në vend që të shpikësh informacion.
     
     Titulli origjinal:
     {original_title}
     
-    Teksti origjinal:
-    {text_to_process}
+    Teksti origjinal (Përdor vetëm këtë tekst për t'u bazuar):
+    {full_text}
     
     Më kthe VETËM një objekt JSON valid, pa markdown, pa ```json dhe pa asnjë tekst tjetër.
-    Formati duhet të jetë FIKS:
+    Formati duhet të jetë FIKS si ky shembull:
     {{
       "titulli": "Titulli i ri profesional",
-      "permbajtja": "Paragrafi i parë.\\n\\nParagrafi i dytë.\\n\\nParagrafi i tretë.\\n\\nParagrafi i katërt.",
-      "kategoria": "Njëra nga kategoritë e lejuara"
+      "permbajtja": "Paragrafi i parë.\\n\\nParagrafi i dytë.\\n\\nParagrafi i tretë.",
+      "kategoria": "Lajme"
     }}
     """
     
@@ -144,11 +114,14 @@ def rewrite_with_ai(original_title, full_text, original_summary):
             if "429" in error_msg or "rate limit" in error_msg.lower():
                 print(f"⚠️ Groq po kërkon pushim (429). Po pres 40 sekonda (Përpjekja {attempt}/3)...")
                 time.sleep(40)
+            elif "413" in error_msg:
+                print(f"❌ Kërkesa shumë e madhe (413). Po e anashkaloj këtë lajm.")
+                return None
             else:
                 print(f"❌ Gabim nga Groq AI: {e}")
                 return None
                 
-    print("❌ Dështoi pas 3 përpjekjesh. Po e anashkalojmë këtë lajm.")
+    print("❌ Dështoi pas 3 përpjekjesh (Rate Limit). Po e anashkalojmë këtë lajm.")
     return None
 
 def main():
@@ -216,7 +189,13 @@ def main():
             print(f"\nDuke përpunuar: {title}")
             
             full_text = fetch_full_text(link)
-            ai_result = rewrite_with_ai(title, full_text, summary)
+            
+            # Kontrolli logjik: Nëse lajmi është më i shkurtër se 300 karaktere pas pastrimit, anashkalohet
+            if len(full_text) < 300:
+                print("Anashkalohet: Teksti është shumë i shkurtër ose nuk u nxor saktë. Evitohen shpikjet nga AI.")
+                continue
+
+            ai_result = rewrite_with_ai(title, full_text)
             
             time.sleep(5)
 
