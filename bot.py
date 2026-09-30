@@ -148,7 +148,7 @@ def main():
     new_entries = []
     
     lajme_te_perpunuara = 0
-    MAX_LAJME = 5
+    MAX_LAJME = 7
 
     for feed_url in RSS_FEEDS:
         if lajme_te_perpunuara >= MAX_LAJME:
