@@ -11,6 +11,9 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
         input[type=range] { accent-color: #000; }
+        /* Fsheh scrollbar-in origjinal për pamje më të pastër tek carousel */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="text-gray-900 antialiased">
@@ -38,12 +41,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
-        <!-- HAPËSIRA PËR REKLAMË NALT -->
-        <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden">
-            <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
-            REKLAMA JOTE KËTU (728x90)
-        </div>
-
+        <!-- 1. ÇKA PO FLITET MA SHUMË? -->
         <section>
             <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
             <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
@@ -51,48 +49,122 @@
             </div>
         </section>
 
+        <!-- 2. BANERI 1 -->
+        <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden">
+            <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
+            REKLAMA JOTE KËTU (728x90)
+        </div>
+
+        <!-- 3. TË FUNDIT (2 Rreshta) -->
         <section class="border-t border-gray-300 pt-8 mt-8">
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
                 <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
             </h2>
-            <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"></div>
+            <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Lajmet mbushen nga JS (8 copë = 2 rreshta) -->
+            </div>
+            <div class="mt-8 text-center">
+                <button class="bg-transparent border-2 border-black text-black font-bold py-3 px-8 rounded-xl hover:bg-black hover:text-white transition">Mbushe me lajme tjera</button>
+            </div>
         </section>
 
-        <!-- HAPËSIRA PËR REKLAMË NË MES -->
-        <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden my-4">
-            <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
-            REKLAMA JOTE KËTU
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-300 pt-8">
-            <div class="md:col-span-2">
-                <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
-                <div class="space-y-3">
-                    <a href="#" class="flex justify-between items-center bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition">
-                        <div>
-                            <h3 class="font-bold text-lg">Menaxher i Rrjeteve Sociale</h3>
-                            <p class="text-gray-500 text-sm">TechCorp LLC • Prishtinë</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet</h2>
+        <!-- 4. ÇKA PO PROMOVOHET -->
+        <section class="border-t border-gray-300 pt-8">
+            <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
                     <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-32 object-cover">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
                     <div class="p-4">
-                        <h3 class="font-bold text-sm">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3>
+                        <h3 class="font-bold text-md leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3>
                         <p class="text-xs text-gray-500 mt-2">Biletat në shitje tani.</p>
                     </div>
                 </a>
+                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-md leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3>
+                        <p class="text-xs text-gray-500 mt-2">Zbulo më shumë.</p>
+                    </div>
+                </a>
             </div>
+        </section>
+
+        <!-- 5. ÇKA KA PËR ME PUNU (HORIZONTAL CAROUSEL) -->
+        <section class="border-t border-gray-300 pt-8">
+            <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
+            
+            <!-- Kontejneri i Carousel -->
+            <div id="jobs-carousel" class="flex overflow-x-auto gap-4 no-scrollbar cursor-grab snap-x snap-mandatory pb-4">
+                
+                <!-- Kartela Punë 1 -->
+                <a href="#" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1 pointer-events-none">Menaxher i Rrjeteve Sociale</h3>
+                        <p class="text-gray-500 text-sm pointer-events-none">TechCorp LLC • Prishtinë</p>
+                    </div>
+                    <div class="mt-4 text-right pointer-events-none">
+                        <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                    </div>
+                </a>
+                
+                <!-- Kartela Punë 2 -->
+                <a href="#" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1 pointer-events-none">Dizajner Grafik</h3>
+                        <p class="text-gray-500 text-sm pointer-events-none">Kreativ Studio • Prizren</p>
+                    </div>
+                    <div class="mt-4 text-right pointer-events-none">
+                        <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                    </div>
+                </a>
+
+                <!-- Kartela Punë 3 -->
+                <a href="#" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1 pointer-events-none">Zhvillues Web (Front-End)</h3>
+                        <p class="text-gray-500 text-sm pointer-events-none">Digital Kosovo • Prishtinë</p>
+                    </div>
+                    <div class="mt-4 text-right pointer-events-none">
+                        <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                    </div>
+                </a>
+
+                <!-- Kartela Punë 4 -->
+                <a href="#" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1 pointer-events-none">Video Editor / Animator</h3>
+                        <p class="text-gray-500 text-sm pointer-events-none">Media Group • Tiranë</p>
+                    </div>
+                    <div class="mt-4 text-right pointer-events-none">
+                        <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                    </div>
+                </a>
+
+                <!-- Kartela Punë 5 -->
+                <a href="#" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
+                    <div>
+                        <h3 class="font-bold text-lg mb-1 pointer-events-none">Ekspert i Marketingut</h3>
+                        <p class="text-gray-500 text-sm pointer-events-none">Zani Digjital • Kosovë (Remote)</p>
+                    </div>
+                    <div class="mt-4 text-right pointer-events-none">
+                        <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                    </div>
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- 6. BANERI 2 -->
+        <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden my-4">
+            <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
+            REKLAMË SPONSORIZUESE
         </div>
 
+        <!-- 7. PYETËSORI DHE ABONIMI -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
+            
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                 <h2 class="text-2xl font-black uppercase">Çka t'thotë populli?</h2>
                 <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
@@ -104,6 +176,7 @@
                 </div>
                 <button class="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>
             </div>
+
             <div class="bg-black text-white p-8 rounded-2xl shadow-sm flex flex-col justify-center">
                 <h2 class="text-2xl font-black uppercase">Lajmet ma t’reja, direkt n’telefon.</h2>
                 <p class="text-gray-400 mt-2 mb-6 font-medium">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
@@ -112,6 +185,7 @@
                     <button type="submit" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap">Abonohu</button>
                 </form>
             </div>
+            
         </div>
 
     </main>
@@ -122,6 +196,7 @@
         </div>
     </footer>
 
+    <!-- SKRIPTET (Lajmet & Rrëshqitja e Punëve) -->
     <script>
         function getCategoryBg(cat) {
             const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' };
@@ -134,17 +209,13 @@
 
         async function loadNews() {
             try {
-                // Merr kategorinë nga URL (psh. index.html?kategoria=Sport)
                 const urlParams = new URLSearchParams(window.location.search);
                 const kategoriaZgjedhur = urlParams.get('kategoria');
 
-                // Rregullo menynë (vijën e zezë tek rubrika aktive)
                 if (kategoriaZgjedhur) {
                     document.getElementById('link-ballina').className = "hover:text-black transition pb-1 text-gray-600";
                     const linkAktiv = document.getElementById(`link-${kategoriaZgjedhur}`);
                     if(linkAktiv) linkAktiv.className = "text-black border-b-2 border-black pb-1";
-                    
-                    // Ndrysho titullin e seksionit
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
@@ -157,10 +228,8 @@
                 bentoGrid.innerHTML = '';
                 teFunditGrid.innerHTML = '';
 
-                // Ruajmë ID-në origjinale të secilit lajm që t'mos ngatërrohen linqet kur filtrojmë
                 let newsWithId = allNews.map((n, index) => ({ ...n, originalId: index }));
 
-                // Nëse ka kategori në URL, filtroji lajmet vetëm për atë kategori
                 if (kategoriaZgjedhur) {
                     newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur);
                 }
@@ -170,7 +239,7 @@
                     return;
                 }
 
-                // Shfaq deri në 5 lajmet e para (Bento Grid)
+                // 1. Shfaq deri në 5 lajmet e para
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
                     const n = newsWithId[i];
                     const catBg = getCategoryBg(n.kategoria);
@@ -200,8 +269,9 @@
                     }
                 }
 
-                // Shfaq pjesën e mbetur tek seksioni "Të fundit" (nga i 6-ti e tutje)
-                for (let i = 5; i < newsWithId.length; i++) {
+                // 2. Shfaq Të Fundit (Kufizuar në 8 lajme = 2 rreshta)
+                const maxTeFundit = Math.min(13, newsWithId.length); // 5 + 8 lajme = 13
+                for (let i = 5; i < maxTeFundit; i++) {
                     const n = newsWithId[i];
                     const catText = getCategoryText(n.kategoria);
                     const articleUrl = `artikulli.html?id=${n.originalId}`;
@@ -222,6 +292,39 @@
                 document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 p-4">Nuk u arrit të ngarkohen lajmet.</p>';
             }
         }
+
+        // Funksioni për Rrëshqitjen e Punëve (Drag-to-Scroll)
+        const slider = document.getElementById('jobs-carousel');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('cursor-grabbing');
+            slider.classList.remove('cursor-grab');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('cursor-grabbing');
+            slider.classList.add('cursor-grab');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('cursor-grabbing');
+            slider.classList.add('cursor-grab');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Shpejtësia e rrëshqitjes
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Ekzekutimi gjatë ngarkimit
         window.onload = loadNews;
     </script>
 </body>
