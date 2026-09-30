@@ -1,206 +1,190 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZaniDigjital - Lajme të zgjedhura. Në një vend.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .gradient-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zani Digjital</title>
+    <!-- Tailwind CSS (për dizajn pa shkruar CSS manualisht) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonti Google (Inter - i pastër, modern, urban) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA; /* E hirtë shumë e lehtë */
+        }
+        /* Stili për slider-in e pyetësorit */
+        input[type=range] {
+            accent-color: #000;
+        }
+    </style>
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 antialiased">
 
-  <!-- Header i pastër -->
-  <header class="bg-white sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <a href="#" onclick="filterNews('Krye')" class="flex-shrink-0">
-        <img src="zanidigjital.png" alt="ZaniDigjital Logo" class="h-10 object-contain">
-      </a>
-      
-      <nav id="main-categories" class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-wider text-gray-500">
-        <button onclick="filterNews('Krye')" class="hover:text-blue-600 transition">Krye</button>
-        <button onclick="filterNews('Lajme')" class="hover:text-blue-600 transition">Lajme</button>
-        <button onclick="filterNews('Kosovë')" class="hover:text-blue-600 transition">Kosovë</button>
-        <button onclick="filterNews('Politikë')" class="hover:text-blue-600 transition">Politikë</button>
-        <button onclick="filterNews('Ekonomi')" class="hover:text-blue-600 transition">Ekonomi</button>
-        <button onclick="filterNews('Sport')" class="hover:text-blue-600 transition">Sport</button>
-        <button onclick="filterNews('Teknologji')" class="hover:text-blue-600 transition">Teknologji</button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
-    
-    <!-- Seksioni Hero (Lajmet Kryesore) -->
-    <section id="hero-section" class="grid grid-cols-1 lg:grid-cols-3 gap-4 hidden">
-      <!-- Lajmi Kryesor i Madh -->
-      <a href="#" id="hero-main" class="lg:col-span-2 relative rounded-2xl overflow-hidden group block h-[400px] lg:h-[500px]">
-        <img id="hero-main-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
-        <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-6 lg:p-8">
-          <span id="hero-main-cat" class="bg-blue-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full w-max mb-3">Kategori</span>
-          <h2 id="hero-main-title" class="text-2xl lg:text-4xl font-extrabold text-white leading-tight mb-2 group-hover:text-blue-300 transition">Titulli</h2>
-          <p id="hero-main-time" class="text-gray-300 text-sm font-medium">Koha</p>
+    <!-- HEADER / SHIRITI I SIPËRM -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logoja (Tekst i madh) -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-3xl font-black tracking-tight uppercase">
+                        Zani<span class="text-red-600">Digjital</span>
+                    </a>
+                </div>
+                <!-- Menyja / Rubrikat -->
+                <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                    <a href="#" class="text-black border-b-2 border-black pb-1">Ballina</a>
+                    <a href="#" class="hover:text-black transition">Lajme</a>
+                    <a href="#" class="hover:text-black transition">Politikë</a>
+                    <a href="#" class="hover:text-black transition">Ekonomi</a>
+                    <a href="#" class="hover:text-black transition">Sport</a>
+                    <a href="#" class="hover:text-black transition">Tech</a>
+                </nav>
+            </div>
         </div>
-      </a>
+    </header>
 
-      <!-- Dy Lajme Anësore -->
-      <div class="flex flex-col gap-4">
-        <!-- Lajmi Anësor 1 -->
-        <a href="#" id="hero-sub1" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
-          <img id="hero-sub1-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
-          <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-5">
-             <span id="hero-sub1-cat" class="text-blue-400 text-xs font-bold uppercase mb-1">Kategori</span>
-             <h3 id="hero-sub1-title" class="text-lg font-bold text-white leading-snug group-hover:text-blue-300 transition line-clamp-2">Titulli</h3>
-          </div>
-        </a>
-        <!-- Lajmi Anësor 2 -->
-        <a href="#" id="hero-sub2" class="relative rounded-2xl overflow-hidden group block h-[192px] lg:h-[242px]">
-          <img id="hero-sub2-img" src="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="">
-          <div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-5">
-             <span id="hero-sub2-cat" class="text-blue-400 text-xs font-bold uppercase mb-1">Kategori</span>
-             <h3 id="hero-sub2-title" class="text-lg font-bold text-white leading-snug group-hover:text-blue-300 transition line-clamp-2">Titulli</h3>
-          </div>
-        </a>
-      </div>
-    </section>
+    <!-- TRUPI KRYESOR -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
 
-    <!-- Pjesa e Poshtme: Grid + Sidebar -->
-    <section class="flex flex-col lg:flex-row gap-8">
-      
-      <!-- Lista e lajmeve tjera -->
-      <div class="lg:w-3/4">
-        <div class="mb-6 border-b pb-2">
-          <h2 id="category-title" class="text-2xl font-extrabold tracking-tight">Të Fundit</h2>
-        </div>
-        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <p class="text-gray-500 col-span-full">Duke ngarkuar lajmet...</p>
-        </div>
-      </div>
+        <!-- SEKSIONI 1: Çka po flitet ma shumë? (Bento Grid për AI lajmet) -->
+        <section>
+            <h2 class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
+                <!-- Lajmi kryesor (I madh, merr 2 kolona) -->
+                <a href="#" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953eb1b5b4?q=80&w=800&auto=format&fit=crop" alt="Lajmi" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-6">
+                        <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded uppercase">Lajme</span>
+                        <h3 class="text-white text-2xl font-bold mt-2 group-hover:underline">Ky është lajmi më i fundit që inteligjenca artificiale sapo ka përpunuar</h3>
+                        <p class="text-gray-300 text-sm mt-2">Para 15 minutave</p>
+                    </div>
+                </a>
 
-      <!-- Shtylla Anësore (Trending) -->
-      <aside class="lg:w-1/4 space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-          <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b pb-2 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Në Trend
-          </h3>
-          <ul class="space-y-4 text-sm font-semibold text-gray-800">
-            <li><button onclick="filterNews('Çka ka të re sot?')" class="hover:text-blue-600 transition flex items-start gap-2"><span class="text-lg">📍</span> Çka ka të re sot?</button></li>
-            <li><button onclick="filterNews('Shpjegoje shkurt')" class="hover:text-blue-600 transition flex items-start gap-2"><span class="text-lg">💡</span> Shpjegoje shkurt</button></li>
-            <li><button onclick="filterNews('Në xhepin tand')" class="hover:text-blue-600 transition flex items-start gap-2"><span class="text-lg">💰</span> Në xhepin tand</button></li>
-            <li><button onclick="filterNews('A e keni ditë?')" class="hover:text-blue-600 transition flex items-start gap-2"><span class="text-lg">🧠</span> A e keni ditë?</button></li>
-            <li><button onclick="filterNews('Hulumtime')" class="hover:text-blue-600 transition flex items-start gap-2"><span class="text-lg">🔍</span> Hulumtime</button></li>
-          </ul>
-        </div>
+                <!-- 4 Lajmet e tjera më të vogla -->
+                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4">
+                        <h3 class="text-white text-md font-bold group-hover:underline">Titulli i lajmit të dytë të shkurtër</h3>
+                    </div>
+                </a>
 
-        <div class="bg-[#0f172a] rounded-2xl p-6 text-white shadow-lg">
-          <h4 class="font-bold text-lg mb-2">Përmbledhja Ditore</h4>
-          <p class="text-gray-400 text-sm mb-4">Lajmet kryesore direkt në emailin tuaj.</p>
-          <input type="email" placeholder="Emaili juaj" class="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2 mb-3 text-sm focus:outline-none focus:border-blue-500">
-          <button class="w-full bg-blue-600 hover:bg-blue-700 transition rounded-lg font-bold py-2 text-sm">Abonohu</button>
-        </div>
-      </aside>
+                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4">
+                        <h3 class="text-white text-md font-bold group-hover:underline">Titulli i lajmit të tretë shkurt</h3>
+                    </div>
+                </a>
 
-    </section>
-  </main>
+                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4">
+                        <h3 class="text-white text-md font-bold group-hover:underline">Lajmi numër katër i radhës</h3>
+                    </div>
+                </a>
 
-  <footer class="bg-white border-t border-gray-200 py-8 mt-8">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-gray-500 text-sm font-medium">&copy; 2026 ZaniDigjital. Të gjitha të drejtat e rezervuara.</p>
-    </div>
-  </footer>
+                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4">
+                        <h3 class="text-white text-md font-bold group-hover:underline">Lajmi i pestë këtu në listë</h3>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-  <script>
-    let allNews = [];
 
-    async function fetchNews() {
-      try {
-        const res = await fetch('lajmet.json?nocache=' + new Date().getTime());
-        const data = await res.json();
-        // Këtu i japim çdo lajmi ID-në e vet numërore për të mos përdorur linqe të gjata
-        allNews = data.map((item, index) => {
-          item.originalId = index;
-          return item;
-        });
-        filterNews('Krye'); 
-      } catch (err) {
-        document.getElementById('news-grid').innerHTML = '<p class="text-red-500">Nuk u gjetën lajme.</p>';
-      }
-    }
+        <!-- SEKSIONI 2: Grid për Jobs dhe Promos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Çka ka për me punu? (Kushton 2 kolona) -->
+            <div class="md:col-span-2">
+                <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
+                <div class="space-y-3">
+                    <!-- Karta e punës 1 -->
+                    <a href="#" class="flex justify-between items-center bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition">
+                        <div>
+                            <h3 class="font-bold text-lg">Menaxher i Rrjeteve Sociale</h3>
+                            <p class="text-gray-500 text-sm">TechCorp LLC • Prishtinë</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                        </div>
+                    </a>
+                    <!-- Karta e punës 2 -->
+                    <a href="#" class="flex justify-between items-center bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition">
+                        <div>
+                            <h3 class="font-bold text-lg">Dizajner Grafik</h3>
+                            <p class="text-gray-500 text-sm">Kreativ Studio • Prizren</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-    function renderHero(items) {
-      const heroSection = document.getElementById('hero-section');
-      if (items.length < 3) {
-        heroSection.classList.add('hidden');
-        return;
-      }
-      heroSection.classList.remove('hidden');
-
-      // Lajmi 1 - Tani dërgon ID, jo link origjinal
-      document.getElementById('hero-main-title').innerText = items[0].titulli;
-      document.getElementById('hero-main-cat').innerText = items[0].kategoria;
-      document.getElementById('hero-main-time').innerText = items[0].koha;
-      document.getElementById('hero-main-img').src = items[0].imazhi || 'https://via.placeholder.com/800x500?text=ZaniDigjital';
-      document.getElementById('hero-main').href = 'artikulli.html?id=' + items[0].originalId;
-
-      // Lajmi 2
-      document.getElementById('hero-sub1-title').innerText = items[1].titulli;
-      document.getElementById('hero-sub1-cat').innerText = items[1].kategoria;
-      document.getElementById('hero-sub1-img').src = items[1].imazhi || 'https://via.placeholder.com/400x250?text=ZaniDigjital';
-      document.getElementById('hero-sub1').href = 'artikulli.html?id=' + items[1].originalId;
-
-      // Lajmi 3
-      document.getElementById('hero-sub2-title').innerText = items[2].titulli;
-      document.getElementById('hero-sub2-cat').innerText = items[2].kategoria;
-      document.getElementById('hero-sub2-img').src = items[2].imazhi || 'https://via.placeholder.com/400x250?text=ZaniDigjital';
-      document.getElementById('hero-sub2').href = 'artikulli.html?id=' + items[2].originalId;
-    }
-
-    function renderGrid(items) {
-      const grid = document.getElementById('news-grid');
-      if (items.length === 0) {
-        grid.innerHTML = '<p class="text-gray-500 py-10 col-span-full">Nuk ka artikuj në këtë kategori.</p>';
-        return;
-      }
-      // Edhe gridi tani dërgon ?id= në vend të ?link=
-      grid.innerHTML = items.map(item => `
-        <article class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col cursor-pointer">
-          <a href="artikulli.html?id=${item.originalId}" class="block relative h-40 overflow-hidden">
-            ${item.imazhi ? `<img src="${item.imazhi}" alt="" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">` : '<div class="w-full h-full bg-gray-200"></div>'}
-            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-gray-900 text-[10px] font-bold uppercase px-2 py-1 rounded-md shadow-sm">${item.kategoria}</span>
-          </a>
-          <div class="p-5 flex-1 flex flex-col justify-between">
+            <!-- Çka po promovohet (1 kolonë) -->
             <div>
-              <h2 class="text-[17px] font-extrabold mt-1 mb-2 leading-snug text-gray-900 hover:text-blue-600 transition line-clamp-3">
-                <a href="artikulli.html?id=${item.originalId}">${item.titulli}</a>
-              </h2>
+                <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet</h2>
+                <!-- Native Ad -->
+                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-black text-white text-[10px] font-bold px-2 py-1 rounded uppercase opacity-70">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-32 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3>
+                        <p class="text-sm text-gray-500 mt-2">Biletat në shitje tani.</p>
+                    </div>
+                </a>
             </div>
-            <div class="mt-3 pt-3 border-t border-gray-50 text-xs text-gray-400 font-medium flex items-center justify-between">
-              <span>🕒 ${item.koha.split(' ')[1] || item.koha}</span>
+            
+        </div>
+
+
+        <!-- SEKSIONI 3: Pyetësori dhe Abonimi (Ndahen bashkë) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Çka t'thotë populli? -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                <h2 class="text-2xl font-black uppercase">Çka t'thotë populli?</h2>
+                <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
+                
+                <h3 class="text-lg font-bold mb-4">Sa mendon se do të ketë ndikim vendimi i sotëm për pagat?</h3>
+                
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="font-bold text-gray-400">0%</span>
+                    <input type="range" min="0" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    <span class="font-bold text-black">100%</span>
+                </div>
+                <button class="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>
             </div>
-          </div>
-        </article>
-      `).join('');
-    }
 
-    function filterNews(cat) {
-      const titleEl = document.getElementById('category-title');
-      if (cat === 'Krye') {
-        titleEl.innerText = 'Të Fundit';
-        renderHero(allNews);
-        renderGrid(allNews.slice(3)); 
-      } else {
-        titleEl.innerText = cat;
-        document.getElementById('hero-section').classList.add('hidden'); 
-        renderGrid(allNews.filter(n => n.kategoria === cat));
-      }
-    }
+            <!-- Abonimi (Newsletter) -->
+            <div class="bg-black text-white p-8 rounded-2xl shadow-sm flex flex-col justify-center">
+                <h2 class="text-2xl font-black uppercase">Lajmet ma t’reja, direkt n’telefon.</h2>
+                <p class="text-gray-400 mt-2 mb-6 font-medium">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <button type="submit" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap">Abonohu</button>
+                </form>
+            </div>
 
-    fetchNews();
-  </script>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 font-medium">
+            <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
