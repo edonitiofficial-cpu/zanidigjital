@@ -9,12 +9,28 @@ import trafilatura
 from groq import Groq
 from datetime import datetime, timedelta
 
-api_key = os.environ.get("GROQ_API_KEY")
-if not api_key:
-    print("Gabim: Nuk u gjet GROQ_API_KEY!")
+# --- SISTEMI I RROTULLIMIT TË ÇELËSAVE (API ROTATION) ---
+api_keys = [
+    os.environ.get("GROQ_API_KEY"),
+    os.environ.get("GROQ_API_KEY_2"),
+    os.environ.get("GROQ_API_KEY_3")
+]
+# Përjashtojmë çelësat që nuk janë shtuar ende (nëse nuk e ke vënë të tretin p.sh.)
+valid_keys = [key for key in api_keys if key]
+
+if not valid_keys:
+    print("Gabim: Nuk u gjet asnjë GROQ_API_KEY!")
     exit()
 
-client = Groq(api_key=api_key)
+current_key_index = 0
+client = Groq(api_key=valid_keys[current_key_index])
+
+def switch_api_key():
+    global current_key_index, client
+    current_key_index = (current_key_index + 1) % len(valid_keys)
+    new_key = valid_keys[current_key_index]
+    client = Groq(api_key=new_key)
+    print(f"🔄 Kaluam te çelësi rezervë numër {current_key_index + 1}")
 
 RSS_FEEDS = [
     "https://telegrafi.com/feed/",
@@ -39,17 +55,15 @@ def save_news(news_list):
 
 def fetch_full_text(url):
     try:
-        # Përdorim trafilatura për të shkëputur lajmin e pastër, pa menu apo reklama
         downloaded = trafilatura.fetch_url(url)
         if downloaded:
             text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, no_fallback=True)
             if text:
                 words = text.split()
-                # Kthejmë deri në 600 fjalë të pastra
                 return " ".join(words[:600])
         return ""
     except Exception as e:
-        print(f"Gabim gjatë nxjerrjes së tekstit me trafilatura: {e}")
+        print(f"Gabim gjatë nxjerrjes së tekstit: {e}")
         return ""
 
 def rewrite_with_ai(original_title, full_text):
@@ -99,7 +113,7 @@ def rewrite_with_ai(original_title, full_text):
                         "content": prompt,
                     }
                 ],
-                model="openai/gpt-oss-120b",
+                model="llama-3.1-70b-versatile", # Mund ta ndryshosh sipas nevojës
                 temperature=0.3,
             )
             text = chat_completion.choices[0].message.content.strip()
@@ -112,8 +126,13 @@ def rewrite_with_ai(original_title, full_text):
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "rate limit" in error_msg.lower():
-                print(f"⚠️ Groq po kërkon pushim (429). Po pres 40 sekonda (Përpjekja {attempt}/3)...")
-                time.sleep(40)
+                print(f"⚠️ Limit i arritur (429) për çelësin aktual.")
+                if len(valid_keys) > 1:
+                    switch_api_key()
+                    time.sleep(2) # Presim vetëm 2 sekonda para se të provojmë me çelësin e ri
+                else:
+                    print(f"Po pres 40 sekonda (Përpjekja {attempt}/3)...")
+                    time.sleep(40)
             elif "413" in error_msg:
                 print(f"❌ Kërkesa shumë e madhe (413). Po e anashkaloj këtë lajm.")
                 return None
@@ -121,17 +140,27 @@ def rewrite_with_ai(original_title, full_text):
                 print(f"❌ Gabim nga Groq AI: {e}")
                 return None
                 
-    print("❌ Dështoi pas 3 përpjekjesh (Rate Limit). Po e anashkalojmë këtë lajm.")
+    print("❌ Dështoi pas 3 përpjekjesh. Po e anashkalojmë këtë lajm.")
     return None
 
 def main():
     existing_news = load_news()
     existing_links = {item.get("link_origjinal") for item in existing_news}
     new_entries = []
+    
+    lajme_te_perpunuara = 0
+    MAX_LAJME = 5 # Limiti maksimal i lajmeve që botohen me një ndezje (që mos t'i bllokojmë 3 çelësat menjëherë)
 
     for feed_url in RSS_FEEDS:
+        if lajme_te_perpunuara >= MAX_LAJME:
+            break
+            
         parsed = feedparser.parse(feed_url)
-        for entry in parsed.entries[:15]: 
+        for entry in parsed.entries[:10]: 
+            if lajme_te_perpunuara >= MAX_LAJME:
+                print(f"\n🛑 U arrit limiti prej {MAX_LAJME} lajmesh për këtë ekzekutim. Pjesa tjetër mbetet për raundin tjetër.")
+                break
+                
             link = entry.get("link", "")
             title = entry.get("title", "")
             
@@ -190,14 +219,13 @@ def main():
             
             full_text = fetch_full_text(link)
             
-            # Kontrolli logjik: Nëse lajmi është më i shkurtër se 300 karaktere pas pastrimit, anashkalohet
             if len(full_text) < 300:
                 print("Anashkalohet: Teksti është shumë i shkurtër ose nuk u nxor saktë. Evitohen shpikjet nga AI.")
                 continue
 
             ai_result = rewrite_with_ai(title, full_text)
             
-            time.sleep(5)
+            time.sleep(3) # Pushim shumë i shkurtër para lajmit tjetër
 
             if ai_result:
                 article = {
@@ -210,13 +238,14 @@ def main():
                 }
                 new_entries.append(article)
                 existing_links.add(link)
+                lajme_te_perpunuara += 1
 
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
         print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
     else:
-        print("\nS'ka lajme të reja.")
+        print("\nS'ka lajme të reja për momentin.")
 
 if __name__ == "__main__":
     main()
