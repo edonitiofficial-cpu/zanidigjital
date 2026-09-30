@@ -4,17 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zani Digjital</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F9FA;
-        }
-        input[type=range] {
-            accent-color: #000;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
+        input[type=range] { accent-color: #000; }
     </style>
 </head>
 <body class="text-gray-900 antialiased">
@@ -23,14 +17,12 @@
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- LOGOJA JOTE KËTU -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#">
-                        <!-- Ndrysho src="linku-i-logos-tende.png" me logon tënde -->
+                        <!-- Ndrysho src me logon tënde -->
                         <img src="https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO" alt="Zani Digjital Logo" class="h-10 object-contain">
                     </a>
                 </div>
-                <!-- Rubrikat -->
                 <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
                     <a href="#" class="text-black border-b-2 border-black pb-1">Ballina</a>
                     <a href="#" class="hover:text-black transition">Lajme</a>
@@ -45,7 +37,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
-        <!-- HAPËSIRA PËR REKLAMË NALT (LEADERBOARD) -->
+        <!-- HAPËSIRA PËR REKLAMË NALT -->
         <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden">
             <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
             REKLAMA JOTE KËTU (728x90)
@@ -54,50 +46,10 @@
         <!-- ÇKA PO FLITET MA SHUMË? (5 Lajmet Kryesore) -->
         <section>
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
-                <a href="#" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
-                    <img src="https://images.unsplash.com/photo-1529156069898-49953eb1b5b4?q=80&w=800&auto=format&fit=crop" alt="Lajmi" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded uppercase">Politikë</span>
-                        <h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">Ky është lajmi më i fundit që inteligjenca artificiale sapo ka përpunuar</h3>
-                        <p class="text-gray-300 text-sm mt-2">Para 15 minutave</p>
-                    </div>
-                </a>
-
-                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
-                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-4">
-                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Tech</span>
-                        <h3 class="text-white text-md font-bold mt-1 group-hover:underline">Titulli i lajmit të dytë të shkurtër</h3>
-                    </div>
-                </a>
-
-                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
-                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-4">
-                        <span class="bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Ekonomi</span>
-                        <h3 class="text-white text-md font-bold mt-1 group-hover:underline">Titulli i lajmit të tretë shkurt</h3>
-                    </div>
-                </a>
-
-                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-4">
-                        <h3 class="text-white text-md font-bold mt-1 group-hover:underline">Lajmi numër katër i radhës në portal</h3>
-                    </div>
-                </a>
-
-                <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-4">
-                        <h3 class="text-white text-md font-bold mt-1 group-hover:underline">Lajmi i pestë këtu në listë</h3>
-                    </div>
-                </a>
+            
+            <!-- Këtu do të injektohen lajmet e para nga JS -->
+            <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
+                <p class="text-gray-500 font-medium col-span-4">Duke ngarkuar lajmet më të reja...</p>
             </div>
         </section>
 
@@ -107,46 +59,11 @@
                 <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
             </h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Karta e lajmit normal -->
-                <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4 flex-grow flex flex-col">
-                        <span class="text-red-600 font-bold text-xs uppercase mb-2">Sport</span>
-                        <h3 class="font-bold text-lg leading-tight mb-2">Trajneri i ri flet për herë të parë pas emërimit</h3>
-                        <p class="text-gray-500 text-xs mt-auto">Sot, 14:30</p>
-                    </div>
-                </a>
-                
-                <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4 flex-grow flex flex-col">
-                        <span class="text-blue-600 font-bold text-xs uppercase mb-2">Tech</span>
-                        <h3 class="font-bold text-lg leading-tight mb-2">Përditësimi i ri i iPhone sjell këto ndryshime</h3>
-                        <p class="text-gray-500 text-xs mt-auto">Sot, 13:45</p>
-                    </div>
-                </a>
-
-                <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4 flex-grow flex flex-col">
-                        <span class="text-green-600 font-bold text-xs uppercase mb-2">Ekonomi</span>
-                        <h3 class="font-bold text-lg leading-tight mb-2">Rritet çmimi i derivateve në pikat e karburantit</h3>
-                        <p class="text-gray-500 text-xs mt-auto">Sot, 12:10</p>
-                    </div>
-                </a>
-
-                <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4 flex-grow flex flex-col">
-                        <span class="text-gray-600 font-bold text-xs uppercase mb-2">Lajme</span>
-                        <h3 class="font-bold text-lg leading-tight mb-2">Aksident trafiku në rrugën Prishtinë-Ferizaj</h3>
-                        <p class="text-gray-500 text-xs mt-auto">Sot, 11:20</p>
-                    </div>
-                </a>
+            <!-- Këtu do të injektohen lajmet tjera nga JS -->
+            <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Lajmet vendosen nga JavaScript -->
             </div>
 
-            <!-- Butoni Më shumë -->
             <div class="mt-8 text-center">
                 <button class="bg-transparent border-2 border-black text-black font-bold py-3 px-8 rounded-xl hover:bg-black hover:text-white transition">Mbushe me lajme tjera</button>
             </div>
@@ -161,7 +78,6 @@
         <!-- JOBS & PROMO -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-300 pt-8">
             
-            <!-- Çka ka për me punu? -->
             <div class="md:col-span-2">
                 <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
                 <div class="space-y-3">
@@ -186,7 +102,6 @@
                 </div>
             </div>
 
-            <!-- Çka po promovohet -->
             <div>
                 <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet</h2>
                 <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
@@ -203,7 +118,6 @@
 
         <!-- PYETËSORI DHE ABONIMI -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
-            
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                 <h2 class="text-2xl font-black uppercase">Çka t'thotë populli?</h2>
                 <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
@@ -224,7 +138,6 @@
                     <button type="submit" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap">Abonohu</button>
                 </form>
             </div>
-
         </div>
 
     </main>
@@ -236,5 +149,98 @@
         </div>
     </footer>
 
+    <!-- SKRIPTI PËR TË LEXUAR LAJMET NGA lajmet.json -->
+    <script>
+        // Funksion për të marrë ngjyrën në bazë të kategorisë
+        function getCategoryBg(cat) {
+            const colors = {
+                'Sport': 'bg-green-600',
+                'Politikë': 'bg-red-600',
+                'Tech': 'bg-blue-600',
+                'Ekonomi': 'bg-yellow-600',
+                'Lajme': 'bg-black'
+            };
+            return colors[cat] || 'bg-black'; // E zeza si ngjyrë standarde
+        }
+
+        function getCategoryText(cat) {
+            const colors = {
+                'Sport': 'text-green-600',
+                'Politikë': 'text-red-600',
+                'Tech': 'text-blue-600',
+                'Ekonomi': 'text-yellow-600',
+                'Lajme': 'text-black'
+            };
+            return colors[cat] || 'text-black';
+        }
+
+        async function loadNews() {
+            try {
+                // Lidhet me fajllin lajmet.json
+                const response = await fetch('lajmet.json');
+                const news = await response.json();
+
+                const bentoGrid = document.getElementById('bento-grid');
+                const teFunditGrid = document.getElementById('te-fundit-grid');
+                
+                bentoGrid.innerHTML = '';
+                teFunditGrid.innerHTML = '';
+
+                // Krijojmë 5 lajmet e para për hapësirën "Bento"
+                for (let i = 0; i < Math.min(5, news.length); i++) {
+                    const n = news[i];
+                    const catBg = getCategoryBg(n.kategoria);
+                    
+                    if (i === 0) {
+                        // Lajmi kryesor (Karta e madhe)
+                        bentoGrid.innerHTML += `
+                        <a href="#" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                            <img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <div class="absolute bottom-0 p-6">
+                                <span class="${catBg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span>
+                                <h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3>
+                                <p class="text-gray-300 text-sm mt-2">${n.koha}</p>
+                            </div>
+                        </a>`;
+                    } else {
+                        // 4 Lajmet anash
+                        bentoGrid.innerHTML += `
+                        <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
+                            <img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                            <div class="absolute bottom-0 p-4">
+                                <span class="${catBg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span>
+                                <h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3>
+                            </div>
+                        </a>`;
+                    }
+                }
+
+                // Krijojmë lajmet e tjera poshtë tek "Të Fundit" (nga numri 5 deri në 17)
+                for (let i = 5; i < Math.min(17, news.length); i++) {
+                    const n = news[i];
+                    const catText = getCategoryText(n.kategoria);
+                    
+                    teFunditGrid.innerHTML += `
+                    <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                        <img src="${n.imazhi}" class="w-full h-40 object-cover">
+                        <div class="p-4 flex-grow flex flex-col">
+                            <span class="${catText} font-bold text-xs uppercase mb-2">${n.kategoria}</span>
+                            <h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3>
+                            <p class="text-gray-500 text-xs mt-auto">${n.koha}</p>
+                        </div>
+                    </a>`;
+                }
+
+            } catch (error) {
+                console.error("Gabim gjatë ngarkimit të lajmeve:", error);
+                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 p-4">Nuk u arrit të ngarkohen lajmet.</p>';
+            }
+        }
+
+        // Ekzekuto funksionin sapo të hapet faqja
+        window.onload = loadNews;
+    </script>
 </body>
 </html>
