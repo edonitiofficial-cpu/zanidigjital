@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zani Digjital - Lajmi</title>
+    <!-- Titulli është bërë i pastër -->
+    <title>Zani Digjital</title>
+    <!-- Favicon i përditësuar -->
+    <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
@@ -14,21 +18,23 @@
 </head>
 <body class="text-gray-900 antialiased">
 
-    <!-- Header -->
+    <!-- HEADER I RREGULLUAR PËR TELEFON -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <a href="index.html" class="flex-shrink-0">
-                <img src="zanidigjital.png" alt="ZaniDigjital Logo" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
-            </a>
-            
-            <nav id="main-categories" class="flex flex-wrap justify-center gap-6 font-semibold text-gray-600">
-                <a href="index.html" class="hover:text-black transition">Ballina</a>
-                <a href="index.html" class="hover:text-black transition">Lajme</a>
-                <a href="index.html" class="hover:text-black transition">Politikë</a>
-                <a href="index.html" class="hover:text-black transition">Ekonomi</a>
-                <a href="index.html" class="hover:text-black transition">Sport</a>
-                <a href="index.html" class="hover:text-black transition">Tech</a>
-            </nav>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <a href="index.html" class="flex-shrink-0 mb-4 md:mb-0">
+                    <img src="zanidigjital.png" alt="ZaniDigjital Logo" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                </a>
+                
+                <nav id="main-categories" class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
+                    <a href="index.html" class="hover:text-black transition">Ballina</a>
+                    <a href="index.html" class="hover:text-black transition">Lajme</a>
+                    <a href="index.html" class="hover:text-black transition">Politikë</a>
+                    <a href="index.html" class="hover:text-black transition">Ekonomi</a>
+                    <a href="index.html" class="hover:text-black transition">Sport</a>
+                    <a href="index.html" class="hover:text-black transition">Tech</a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -78,7 +84,6 @@
     </footer>
 
     <script>
-        // Funksioni për ngjyrat e kategorive (Të njëjtat si te index.html)
         function getCategoryBg(cat) {
             const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' };
             return colors[cat] || 'bg-black';
@@ -110,7 +115,6 @@
                     if (lajmi) {
                         const catBg = getCategoryBg(lajmi.kategoria);
                         
-                        // Renderimi i lajmit kryesor
                         let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                         
                         document.getElementById('artikulli-container').innerHTML = `
@@ -127,13 +131,8 @@
                             <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
                                 ${permbajtjaHTML}
                             </div>
-                            
-                            <div class="mt-12 pt-6 border-t border-gray-200">
-                                <a href="${lajmi.link_origjinal}" target="_blank" class="text-black hover:underline font-bold text-sm bg-gray-100 px-4 py-2 rounded-lg transition">Burimi Origjinal ↗</a>
-                            </div>
                         `;
 
-                        // Renderimi i sugjerimeve anash
                         const sugjerime = [];
                         for(let i = 0; i < data.length; i++) {
                             if(i !== lajmiIndex) {
