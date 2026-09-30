@@ -15,7 +15,6 @@
 </head>
 <body class="text-gray-900 antialiased h-screen overflow-hidden">
 
-    <!-- EKRANI I LOGIN-it -->
     <div id="login-screen" class="flex items-center justify-center h-full bg-gray-50">
         <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-200 w-full max-w-md">
             <div class="text-center mb-8">
@@ -23,9 +22,7 @@
                 <h2 class="text-2xl font-black uppercase">Paneli i Kontrollit</h2>
                 <p class="text-gray-500 text-sm mt-1">Kyçuni për të menaxhuar portalin</p>
             </div>
-            
             <div id="login-error" class="hidden bg-red-100 text-red-700 p-3 rounded-lg text-sm font-medium mb-4 text-center"></div>
-
             <form id="login-form" class="space-y-5">
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Emaili</label>
@@ -42,10 +39,7 @@
         </div>
     </div>
 
-    <!-- EKRANI I ADMIN DASHBOARD -->
     <div id="admin-dashboard" class="hidden h-full flex flex-col md:flex-row w-full">
-        
-        <!-- SIDEBAR -->
         <aside class="w-full md:w-64 bg-white border-r border-gray-200 flex flex-col h-full shadow-sm relative z-20">
             <div class="p-6 border-b border-gray-100">
                 <img src="zanidigjital.png" alt="Logo" class="h-8 object-contain">
@@ -64,10 +58,8 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT AREA -->
         <main class="flex-1 bg-gray-50 overflow-y-auto p-6 md:p-10 relative">
             
-            <!-- OVERVIEW SECTION -->
             <section id="sec-overview" class="content-section">
                 <h1 class="text-3xl font-black mb-8 uppercase">Përmbledhja</h1>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -76,8 +68,8 @@
                         <h3 id="stat-jobs" class="text-4xl font-black">0</h3>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Vota në Sondazh</p>
-                        <h3 class="text-4xl font-black">0</h3>
+                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe Totale</p>
+                        <h3 id="stat-polls" class="text-4xl font-black">0</h3>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <p class="text-gray-500 text-sm font-bold uppercase mb-2">Abonentë</p>
@@ -90,32 +82,29 @@
                 </div>
             </section>
 
-            <!-- MODULI: ÇKA KA PËR ME PUNU -->
+            <!-- MODULI 1: PUNËT -->
             <section id="sec-jobs" class="content-section hidden">
                 <div class="flex justify-between items-center mb-8">
                     <h1 class="text-3xl font-black uppercase">Çka ka për me punu?</h1>
                     <button onclick="toggleJobForm()" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Punë</button>
                 </div>
-
-                <!-- Forma për shtimin e punës (E fshehur fillimisht) -->
                 <div id="job-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
-                    <h2 class="text-xl font-bold mb-4 border-b border-gray-100 pb-2">Shto një vend të ri pune</h2>
                     <form id="job-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Pozita</label>
-                            <input type="text" id="job-position" required placeholder="p.sh. Menaxher i Rrjeteve Sociale" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                            <input type="text" id="job-position" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Kompania</label>
-                            <input type="text" id="job-company" required placeholder="p.sh. TechCorp LLC" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                            <input type="text" id="job-company" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Lokacioni</label>
-                            <input type="text" id="job-location" placeholder="p.sh. Prishtinë, Remote" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                            <input type="text" id="job-location" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Linku për Aplikim (URL)</label>
-                            <input type="url" id="job-link" placeholder="https://..." class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                            <input type="url" id="job-link" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
                         </div>
                         <div class="md:col-span-2 flex justify-end gap-3 mt-4">
                             <button type="button" onclick="toggleJobForm()" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button>
@@ -123,8 +112,6 @@
                         </div>
                     </form>
                 </div>
-
-                <!-- Tabela e punëve ekzistuese -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -141,11 +128,59 @@
                 </div>
             </section>
 
-            <!-- MODULET E TJERA PËR HAPAT E RADHËS -->
+            <!-- MODULI 2: SONDAZHET -->
             <section id="sec-polls" class="content-section hidden">
-                <h1 class="text-3xl font-black mb-8 uppercase">Çka t'thotë populli?</h1>
-                <p class="text-gray-500">Moduli i sondazheve po ndërtohet...</p>
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-black uppercase">Çka t'thotë populli?</h1>
+                    <button onclick="togglePollForm()" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Sondazh</button>
+                </div>
+
+                <div id="poll-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <h2 class="text-xl font-bold mb-4 border-b border-gray-100 pb-2">Krijo pyetjen e re</h2>
+                    <form id="poll-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Pyetja (Temat e ditës)</label>
+                            <input type="text" id="poll-question" required placeholder="p.sh. A duhet të ketë zgjedhje të parakohshme?" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 1</label>
+                                <input type="text" id="poll-opt1" required placeholder="PO" class="w-full px-4 py-2 rounded-xl border border-gray-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 2</label>
+                                <input type="text" id="poll-opt2" required placeholder="JO" class="w-full px-4 py-2 rounded-xl border border-gray-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 3 (Opsionale)</label>
+                                <input type="text" id="poll-opt3" placeholder="S'kam mendim" class="w-full px-4 py-2 rounded-xl border border-gray-300">
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">*Krijimi i këtij sondazhi e bën automatikisht atë sondazhin aktiv në portal.</p>
+                        <div class="flex justify-end gap-3 mt-4">
+                            <button type="button" onclick="togglePollForm()" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button>
+                            <button type="submit" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Publiko Sondazhin</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Pyetja</th>
+                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Statusi</th>
+                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Votat (Totali)</th>
+                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Veprime</th>
+                            </tr>
+                        </thead>
+                        <tbody id="polls-table-body">
+                            <tr><td colspan="4" class="p-4 text-center text-gray-500">Duke ngarkuar...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
+
             <section id="sec-banners" class="content-section hidden">
                 <h1 class="text-3xl font-black mb-8 uppercase">Hapësirat Sponsorizuese</h1>
                 <p class="text-gray-500">Moduli i banerave po ndërtohet...</p>
@@ -164,48 +199,23 @@
 
         const loginScreen = document.getElementById('login-screen');
         const dashboardScreen = document.getElementById('admin-dashboard');
-        const loginForm = document.getElementById('login-form');
-        const loginError = document.getElementById('login-error');
-        const btnText = document.getElementById('login-btn').querySelector('span');
-
-        // ELEMENTET E PUNËVE
-        const jobFormContainer = document.getElementById('job-form-container');
-        const jobForm = document.getElementById('job-form');
-        const jobsTableBody = document.getElementById('jobs-table-body');
-        const statJobs = document.getElementById('stat-jobs');
-
+        
         async function checkSession() {
             const { data: { session } } = await sb.auth.getSession();
-            if (session) {
-                showDashboard(session.user.email);
-            }
+            if (session) showDashboard(session.user.email);
         }
 
-        loginForm.addEventListener('submit', async (e) => {
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault(); 
-            btnText.innerText = "Po kyçet...";
-            loginError.classList.add('hidden');
-            
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-
             const { data, error } = await sb.auth.signInWithPassword({ email, password });
-
-            if (error) {
-                loginError.innerText = "Kredenciale të gabuara. Provo përsëri.";
-                loginError.classList.remove('hidden');
-                btnText.innerText = "Kyçu";
-            } else {
-                showDashboard(data.user.email);
-            }
+            if (!error) showDashboard(data.user.email);
         });
 
         async function logOut() {
             await sb.auth.signOut();
-            dashboardScreen.classList.add('hidden');
-            loginScreen.classList.remove('hidden');
-            document.getElementById('password').value = '';
-            btnText.innerText = "Kyçu";
+            window.location.reload();
         }
 
         function showDashboard(email) {
@@ -213,8 +223,9 @@
             dashboardScreen.classList.remove('hidden');
             document.getElementById('admin-email').innerText = email;
             
-            // Sapo të futet në panel, ngarko të dhënat e punëve!
+            // Ngarko të dhënat sapo futet
             fetchJobs();
+            fetchPolls();
         }
 
         function showSection(sectionId) {
@@ -223,88 +234,110 @@
                 link.classList.remove('bg-gray-100', 'text-black');
                 link.classList.add('text-gray-500');
             });
-
             document.getElementById(`sec-${sectionId}`).classList.remove('hidden');
-            
             const activeLink = document.getElementById(`nav-${sectionId}`);
             activeLink.classList.remove('text-gray-500');
             activeLink.classList.add('bg-gray-100', 'text-black');
         }
 
-        // ==========================================
-        // LOGJIKA E MODULIT TË PUNËVE (CRUD)
-        // ==========================================
-
-        function toggleJobForm() {
-            jobFormContainer.classList.toggle('hidden');
-        }
-
-        // Lexo punët nga databaza
+        /* --- MODULI: PUNËT --- */
+        function toggleJobForm() { document.getElementById('job-form-container').classList.toggle('hidden'); }
+        
         async function fetchJobs() {
             const { data, error } = await sb.from('jobs').select('*').order('created_at', { ascending: false });
-            
-            if (error) {
-                jobsTableBody.innerHTML = `<tr><td colspan="3" class="p-4 text-center text-red-500">Gabim gjatë ngarkimit të të dhënave.</td></tr>`;
-                return;
-            }
-
-            // Përditëso statistikat në ballinë
-            statJobs.innerText = data.length;
-
-            if (data.length === 0) {
-                jobsTableBody.innerHTML = `<tr><td colspan="3" class="p-4 text-center text-gray-500">Nuk ka asnjë vend pune. Kliko "+ Shto Punë" për të filluar.</td></tr>`;
-                return;
-            }
-
-            jobsTableBody.innerHTML = '';
-            data.forEach(job => {
-                jobsTableBody.innerHTML += `
-                    <tr class="border-b border-gray-50 hover:bg-gray-50 transition">
-                        <td class="p-4">
-                            <p class="font-bold text-black">${job.position}</p>
-                            <p class="text-xs font-semibold text-gray-500 mt-1">${job.company}</p>
-                        </td>
+            if (data) {
+                document.getElementById('stat-jobs').innerText = data.length;
+                let html = '';
+                data.forEach(job => {
+                    html += `
+                    <tr class="border-b border-gray-50 hover:bg-gray-50">
+                        <td class="p-4"><p class="font-bold text-black">${job.position}</p><p class="text-xs font-semibold text-gray-500">${job.company}</p></td>
                         <td class="p-4 text-sm font-medium text-gray-600">${job.location || '-'}</td>
-                        <td class="p-4">
-                            <button onclick="deleteJob('${job.id}')" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold transition">Fshi</button>
-                        </td>
-                    </tr>
-                `;
-            });
+                        <td class="p-4"><button onclick="deleteJob('${job.id}')" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td>
+                    </tr>`;
+                });
+                document.getElementById('jobs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center">Nuk ka punë.</td></tr>';
+            }
         }
-
-        // Shto një punë të re
-        jobForm.addEventListener('submit', async (e) => {
+        
+        document.getElementById('job-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const position = document.getElementById('job-position').value;
             const company = document.getElementById('job-company').value;
             const location = document.getElementById('job-location').value;
             const apply_link = document.getElementById('job-link').value;
-
-            const { data, error } = await sb.from('jobs').insert([
-                { position, company, location, apply_link, status: 'published' }
-            ]);
-
-            if (error) {
-                alert('Pati një gabim! Sigurohuni që RLS (Row Level Security) është fikur ose rregulluar në Supabase.');
-                console.error(error);
-            } else {
-                jobForm.reset();
-                toggleJobForm();
-                fetchJobs(); // Rifresko tabelën
+            await sb.from('jobs').insert([{ position, company, location, apply_link, status: 'published' }]);
+            document.getElementById('job-form').reset();
+            toggleJobForm();
+            fetchJobs();
+        });
+        
+        async function deleteJob(id) {
+            if(confirm('A jeni i sigurt?')) {
+                await sb.from('jobs').delete().eq('id', id);
+                fetchJobs();
             }
+        }
+
+        /* --- MODULI: SONDAZHET --- */
+        function togglePollForm() { document.getElementById('poll-form-container').classList.toggle('hidden'); }
+        
+        async function fetchPolls() {
+            const { data, error } = await sb.from('polls').select('*').order('created_at', { ascending: false });
+            if (data) {
+                document.getElementById('stat-polls').innerText = data.length;
+                let html = '';
+                data.forEach(poll => {
+                    const statusBadge = poll.status === 'active' 
+                        ? '<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">AKTIV</span>' 
+                        : '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">MBYLLUR</span>';
+                    
+                    html += `
+                    <tr class="border-b border-gray-50 hover:bg-gray-50">
+                        <td class="p-4 font-bold text-black">${poll.question}</td>
+                        <td class="p-4">${statusBadge}</td>
+                        <td class="p-4 font-bold text-gray-600">${poll.total_votes || 0}</td>
+                        <td class="p-4"><button onclick="deletePoll('${poll.id}')" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td>
+                    </tr>`;
+                });
+                document.getElementById('polls-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center">Nuk ka sondazhe.</td></tr>';
+            }
+        }
+
+        document.getElementById('poll-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const question = document.getElementById('poll-question').value;
+            const opt1 = document.getElementById('poll-opt1').value;
+            const opt2 = document.getElementById('poll-opt2').value;
+            const opt3 = document.getElementById('poll-opt3').value;
+
+            // Fik (mbyll) të gjitha sondazhet e tjera paraprake
+            await sb.from('polls').update({ status: 'inactive' }).eq('status', 'active');
+
+            // Shto sondazhin e ri
+            const { data: pollData, error } = await sb.from('polls').insert([{ question, status: 'active' }]).select();
+            
+            if (pollData && pollData.length > 0) {
+                const pollId = pollData[0].id;
+                const optionsArray = [
+                    { poll_id: pollId, option_text: opt1, votes: 0 },
+                    { poll_id: pollId, option_text: opt2, votes: 0 }
+                ];
+                if (opt3) optionsArray.push({ poll_id: pollId, option_text: opt3, votes: 0 });
+
+                // Shto opsionet
+                await sb.from('poll_options').insert(optionsArray);
+            }
+
+            document.getElementById('poll-form').reset();
+            togglePollForm();
+            fetchPolls();
         });
 
-        // Fshi një punë
-        async function deleteJob(id) {
-            if(confirm('A jeni i sigurt që doni ta fshini këtë vend pune përgjithmonë?')) {
-                const { error } = await sb.from('jobs').delete().eq('id', id);
-                if(error) {
-                    alert('Gabim gjatë fshirjes');
-                } else {
-                    fetchJobs(); // Rifresko tabelën
-                }
+        async function deletePoll(id) {
+            if(confirm('A jeni i sigurt? Kjo do të fshijë edhe të gjitha votat e këtij sondazhi.')) {
+                await sb.from('polls').delete().eq('id', id);
+                fetchPolls();
             }
         }
 
