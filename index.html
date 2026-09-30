@@ -50,9 +50,7 @@
         </section>
 
         <!-- BANERI 1 (LART) - DINAMIK -->
-        <div id="banner-top-container" class="w-full">
-            <!-- Ky zhduket ose zëvendësohet me reklamën tënde nëse ekziston në DB -->
-        </div>
+        <div id="banner-top-container" class="w-full"></div>
 
         <section class="border-t border-gray-300 pt-8 mt-8">
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
@@ -169,8 +167,8 @@
             if(data) {
                 const topBanner = data.find(b => b.position === 'homepage_top');
                 const midBanner = data.find(b => b.position === 'homepage_middle');
-                if(topBanner) document.getElementById('banner-top-container').innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank"><img src="${topBanner.image_url}" class="w-full h-24 md:h-32 object-cover rounded-xl shadow-sm border border-gray-100 hover:border-black transition"></a>`;
-                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `<a href="${midBanner.link_url || '#'}" target="_blank"><img src="${midBanner.image_url}" class="w-full h-24 md:h-32 object-cover rounded-xl shadow-sm border border-gray-100 hover:border-black transition mt-8"></a>`;
+                if(topBanner) document.getElementById('banner-top-container').innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank"><img src="${topBanner.image_url}" class="w-full h-auto object-contain rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition"></a>`;
+                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `<a href="${midBanner.link_url || '#'}" target="_blank"><img src="${midBanner.image_url}" class="w-full h-auto object-contain rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition mt-8"></a>`;
             }
         }
 
