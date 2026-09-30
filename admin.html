@@ -8,10 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
-        .hidden { display: none !important; }
-    </style>
+    <style> body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; } .hidden { display: none !important; } </style>
 </head>
 <body class="text-gray-900 antialiased h-screen overflow-hidden">
 
@@ -20,21 +17,13 @@
             <div class="text-center mb-8">
                 <img src="zanidigjital.png" alt="Logo" class="h-12 mx-auto mb-4 object-contain">
                 <h2 class="text-2xl font-black uppercase">Paneli i Kontrollit</h2>
-                <p class="text-gray-500 text-sm mt-1">Kyçuni për të menaxhuar portalin</p>
+                <p class="text-gray-500 text-sm mt-1">Versioni Përfundimtar</p>
             </div>
             <div id="login-error" class="hidden bg-red-100 text-red-700 p-3 rounded-lg text-sm font-medium mb-4 text-center"></div>
             <form id="login-form" class="space-y-5">
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Emaili</label>
-                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Fjalëkalimi</label>
-                    <input type="password" id="password" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
-                </div>
-                <button type="submit" id="login-btn" class="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition flex justify-center items-center">
-                    <span>Kyçu</span>
-                </button>
+                <div><label class="block text-sm font-bold text-gray-700 mb-1">Emaili</label><input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                <div><label class="block text-sm font-bold text-gray-700 mb-1">Fjalëkalimi</label><input type="password" id="password" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                <button type="submit" id="login-btn" class="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition flex justify-center items-center"><span>Kyçu</span></button>
             </form>
         </div>
     </div>
@@ -52,66 +41,35 @@
                 <a href="#" onclick="showSection('banners')" id="nav-banners" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Hapësirat Sponsorizuese</a>
                 <a href="#" onclick="showSection('newsletter')" id="nav-newsletter" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Abonimet (Newsletter)</a>
             </nav>
-            <div class="p-4 border-t border-gray-100">
-                <p id="admin-email" class="text-xs font-bold text-gray-400 mb-2 truncate">admin@zanidigjital.com</p>
-                <button onclick="logOut()" class="w-full bg-red-50 text-red-600 font-bold py-2 rounded-lg hover:bg-red-100 transition">Dil nga llogaria</button>
-            </div>
+            <div class="p-4 border-t border-gray-100"><p id="admin-email" class="text-xs font-bold text-gray-400 mb-2 truncate">admin@zanidigjital.com</p><button onclick="logOut()" class="w-full bg-red-50 text-red-600 font-bold py-2 rounded-lg hover:bg-red-100 transition">Dil nga llogaria</button></div>
         </aside>
 
         <main class="flex-1 bg-gray-50 overflow-y-auto p-6 md:p-10 relative">
+            
             <section id="sec-overview" class="content-section">
                 <h1 class="text-3xl font-black mb-8 uppercase">Përmbledhja</h1>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Punë Aktive</p>
-                        <h3 id="stat-jobs" class="text-4xl font-black">0</h3>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe Totale</p>
-                        <h3 id="stat-polls" class="text-4xl font-black">0</h3>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Abonentë</p>
-                        <h3 class="text-4xl font-black">0</h3>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <p class="text-gray-500 text-sm font-bold uppercase mb-2">Banera Aktivë</p>
-                        <h3 class="text-4xl font-black">0</h3>
-                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Punë Aktive</p><h3 id="stat-jobs" class="text-4xl font-black">0</h3></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe Totale</p><h3 id="stat-polls" class="text-4xl font-black">0</h3></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Abonentë</p><h3 id="stat-subs" class="text-4xl font-black">0</h3></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Banera Aktivë</p><h3 id="stat-banners" class="text-4xl font-black">0</h3></div>
                 </div>
             </section>
 
             <!-- PUNËT -->
             <section id="sec-jobs" class="content-section hidden">
-                <div class="flex justify-between items-center mb-8">
-                    <h1 class="text-3xl font-black uppercase">Çka ka për me punu?</h1>
-                    <button onclick="toggleJobForm()" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Punë</button>
-                </div>
+                <div class="flex justify-between items-center mb-8"><h1 class="text-3xl font-black uppercase">Çka ka për me punu?</h1><button onclick="toggleForm('job-form-container')" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Punë</button></div>
                 <div id="job-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
                     <form id="job-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozita</label><input type="text" id="job-position" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Kompania</label><input type="text" id="job-company" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Lokacioni</label><input type="text" id="job-location" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Linku për Aplikim</label><input type="url" id="job-link" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
-                        <div class="md:col-span-2 flex justify-end gap-3 mt-4">
-                            <button type="button" onclick="toggleJobForm()" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button>
-                            <button type="submit" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Ruaj Punën</button>
-                        </div>
+                        <div class="md:col-span-2 flex justify-end gap-3 mt-4"><button type="button" onclick="toggleForm('job-form-container')" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button><button type="submit" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Ruaj Punën</button></div>
                     </form>
                 </div>
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-100">
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Pozita & Kompania</th>
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Lokacioni</th>
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Veprime</th>
-                            </tr>
-                        </thead>
-                        <tbody id="jobs-table-body">
-                            <tr><td colspan="3" class="p-4 text-center text-gray-500">Duke ngarkuar...</td></tr>
-                        </tbody>
-                    </table>
+                    <table class="w-full text-left border-collapse"><tbody id="jobs-table-body"><tr><td class="p-4 text-center">Ngarkim...</td></tr></tbody></table>
                 </div>
             </section>
 
@@ -119,68 +77,60 @@
             <section id="sec-polls" class="content-section hidden">
                 <div class="flex justify-between items-center mb-8">
                     <h1 class="text-3xl font-black uppercase">Çka t'thotë populli?</h1>
-                    <button onclick="togglePollForm()" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Sondazh</button>
+                    <button onclick="toggleForm('poll-form-container')" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Sondazh</button>
                 </div>
                 <div id="poll-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
-                    <h2 class="text-xl font-bold mb-4 border-b border-gray-100 pb-2">Krijo pyetjen e re</h2>
                     <form id="poll-form" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">Pyetja (Temat e ditës)</label>
-                            <input type="text" id="poll-question" required placeholder="p.sh. Sa ndikim do ketë vendimi për pagat?" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Pyetja</label><input type="text" id="poll-question" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Data & Ora (Lëre bosh për Menjëherë)</label><input type="datetime-local" id="poll-date" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         </div>
-                        
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Lloji i Sondazhit</label>
                             <select id="poll-type" onchange="togglePollOptionsUI()" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
-                                <option value="options">Sondazh me Butona (Opsione: PO, JO, etj)</option>
-                                <option value="slider">Sondazh me Rrëshqitëse (Përqindje 0% - 100%)</option>
+                                <option value="options">Sondazh me Butona (PO/JO)</option><option value="slider">Sondazh me Rrëshqitëse (%)</option>
                             </select>
                         </div>
-
                         <div id="poll-options-inputs" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 1</label>
-                                <input type="text" id="poll-opt1" placeholder="PO" class="w-full px-4 py-2 rounded-xl border border-gray-300">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 2</label>
-                                <input type="text" id="poll-opt2" placeholder="JO" class="w-full px-4 py-2 rounded-xl border border-gray-300">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 3 (Opsionale)</label>
-                                <input type="text" id="poll-opt3" placeholder="S'kam mendim" class="w-full px-4 py-2 rounded-xl border border-gray-300">
-                            </div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 1</label><input type="text" id="poll-opt1" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 2</label><input type="text" id="poll-opt2" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Opsioni 3 (Opsionale)</label><input type="text" id="poll-opt3" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-2">*Krijimi i këtij sondazhi e bën automatikisht atë sondazhin aktiv në portal.</p>
-                        <div class="flex justify-end gap-3 mt-4">
-                            <button type="button" onclick="togglePollForm()" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button>
-                            <button type="submit" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Publiko Sondazhin</button>
-                        </div>
+                        <div class="flex justify-end gap-3 mt-4"><button type="button" onclick="toggleForm('poll-form-container')" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button><button type="submit" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Publiko</button></div>
                     </form>
                 </div>
-
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-100">
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Pyetja</th>
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Statusi</th>
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Votat (Totali)</th>
-                                <th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Veprime</th>
-                            </tr>
-                        </thead>
-                        <tbody id="polls-table-body">
-                            <tr><td colspan="4" class="p-4 text-center text-gray-500">Duke ngarkuar...</td></tr>
-                        </tbody>
-                    </table>
+                    <table class="w-full text-left border-collapse"><tbody id="polls-table-body"><tr><td class="p-4 text-center">Ngarkim...</td></tr></tbody></table>
                 </div>
             </section>
 
+            <!-- BANERAT -->
             <section id="sec-banners" class="content-section hidden">
-                <h1 class="text-3xl font-black mb-8 uppercase">Hapësirat Sponsorizuese</h1><p class="text-gray-500">Së shpejti...</p>
+                <div class="flex justify-between items-center mb-8"><h1 class="text-3xl font-black uppercase">Banerat</h1><button onclick="toggleForm('banner-form-container')" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shto Baner</button></div>
+                <div id="banner-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <form id="banner-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Ngarko Foton e Banerit</label><input type="file" id="banner-file" accept="image/*" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozicioni në Faqe</label><select id="banner-pos" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"><option value="homepage_top">Baneri Lart (Nën Lajmet Kryesore)</option><option value="homepage_middle">Baneri në Mes (Nën Punët)</option></select></div>
+                            <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Linku i Reklamës (Ku të çon kur klikohet)</label><input type="url" id="banner-link" placeholder="https://" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                        </div>
+                        <div class="flex justify-end gap-3 mt-4"><button type="button" onclick="toggleForm('banner-form-container')" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button><button type="submit" id="banner-submit-btn" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Ngarko Banerin</button></div>
+                    </form>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse"><tbody id="banners-table-body"><tr><td class="p-4 text-center">Ngarkim...</td></tr></tbody></table>
+                </div>
             </section>
+
+            <!-- NEWSLETTER -->
             <section id="sec-newsletter" class="content-section hidden">
-                <h1 class="text-3xl font-black mb-8 uppercase">Abonimet (Newsletter)</h1><p class="text-gray-500">Së shpejti...</p>
+                <h1 class="text-3xl font-black mb-8 uppercase">Lista e Abonentëve</h1>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead><tr class="bg-gray-50 border-b border-gray-100"><th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Email Adresa</th><th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Data e Abonimit</th><th class="p-4 font-bold text-gray-500 text-xs uppercase tracking-wider">Veprime</th></tr></thead>
+                        <tbody id="subs-table-body"><tr><td colspan="3" class="p-4 text-center">Ngarkim...</td></tr></tbody>
+                    </table>
+                </div>
             </section>
         </main>
     </div>
@@ -190,130 +140,120 @@
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-        const loginScreen = document.getElementById('login-screen');
-        const dashboardScreen = document.getElementById('admin-dashboard');
+        const loginScreen = document.getElementById('login-screen'), dashboardScreen = document.getElementById('admin-dashboard');
         
-        async function checkSession() {
-            const { data: { session } } = await sb.auth.getSession();
-            if (session) showDashboard(session.user.email);
-        }
+        async function checkSession() { const { data: { session } } = await sb.auth.getSession(); if (session) showDashboard(session.user.email); }
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault(); 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const { data, error } = await sb.auth.signInWithPassword({ email, password });
-            if (!error) showDashboard(data.user.email);
+            e.preventDefault(); const email = document.getElementById('email').value, password = document.getElementById('password').value;
+            const { data, error } = await sb.auth.signInWithPassword({ email, password }); if (!error) showDashboard(data.user.email);
         });
 
-        async function logOut() {
-            await sb.auth.signOut();
-            window.location.reload();
-        }
+        async function logOut() { await sb.auth.signOut(); window.location.reload(); }
 
         function showDashboard(email) {
-            loginScreen.classList.add('hidden');
-            dashboardScreen.classList.remove('hidden');
-            document.getElementById('admin-email').innerText = email;
-            fetchJobs(); fetchPolls();
+            loginScreen.classList.add('hidden'); dashboardScreen.classList.remove('hidden'); document.getElementById('admin-email').innerText = email;
+            fetchJobs(); fetchPolls(); fetchBanners(); fetchSubs();
         }
 
         function showSection(sectionId) {
             document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
             document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('bg-gray-100', 'text-black'); link.classList.add('text-gray-500'); });
             document.getElementById(`sec-${sectionId}`).classList.remove('hidden');
-            const activeLink = document.getElementById(`nav-${sectionId}`);
-            activeLink.classList.remove('text-gray-500'); activeLink.classList.add('bg-gray-100', 'text-black');
+            const activeLink = document.getElementById(`nav-${sectionId}`); activeLink.classList.remove('text-gray-500'); activeLink.classList.add('bg-gray-100', 'text-black');
         }
 
-        /* PUNËT */
-        function toggleJobForm() { document.getElementById('job-form-container').classList.toggle('hidden'); }
+        function toggleForm(id) { document.getElementById(id).classList.toggle('hidden'); }
+
+        // --- PUNËT ---
         async function fetchJobs() {
-            const { data, error } = await sb.from('jobs').select('*').order('created_at', { ascending: false });
+            const { data } = await sb.from('jobs').select('*').order('created_at', { ascending: false });
             if (data) {
-                document.getElementById('stat-jobs').innerText = data.length;
-                let html = '';
-                data.forEach(job => {
-                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${job.position}</p><p class="text-xs font-semibold text-gray-500">${job.company}</p></td><td class="p-4 text-sm font-medium text-gray-600">${job.location || '-'}</td><td class="p-4"><button onclick="deleteJob('${job.id}')" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
-                });
-                document.getElementById('jobs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center">Nuk ka punë.</td></tr>';
+                document.getElementById('stat-jobs').innerText = data.length; let html = '';
+                data.forEach(job => html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${job.position}</p><p class="text-xs font-semibold text-gray-500">${job.company}</p></td><td class="p-4 text-sm font-medium text-gray-600">${job.location || '-'}</td><td class="p-4"><button onclick="deleteRow('jobs', '${job.id}', fetchJobs)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`);
+                document.getElementById('jobs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center text-gray-500">Nuk ka punë.</td></tr>';
             }
         }
         document.getElementById('job-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const position = document.getElementById('job-position').value;
-            const company = document.getElementById('job-company').value;
-            const location = document.getElementById('job-location').value;
-            const apply_link = document.getElementById('job-link').value;
+            const position = document.getElementById('job-position').value, company = document.getElementById('job-company').value, location = document.getElementById('job-location').value, apply_link = document.getElementById('job-link').value;
             await sb.from('jobs').insert([{ position, company, location, apply_link, status: 'published' }]);
-            document.getElementById('job-form').reset(); toggleJobForm(); fetchJobs();
+            document.getElementById('job-form').reset(); toggleForm('job-form-container'); fetchJobs();
         });
-        async function deleteJob(id) { if(confirm('A jeni i sigurt?')) { await sb.from('jobs').delete().eq('id', id); fetchJobs(); } }
 
-        /* SONDAZHET */
-        function togglePollForm() { document.getElementById('poll-form-container').classList.toggle('hidden'); }
-        
+        // --- SONDAZHET ---
         function togglePollOptionsUI() {
-            const type = document.getElementById('poll-type').value;
-            if (type === 'slider') {
-                document.getElementById('poll-options-inputs').classList.add('hidden');
-            } else {
-                document.getElementById('poll-options-inputs').classList.remove('hidden');
-            }
+            if (document.getElementById('poll-type').value === 'slider') document.getElementById('poll-options-inputs').classList.add('hidden');
+            else document.getElementById('poll-options-inputs').classList.remove('hidden');
         }
-
         async function fetchPolls() {
-            const { data, error } = await sb.from('polls').select('*').order('created_at', { ascending: false });
+            const { data } = await sb.from('polls').select('*').order('start_date', { ascending: false });
             if (data) {
-                document.getElementById('stat-polls').innerText = data.length;
-                let html = '';
-                data.forEach(poll => {
-                    const statusBadge = poll.status === 'active' 
-                        ? '<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">AKTIV</span>' 
-                        : '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">MBYLLUR</span>';
-                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4 font-bold text-black">${poll.question}</td><td class="p-4">${statusBadge}</td><td class="p-4 font-bold text-gray-600">${poll.total_votes || 0}</td><td class="p-4"><button onclick="deletePoll('${poll.id}')" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                document.getElementById('stat-polls').innerText = data.length; let html = ''; const now = new Date();
+                data.forEach((poll, i) => {
+                    const pollDate = new Date(poll.start_date);
+                    let badge = poll.status !== 'active' ? '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">MBYLLUR</span>' : (pollDate > now ? '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">PLANIFIKUAR</span>' : (i === data.findIndex(p => new Date(p.start_date) <= now && p.status === 'active') ? '<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold animate-pulse">AKTIV</span>' : '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">I KALUAR</span>'));
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${poll.question}</p><p class="text-xs text-gray-500 mt-1">Data: ${pollDate.toLocaleDateString('sq-AL', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</p></td><td class="p-4">${badge}</td><td class="p-4 font-bold text-gray-600">${poll.total_votes || 0}</td><td class="p-4"><button onclick="deleteRow('polls', '${poll.id}', fetchPolls)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
                 });
-                document.getElementById('polls-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center">Nuk ka sondazhe.</td></tr>';
+                document.getElementById('polls-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk ka sondazhe.</td></tr>';
             }
         }
-
         document.getElementById('poll-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const question = document.getElementById('poll-question').value;
-            const type = document.getElementById('poll-type').value;
-            const opt1 = document.getElementById('poll-opt1').value;
-            const opt2 = document.getElementById('poll-opt2').value;
-            const opt3 = document.getElementById('poll-opt3').value;
-
-            if (type === 'options' && (!opt1 || !opt2)) {
-                alert('Për sondazh me butona, duhet të shkruani të paktën Opsionin 1 dhe 2!');
-                return;
-            }
-
-            await sb.from('polls').update({ status: 'inactive' }).eq('status', 'active');
-            const { data: pollData } = await sb.from('polls').insert([{ question, status: 'active' }]).select();
+            const question = document.getElementById('poll-question').value, type = document.getElementById('poll-type').value, dateInput = document.getElementById('poll-date').value;
+            const startDate = dateInput ? new Date(dateInput).toISOString() : new Date().toISOString();
+            const opt1 = document.getElementById('poll-opt1').value, opt2 = document.getElementById('poll-opt2').value, opt3 = document.getElementById('poll-opt3').value;
             
+            const { data: pollData } = await sb.from('polls').insert([{ question, status: 'active', start_date: startDate }]).select();
             if (pollData && pollData.length > 0) {
-                const pollId = pollData[0].id;
-                let optionsArray = [];
-                
-                if (type === 'slider') {
-                    // Nëse është slider, krijojmë një "opsion të fshehtë" që mban shumën e përqindjeve
-                    optionsArray.push({ poll_id: pollId, option_text: 'SLIDER_SUM', votes: 0 });
-                } else {
-                    if (opt1) optionsArray.push({ poll_id: pollId, option_text: opt1, votes: 0 });
-                    if (opt2) optionsArray.push({ poll_id: pollId, option_text: opt2, votes: 0 });
-                    if (opt3) optionsArray.push({ poll_id: pollId, option_text: opt3, votes: 0 });
-                }
-                await sb.from('poll_options').insert(optionsArray);
+                const pollId = pollData[0].id; let ops = [];
+                if (type === 'slider') ops.push({ poll_id: pollId, option_text: 'SLIDER_SUM', votes: 0 });
+                else { if (opt1) ops.push({ poll_id: pollId, option_text: opt1, votes: 0 }); if (opt2) ops.push({ poll_id: pollId, option_text: opt2, votes: 0 }); if (opt3) ops.push({ poll_id: pollId, option_text: opt3, votes: 0 }); }
+                await sb.from('poll_options').insert(ops);
             }
-
-            document.getElementById('poll-form').reset();
-            togglePollForm();
-            fetchPolls();
+            document.getElementById('poll-form').reset(); toggleForm('poll-form-container'); fetchPolls();
         });
 
-        async function deletePoll(id) { if(confirm('A jeni i sigurt?')) { await sb.from('polls').delete().eq('id', id); fetchPolls(); } }
+        // --- BANERAT ---
+        async function fetchBanners() {
+            const { data } = await sb.from('banners').select('*').order('created_at', { ascending: false });
+            if (data) {
+                document.getElementById('stat-banners').innerText = data.length; let html = '';
+                data.forEach(ban => {
+                    const posLabel = ban.position === 'homepage_top' ? 'Lart' : 'Në Mes';
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${ban.image_url}" class="h-10 rounded border"></td><td class="p-4 font-bold text-gray-700">${posLabel}</td><td class="p-4 text-blue-500 text-xs"><a href="${ban.link_url}" target="_blank">Linku</a></td><td class="p-4"><button onclick="deleteRow('banners', '${ban.id}', fetchBanners)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                });
+                document.getElementById('banners-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk ka banera.</td></tr>';
+            }
+        }
+        document.getElementById('banner-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('banner-submit-btn'); btn.innerText = "Po ngarkohet..."; btn.disabled = true;
+            const file = document.getElementById('banner-file').files[0], linkUrl = document.getElementById('banner-link').value, pos = document.getElementById('banner-pos').value;
+            
+            const fileExt = file.name.split('.').pop(); const fileName = `banners/${Date.now()}.${fileExt}`;
+            const { data: uploadData, error: uploadError } = await sb.storage.from('media').upload(fileName, file);
+            
+            if (uploadError) { alert('Gabim në ngarkimin e fotos!'); btn.innerText = "Ngarko Banerin"; btn.disabled = false; return; }
+            
+            const { data } = sb.storage.from('media').getPublicUrl(fileName);
+            await sb.from('banners').insert([{ image_url: data.publicUrl, link_url: linkUrl, position: pos, status: 'active' }]);
+            
+            document.getElementById('banner-form').reset(); btn.innerText = "Ngarko Banerin"; btn.disabled = false; toggleForm('banner-form-container'); fetchBanners();
+        });
+
+        // --- NEWSLETTER ---
+        async function fetchSubs() {
+            const { data } = await sb.from('newsletter_subscribers').select('*').order('created_at', { ascending: false });
+            if (data) {
+                document.getElementById('stat-subs').innerText = data.length; let html = '';
+                data.forEach(sub => html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4 font-bold text-black">${sub.email}</td><td class="p-4 text-sm text-gray-600">${new Date(sub.created_at).toLocaleDateString('sq-AL')}</td><td class="p-4"><button onclick="deleteRow('newsletter_subscribers', '${sub.id}', fetchSubs)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`);
+                document.getElementById('subs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center text-gray-500">Nuk ka abonentë.</td></tr>';
+            }
+        }
+
+        // Funksion Fshirës Universal
+        async function deleteRow(table, id, callback) { if(confirm('A jeni i sigurt?')) { await sb.from(table).delete().eq('id', id); callback(); } }
 
         checkSession();
     </script>
