@@ -208,15 +208,37 @@
             btn.innerText = 'Abonohu';
         });
 
-        /* --- LAJMET E VJETRA (JSON) --- */
+        /* --- LAJMET E VJETRA (JSON) ME FILTRIM --- */
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
         async function loadNews() {
             try {
+                // Filtrimi nga linku
+                const urlParams = new URLSearchParams(window.location.search);
+                const kategoriaZgjedhur = urlParams.get('kategoria');
+
+                if (kategoriaZgjedhur) {
+                    document.getElementById('link-ballina').className = "hover:text-black transition pb-1 text-gray-600";
+                    const linkAktiv = document.getElementById(`link-${kategoriaZgjedhur}`);
+                    if(linkAktiv) linkAktiv.className = "text-black border-b-2 border-black pb-1";
+                    document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
+                }
+
                 const response = await fetch('lajmet.json'); let allNews = await response.json();
                 const bentoGrid = document.getElementById('bento-grid'); const teFunditGrid = document.getElementById('te-fundit-grid');
                 bentoGrid.innerHTML = ''; teFunditGrid.innerHTML = '';
                 
                 let newsWithId = allNews.map((n, index) => ({ ...n, originalId: index }));
+                
+                // Apliko filtrimin
+                if (kategoriaZgjedhur) {
+                    newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur);
+                }
+
+                if (newsWithId.length === 0) {
+                    bentoGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4 py-10">Nuk ka lajme në këtë kategori për momentin.</p>';
+                    return;
+                }
+
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
                     const n = newsWithId[i]; const [bg] = getCatStyles(n.kategoria); const url = `artikulli.html?id=${n.originalId}`;
                     if (i === 0) bentoGrid.innerHTML += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`;
