@@ -34,6 +34,8 @@ jobs:
       - name: Ekzekuto rishkrimin e lajmeve
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
+          GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
         run: python bot.py
 
       - name: Ruaj dhe publiko online
