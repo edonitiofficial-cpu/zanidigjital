@@ -1,144 +1,171 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zani Digjital - Lajmi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-    .permbajtja p { margin-bottom: 1.25rem; }
-    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zani Digjital - Lajmi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
+        .permbajtja p { margin-bottom: 1.5rem; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 antialiased">
 
-  <!-- Header -->
-  <header class="bg-white sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <a href="index.html" class="flex-shrink-0">
-        <img src="zanidigjital.png" alt="ZaniDigjital Logo" class="h-10 object-contain">
-      </a>
-      
-      <nav id="main-categories" class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-wider text-gray-500">
-        <a href="index.html" class="hover:text-blue-600 transition">Krye</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Lajme</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Kosovë</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Politikë</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Ekonomi</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Sport</a>
-        <a href="index.html" class="hover:text-blue-600 transition">Teknologji</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
-    
-    <!-- Pjesa e Majtë: Artikulli Kryesor -->
-    <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100" id="artikulli-container">
-        <p class="text-center text-gray-500">Duke ngarkuar lajmin...</p>
-    </article>
-
-    <!-- Pjesa e Djathtë: Sugjerimet dhe Reklamat -->
-    <aside class="lg:w-1/3 space-y-6">
-      
-      <!-- Seksioni i Sugjerimeve -->
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b pb-2 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-blue-500"></span> Lexo më shumë
-        </h3>
-        <div id="sugjerime-container" class="space-y-4">
-           <p class="text-gray-400 text-sm">Po ngarkon sugjerimet...</p>
+    <!-- Header -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="zanidigjital.png" alt="ZaniDigjital Logo" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+            </a>
+            
+            <nav id="main-categories" class="flex flex-wrap justify-center gap-6 font-semibold text-gray-600">
+                <a href="index.html" class="hover:text-black transition">Ballina</a>
+                <a href="index.html" class="hover:text-black transition">Lajme</a>
+                <a href="index.html" class="hover:text-black transition">Politikë</a>
+                <a href="index.html" class="hover:text-black transition">Ekonomi</a>
+                <a href="index.html" class="hover:text-black transition">Sport</a>
+                <a href="index.html" class="hover:text-black transition">Tech</a>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <!-- Hapësira Reklamuese 1 (Burger) -->
-      <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm hover:opacity-90 hover:shadow-md transition duration-300">
-          <img src="burger.png" alt="Reklama 1" class="w-full h-auto object-cover">
-      </a>
+    <main class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- Pjesa e Majtë: Artikulli Kryesor -->
+        <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative" id="artikulli-container">
+            <!-- Butoni kthehu -->
+            <a href="index.html" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
+                ← Kthehu te Ballina
+            </a>
+            <p class="text-center text-gray-500 font-medium">Duke ngarkuar lajmin...</p>
+        </article>
 
-      <!-- Hapësira Reklamuese 2 (Karrige/Mobilje) -->
-      <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm hover:opacity-90 hover:shadow-md transition duration-300">
-          <img src="chair.png" alt="Reklama 2" class="w-full h-auto object-cover">
-      </a>
+        <!-- Pjesa e Djathtë: Sugjerimet dhe Reklamat -->
+        <aside class="lg:w-1/3 space-y-6">
+            
+            <!-- Seksioni i Sugjerimeve -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
+                    <span class="bg-black text-white px-2 py-1 rounded text-xs uppercase">Të rejat</span> Lexo më shumë
+                </h3>
+                <div id="sugjerime-container" class="space-y-4">
+                    <p class="text-gray-400 text-sm">Po ngarkon sugjerimet...</p>
+                </div>
+            </div>
 
-    </aside>
-  </main>
+            <!-- Hapësira Reklamuese 1 (Burger) -->
+            <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
+                <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                <img src="burger.png" alt="Reklama 1" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop'">
+            </a>
 
-  <footer class="bg-white border-t border-gray-200 py-8 mt-8">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-gray-500 text-sm font-medium">&copy; 2026 ZaniDigjital. Të gjitha të drejtat e rezervuara.</p>
-    </div>
-  </footer>
+            <!-- Hapësira Reklamuese 2 (Karrige/Mobilje) -->
+            <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
+                <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                <img src="chair.png" alt="Reklama 2" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?q=80&w=400&auto=format&fit=crop'">
+            </a>
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramLink = urlParams.get('link'); 
-    const paramId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
+        </aside>
+    </main>
 
-    if (paramLink || paramId !== null) {
-        fetch('lajmet.json')
-            .then(response => response.json())
-            .then(data => {
-                let lajmi = null;
-                let lajmiIndex = -1;
-                
-                if (paramLink) {
-                    lajmiIndex = data.findIndex(item => item.link_origjinal === paramLink);
-                    lajmi = data[lajmiIndex];
-                } else if (paramId !== null) {
-                    lajmiIndex = parseInt(paramId);
-                    lajmi = data[lajmiIndex];
-                }
+    <footer class="bg-white border-t border-gray-200 py-8 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm font-medium">&copy; 2026 ZaniDigjital. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
 
-                if (lajmi) {
-                    // Renderimi i lajmit
-                    let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
+    <script>
+        // Funksioni për ngjyrat e kategorive (Të njëjtat si te index.html)
+        function getCategoryBg(cat) {
+            const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' };
+            return colors[cat] || 'bg-black';
+        }
+        function getCategoryText(cat) {
+            const colors = { 'Sport': 'text-green-600', 'Politikë': 'text-red-600', 'Tech': 'text-blue-600', 'Ekonomi': 'text-yellow-600', 'Lajme': 'text-black' };
+            return colors[cat] || 'text-black';
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramLink = urlParams.get('link'); 
+        const paramId = urlParams.get('id') || urlParams.get('lajmi') || urlParams.get('index');
+
+        if (paramLink || paramId !== null) {
+            fetch('lajmet.json')
+                .then(response => response.json())
+                .then(data => {
+                    let lajmi = null;
+                    let lajmiIndex = -1;
                     
-                    document.getElementById('artikulli-container').innerHTML = `
-                        <div class="flex items-center gap-4 mb-4 text-sm font-bold">
-                            <span class="text-blue-600 uppercase tracking-wider">${lajmi.kategoria}</span>
-                            <span class="text-gray-400 font-normal">🕒 ${lajmi.koha}</span>
-                        </div>
-                        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-6">${lajmi.titulli}</h1>
-                        <img src="${lajmi.imazhi}" class="w-full h-auto rounded-xl object-cover mb-8 shadow-sm" alt="${lajmi.titulli}">
-                        <div class="permbajtja text-[17px] text-gray-700 leading-relaxed font-medium">
-                            ${permbajtjaHTML}
-                        </div>
-                    `;
-
-                    // Renderimi i sugjerimeve
-                    const sugjerime = [];
-                    for(let i=0; i < data.length; i++) {
-                        if(i !== lajmiIndex) {
-                            sugjerime.push({ ...data[i], originalId: i });
-                        }
-                        if(sugjerime.length === 5) break; 
+                    if (paramLink) {
+                        lajmiIndex = data.findIndex(item => item.link_origjinal === paramLink);
+                        lajmi = data[lajmiIndex];
+                    } else if (paramId !== null) {
+                        lajmiIndex = parseInt(paramId);
+                        lajmi = data[lajmiIndex];
                     }
 
-                    document.getElementById('sugjerime-container').innerHTML = sugjerime.map(s => `
-                        <a href="artikulli.html?id=${s.originalId}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
-                            <img src="${s.imazhi}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
-                            <div class="flex-1">
-                                <span class="text-[10px] text-blue-500 font-bold uppercase tracking-wider">${s.kategoria}</span>
-                                <h4 class="text-[13px] font-extrabold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-2 mt-1">
-                                    ${s.titulli}
-                                </h4>
+                    if (lajmi) {
+                        const catBg = getCategoryBg(lajmi.kategoria);
+                        
+                        // Renderimi i lajmit kryesor
+                        let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
+                        
+                        document.getElementById('artikulli-container').innerHTML = `
+                            <a href="index.html" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
+                                ← Kthehu te Ballina
+                            </a>
+                            <div class="flex items-center gap-4 mb-4 font-bold">
+                                <span class="${catBg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">${lajmi.kategoria}</span>
+                                <span class="text-gray-400 text-sm font-medium">${lajmi.koha}</span>
                             </div>
-                        </a>
-                    `).join('');
+                            <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-8">${lajmi.titulli}</h1>
+                            <img src="${lajmi.imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="${lajmi.titulli}">
+                            
+                            <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
+                                ${permbajtjaHTML}
+                            </div>
+                            
+                            <div class="mt-12 pt-6 border-t border-gray-200">
+                                <a href="${lajmi.link_origjinal}" target="_blank" class="text-black hover:underline font-bold text-sm bg-gray-100 px-4 py-2 rounded-lg transition">Burimi Origjinal ↗</a>
+                            </div>
+                        `;
 
-                } else {
-                    document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Lajmi nuk u gjet në databazë!</h2>';
-                }
-            })
-            .catch(error => {
-                document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Pati një problem gjatë ngarkimit të lajmit.</h2>';
-            });
-    } else {
-        window.location.href = 'index.html';
-    }
-  </script>
+                        // Renderimi i sugjerimeve anash
+                        const sugjerime = [];
+                        for(let i = 0; i < data.length; i++) {
+                            if(i !== lajmiIndex) {
+                                sugjerime.push({ ...data[i], originalId: i });
+                            }
+                            if(sugjerime.length === 5) break; 
+                        }
+
+                        document.getElementById('sugjerime-container').innerHTML = sugjerime.map(s => {
+                            const catText = getCategoryText(s.kategoria);
+                            return `
+                            <a href="artikulli.html?id=${s.originalId}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
+                                <img src="${s.imazhi}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
+                                <div class="flex-1">
+                                    <span class="text-[10px] ${catText} font-bold uppercase tracking-wider">${s.kategoria}</span>
+                                    <h4 class="text-[14px] font-bold text-gray-800 leading-snug group-hover:underline transition line-clamp-2 mt-1">
+                                        ${s.titulli}
+                                    </h4>
+                                </div>
+                            </a>
+                        `}).join('');
+
+                    } else {
+                        document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Lajmi nuk u gjet në databazë!</h2>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('artikulli-container').innerHTML = '<h2 class="text-2xl font-bold text-red-500">Pati një problem gjatë ngarkimit të lajmit.</h2>';
+                });
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
