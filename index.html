@@ -8,13 +8,11 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <!-- Shtojmë librarinë e Supabase edhe në faqen publike -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
-        
-        /* Stili për Sliderin (Pyetësori) */
+        /* Style për Sliderin */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #000; cursor: pointer; margin-top: -6px; }
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #e5e7eb; border-radius: 4px; }
@@ -24,7 +22,6 @@
 </head>
 <body class="text-gray-900 antialiased">
 
-    <!-- HEADER -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center py-4">
@@ -46,8 +43,7 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
-
-        <!-- 1. ÇKA PO FLITET MA SHUMË? -->
+        <!-- LAJMET -->
         <section>
             <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
             <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
@@ -55,77 +51,50 @@
             </div>
         </section>
 
-        <!-- 2. BANERI 1 -->
+        <!-- BANERI 1 -->
         <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden">
             <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
             REKLAMA JOTE KËTU (728x90)
         </div>
 
-        <!-- 3. TË FUNDIT -->
         <section class="border-t border-gray-300 pt-8 mt-8">
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
                 <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
             </h2>
             <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"></div>
-            <div class="mt-8 text-center">
-                <button class="bg-transparent border-2 border-black text-black font-bold py-3 px-8 rounded-xl hover:bg-black hover:text-white transition">Mbushe me lajme tjera</button>
-            </div>
         </section>
 
-        <!-- 4. ÇKA PO PROMOVOHET -->
         <section class="border-t border-gray-300 pt-8">
             <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Tani për tani mbetet statike -->
                 <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
                     <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-md leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3>
-                        <p class="text-xs text-gray-500 mt-2">Biletat në shitje tani.</p>
-                    </div>
+                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3><p class="text-xs text-gray-500 mt-2">Biletat në shitje tani.</p></div>
                 </a>
                 <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
                     <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
                     <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-md leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3>
-                        <p class="text-xs text-gray-500 mt-2">Zbulo më shumë.</p>
-                    </div>
+                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3><p class="text-xs text-gray-500 mt-2">Zbulo më shumë.</p></div>
                 </a>
             </div>
         </section>
 
-        <!-- 5. ÇKA KA PËR ME PUNU (TANI LIDHET ME SUPABASE) -->
         <section class="border-t border-gray-300 pt-8">
             <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
-            
             <div id="jobs-carousel" class="flex overflow-x-auto gap-4 no-scrollbar cursor-grab snap-x snap-mandatory pb-4">
                 <p class="text-gray-500 font-medium">Duke kërkuar për vende të lira pune...</p>
             </div>
         </section>
 
-        <!-- 6. BANERI 2 -->
-        <div class="w-full bg-gray-200 h-24 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-sm md:text-lg tracking-widest relative overflow-hidden my-4">
-            <span class="absolute top-1 left-2 text-[10px] text-gray-400">Hapësirë e Sponsorizuar</span>
-            REKLAMË SPONSORIZUESE
-        </div>
-
-        <!-- 7. PYETËSORI DHE ABONIMI -->
+        <!-- SONDZHAZI & NEWSLETTER -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                 <h2 class="text-2xl font-black uppercase">Çka t'thotë populli?</h2>
                 <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
-                <h3 class="text-lg font-bold mb-4">Sa mendon se do të ketë ndikim vendimi i sotëm për pagat?</h3>
-                <div class="relative pt-6 pb-2">
-                    <div id="slider-value" class="absolute top-0 text-lg font-black text-black transform -translate-x-1/2" style="left: 50%;">50%</div>
-                    <div class="flex items-center space-x-4">
-                        <span class="font-bold text-gray-400 text-sm">0%</span>
-                        <input type="range" id="poll-slider" min="0" max="100" value="50" class="w-full appearance-none">
-                        <span class="font-bold text-gray-400 text-sm">100%</span>
-                    </div>
+                <div id="poll-container">
+                    <p class="text-gray-500 font-medium text-center py-4">Duke ngarkuar sondazhin...</p>
                 </div>
-                <button class="w-full mt-4 bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>
             </div>
 
             <div class="bg-black text-white p-8 rounded-2xl shadow-sm flex flex-col justify-center">
@@ -146,187 +115,174 @@
     </footer>
 
     <script>
-        // INIT SUPABASE PËR FAQEN PUBLIKE
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-        // Funksioni për ngarkimin e punëve nga Supabase
+        /* ================================
+           LOGJIKA E SONDAZHEVE E ZGJERUAR
+        ================================ */
+        async function loadPoll() {
+            const pollContainer = document.getElementById('poll-container');
+            try {
+                const { data: polls, error: pollError } = await sb.from('polls').select('*').eq('status', 'active').order('created_at', { ascending: false }).limit(1);
+                if (pollError || !polls || polls.length === 0) {
+                    pollContainer.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka asnjë sondazh aktiv.</p>';
+                    return;
+                }
+                const poll = polls[0];
+                const { data: options, error: optError } = await sb.from('poll_options').select('*').eq('poll_id', poll.id).order('id', { ascending: true });
+                if (optError) throw optError;
+
+                const hasVoted = localStorage.getItem('voted_' + poll.id);
+                
+                // Kontrollojmë a është ky sondazh i tipit Slider (Rrëshqitës)
+                const isSlider = options.length === 1 && options[0].option_text === 'SLIDER_SUM';
+
+                if (hasVoted) {
+                    if (isSlider) renderSliderResults(poll, options[0], pollContainer);
+                    else renderOptionsResults(poll, options, pollContainer);
+                } else {
+                    if (isSlider) renderSliderVoting(poll, options[0], pollContainer);
+                    else renderOptionsVoting(poll, options, pollContainer);
+                }
+            } catch (err) {
+                pollContainer.innerHTML = '<p class="text-red-500 font-medium">Gabim në ngarkimin e sondazhit.</p>';
+            }
+        }
+
+        /* 1. Nëse është me Opsione (Butona) */
+        function renderOptionsVoting(poll, options, container) {
+            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-3">`;
+            options.forEach(opt => {
+                html += `<button onclick="submitOptionVote('${poll.id}', '${opt.id}', ${poll.total_votes}, ${opt.votes})" class="w-full text-left font-bold px-5 py-3 rounded-xl border-2 border-gray-200 hover:border-black hover:bg-gray-50 transition">${opt.option_text}</button>`;
+            });
+            container.innerHTML = html + `</div>`;
+        }
+
+        async function submitOptionVote(pollId, optionId, currentTotal, currentOptVotes) {
+            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
+            await sb.from('poll_options').update({ votes: currentOptVotes + 1 }).eq('id', optionId);
+            await sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
+            localStorage.setItem('voted_' + pollId, 'true');
+            setTimeout(() => { loadPoll(); }, 500);
+        }
+
+        function renderOptionsResults(poll, options, container) {
+            let realTotal = options.reduce((sum, opt) => sum + opt.votes, 0);
+            if(realTotal === 0) realTotal = 1; 
+            
+            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-4">`;
+            options.forEach(opt => {
+                const percent = Math.round((opt.votes / realTotal) * 100);
+                html += `
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-1"><span>${opt.option_text}</span><span>${percent}%</span></div>
+                    <div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden">
+                        <div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${percent}%"></div>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html + `</div><p class="text-xs text-gray-500 mt-5 text-center font-bold uppercase">Totali i votuesve: ${realTotal}</p>`;
+        }
+
+        /* 2. Nëse është me Përqindje (Slider) */
+        function renderSliderVoting(poll, option, container) {
+            let html = `
+                <h3 class="text-xl font-bold mb-4">${poll.question}</h3>
+                <div class="relative pt-6 pb-2">
+                    <div id="slider-value-display" class="absolute top-0 text-lg font-black text-black transform -translate-x-1/2" style="left: 50%;">50%</div>
+                    <div class="flex items-center space-x-4">
+                        <span class="font-bold text-gray-400 text-sm">0%</span>
+                        <input type="range" id="dynamic-poll-slider" min="0" max="100" value="50" class="w-full appearance-none" oninput="document.getElementById('slider-value-display').innerText = this.value + '%'; document.getElementById('slider-value-display').style.left = this.value + '%';">
+                        <span class="font-bold text-gray-400 text-sm">100%</span>
+                    </div>
+                </div>
+                <button onclick="submitSliderVote('${poll.id}', '${option.id}', ${poll.total_votes}, ${option.votes})" class="w-full mt-6 bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>
+            `;
+            container.innerHTML = html;
+        }
+
+        async function submitSliderVote(pollId, optionId, currentTotal, currentSumVotes) {
+            const sliderValue = parseInt(document.getElementById('dynamic-poll-slider').value);
+            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
+            
+            // Këtu ndodh magjia: e mbledhim vlerën (psh 75%) tek totali i deritanishëm
+            await sb.from('poll_options').update({ votes: currentSumVotes + sliderValue }).eq('id', optionId);
+            await sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
+            
+            localStorage.setItem('voted_' + pollId, 'true');
+            setTimeout(() => { loadPoll(); }, 500);
+        }
+
+        function renderSliderResults(poll, option, container) {
+            const totalVoters = poll.total_votes || 1;
+            // Përpjestojmë shumën e përqindjeve me numrin e njerëzve që votuan për të nxjerrë mesataren e saktë
+            const average = Math.round(option.votes / totalVoters);
+            
+            let html = `
+                <h3 class="text-xl font-bold mb-5">${poll.question}</h3>
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-1">
+                        <span>Mesatarja e të gjithë votuesve</span>
+                        <span>${average}%</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden">
+                        <div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-5 text-center font-bold uppercase">Llogaritur nga ${poll.total_votes} votues në total.</p>
+            `;
+            container.innerHTML = html;
+        }
+
+        /* ================================
+           PUNËT DHE LAJMET E VJETRA
+        ================================ */
         async function loadJobs() {
             const carousel = document.getElementById('jobs-carousel');
-            
             try {
-                // Merr vetëm punët që janë të publikuara
                 const { data, error } = await sb.from('jobs').select('*').eq('status', 'published').order('created_at', { ascending: false });
-                
-                if (error) throw error;
-                
-                if (data.length === 0) {
-                    carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>';
-                    return;
-                }
-                
-                carousel.innerHTML = ''; // Pastrojmë mesazhin e ngarkimit
-                
+                if (error || data.length === 0) { carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>'; return; }
+                carousel.innerHTML = '';
                 data.forEach(job => {
                     const locationHtml = job.location ? `• ${job.location}` : '';
-                    carousel.innerHTML += `
-                        <a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none">
-                            <div>
-                                <h3 class="font-bold text-lg mb-1 pointer-events-none">${job.position}</h3>
-                                <p class="text-gray-500 text-sm pointer-events-none">${job.company} ${locationHtml}</p>
-                            </div>
-                            <div class="mt-4 text-right pointer-events-none">
-                                <span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span>
-                            </div>
-                        </a>
-                    `;
+                    carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none"><div><h3 class="font-bold text-lg mb-1 pointer-events-none">${job.position}</h3><p class="text-gray-500 text-sm pointer-events-none">${job.company} ${locationHtml}</p></div><div class="mt-4 text-right pointer-events-none"><span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span></div></a>`;
                 });
-            } catch (err) {
-                console.error("Gabim në ngarkimin e punëve: ", err);
-                carousel.innerHTML = '<p class="text-red-500 font-medium">Nuk u arrit të ngarkohen vendet e punës.</p>';
-            }
+            } catch (err) { }
         }
 
-        // Funksionet origjinale (Lajmet nga JSON)
-        function getCategoryBg(cat) {
-            const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' };
-            return colors[cat] || 'bg-black';
-        }
-        function getCategoryText(cat) {
-            const colors = { 'Sport': 'text-green-600', 'Politikë': 'text-red-600', 'Tech': 'text-blue-600', 'Ekonomi': 'text-yellow-600', 'Lajme': 'text-black' };
-            return colors[cat] || 'text-black';
-        }
-
+        function getCategoryBg(cat) { const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' }; return colors[cat] || 'bg-black'; }
+        function getCategoryText(cat) { const colors = { 'Sport': 'text-green-600', 'Politikë': 'text-red-600', 'Tech': 'text-blue-600', 'Ekonomi': 'text-yellow-600', 'Lajme': 'text-black' }; return colors[cat] || 'text-black'; }
         async function loadNews() {
             try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const kategoriaZgjedhur = urlParams.get('kategoria');
-
-                if (kategoriaZgjedhur) {
-                    document.getElementById('link-ballina').className = "hover:text-black transition pb-1 text-gray-600";
-                    const linkAktiv = document.getElementById(`link-${kategoriaZgjedhur}`);
-                    if(linkAktiv) linkAktiv.className = "text-black border-b-2 border-black pb-1";
-                    document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
-                }
-
                 const response = await fetch('lajmet.json');
-                const allNews = await response.json();
-
-                const bentoGrid = document.getElementById('bento-grid');
-                const teFunditGrid = document.getElementById('te-fundit-grid');
-                
-                bentoGrid.innerHTML = '';
-                teFunditGrid.innerHTML = '';
-
+                let allNews = await response.json();
+                const bentoGrid = document.getElementById('bento-grid'); const teFunditGrid = document.getElementById('te-fundit-grid');
+                bentoGrid.innerHTML = ''; teFunditGrid.innerHTML = '';
                 let newsWithId = allNews.map((n, index) => ({ ...n, originalId: index }));
 
-                if (kategoriaZgjedhur) {
-                    newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur);
-                }
-
-                if (newsWithId.length === 0) {
-                    bentoGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4 py-10">Nuk ka lajme në këtë kategori për momentin.</p>';
-                    return;
-                }
-
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
-                    const n = newsWithId[i];
-                    const catBg = getCategoryBg(n.kategoria);
-                    const articleUrl = `artikulli.html?id=${n.originalId}`;
-                    
-                    if (i === 0) {
-                        bentoGrid.innerHTML += `
-                        <a href="${articleUrl}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
-                            <img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <div class="absolute bottom-0 p-6">
-                                <span class="${catBg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span>
-                                <h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3>
-                                <p class="text-gray-300 text-sm mt-2">${n.koha}</p>
-                            </div>
-                        </a>`;
-                    } else {
-                        bentoGrid.innerHTML += `
-                        <a href="${articleUrl}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
-                            <img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <div class="absolute bottom-0 p-4">
-                                <span class="${catBg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span>
-                                <h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3>
-                            </div>
-                        </a>`;
-                    }
+                    const n = newsWithId[i]; const catBg = getCategoryBg(n.kategoria); const articleUrl = `artikulli.html?id=${n.originalId}`;
+                    if (i === 0) bentoGrid.innerHTML += `<a href="${articleUrl}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${catBg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`;
+                    else bentoGrid.innerHTML += `<a href="${articleUrl}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${catBg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`;
                 }
 
-                const maxTeFundit = Math.min(13, newsWithId.length); 
-                for (let i = 5; i < maxTeFundit; i++) {
-                    const n = newsWithId[i];
-                    const catText = getCategoryText(n.kategoria);
-                    const articleUrl = `artikulli.html?id=${n.originalId}`;
-                    
-                    teFunditGrid.innerHTML += `
-                    <a href="${articleUrl}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
-                        <img src="${n.imazhi}" class="w-full h-40 object-cover">
-                        <div class="p-4 flex-grow flex flex-col">
-                            <span class="${catText} font-bold text-xs uppercase mb-2">${n.kategoria}</span>
-                            <h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3>
-                            <p class="text-gray-500 text-xs mt-auto">${n.koha}</p>
-                        </div>
-                    </a>`;
+                for (let i = 5; i < Math.min(13, newsWithId.length); i++) {
+                    const n = newsWithId[i]; const catText = getCategoryText(n.kategoria); const articleUrl = `artikulli.html?id=${n.originalId}`;
+                    teFunditGrid.innerHTML += `<a href="${articleUrl}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col"><img src="${n.imazhi}" class="w-full h-40 object-cover"><div class="p-4 flex-grow flex flex-col"><span class="${catText} font-bold text-xs uppercase mb-2">${n.kategoria}</span><h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3><p class="text-gray-500 text-xs mt-auto">${n.koha}</p></div></a>`;
                 }
-            } catch (error) {
-                console.error(error);
-                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 p-4">Nuk u arrit të ngarkohen lajmet.</p>';
-            }
+            } catch (error) { }
         }
 
-        // Funksioni për Rrëshqitjen e Punëve (Drag-to-Scroll)
         const slider = document.getElementById('jobs-carousel');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        let isDown = false, startX, scrollLeft;
+        slider.addEventListener('mousedown', (e) => { isDown = true; slider.classList.add('cursor-grabbing'); slider.classList.remove('cursor-grab'); startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+        slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('cursor-grabbing'); slider.classList.add('cursor-grab'); });
+        slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('cursor-grabbing'); slider.classList.add('cursor-grab'); });
+        slider.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - slider.offsetLeft; slider.scrollLeft = scrollLeft - (x - startX) * 2; });
 
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('cursor-grabbing');
-            slider.classList.remove('cursor-grab');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('cursor-grabbing');
-            slider.classList.add('cursor-grab');
-        });
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('cursor-grabbing');
-            slider.classList.add('cursor-grab');
-        });
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; 
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // Funksioni për Slider-in e Pyetësorit
-        const pollSlider = document.getElementById('poll-slider');
-        const sliderValue = document.getElementById('slider-value');
-
-        pollSlider.addEventListener('input', (e) => {
-            const value = e.target.value;
-            sliderValue.innerText = value + '%';
-            sliderValue.style.left = value + '%';
-        });
-
-        // KËTU ekzekutojmë ngarkimin e Lajmeve dhe Punëve njëherësh kur hapet faqja
-        window.onload = async () => {
-            await loadNews();
-            await loadJobs();
-        };
+        window.onload = async () => { await loadNews(); await loadJobs(); await loadPoll(); };
     </script>
 </body>
 </html>
