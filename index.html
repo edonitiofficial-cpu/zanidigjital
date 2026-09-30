@@ -18,18 +18,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#">
-                        <!-- Ndrysho src me logon tënde -->
-                        <img src="zanidigjital.png" alt="Zani Digjital Logo" class="h-10 object-contain">
+                    <a href="index.html">
+                        <img src="zanidigjital.png" alt="Zani Digjital Logo" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
-                    <a href="#" class="text-black border-b-2 border-black pb-1">Ballina</a>
-                    <a href="#" class="hover:text-black transition">Lajme</a>
-                    <a href="#" class="hover:text-black transition">Politikë</a>
-                    <a href="#" class="hover:text-black transition">Ekonomi</a>
-                    <a href="#" class="hover:text-black transition">Sport</a>
-                    <a href="#" class="hover:text-black transition">Tech</a>
+                    <a href="index.html" class="text-black border-b-2 border-black pb-1">Ballina</a>
+                    <a href="index.html" class="hover:text-black transition">Lajme</a>
+                    <a href="index.html" class="hover:text-black transition">Politikë</a>
+                    <a href="index.html" class="hover:text-black transition">Ekonomi</a>
+                    <a href="index.html" class="hover:text-black transition">Sport</a>
+                    <a href="index.html" class="hover:text-black transition">Tech</a>
                 </nav>
             </div>
         </div>
@@ -47,7 +46,6 @@
         <section>
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
             
-            <!-- Këtu do të injektohen lajmet e para nga JS -->
             <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
                 <p class="text-gray-500 font-medium col-span-4">Duke ngarkuar lajmet më të reja...</p>
             </div>
@@ -59,7 +57,6 @@
                 <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
             </h2>
             
-            <!-- Këtu do të injektohen lajmet tjera nga JS -->
             <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Lajmet vendosen nga JavaScript -->
             </div>
@@ -149,34 +146,19 @@
         </div>
     </footer>
 
-    <!-- SKRIPTI PËR TË LEXUAR LAJMET NGA lajmet.json -->
+    <!-- SKRIPTI PËR TË LEXUAR LAJMET -->
     <script>
-        // Funksion për të marrë ngjyrën në bazë të kategorisë
         function getCategoryBg(cat) {
-            const colors = {
-                'Sport': 'bg-green-600',
-                'Politikë': 'bg-red-600',
-                'Tech': 'bg-blue-600',
-                'Ekonomi': 'bg-yellow-600',
-                'Lajme': 'bg-black'
-            };
-            return colors[cat] || 'bg-black'; // E zeza si ngjyrë standarde
+            const colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' };
+            return colors[cat] || 'bg-black';
         }
-
         function getCategoryText(cat) {
-            const colors = {
-                'Sport': 'text-green-600',
-                'Politikë': 'text-red-600',
-                'Tech': 'text-blue-600',
-                'Ekonomi': 'text-yellow-600',
-                'Lajme': 'text-black'
-            };
+            const colors = { 'Sport': 'text-green-600', 'Politikë': 'text-red-600', 'Tech': 'text-blue-600', 'Ekonomi': 'text-yellow-600', 'Lajme': 'text-black' };
             return colors[cat] || 'text-black';
         }
 
         async function loadNews() {
             try {
-                // Lidhet me fajllin lajmet.json
                 const response = await fetch('lajmet.json');
                 const news = await response.json();
 
@@ -186,15 +168,13 @@
                 bentoGrid.innerHTML = '';
                 teFunditGrid.innerHTML = '';
 
-                // Krijojmë 5 lajmet e para për hapësirën "Bento"
                 for (let i = 0; i < Math.min(5, news.length); i++) {
                     const n = news[i];
                     const catBg = getCategoryBg(n.kategoria);
                     
                     if (i === 0) {
-                        // Lajmi kryesor (Karta e madhe)
                         bentoGrid.innerHTML += `
-                        <a href="#" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
+                        <a href="artikulli.html?id=${i}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white">
                             <img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                             <div class="absolute bottom-0 p-6">
@@ -204,9 +184,8 @@
                             </div>
                         </a>`;
                     } else {
-                        // 4 Lajmet anash
                         bentoGrid.innerHTML += `
-                        <a href="#" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
+                        <a href="artikulli.html?id=${i}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto">
                             <img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                             <div class="absolute bottom-0 p-4">
@@ -217,13 +196,12 @@
                     }
                 }
 
-                // Krijojmë lajmet e tjera poshtë tek "Të Fundit" (nga numri 5 deri në 17)
                 for (let i = 5; i < Math.min(17, news.length); i++) {
                     const n = news[i];
                     const catText = getCategoryText(n.kategoria);
                     
                     teFunditGrid.innerHTML += `
-                    <a href="#" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
+                    <a href="artikulli.html?id=${i}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col">
                         <img src="${n.imazhi}" class="w-full h-40 object-cover">
                         <div class="p-4 flex-grow flex flex-col">
                             <span class="${catText} font-bold text-xs uppercase mb-2">${n.kategoria}</span>
@@ -234,12 +212,10 @@
                 }
 
             } catch (error) {
-                console.error("Gabim gjatë ngarkimit të lajmeve:", error);
+                console.error(error);
                 document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 p-4">Nuk u arrit të ngarkohen lajmet.</p>';
             }
         }
-
-        // Ekzekuto funksionin sapo të hapet faqja
         window.onload = loadNews;
     </script>
 </body>
