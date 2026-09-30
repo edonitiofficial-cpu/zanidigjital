@@ -15,7 +15,6 @@ api_keys = [
     os.environ.get("GROQ_API_KEY_2"),
     os.environ.get("GROQ_API_KEY_3")
 ]
-# Përjashtojmë çelësat që nuk janë shtuar ende (nëse nuk e ke vënë të tretin p.sh.)
 valid_keys = [key for key in api_keys if key]
 
 if not valid_keys:
@@ -113,7 +112,7 @@ def rewrite_with_ai(original_title, full_text):
                         "content": prompt,
                     }
                 ],
-                model="llama-3.1-70b-versatile", # Mund ta ndryshosh sipas nevojës
+                model="openai/gpt-oss-120b",
                 temperature=0.3,
             )
             text = chat_completion.choices[0].message.content.strip()
@@ -129,7 +128,7 @@ def rewrite_with_ai(original_title, full_text):
                 print(f"⚠️ Limit i arritur (429) për çelësin aktual.")
                 if len(valid_keys) > 1:
                     switch_api_key()
-                    time.sleep(2) # Presim vetëm 2 sekonda para se të provojmë me çelësin e ri
+                    time.sleep(2)
                 else:
                     print(f"Po pres 40 sekonda (Përpjekja {attempt}/3)...")
                     time.sleep(40)
@@ -149,7 +148,7 @@ def main():
     new_entries = []
     
     lajme_te_perpunuara = 0
-    MAX_LAJME = 5 # Limiti maksimal i lajmeve që botohen me një ndezje (që mos t'i bllokojmë 3 çelësat menjëherë)
+    MAX_LAJME = 5
 
     for feed_url in RSS_FEEDS:
         if lajme_te_perpunuara >= MAX_LAJME:
@@ -225,7 +224,7 @@ def main():
 
             ai_result = rewrite_with_ai(title, full_text)
             
-            time.sleep(3) # Pushim shumë i shkurtër para lajmit tjetër
+            time.sleep(3)
 
             if ai_result:
                 article = {
