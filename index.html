@@ -60,6 +60,22 @@
         </section>
 
         <section class="border-t border-gray-300 pt-8">
+            <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
+                </a>
+                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="border-t border-gray-300 pt-8">
             <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
             <div id="jobs-carousel" class="flex overflow-x-auto gap-4 no-scrollbar cursor-grab snap-x snap-mandatory pb-4">
                 <p class="text-gray-500 font-medium">Duke kërkuar për vende të lira pune...</p>
@@ -167,8 +183,20 @@
             if(data) {
                 const topBanner = data.find(b => b.position === 'homepage_top');
                 const midBanner = data.find(b => b.position === 'homepage_middle');
-                if(topBanner) document.getElementById('banner-top-container').innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank"><img src="${topBanner.image_url}" class="w-full h-auto object-contain rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition"></a>`;
-                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `<a href="${midBanner.link_url || '#'}" target="_blank"><img src="${midBanner.image_url}" class="w-full h-auto object-contain rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition mt-8"></a>`;
+                
+                if(topBanner) document.getElementById('banner-top-container').innerHTML = `
+                    <div class="flex justify-center">
+                        <a href="${topBanner.link_url || '#'}" target="_blank" class="inline-block max-w-full">
+                            <img src="${topBanner.image_url}" class="max-w-full mx-auto h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition">
+                        </a>
+                    </div>`;
+                    
+                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `
+                    <div class="flex justify-center mt-8">
+                        <a href="${midBanner.link_url || '#'}" target="_blank" class="inline-block max-w-full">
+                            <img src="${midBanner.image_url}" class="max-w-full mx-auto h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition">
+                        </a>
+                    </div>`;
             }
         }
 
