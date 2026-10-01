@@ -66,81 +66,116 @@ def fetch_full_text(url):
         return ""
 
 def rewrite_with_ai(original_title, full_text):
-    prompt = f"""
-    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital" në Kosovë. Ti menaxhon të gjitha rubrikat e portalit.
-    Detyra jote është ta rishkruash lajmin në gjuhën shqipe, në stil profesional të gazetarisë në Kosovë, duke u bazuar VETËM në informacionin që gjendet në tekstin origjinal.
+    # ==========================================
+    # FAZA 1: GJENERIMI BAZË (Përkthimi faktik)
+    # ==========================================
+    prompt_faza_1 = f"""
+    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital".
+    Detyra: Rishkruaj lajmin në shqip bazuar VETËM në burim.
     
-    RREGULLA TË PANEGOCIUESHME PËR SAKTËSINË:
-    MOS SHTO ASNJË INFORMACION që nuk gjendet në tekstin origjinal.
-    MOS SHPIK emra, data, vende, deklarata, shifra, funksione, ngjarje apo detaje të tjera.
-    MOS NDRYSHO kuptimin e asaj që është thënë në tekstin origjinal.
-    Nëse teksti përmban deklarata të një personi, ruaje saktë kuptimin e deklaratës. Mos i atribuo personit diçka që nuk e ka thënë.
+    RREGULLA FAKTIKE (CRITICAL):
+    - MOS shto informacione, emra, data, apo ngjarje.
+    - Ruaj 100% saktësinë e deklaratave.
     
-    STRUKTURA E LAJMIT:
-    Ndaje lajmin në 3, 4 ose 5 paragrafë të shkurtër (në varësi të sasisë së informacionit).
-    Asnjë paragraf nuk guxon të ketë më shumë se 2 ose 3 fjali.
-    Përdor dy hapësira të reja (\\n\\n) për të ndarë qartë paragrafët. Kjo është thelbësore për formatimin JSON.
+    STRUKTURA:
+    - 3-5 paragrafë të shkurtër (max 3 fjali secili).
+    - Përdor dy hapësira (\\n\\n) për të ndarë paragrafët.
     
-    TITULLI:
-    Krijo një titull të ri, profesional dhe të qartë, pa clickbait.
+    TITULLI: Krijo një titull të qartë, faktik, pa clickbait.
     
-    KATEGORIZIMI:
-    Zgjidh VETËM njërën nga kategoritë e mëposhtme:
-    Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto, Çka ka të re sot?, Shpjegoje shkurt, Në xhepin tand, A e keni ditë?, Hulumtime
+    KATEGORIA: Zgjidh VETËM njërën: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto.
     
-    Titulli origjinal:
-    {original_title}
+    Titulli origjinal: {original_title}
+    Teksti origjinal: {full_text}
     
-    Teksti origjinal (Përdor vetëm këtë tekst për t'u bazuar):
-    {full_text}
-    
-    Më kthe VETËM një objekt JSON valid, pa markdown, pa ```json dhe pa asnjë tekst tjetër.
-    Formati duhet të jetë FIKS si ky shembull:
+    KTHE VETËM një JSON valid fiks kështu:
     {{
-      "titulli": "Titulli i ri profesional",
-      "permbajtja": "Paragrafi i parë.\\n\\nParagrafi i dytë.\\n\\nParagrafi i tretë.",
-      "kategoria": "Lajme"
+      "titulli": "...",
+      "permbajtja": "...",
+      "kategoria": "..."
     }}
     """
     
+    lajmi_baze = None
+    
     for attempt in range(1, 4):
         try:
-            chat_completion = client.chat.completions.create(
-                messages=[
-                    {
-                        "role": "user",
-                        "content": prompt,
-                    }
-                ],
+            response = client.chat.completions.create(
+                messages=[{"role": "user", "content": prompt_faza_1}],
                 model="openai/gpt-oss-120b",
-                temperature=0.3,
+                temperature=0.1, # TEMP E ULËT PËR FAKTE!
             )
-            text = chat_completion.choices[0].message.content.strip()
-            if text.startswith("```json"):
-                text = text[7:-3].strip()
-            elif text.startswith("```"):
-                text = text[3:-3].strip()
-            return json.loads(text)
+            text = response.choices[0].message.content.strip()
+            
+            # Pastrimi i JSON-it
+            if text.startswith("```json"): text = text[7:-3].strip()
+            elif text.startswith("```"): text = text[3:-3].strip()
+            
+            lajmi_baze = json.loads(text)
+            break # Nëse pati sukses, dil nga loop-i
             
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "rate limit" in error_msg.lower():
-                print(f"⚠️ Limit i arritur (429) për çelësin aktual.")
+                print(f"⚠️ Limit i arritur (Faza 1).")
                 if len(valid_keys) > 1:
                     switch_api_key()
                     time.sleep(2)
                 else:
-                    print(f"Po pres 40 sekonda (Përpjekja {attempt}/3)...")
                     time.sleep(40)
             elif "413" in error_msg:
-                print(f"❌ Kërkesa shumë e madhe (413). Po e anashkaloj këtë lajm.")
                 return None
             else:
-                print(f"❌ Gabim nga Groq AI: {e}")
                 return None
                 
-    print("❌ Dështoi pas 3 përpjekjesh. Po e anashkalojmë këtë lajm.")
-    return None
+    if not lajmi_baze:
+        return None
+
+    # ==========================================
+    # FAZA 2: PROOFREADING GRAMATIKOR (Magjia)
+    # ==========================================
+    permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
+    
+    prompt_faza_2 = f"""
+    Ti je një Profesor i Gjuhës Shqipe dhe Redaktor Gjuhësor strikt.
+    KORRIGJO vetëm gabimet gramatikore dhe logjike në këtë tekst, PA NDRYSHUAR FAKTET apo KUPTIMIN.
+    
+    RREGULLAT E KORRIGJIMIT:
+    1. RASAT: Ndreq lakimin e emrave (psh. "uron Edon Zhegrovës" JO "uron Zhegrovan").
+    2. KOHËT E FOLJEVE:
+       - Ngjarje e mbaruar = e kaluara ("fitoi", jo "fiton").
+       - Ngjarje në zhvillim = e tashmja.
+       - Mos ndërro kohët e foljeve pa arsye!
+    3. NUMRI DHE VETA: Folja duhet të përshtatet ("tre lojtarët shënuan" JO "shënoi").
+    4. SINTAKSA: Zëvendëso fjalitë që duken si "Google Translate" me shqipe natyrale gazetareske.
+    
+    Nëse teksti është perfekt, ktheje ekzakt siç është.
+    KTHE VETËM TEKSTIN E KORRIGJUAR, pa markdown, pa JSON, pa "Ja teksti".
+    
+    Teksti:
+    {permbajtja_e_pare}
+    """
+    
+    permbajtja_finale = permbajtja_e_pare # Fallback nëse faza 2 dështon
+    
+    try:
+        response_2 = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt_faza_2}],
+            model="openai/gpt-oss-120b",
+            temperature=0.1, # TEMP E ULËT PËR GRAMATIKË STRIKTE!
+        )
+        rezultati_korrigjuar = response_2.choices[0].message.content.strip()
+        
+        # Sigurohemi që AI nuk ka kthyer ndonjë budallallëk si "Nuk ka gabime"
+        if len(rezultati_korrigjuar) > 50 and "Nuk ka gabime" not in rezultati_korrigjuar:
+            permbajtja_finale = rezultati_korrigjuar
+            
+    except Exception as e:
+        print(f"⚠️ Faza e Proofreading dështoi. Po përdorim tekstin nga Faza 1. Gabimi: {e}")
+        
+    # Bashkojmë pjesët përfundimtare
+    lajmi_baze["permbajtja"] = permbajtja_finale
+    return lajmi_baze
 
 def main():
     existing_news = load_news()
@@ -222,6 +257,7 @@ def main():
                 print("Anashkalohet: Teksti është shumë i shkurtër ose nuk u nxor saktë. Evitohen shpikjet nga AI.")
                 continue
 
+            # Këtu thërritet funksioni i ri me DY FAZA
             ai_result = rewrite_with_ai(title, full_text)
             
             time.sleep(3)
@@ -242,7 +278,7 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja (Kaluar nëpër Proofreading!).")
     else:
         print("\nS'ka lajme të reja për momentin.")
 
