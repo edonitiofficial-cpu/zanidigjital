@@ -370,7 +370,16 @@ def main():
                 
                 # --- Poston direkt në Facebook ---
                 linku_fb = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug_final}.html"
-                posto_ne_facebook(mesazhi=titulli_final, linku=linku_fb)
+                
+                # Nxjerrim paragrafin e parë nga lajmi i rishkruar
+                permbajtja_plote = ai_result.get("permbajtja", "")
+                paragrafet = [p.strip() for p in permbajtja_plote.split('\n') if p.strip()]
+                paragrafi_pare = paragrafet[0] if paragrafet else ""
+                
+                # Bashkojmë titullin dhe paragrafin e parë me një hapësirë në mes
+                mesazhi_per_fb = f"{titulli_final}\n\n{paragrafi_pare}"
+                
+                posto_ne_facebook(mesazhi=mesazhi_per_fb, linku=linku_fb)
                 
                 new_entries.append(article)
                 existing_links.add(link)
