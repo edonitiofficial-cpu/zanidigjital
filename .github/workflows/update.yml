@@ -51,4 +51,5 @@ jobs:
           fi
 
           git commit -m "U shtuan lajme te reja automatikisht"
+          git pull --rebase origin main
           git push
