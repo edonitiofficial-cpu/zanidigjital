@@ -4,6 +4,7 @@ import feedparser
 import time
 import re
 import urllib.request
+import urllib.parse
 import difflib
 import trafilatura
 from groq import Groq
@@ -39,7 +40,7 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
-# --- FUNKSIONI I RI PËR URL SLUG ---
+# --- FUNKSIONI PËR URL SLUG ---
 def krijo_slug(titulli):
     if not titulli:
         return ""
@@ -56,8 +57,13 @@ def krijo_html_per_facebook(article):
     titulli = article["titulli"].replace('"', '&quot;')
     imazhi = article["imazhi"]
     permbajtja = article["permbajtja"][:150].replace('"', '&quot;') + "..."
-    # Ky është linku yt aktual në GitHub Pages
-    url_baze = f"https://edonitiofficial-cpu.github.io/zanidigjital/{slug}.html"
+    
+    # Krijojmë folderin 'lajme' nëse nuk ekziston për të mos bërë bërllog
+    folder_path = "lajme"
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        
+    url_baze = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug}.html"
     
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
@@ -68,16 +74,18 @@ def krijo_html_per_facebook(article):
     <meta property="og:description" content="{permbajtja}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{url_baze}" />
-    <meta http-equiv="refresh" content="0; url=artikulli.html?lajmi={slug}">
+    <meta http-equiv="refresh" content="0; url=../artikulli.html?lajmi={slug}">
     <title>{titulli}</title>
-    <script>window.location.replace("artikulli.html?lajmi={slug}");</script>
+    <script>window.location.replace("../artikulli.html?lajmi={slug}");</script>
 </head>
 <body>
-    <p>Duke hapur lajmin... <a href="artikulli.html?lajmi={slug}">Kliko këtu nëse nuk hapet automatikisht</a>.</p>
+    <p>Duke hapur lajmin... <a href="../artikulli.html?lajmi={slug}">Kliko këtu nëse nuk hapet automatikisht</a>.</p>
 </body>
 </html>"""
     
-    with open(f"{slug}.html", "w", encoding="utf-8") as f:
+    # Ruajmë fajllin brenda folderit 'lajme'
+    file_path = os.path.join(folder_path, f"{slug}.html")
+    with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
 def krijo_rss(lajmet):
@@ -88,11 +96,10 @@ def krijo_rss(lajmet):
   <link>https://edonitiofficial-cpu.github.io/zanidigjital/</link>
   <description>Lajmet e fundit nga Zani Digjital</description>
 """
-    # Marrim vetëm 15 lajmet e fundit për Facebook-un
     for lajm in lajmet[:15]:
         slug = lajm.get("slug", "")
         titulli = lajm.get("titulli", "").replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        linku = f"https://edonitiofficial-cpu.github.io/zanidigjital/{slug}.html"
+        linku = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug}.html"
         pershkrimi = lajm.get("permbajtja", "")[:150].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + "..."
         
         rss_content += f"""
@@ -106,6 +113,27 @@ def krijo_rss(lajmet):
     
     with open("rss.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
+
+# --- FUNKSIONI PËR TË POSTUAR NË FACEBOOK ---
+def posto_ne_facebook(mesazhi, linku):
+    fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
+    if not fb_token:
+        print("⚠️ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
+        return
+    
+    url = "https://graph.facebook.com/v19.0/me/feed"
+    data = urllib.parse.urlencode({
+        "message": mesazhi,
+        "link": linku,
+        "access_token": fb_token
+    }).encode('utf-8')
+    
+    try:
+        req = urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        print("✅ Lajmi u postua me sukses në faqen e Facebook-ut!")
+    except Exception as e:
+        print(f"❌ Gabim gjatë postimit në Facebook: {e}")
 
 # ----------------------------------------
 
@@ -337,8 +365,12 @@ def main():
                     "slug": slug_final
                 }
                 
-                # --- SHTESA: Krijon faqen për Facebook (HTML) ---
+                # --- Krijon faqen për Facebook (HTML) ---
                 krijo_html_per_facebook(article)
+                
+                # --- Poston direkt në Facebook ---
+                linku_fb = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug_final}.html"
+                posto_ne_facebook(mesazhi=titulli_final, linku=linku_fb)
                 
                 new_entries.append(article)
                 existing_links.add(link)
@@ -348,10 +380,10 @@ def main():
         updated_news = new_entries + existing_news
         save_news(updated_news)
         
-        # --- SHTESA: Krijon / Përditëson feed-in RSS ---
+        # --- Krijon / Përditëson feed-in RSS ---
         krijo_rss(updated_news)
         
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja dhe u përditësua RSS/HTML.")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja dhe u përditësua RSS/HTML/Facebook.")
     else:
         print("\nS'ka lajme të reja për momentin.")
 
