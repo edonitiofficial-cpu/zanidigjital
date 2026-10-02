@@ -58,7 +58,6 @@ def krijo_html_per_facebook(article):
     imazhi = article["imazhi"]
     permbajtja = article["permbajtja"][:150].replace('"', '&quot;') + "..."
     
-    # Krijojmë folderin 'lajme' nëse nuk ekziston për të mos bërë bërllog
     folder_path = "lajme"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -83,7 +82,6 @@ def krijo_html_per_facebook(article):
 </body>
 </html>"""
     
-    # Ruajmë fajllin brenda folderit 'lajme'
     file_path = os.path.join(folder_path, f"{slug}.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
@@ -114,11 +112,10 @@ def krijo_rss(lajmet):
     with open("rss.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
 
-# --- FUNKSIONI PËR TË POSTUAR NË FACEBOOK ---
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
     if not fb_token:
-        print("⚠️ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
+        print("⚠️️ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
         return
     
     url = "https://graph.facebook.com/v19.0/me/feed"
@@ -131,7 +128,7 @@ def posto_ne_facebook(mesazhi, linku):
     try:
         req = urllib.request.Request(url, data=data)
         response = urllib.request.urlopen(req)
-        print("✅ Lajmi u postua me sukses në faqen e Facebook-ut!")
+        print(f"✅ Lajmi u postua me sukses në Facebook! ({linku})")
     except Exception as e:
         print(f"❌ Gabim gjatë postimit në Facebook: {e}")
 
@@ -160,7 +157,6 @@ def fetch_full_text(url):
                 return " ".join(words[:600])
         return ""
     except Exception as e:
-        print(f"Gabim gjatë nxjerrjes së tekstit: {e}")
         return ""
 
 def rewrite_with_ai(original_title, full_text):
@@ -211,7 +207,6 @@ def rewrite_with_ai(original_title, full_text):
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "rate limit" in error_msg.lower():
-                print(f"⚠️ Limit i arritur (Faza 1).")
                 if len(valid_keys) > 1:
                     switch_api_key()
                     time.sleep(2)
@@ -229,20 +224,9 @@ def rewrite_with_ai(original_title, full_text):
     
     prompt_faza_2 = f"""
     Ti je një Profesor i Gjuhës Shqipe dhe Redaktor Gjuhësor strikt.
-    KORRIGJO vetëm gabimet gramatikore dhe logjike në këtë tekst, PA NDRYSHUAR FAKTET apo KUPTIMIN.
-    
-    RREGULLAT E KORRIGJIMIT:
-    1. RASAT: Ndreq lakimin e emrave (psh. "uron Edon Zhegrovës" JO "uron Zhegrovan").
-    2. KOHËT E FOLJEVE:
-       - Ngjarje e mbaruar = e kaluara ("fitoi", jo "fiton").
-       - Ngjarje në zhvillim = e tashmja.
-       - Mos ndërro kohët e foljeve pa arsye!
-    3. NUMRI DHE VETA: Folja duhet të përshtatet ("tre lojtarët shënuan" JO "shënoi").
-    4. SINTAKSA: Zëvendëso fjalitë që duken si "Google Translate" me shqipe natyrale gazetareske.
-    
+    KORRIGJO vetëm gabimet gramatikore dhe logjike në këtë tekst.
     Nëse teksti është perfekt, ktheje ekzakt siç është.
     KTHE VETËM TEKSTIN E KORRIGJUAR, pa markdown, pa JSON, pa "Ja teksti".
-    
     Teksti:
     {permbajtja_e_pare}
     """
@@ -261,7 +245,7 @@ def rewrite_with_ai(original_title, full_text):
             permbajtja_finale = rezultati_korrigjuar
             
     except Exception as e:
-        print(f"⚠️ Faza e Proofreading dështoi. Po përdorim tekstin nga Faza 1. Gabimi: {e}")
+        pass
         
     lajmi_baze["permbajtja"] = permbajtja_finale
     return lajmi_baze
@@ -270,6 +254,9 @@ def main():
     existing_news = load_news()
     existing_links = {item.get("link_origjinal") for item in existing_news}
     new_entries = []
+    
+    # LISTA E PRITJES PËR FACEBOOK
+    fb_posts_queue = []
     
     lajme_te_perpunuara = 0
     MAX_LAJME = 5
@@ -281,7 +268,6 @@ def main():
         parsed = feedparser.parse(feed_url)
         for entry in parsed.entries[:10]: 
             if lajme_te_perpunuara >= MAX_LAJME:
-                print(f"\n🛑 U arrit limiti prej {MAX_LAJME} lajmesh për këtë ekzekutim.")
                 break
                 
             link = entry.get("link", "")
@@ -299,7 +285,6 @@ def main():
                     break
             
             if is_duplicate:
-                print(f"Anashkalohet (Lajm i ngjashëm): {title}")
                 continue
 
             summary = entry.get("summary", "")
@@ -335,7 +320,6 @@ def main():
                     pass
             
             if not image_url:
-                print(f"Anashkalohet (Nuk ka foto): {title}")
                 continue
 
             print(f"\nDuke përpunuar: {title}")
@@ -343,7 +327,6 @@ def main():
             full_text = fetch_full_text(link)
             
             if len(full_text) < 300:
-                print("Anashkalohet: Teksti është shumë i shkurtër.")
                 continue
 
             ai_result = rewrite_with_ai(title, full_text)
@@ -365,21 +348,21 @@ def main():
                     "slug": slug_final
                 }
                 
-                # --- Krijon faqen për Facebook (HTML) ---
                 krijo_html_per_facebook(article)
                 
-                # --- Poston direkt në Facebook ---
                 linku_fb = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug_final}.html"
                 
-                # Nxjerrim paragrafin e parë nga lajmi i rishkruar
                 permbajtja_plote = ai_result.get("permbajtja", "")
                 paragrafet = [p.strip() for p in permbajtja_plote.split('\n') if p.strip()]
                 paragrafi_pare = paragrafet[0] if paragrafet else ""
                 
-                # Bashkojmë titullin dhe paragrafin e parë me një hapësirë në mes
                 mesazhi_per_fb = f"{titulli_final}\n\n{paragrafi_pare}"
                 
-                posto_ne_facebook(mesazhi=mesazhi_per_fb, linku=linku_fb)
+                # Ruajmë në listë për t'i postuar më vonë
+                fb_posts_queue.append({
+                    "mesazhi": mesazhi_per_fb,
+                    "linku": linku_fb
+                })
                 
                 new_entries.append(article)
                 existing_links.add(link)
@@ -388,11 +371,29 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        
-        # --- Krijon / Përditëson feed-in RSS ---
         krijo_rss(updated_news)
         
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja dhe u përditësua RSS/HTML/Facebook.")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
+        
+        # SHTESA KRYESORE KËTU: E publikojmë faqen në GitHub
+        print("\nDuke e dërguar kodin në GitHub...")
+        os.system('git config user.email "action@github.com"')
+        os.system('git config user.name "GitHub Actions"')
+        os.system('git add .')
+        os.system('git commit -m "U shtuan lajme te reja automatikisht"')
+        os.system('git push')
+        
+        # Presim që GitHub Pages të rifreskohet
+        print("\n⏳ Presim 80 sekonda që faqja të bëhet live në internet (për të shmangur Error 404 në Facebook)...")
+        time.sleep(80)
+        
+        # Vetëm pasi ka dalë online, e postojmë
+        print("\nDuke i postuar në Facebook tani...")
+        for post in fb_posts_queue:
+            posto_ne_facebook(post["mesazhi"], post["linku"])
+            time.sleep(3)
+            
+        print("\nProcesi përfundoi me sukses të plotë!")
     else:
         print("\nS'ka lajme të reja për momentin.")
 
