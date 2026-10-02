@@ -39,6 +39,17 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
+# --- FUNKSIONI I RI PËR URL SLUG ---
+def krijo_slug(titulli):
+    if not titulli:
+        return ""
+    slug = titulli.lower()
+    slug = slug.replace('ë', 'e').replace('ç', 'c')
+    slug = re.sub(r'[^a-z0-9 -]', '', slug)
+    slug = re.sub(r'\s+', '-', slug)
+    slug = re.sub(r'-+', '-', slug)
+    return slug.strip('-')
+
 def load_news():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, "r", encoding="utf-8") as f:
@@ -103,16 +114,15 @@ def rewrite_with_ai(original_title, full_text):
             response = client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt_faza_1}],
                 model="openai/gpt-oss-120b",
-                temperature=0.1, # TEMP E ULËT PËR FAKTE!
+                temperature=0.1,
             )
             text = response.choices[0].message.content.strip()
             
-            # Pastrimi i JSON-it
             if text.startswith("```json"): text = text[7:-3].strip()
             elif text.startswith("```"): text = text[3:-3].strip()
             
             lajmi_baze = json.loads(text)
-            break # Nëse pati sukses, dil nga loop-i
+            break 
             
         except Exception as e:
             error_msg = str(e)
@@ -132,7 +142,7 @@ def rewrite_with_ai(original_title, full_text):
         return None
 
     # ==========================================
-    # FAZA 2: PROOFREADING GRAMATIKOR (Magjia)
+    # FAZA 2: PROOFREADING GRAMATIKOR
     # ==========================================
     permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
     
@@ -156,24 +166,22 @@ def rewrite_with_ai(original_title, full_text):
     {permbajtja_e_pare}
     """
     
-    permbajtja_finale = permbajtja_e_pare # Fallback nëse faza 2 dështon
+    permbajtja_finale = permbajtja_e_pare 
     
     try:
         response_2 = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt_faza_2}],
             model="openai/gpt-oss-120b",
-            temperature=0.1, # TEMP E ULËT PËR GRAMATIKË STRIKTE!
+            temperature=0.1, 
         )
         rezultati_korrigjuar = response_2.choices[0].message.content.strip()
         
-        # Sigurohemi që AI nuk ka kthyer ndonjë budallallëk si "Nuk ka gabime"
         if len(rezultati_korrigjuar) > 50 and "Nuk ka gabime" not in rezultati_korrigjuar:
             permbajtja_finale = rezultati_korrigjuar
             
     except Exception as e:
         print(f"⚠️ Faza e Proofreading dështoi. Po përdorim tekstin nga Faza 1. Gabimi: {e}")
         
-    # Bashkojmë pjesët përfundimtare
     lajmi_baze["permbajtja"] = permbajtja_finale
     return lajmi_baze
 
@@ -192,7 +200,7 @@ def main():
         parsed = feedparser.parse(feed_url)
         for entry in parsed.entries[:10]: 
             if lajme_te_perpunuara >= MAX_LAJME:
-                print(f"\n🛑 U arrit limiti prej {MAX_LAJME} lajmesh për këtë ekzekutim. Pjesa tjetër mbetet për raundin tjetër.")
+                print(f"\n🛑 U arrit limiti prej {MAX_LAJME} lajmesh për këtë ekzekutim.")
                 break
                 
             link = entry.get("link", "")
@@ -254,22 +262,27 @@ def main():
             full_text = fetch_full_text(link)
             
             if len(full_text) < 300:
-                print("Anashkalohet: Teksti është shumë i shkurtër ose nuk u nxor saktë. Evitohen shpikjet nga AI.")
+                print("Anashkalohet: Teksti është shumë i shkurtër.")
                 continue
 
-            # Këtu thërritet funksioni i ri me DY FAZA
             ai_result = rewrite_with_ai(title, full_text)
             
             time.sleep(3)
 
             if ai_result:
+                titulli_final = ai_result.get("titulli")
+                
+                # --- SHTESA E RE: Ruajtja e SLUG në JSON ---
+                slug_final = krijo_slug(titulli_final)
+                
                 article = {
-                    "titulli": ai_result.get("titulli"),
+                    "titulli": titulli_final,
                     "permbajtja": ai_result.get("permbajtja"),
                     "kategoria": ai_result.get("kategoria", "Lajme"),
                     "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
-                    "link_origjinal": link
+                    "link_origjinal": link,
+                    "slug": slug_final # Linku profesional ruhet këtu!
                 }
                 new_entries.append(article)
                 existing_links.add(link)
@@ -278,7 +291,7 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja (Kaluar nëpër Proofreading!).")
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
     else:
         print("\nS'ka lajme të reja për momentin.")
 
