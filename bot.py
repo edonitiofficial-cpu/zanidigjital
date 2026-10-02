@@ -115,7 +115,7 @@ def krijo_rss(lajmet):
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
     if not fb_token:
-        print("⚠️️ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
+        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
         return
     
     url = "https://graph.facebook.com/v19.0/me/feed"
@@ -356,7 +356,8 @@ def main():
                 paragrafet = [p.strip() for p in permbajtja_plote.split('\n') if p.strip()]
                 paragrafi_pare = paragrafet[0] if paragrafet else ""
                 
-                mesazhi_per_fb = f"{titulli_final}\n\n{paragrafi_pare}"
+                # Mesazhi për Facebook: Merr VETËM paragrafin e parë (pa titull)
+                mesazhi_per_fb = paragrafi_pare
                 
                 # Ruajmë në listë për t'i postuar më vonë
                 fb_posts_queue.append({
@@ -383,7 +384,7 @@ def main():
         os.system('git commit -m "U shtuan lajme te reja automatikisht"')
         os.system('git push')
         
-        # Presim që GitHub Pages të rifreskohet
+        # Presim që GitHub Pages të rifreskohet (80 sekonda)
         print("\n⏳ Presim 80 sekonda që faqja të bëhet live në internet (për të shmangur Error 404 në Facebook)...")
         time.sleep(80)
         
