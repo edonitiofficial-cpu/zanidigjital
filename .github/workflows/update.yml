@@ -43,7 +43,7 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Actions"
 
-          git add lajmet.json
+          git add .
 
           if git diff --cached --quiet; then
             echo "S'ka lajme të reja"
