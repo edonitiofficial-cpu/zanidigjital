@@ -50,6 +50,65 @@ def krijo_slug(titulli):
     slug = re.sub(r'-+', '-', slug)
     return slug.strip('-')
 
+# --- SHTESAT E REJA PËR FACEBOOK & RSS ---
+def krijo_html_per_facebook(article):
+    slug = article["slug"]
+    titulli = article["titulli"].replace('"', '&quot;')
+    imazhi = article["imazhi"]
+    permbajtja = article["permbajtja"][:150].replace('"', '&quot;') + "..."
+    # Ky është linku yt aktual në GitHub Pages
+    url_baze = f"https://edonitiofficial-cpu.github.io/zanidigjital/{slug}.html"
+    
+    html_content = f"""<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="{titulli}" />
+    <meta property="og:image" content="{imazhi}" />
+    <meta property="og:description" content="{permbajtja}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{url_baze}" />
+    <meta http-equiv="refresh" content="0; url=artikulli.html?lajmi={slug}">
+    <title>{titulli}</title>
+    <script>window.location.replace("artikulli.html?lajmi={slug}");</script>
+</head>
+<body>
+    <p>Duke hapur lajmin... <a href="artikulli.html?lajmi={slug}">Kliko këtu nëse nuk hapet automatikisht</a>.</p>
+</body>
+</html>"""
+    
+    with open(f"{slug}.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+def krijo_rss(lajmet):
+    rss_content = """<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Zani Digjital</title>
+  <link>https://edonitiofficial-cpu.github.io/zanidigjital/</link>
+  <description>Lajmet e fundit nga Zani Digjital</description>
+"""
+    # Marrim vetëm 15 lajmet e fundit për Facebook-un
+    for lajm in lajmet[:15]:
+        slug = lajm.get("slug", "")
+        titulli = lajm.get("titulli", "").replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        linku = f"https://edonitiofficial-cpu.github.io/zanidigjital/{slug}.html"
+        pershkrimi = lajm.get("permbajtja", "")[:150].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + "..."
+        
+        rss_content += f"""
+  <item>
+    <title>{titulli}</title>
+    <link>{linku}</link>
+    <description>{pershkrimi}</description>
+  </item>
+"""
+    rss_content += "</channel>\n</rss>"
+    
+    with open("rss.xml", "w", encoding="utf-8") as f:
+        f.write(rss_content)
+
+# ----------------------------------------
+
 def load_news():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, "r", encoding="utf-8") as f:
@@ -77,9 +136,6 @@ def fetch_full_text(url):
         return ""
 
 def rewrite_with_ai(original_title, full_text):
-    # ==========================================
-    # FAZA 1: GJENERIMI BAZË (Përkthimi faktik)
-    # ==========================================
     prompt_faza_1 = f"""
     Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital".
     Detyra: Rishkruaj lajmin në shqip bazuar VETËM në burim.
@@ -141,9 +197,6 @@ def rewrite_with_ai(original_title, full_text):
     if not lajmi_baze:
         return None
 
-    # ==========================================
-    # FAZA 2: PROOFREADING GRAMATIKOR
-    # ==========================================
     permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
     
     prompt_faza_2 = f"""
@@ -272,7 +325,6 @@ def main():
             if ai_result:
                 titulli_final = ai_result.get("titulli")
                 
-                # --- SHTESA E RE: Ruajtja e SLUG në JSON ---
                 slug_final = krijo_slug(titulli_final)
                 
                 article = {
@@ -282,8 +334,12 @@ def main():
                     "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
                     "link_origjinal": link,
-                    "slug": slug_final # Linku profesional ruhet këtu!
+                    "slug": slug_final
                 }
+                
+                # --- SHTESA: Krijon faqen për Facebook (HTML) ---
+                krijo_html_per_facebook(article)
+                
                 new_entries.append(article)
                 existing_links.add(link)
                 lajme_te_perpunuara += 1
@@ -291,7 +347,11 @@ def main():
     if new_entries:
         updated_news = new_entries + existing_news
         save_news(updated_news)
-        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja.")
+        
+        # --- SHTESA: Krijon / Përditëson feed-in RSS ---
+        krijo_rss(updated_news)
+        
+        print(f"\nSukses! U shtuan {len(new_entries)} lajme të reja dhe u përditësua RSS/HTML.")
     else:
         print("\nS'ka lajme të reja për momentin.")
 
