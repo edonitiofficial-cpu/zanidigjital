@@ -26,7 +26,7 @@
     <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <!-- Konfigurimet për Aplikacionin (PWA) dhe iPhone -->
+    <!-- PWA & Icons për iPhone -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
@@ -49,23 +49,33 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
+        /* Shimmer Loading */
         .shimmer {
             background: #f6f7f8;
             background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-            background-repeat: no-repeat;
-            background-size: 800px 100%; 
-            display: inline-block;
-            position: relative; 
-            animation-duration: 1s;
-            animation-fill-mode: forwards; 
-            animation-iteration-count: infinite;
-            animation-name: placeholderShimmer;
-            animation-timing-function: linear;
+            background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; 
+            animation: placeholderShimmer 1s linear infinite forwards;
         }
-        @keyframes placeholderShimmer {
-            0% { background-position: -468px 0; }
-            100% { background-position: 468px 0; }
+        @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
+
+        /* Liquid Glass Efektet */
+        .glass-dark {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .glass-light {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Ticker Lëvizës */
+        .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
+        .marquee-content { display: inline-block; animation: marquee 35s linear infinite; padding-left: 100%; }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
 <body class="text-gray-900 antialiased">
@@ -92,7 +102,8 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
         <section>
-            <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
+            <!-- Ndryshimi i Titullit -->
+            <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
             
             <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
                 <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shimmer h-64 md:h-full w-full"></div>
@@ -103,11 +114,12 @@
             </div>
         </section>
 
+        <!-- Baneri u bë w-full për tu përshtatur saktë me skajet -->
         <div id="banner-top-container" class="w-full"></div>
 
         <section class="border-t border-gray-300 pt-8 mt-8">
             <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
-                <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
+                <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
             </h2>
             <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
@@ -115,27 +127,68 @@
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
             </div>
-        </section>
-
-        <section class="border-t border-gray-300 pt-8">
-            <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka po promovohet?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover" loading="lazy">
-                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
-                </a>
-                <a href="#" class="block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=400&auto=format&fit=crop" class="w-full h-40 object-cover" loading="lazy">
-                    <div class="p-4"><h3 class="font-bold text-md leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
-                </a>
+            
+            <!-- Butoni Lexo Më Shumë -->
+            <div class="mt-10 flex justify-center">
+                <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
             </div>
         </section>
 
         <section class="border-t border-gray-300 pt-8">
-            <h2 class="text-xl font-black mb-6 uppercase tracking-wide">Çka ka për me punu?</h2>
-            <div id="jobs-carousel" class="flex overflow-x-auto gap-4 no-scrollbar cursor-grab snap-x snap-mandatory pb-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black uppercase tracking-wide">Promo Artikujt</h2>
+                <div class="flex gap-2 hidden md:flex">
+                    <button id="btn-promo-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                    <button id="btn-promo-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                </div>
+            </div>
+            
+            <!-- Kthehet ne Slider me 3 Kuti kryesore -->
+            <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
+                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
+                </a>
+                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
+                </a>
+                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Mundësi fantastike për start-ups, apliko tani për grantet e reja</h3></div>
+                </a>
+                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Teknologjia 5G arrin mbulueshmëri 90% në të gjithë vendin</h3></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Titujt e Lajmeve në Lëvizje (Ticker) -->
+        <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
+            <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">
+                FLASH
+            </div>
+            <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
+                <div id="ticker-content" class="marquee-content space-x-12">
+                    Duke ngarkuar lajmet...
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t border-gray-300 pt-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black uppercase tracking-wide">PUNA</h2>
+                <div class="flex gap-2 hidden md:flex">
+                    <button id="btn-jobs-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                    <button id="btn-jobs-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                </div>
+            </div>
+            <div id="jobs-carousel" class="flex overflow-x-auto gap-5 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth">
                 <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
             </div>
         </section>
@@ -144,17 +197,22 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
             <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                <h2 class="text-2xl font-black uppercase">Çka t'thotë populli?</h2>
+                <h2 class="text-2xl font-black uppercase">Fjala jote</h2>
                 <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
                 <div id="poll-container"><p class="text-gray-500 font-medium text-center py-4">Duke ngarkuar sondazhin...</p></div>
             </div>
 
-            <div class="bg-black text-white p-8 rounded-2xl shadow-sm flex flex-col justify-center">
-                <h2 class="text-2xl font-black uppercase">Lajmet ma t’reja, direkt n’telefon.</h2>
-                <p class="text-gray-400 mt-2 mb-6 font-medium">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
-                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3">
-                    <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-600">
-                    <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap">Abonohu</button>
+            <!-- Liquid Glass për Abonimin -->
+            <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden">
+                <!-- Një shkëlqim dekorativ në prapaskenë për ta bërë "glass" më real -->
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
+                <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
+                    <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap shadow-lg">Abonohu</button>
                 </form>
             </div>
         </div>
@@ -167,12 +225,9 @@
     </footer>
 
     <script>
-        // PWA Instaluesi
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(reg => {
-                    console.log('App gati për instalim!');
-                });
+                navigator.serviceWorker.register('/sw.js');
             });
         }
 
@@ -213,6 +268,16 @@
 
                 let allNews = await lajmetPromise;
                 
+                // Gjenero Tickerin Levizes
+                if (allNews && allNews.length > 0) {
+                    let tickerHtml = '';
+                    for (let i = 0; i < Math.min(10, allNews.length); i++) {
+                        const slug = allNews[i].slug ? allNews[i].slug : krijoSlug(allNews[i].titulli);
+                        tickerHtml += `<span class="inline-block hover:text-red-600 transition"><span class="text-red-600 mr-2 text-lg leading-none">•</span><a href="/lajme/${slug}">${allNews[i].titulli}</a></span>`;
+                    }
+                    document.getElementById('ticker-content').innerHTML = tickerHtml;
+                }
+                
                 const bentoGrid = document.getElementById('bento-grid'); 
                 const teFunditGrid = document.getElementById('te-fundit-grid');
                 
@@ -229,13 +294,11 @@
                 }
 
                 let bentoHtml = '';
-                
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
                     const n = newsWithId[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
-                    
                     const imgOptimized = optimizoFoton(n.imazhi, true);
                     const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
                     
@@ -255,7 +318,6 @@
                     const [,txt] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
-                    
                     const imgOptimized = optimizoFoton(n.imazhi, false);
                     const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
                     
@@ -288,7 +350,28 @@
             await loadPoll(); 
             await loadBanners();
             setupNewsletter();
-            setupSlider();
+            setupCarousels();
+        }
+
+        // Funksioni për shigjetat rrëshqitëse
+        function setupCarousels() {
+            const btnPromoLeft = document.getElementById('btn-promo-left');
+            const btnPromoRight = document.getElementById('btn-promo-right');
+            const promoCar = document.getElementById('promo-carousel');
+            
+            if(btnPromoLeft && btnPromoRight && promoCar) {
+                btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' });
+                btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' });
+            }
+
+            const btnJobsLeft = document.getElementById('btn-jobs-left');
+            const btnJobsRight = document.getElementById('btn-jobs-right');
+            const jobsCar = document.getElementById('jobs-carousel');
+            
+            if(btnJobsLeft && btnJobsRight && jobsCar) {
+                btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' });
+                btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' });
+            }
         }
 
         /* --- SONDAZHET --- */
@@ -352,7 +435,10 @@
             const { data, error } = await window.sb.from('jobs').select('*').eq('status', 'published').order('created_at', { ascending: false });
             if (!data || data.length === 0) { carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>'; return; }
             carousel.innerHTML = '';
-            data.forEach(job => { carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-black transition select-none"><div><h3 class="font-bold text-lg mb-1 pointer-events-none">${job.position}</h3><p class="text-gray-500 text-sm pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p></div><div class="mt-4 text-right pointer-events-none"><span class="bg-gray-100 text-black font-semibold text-xs px-3 py-2 rounded-lg">Apliko</span></div></a>`; });
+            data.forEach(job => { 
+                // Zëvendësuam bg-white me Light Liquid Glass për një pamje unike
+                carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between glass-light p-6 rounded-2xl hover:border-black transition select-none"><div><h3 class="font-bold text-lg mb-1 pointer-events-none">${job.position}</h3><p class="text-gray-600 text-sm pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p></div><div class="mt-6 text-right pointer-events-none"><span class="bg-black text-white font-bold text-xs px-4 py-2 rounded-lg shadow-md">Apliko</span></div></a>`; 
+            });
         }
 
         /* --- BANERAT --- */
@@ -363,23 +449,24 @@
                 const topBanner = data.find(b => b.position === 'homepage_top');
                 const midBanner = data.find(b => b.position === 'homepage_middle');
                 
+                // Baneri tani bëhet w-full që të puqet në skaje
                 if(topBanner) document.getElementById('banner-top-container').innerHTML = `
-                    <div class="flex justify-center">
-                        <a href="${topBanner.link_url || '#'}" target="_blank" class="inline-block max-w-full">
-                            <img src="${topBanner.image_url}" class="max-w-full mx-auto h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition" loading="lazy">
+                    <div class="w-full">
+                        <a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full">
+                            <img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
                         </a>
                     </div>`;
                     
                 if(midBanner) document.getElementById('banner-middle-container').innerHTML = `
-                    <div class="flex justify-center mt-8">
-                        <a href="${midBanner.link_url || '#'}" target="_blank" class="inline-block max-w-full">
-                            <img src="${midBanner.image_url}" class="max-w-full mx-auto h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition" loading="lazy">
+                    <div class="w-full mt-8">
+                        <a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full">
+                            <img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
                         </a>
                     </div>`;
             }
         }
 
-        /* --- NEWSLETTER & SLIDER --- */
+        /* --- NEWSLETTER --- */
         function setupNewsletter() {
             const form = document.getElementById('newsletter-form');
             if(form) {
@@ -389,17 +476,6 @@
                     if(error) alert('Ky email është i abonuar ose ka ndodhur një gabim!'); else { alert('Faleminderit për abonimin!'); document.getElementById('newsletter-form').reset(); }
                     btn.innerText = 'Abonohu';
                 });
-            }
-        }
-
-        function setupSlider() {
-            const slider = document.getElementById('jobs-carousel'); 
-            let isDown = false, startX, scrollLeft;
-            if(slider) {
-                slider.addEventListener('mousedown', (e) => { isDown = true; slider.classList.add('cursor-grabbing'); slider.classList.remove('cursor-grab'); startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
-                slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('cursor-grabbing'); slider.classList.add('cursor-grab'); });
-                slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('cursor-grabbing'); slider.classList.add('cursor-grab'); });
-                slider.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - slider.offsetLeft; slider.scrollLeft = scrollLeft - (x - startX) * 2; });
             }
         }
     </script>
