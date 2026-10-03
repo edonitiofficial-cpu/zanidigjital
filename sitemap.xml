@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/metani-shkakton-30-te-ngrohjes-globale-pse-be-po-shtyn-rregullat-per-ta-reduktuar</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/rikthehet-flamuri-kuqezi-ne-majen-e-korabit-largohet-ai-maqedonas</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/modric-pas-debaklit-te-kroacise-ne-20-vjet-kurre-nuk-kam-ndier-kaq-shume-turp</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/nga-termetet-te-mjedisi-shqiperia-kerkon-receten-japoneze-te-perballjes-me-fatkeqesite-natyrore</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/cfare-te-beni-kur-femija-ju-godet-reagimi-qe-vendos-kufij-pa-te-bertitura</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/bruno-fernandes-zbulon-biseden-qe-pati-me-ronaldon-pas-situates-se-tensionuar-te-portugalia</loc>
