@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-F3XJ36058R');
     </script>
     
@@ -27,25 +26,11 @@
     <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://zanidigjital.com/">
-    <meta name="twitter:title" content="Zani Digjital | Lajmet e Fundit">
-    <meta name="twitter:description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit 24/7.">
-    <meta name="twitter:image" content="https://zanidigjital.com/zanidigjital.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsMediaOrganization",
-      "name": "Zani Digjital",
-      "url": "https://zanidigjital.com",
-      "logo": "https://zanidigjital.com/zanidigjital.png",
-      "sameAs": []
-    }
-    </script>
-
     <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lidhje e shpejte me serverin e ri te fotove dhe fontet -->
+    <link rel="preconnect" href="https://wsrv.nl">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -178,6 +163,12 @@
     </footer>
 
     <script>
+        // SHPEJTESIA: Nisim shkarkimin e lajmeve direkt, pa pritur qe faqja te vizatohet e plote
+        const sysTimestamp = Math.floor(new Date().getTime() / 60000);
+        const lajmetPromise = fetch(`ballina.json?t=${sysTimestamp}`)
+            .then(res => { if(!res.ok) throw new Error("Ska ballina"); return res.json(); })
+            .catch(() => fetch(`lajmet.json?t=${sysTimestamp}`).then(res => res.json()).catch(() => []));
+
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Teknologji': ['bg-blue-600','text-blue-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
         
         function krijoSlug(titulli) {
@@ -188,6 +179,13 @@
                 .replace(/\s+/g, '-') 
                 .replace(/-+/g, '-')
                 .replace(/^-+|-+$/g, '');
+        }
+
+        // SHPEJTESIA E FOTOVE: Kompresimi WEBP ne fluturim (e zvogelon foton 90%)
+        function optimizoFoton(url, isLarge) {
+            if(!url) return '';
+            const width = isLarge ? 800 : 400;
+            return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`;
         }
 
         async function loadNews() {
@@ -202,19 +200,8 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                const timestamp = new Date().getTime();
-                let allNews = [];
-                
-                try {
-                    // Së pari tentojmë të marrim skedarin e lehtë (ballina.json)
-                    const resFast = await fetch(`ballina.json?t=${timestamp}`);
-                    if (!resFast.ok) throw new Error("Ska ballina");
-                    allNews = await resFast.json();
-                } catch(e) {
-                    // Nëse roboti s'e ka krijuar ende ballina.json, hapim lajmet.json për momentin
-                    const resSlow = await fetch(`lajmet.json?t=${timestamp}`);
-                    allNews = await resSlow.json();
-                }
+                // Presim rezultatin nga shkarkimi qe nisi me heret
+                let allNews = await lajmetPromise;
                 
                 const bentoGrid = document.getElementById('bento-grid'); 
                 const teFunditGrid = document.getElementById('te-fundit-grid');
@@ -232,14 +219,23 @@
                 }
 
                 let bentoHtml = '';
+                
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
                     const n = newsWithId[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
                     
-                    if (i === 0) bentoHtml += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`;
-                    else bentoHtml += `<a href="${url}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${bg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`;
+                    // Aplikojme kompresimin e fotos
+                    const imgOptimized = optimizoFoton(n.imazhi, true);
+                    // Nese CDN deshton, kthehet direkt te fotoja origjinale si plan B
+                    const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
+                    
+                    if (i === 0) {
+                        bentoHtml += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`;
+                    } else {
+                        bentoHtml += `<a href="${url}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${bg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`;
+                    }
                 }
                 bentoGrid.innerHTML = bentoHtml;
                 
@@ -252,7 +248,10 @@
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
                     
-                    teFunditHtml += `<a href="${url}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col"><img src="${n.imazhi}" class="w-full h-40 object-cover" loading="lazy"><div class="p-4 flex-grow flex flex-col"><span class="${txt} font-bold text-xs uppercase mb-2">${n.kategoria}</span><h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3><p class="text-gray-500 text-xs mt-auto">${n.koha}</p></div></a>`;
+                    const imgOptimized = optimizoFoton(n.imazhi, false);
+                    const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
+                    
+                    teFunditHtml += `<a href="${url}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-40 object-cover" loading="lazy"><div class="p-4 flex-grow flex flex-col"><span class="${txt} font-bold text-xs uppercase mb-2">${n.kategoria}</span><h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3><p class="text-gray-500 text-xs mt-auto">${n.koha}</p></div></a>`;
                 }
                 teFunditGrid.innerHTML = teFunditHtml;
 
