@@ -62,7 +62,7 @@ def krijo_html_per_facebook(article):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         
-    url_baze = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug}.html"
+    url_baze = f"https://zanidigjital.com/lajme/{slug}.html"
     
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
@@ -91,13 +91,13 @@ def krijo_rss(lajmet):
 <rss version="2.0">
 <channel>
   <title>Zani Digjital</title>
-  <link>https://edonitiofficial-cpu.github.io/zanidigjital/</link>
+  <link>https://zanidigjital.com/</link>
   <description>Lajmet e fundit nga Zani Digjital</description>
 """
     for lajm in lajmet[:15]:
         slug = lajm.get("slug", "")
         titulli = lajm.get("titulli", "").replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        linku = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug}.html"
+        linku = f"https://zanidigjital.com/lajme/{slug}.html"
         pershkrimi = lajm.get("permbajtja", "")[:150].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + "..."
         
         rss_content += f"""
@@ -223,10 +223,16 @@ def rewrite_with_ai(original_title, full_text):
     permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
     
     prompt_faza_2 = f"""
-    Ti je një Profesor i Gjuhës Shqipe dhe Redaktor Gjuhësor strikt.
-    KORRIGJO vetëm gabimet gramatikore dhe logjike në këtë tekst.
-    Nëse teksti është perfekt, ktheje ekzakt siç është.
-    KTHE VETËM TEKSTIN E KORRIGJUAR, pa markdown, pa JSON, pa "Ja teksti".
+    Ti je një Redaktor Gjuhësor Shqiptar profesionist me shumë përvojë në gazetari.
+    Detyra jote: KORRIGJO këtë tekst që aktualisht tingëllon si përkthim i dobët i Google Translate.
+    
+    RREGULLAT E KRYESORE:
+    1. KORRIGJO GJINITË DHE RASAT: Emrat duhet të përshtaten saktë. (P.sh., gjej dhe ndreq gabime si "lajm e mirë" -> "lajm i mirë", ose "parashikoi Barcelona" -> "parashikoi Barcelonën").
+    2. SHMANG PËRKTHIMET FOTOGRAFIKE NGA ANGLISHTJA: Fjalitë duhet të rrjedhin natyrshëm në shqip. Ndrysho strukturën e fjalisë nëse tingëllon "robotike".
+    3. LAKIMI I EMRAVE: Sigurohu që emrat e përveçëm të jenë të lakuar saktë (p.sh., "vendimi i Ramës", jo "vendimi i Rama").
+    4. MOS shto asnjë informacion, fakt apo emër të ri. Vetëm rregullo gramatikën dhe logjikën e atyre që janë.
+    
+    KTHE VETËM TEKSTIN E KORRIGJUAR, pa asnjë shpjegim tjetër, pa markdown, pa "Ja teksti".
     Teksti:
     {permbajtja_e_pare}
     """
@@ -350,7 +356,7 @@ def main():
                 
                 krijo_html_per_facebook(article)
                 
-                linku_fb = f"https://edonitiofficial-cpu.github.io/zanidigjital/lajme/{slug_final}.html"
+                linku_fb = f"https://zanidigjital.com/lajme/{slug_final}.html"
                 
                 permbajtja_plote = ai_result.get("permbajtja", "")
                 paragrafet = [p.strip() for p in permbajtja_plote.split('\n') if p.strip()]
