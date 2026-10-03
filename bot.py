@@ -329,11 +329,11 @@ def gjenero_titull_dhe_kategori(original_title, full_text):
     prompt = f"""
     Ti je Kryeredaktori i portalit "Zani Digjital".
     
-    DETYRA:
+    DETYRA JOTE:
     1. Rishkruaj VETËM TITULLIN origjinal që të jetë i qartë, profesional, dhe absolutisht PA CLICKBAIT. 
-    2. Përcakto KATEGORINË duke u bazuar te teksti. Fokusi ynë: Politikë (Kosovë), Sport, Ekonomi, Teknologji, ose Lajme të përgjithshme.
-    3. RREGULLI I ARRTË: Nëse lajmi është Showbiz, Thashetheme, VIP, apo jashtë interesit tonë, kthe kategorinë "Kalo".
-    4. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale, të lidhur direkt me temën e lajmit (p.sh. #Kosovë #Politikë #Prishtinë).
+    2. Përcakto KATEGORINË. PRIORITETI YNË ABSOLUT JANE KËTO: Politikë, Sport, Ekonomi (me fokus Kosovën) dhe Teknologji. Zgjidh njërën nga këto.
+    3. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, ose e zezë banale, kthe VETËM kategorinë "Kalo". 
+    4. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale, të lidhur direkt me temën e lajmit (p.sh. #Kosovë #Politikë).
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:800]}
@@ -375,7 +375,7 @@ def main():
         if lajme_te_perpunuara >= MAX_LAJME: break
             
         parsed = feedparser.parse(feed_url)
-        for entry in parsed.entries[:10]: 
+        for entry in parsed.entries[:30]: 
             if lajme_te_perpunuara >= MAX_LAJME: break
                 
             link = entry.get("link", "")
@@ -387,12 +387,12 @@ def main():
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
                 similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
-                if similarity > 0.40:
+                if similarity > 0.65:
                     is_duplicate = True
                     break
             
             if is_duplicate:
-                print(f"🚫 U bllokua si duplikat: {title}")
+                print(f"🚫 U bllokua si duplikat i saktë: {title}")
                 continue
 
             image_url = ""
@@ -422,17 +422,25 @@ def main():
             if ai_result:
                 kategoria = ai_result.get("kategoria", "Lajme")
                 if kategoria == "Kalo":
-                    print("⏩ Lajmi u kalua (jashtë fokusit).")
+                    print("⏩ Lajmi u kalua (jashtë interesit/showbiz).")
                     continue
 
                 titulli_final = ai_result.get("titulli")
                 slug_final = krijo_slug(titulli_final)
                 hashtags = ai_result.get("hashtags", "")
                 
+                # FShesa E RE (REGEX) - KAP ÇDO VARIANT TË EMRIT
                 teksti_i_pastruar = full_text
-                portale_konkurrente = ["Telegrafi", "telegrafi.com", "Indeksonline", "indeksonline.net", "Gazeta Express", "gazetaexpress.com", "Express"]
-                for p in portale_konkurrente:
-                    teksti_i_pastruar = re.sub(rf'(?i)\b{p}\b', 'Zani Digjital', teksti_i_pastruar)
+                portale_regex = [
+                    r'(?i)telegraf(i|it|in)?(\.com)?',
+                    r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
+                    r'(?i)\bexpress(i|it|in)?\b',
+                    r'(?i)indeksonline(\.net)?',
+                    r'(?i)indeks\s*online(\.net)?'
+                ]
+                
+                for pattern in portale_regex:
+                    teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
                 
                 article = {
                     "titulli": titulli_final,
@@ -449,13 +457,14 @@ def main():
                 paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 paragrafi_pare = paragrafet[0][:200] + "..." if paragrafet else titulli_final
                 
-                # BASHKIMI I HASHTAGS ME TEKSTIN PËR FACEBOOK
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
                 new_entries.append(article)
                 existing_links.add(link)
+                
                 lajme_te_perpunuara += 1
+                print(f"✅ U shtua lajmi numër {lajme_te_perpunuara} nga 5 të kërkuara.")
 
     if new_entries:
         updated_news = new_entries + existing_news
@@ -469,7 +478,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtuan lajme origjinale dhe hashtags per FB"')
+        os.system('git commit -m "U rregullua pastrimi thellë i tekstit nga emrat e portaleve"')
         os.system('git push')
         
         print("\n⏳ Presim 80 sekonda për Facebook...")
@@ -478,7 +487,7 @@ def main():
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(3)
     else:
-        print("\nS'ka lajme të reja.")
+        print("\nS'ka lajme të reja nga kategoritë e kërkuara.")
 
 if __name__ == "__main__":
     main()
