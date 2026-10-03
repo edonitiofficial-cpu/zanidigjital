@@ -58,17 +58,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center py-4">
                 <div class="flex-shrink-0 flex items-center mb-4 md:mb-0">
-                    <a href="index.html">
+                    <!-- Linku i pastër për Logon -->
+                    <a href="/">
                         <img src="zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                     </a>
                 </div>
                 <nav id="nav-menu" class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
-                    <a href="index.html" id="link-ballina" class="text-black border-b-2 border-black pb-1">Ballina</a>
-                    <a href="index.html?kategoria=Lajme" id="link-Lajme" class="hover:text-black transition pb-1">Lajme</a>
-                    <a href="index.html?kategoria=Politikë" id="link-Politikë" class="hover:text-black transition pb-1">Politikë</a>
-                    <a href="index.html?kategoria=Ekonomi" id="link-Ekonomi" class="hover:text-black transition pb-1">Ekonomi</a>
-                    <a href="index.html?kategoria=Sport" id="link-Sport" class="hover:text-black transition pb-1">Sport</a>
-                    <a href="index.html?kategoria=Teknologji" id="link-Teknologji" class="hover:text-black transition pb-1">Teknologji</a>
+                    <!-- Linqet e pastra për Kategoritë -->
+                    <a href="/" id="link-ballina" class="text-black border-b-2 border-black pb-1">Ballina</a>
+                    <a href="/?kategoria=Lajme" id="link-Lajme" class="hover:text-black transition pb-1">Lajme</a>
+                    <a href="/?kategoria=Politikë" id="link-Politikë" class="hover:text-black transition pb-1">Politikë</a>
+                    <a href="/?kategoria=Ekonomi" id="link-Ekonomi" class="hover:text-black transition pb-1">Ekonomi</a>
+                    <a href="/?kategoria=Sport" id="link-Sport" class="hover:text-black transition pb-1">Sport</a>
+                    <a href="/?kategoria=Teknologji" id="link-Teknologji" class="hover:text-black transition pb-1">Teknologji</a>
                 </nav>
             </div>
         </div>
@@ -252,7 +254,7 @@
                 .replace(/^-+|-+$/g, '');
         }
 
-        /* --- LAJMET E VJETRA (JSON) ME FILTRIM --- */
+        /* --- LAJMET E VJETRA (JSON) ME FILTRIM DHE LINQE TË PASTRA --- */
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Teknologji': ['bg-blue-600','text-blue-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
         
         async function loadNews() {
@@ -288,9 +290,9 @@
                     const n = newsWithId[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     
-                    // URL E RE ME SLUG:
+                    // KËTU ËSHTË MAGJIA PËR LINQE TË PASTRA TË LAJMIT
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
-                    const url = `artikulli.html?lajmi=${slug}`;
+                    const url = `/lajme/${slug}`;
                     
                     if (i === 0) bentoGrid.innerHTML += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${n.imazhi}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`;
                     else bentoGrid.innerHTML += `<a href="${url}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${n.imazhi}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${bg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`;
@@ -302,9 +304,9 @@
                     const n = newsWithId[i]; 
                     const [,txt] = getCatStyles(n.kategoria); 
                     
-                    // URL E RE ME SLUG:
+                    // LINQE TË PASTRA PËR LAJMET E FUNDIT
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
-                    const url = `artikulli.html?lajmi=${slug}`;
+                    const url = `/lajme/${slug}`;
                     
                     teFunditGrid.innerHTML += `<a href="${url}" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col"><img src="${n.imazhi}" class="w-full h-40 object-cover"><div class="p-4 flex-grow flex flex-col"><span class="${txt} font-bold text-xs uppercase mb-2">${n.kategoria}</span><h3 class="font-bold text-lg leading-tight mb-2">${n.titulli}</h3><p class="text-gray-500 text-xs mt-auto">${n.koha}</p></div></a>`;
                 }
