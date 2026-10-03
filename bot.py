@@ -66,7 +66,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     kategoria = article.get("kategoria", "Lajme")
     koha = article.get("koha", "")
     
-    # URL e paster pa .html
     url_baze = f"https://zanidigjital.com/lajme/{slug}"
     
     permbajtja_meta = permbajtja[:150].replace('"', '&quot;') + "..."
@@ -80,7 +79,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         if count >= 5: break
         c_text = get_category_text(s.get("kategoria", "Lajme"))
         s_slug = s.get("slug")
-        # Sugjerime pa .html
         sugjerime_html += f"""
         <a href="https://zanidigjital.com/lajme/{s_slug}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
             <img src="{s.get('imazhi')}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
@@ -93,7 +91,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </a>"""
         count += 1
 
-    # Ndryshimi i menaxhimit te dosjeve (Clean URL Hack per Github Pages)
     folder_path = os.path.join("lajme", slug)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -130,8 +127,12 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="twitter:description" content="{permbajtja_meta}">
     <meta name="twitter:image" content="{imazhi}">
 
-    <!-- Imazhet tani jane absolute me / qe te hapen nga cfaredo folderi -->
+    <!-- PWA & Icons për iPhone -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
+    <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
@@ -222,10 +223,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             <p class="text-gray-500 text-sm font-medium">&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
+    <script>
+        if ('serviceWorker' in navigator) {{
+            window.addEventListener('load', () => {{
+                navigator.serviceWorker.register('/sw.js');
+            }});
+        }}
+    </script>
 </body>
 </html>"""
 
-    # Ruhet si index.html brenda dosjes me emrin e lajmit
     file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
@@ -468,7 +475,6 @@ def main():
                     "slug": slug_final
                 }
                 
-                # U hoq .html edhe nga linku per Facebook
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
                 paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
@@ -495,7 +501,8 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "Zgjidhja perfundimtare: Clean URLs pa .html"')
+        os.system('git commit -m "U shtuan lajme të reja automatikisht me integrim PWA"')
+        os.system('git pull --rebase')
         os.system('git push')
         
         print("\n⏳ Presim 120 sekonda për Facebook (që të publikohet faqja).")
