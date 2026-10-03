@@ -64,12 +64,6 @@
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .glass-light {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-        }
 
         /* Ticker Lëvizës */
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
@@ -180,16 +174,25 @@
             </div>
         </section>
 
-        <section class="border-t border-gray-300 pt-8">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-black uppercase tracking-wide">PUNA</h2>
-                <div class="flex gap-2 hidden md:flex">
-                    <button id="btn-jobs-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button id="btn-jobs-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+        <!-- Rubrika PUNA me Liquid Glass të vërtetë -->
+        <section class="border-t border-gray-300 pt-8 mt-8">
+            <div class="relative z-0 p-6 md:p-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+                <!-- Sfondi me ngjyra për të aktivizuar efektin Liquid Glass -->
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-50 -z-20"></div>
+                <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                <div class="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400 opacity-10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                
+                <div class="flex justify-between items-center mb-8 relative z-10">
+                    <h2 class="text-2xl font-black uppercase tracking-wide text-gray-900">PUNA</h2>
+                    <div class="flex gap-2 hidden md:flex">
+                        <button id="btn-jobs-left" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                        <button id="btn-jobs-right" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                    </div>
                 </div>
-            </div>
-            <div id="jobs-carousel" class="flex overflow-x-auto gap-5 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth">
-                <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
+                <div id="jobs-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth relative z-10">
+                    <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
+                </div>
             </div>
         </section>
         
@@ -203,7 +206,7 @@
             </div>
 
             <!-- Liquid Glass për Abonimin -->
-            <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden">
+            <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden shadow-xl">
                 <!-- Një shkëlqim dekorativ në prapaskenë për ta bërë "glass" më real -->
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
@@ -211,7 +214,7 @@
                 <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
                 <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
                 <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
-                    <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner">
                     <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap shadow-lg">Abonohu</button>
                 </form>
             </div>
@@ -353,7 +356,6 @@
             setupCarousels();
         }
 
-        // Funksioni për shigjetat rrëshqitëse
         function setupCarousels() {
             const btnPromoLeft = document.getElementById('btn-promo-left');
             const btnPromoRight = document.getElementById('btn-promo-right');
@@ -428,7 +430,7 @@
             container.innerHTML = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div><div class="flex justify-between text-sm font-bold mb-1"><span>Mesatarja e të gjithë votuesve</span><span>${average}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div></div></div>`;
         }
 
-        /* --- PUNËT --- */
+        /* --- PUNËT ME SUPER LIQUID GLASS --- */
         async function loadJobs() {
             const carousel = document.getElementById('jobs-carousel');
             if(!window.sb) return;
@@ -436,8 +438,16 @@
             if (!data || data.length === 0) { carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>'; return; }
             carousel.innerHTML = '';
             data.forEach(job => { 
-                // Zëvendësuam bg-white me Light Liquid Glass për një pamje unike
-                carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between glass-light p-6 rounded-2xl hover:border-black transition select-none"><div><h3 class="font-bold text-lg mb-1 pointer-events-none">${job.position}</h3><p class="text-gray-600 text-sm pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p></div><div class="mt-6 text-right pointer-events-none"><span class="bg-black text-white font-bold text-xs px-4 py-2 rounded-lg shadow-md">Apliko</span></div></a>`; 
+                // Xham i lëngshëm me border të bardhë dhe shadow të theksuar
+                carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white/50 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:bg-white/70 transition-all duration-300 select-none">
+                    <div>
+                        <h3 class="font-extrabold text-lg mb-1 pointer-events-none text-gray-900">${job.position}</h3>
+                        <p class="text-gray-600 text-sm font-medium pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p>
+                    </div>
+                    <div class="mt-6 text-right pointer-events-none">
+                        <span class="bg-black text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">Apliko</span>
+                    </div>
+                </a>`; 
             });
         }
 
@@ -449,7 +459,6 @@
                 const topBanner = data.find(b => b.position === 'homepage_top');
                 const midBanner = data.find(b => b.position === 'homepage_middle');
                 
-                // Baneri tani bëhet w-full që të puqet në skaje
                 if(topBanner) document.getElementById('banner-top-container').innerHTML = `
                     <div class="w-full">
                         <a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full">
