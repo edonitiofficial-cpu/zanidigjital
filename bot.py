@@ -252,7 +252,6 @@ def krijo_rss(lajmet):
     with open("rss.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
 
-# FUNKSIONI PËR SITEMAP (GOOGLE SEO)
 def krijo_sitemap(lajmet):
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -275,9 +274,7 @@ def krijo_sitemap(lajmet):
         slug = lajm.get("slug", "")
         if not slug:
             slug = krijo_slug(lajm.get("titulli", ""))
-        
         linku = f"https://zanidigjital.com/lajme/{slug}"
-        
         data_lajmit = koha_tani
         if "koha" in lajm:
             try:
@@ -285,42 +282,31 @@ def krijo_sitemap(lajmet):
                 data_lajmit = obj_data.strftime("%Y-%m-%d")
             except:
                 pass
-                
         sitemap_content += f"  <url>\n    <loc>{linku}</loc>\n    <lastmod>{data_lajmit}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
         
     sitemap_content += "</urlset>"
-    
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_content)
 
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
     if not fb_token:
-        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur te GitHub Secrets. Postimi u anashkalua.")
+        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur. Postimi u anashkalua.")
         return
-    
     url = "https://graph.facebook.com/v19.0/me/feed"
-    data = urllib.parse.urlencode({
-        "message": mesazhi,
-        "link": linku,
-        "access_token": fb_token
-    }).encode('utf-8')
-    
+    data = urllib.parse.urlencode({"message": mesazhi, "link": linku, "access_token": fb_token}).encode('utf-8')
     try:
-        req = urllib.request.Request(url, data=data)
-        response = urllib.request.urlopen(req)
-        print(f"✅ Lajmi u postua me sukses në Facebook! ({linku})")
+        urllib.request.urlopen(urllib.request.Request(url, data=data))
+        print(f"✅ Postuar në Facebook! ({linku})")
     except Exception as e:
-        print(f"❌ Gabim gjatë postimit në Facebook: {e}")
-
-# ----------------------------------------
+        print(f"❌ Gabim postimi: {e}")
 
 def load_news():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, "r", encoding="utf-8") as f:
             try:
                 return json.load(f)
-            except json.JSONDecodeError:
+            except:
                 return []
     return []
 
@@ -334,190 +320,127 @@ def fetch_full_text(url):
         if downloaded:
             text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, no_fallback=True)
             if text:
-                words = text.split()
-                return " ".join(words[:600])
+                return text
         return ""
-    except Exception as e:
+    except:
         return ""
 
-def rewrite_with_ai(original_title, full_text):
-    prompt_faza_1 = f"""
-    Ti je Kryeredaktori i portalit të lajmeve "Zani Digjital". 
-    Detyra jote është të rishkruash lajmin origjinal në një shqipe të pastër dhe profesionale.
+# FUNKSIONI I RI: AI rishkruan VETËM titullin dhe gjen kategorinë. Nuk e prek tekstin!
+def gjenero_titull_dhe_kategori(original_title, full_text):
+    prompt = f"""
+    Ti je Kryeredaktori i portalit "Zani Digjital".
     
-    ⛔ RREGULLA ABSOLUTE (Nëse i shkel, lajmi dështon):
-    1. FAKTET DHE NUMRAT: MOS shto ose ndrysho ASNJË emër njeriu, emër organizate/ekipi, parti politike (psh. ruaje saktë PDK, LDK, VV etj.), apo shifër.
-    2. SHQIPJA E PASTËR: Ndalohet rreptësisht shpikja e fjalëve inekzistente (p.sh. thuhet "ankohet", asnjëherë "ankton"). Përdor fjalor standard dhe fjali të rrjedhshme.
-    3. ASNJË MENDIM: Mos shto interpretime apo ngjyrim politik. Vetëm rishkruaj çfarë ka ndodhur.
-    4. STRUKTURA: 3-5 paragrafë të shkurtër, të ndarë me dy hapësira (\\n\\n).
-    
-    KATEGORIA: Zgjidh VETËM njërën nga këto: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto.
+    DETYRA:
+    1. Rishkruaj VETËM TITULLIN origjinal që të jetë i qartë, profesional, dhe absolutisht PA CLICKBAIT. 
+    2. Përcakto KATEGORINË duke u bazuar te teksti. Fokusi ynë: Politikë (Kosovë), Sport, Ekonomi, Teknologji, ose Lajme të përgjithshme.
+    3. RREGULLI I ARRTË: Nëse lajmi është Showbiz, Thashetheme, VIP, apo jashtë interesit tonë, kthe kategorinë "Kalo".
     
     Titulli origjinal: {original_title}
-    Teksti origjinal: {full_text}
+    Teksti: {full_text[:800]}
     
-    KTHE VETËM një skedar JSON valid (pa asnjë tekst tjetër jashtë kllapave) në këtë format:
+    KTHE VETËM SKEDARIN JSON (asgjë tjetër):
     {{
-      "titulli": "Titulli jot pa clickbait",
-      "permbajtja": "Permbajtja e rishkruar",
-      "kategoria": "Kategoria"
+      "titulli": "Titulli yt i ri dhe pa gabime",
+      "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo"
     }}
     """
-    
-    lajmi_baze = None
-    
     for attempt in range(1, 4):
         try:
             response = client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt_faza_1}],
+                messages=[{"role": "user", "content": prompt}],
                 model="openai/gpt-oss-120b",
                 temperature=0.0,
             )
             text = response.choices[0].message.content.strip()
-            
             if text.startswith("```json"): text = text[7:-3].strip()
             elif text.startswith("```"): text = text[3:-3].strip()
-            
-            lajmi_baze = json.loads(text)
-            break 
-            
+            return json.loads(text)
         except Exception as e:
-            error_msg = str(e)
-            if "429" in error_msg or "rate limit" in error_msg.lower():
-                if len(valid_keys) > 1:
-                    switch_api_key()
-                    time.sleep(2)
-                else:
-                    time.sleep(40)
-            elif "413" in error_msg:
-                return None
-            else:
-                return None
-                
-    if not lajmi_baze:
-        return None
-
-    permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
-    
-    prompt_faza_2 = f"""
-    Ti je Redaktor Gjuhësor Shqiptar për portale profesionale.
-    Detyra e VETME: Rregullo gabimet gramatikore (lakimet, rasat, gjinitë) dhe rregullo shprehjet që tingëllojnë si përkthim fjalëpërfjalshëm.
-    
-    ⛔ RREGULLA TË HEKURTA:
-    1. MOS ndrysho asnjë emër njeriu, ekipi apo parti politike (Nëse shkruan PDK, lëre PDK, mos e kthe në PD).
-    2. MOS shtrembëro asnjë numër ose fakt historik/politik.
-    3. Ndalohet shpikja e fjalëve të panjohura.
-    
-    Teksti:
-    {permbajtja_e_pare}
-    
-    KTHE VETËM TEKSTIN E KORRIGJUAR (asgjë tjetër)!
-    """
-    
-    permbajtja_finale = permbajtja_e_pare 
-    
-    try:
-        response_2 = client.chat.completions.create(
-            messages=[{"role": "user", "content": prompt_faza_2}],
-            model="openai/gpt-oss-120b",
-            temperature=0.0,
-        )
-        rezultati_korrigjuar = response_2.choices[0].message.content.strip()
-        
-        if len(rezultati_korrigjuar) > 50 and "Nuk ka gabime" not in rezultati_korrigjuar:
-            permbajtja_finale = rezultati_korrigjuar
-            
-    except Exception as e:
-        pass
-        
-    lajmi_baze["permbajtja"] = permbajtja_finale
-    return lajmi_baze
+            if "429" in str(e):
+                if len(valid_keys) > 1: switch_api_key()
+                time.sleep(2)
+            else: return None
+    return None
 
 def main():
     existing_news = load_news()
     existing_links = {item.get("link_origjinal") for item in existing_news}
     new_entries = []
-    
     fb_posts_queue = []
     lajme_te_perpunuara = 0
     MAX_LAJME = 5
 
     for feed_url in RSS_FEEDS:
-        if lajme_te_perpunuara >= MAX_LAJME:
-            break
+        if lajme_te_perpunuara >= MAX_LAJME: break
             
         parsed = feedparser.parse(feed_url)
         for entry in parsed.entries[:10]: 
-            if lajme_te_perpunuara >= MAX_LAJME:
-                break
+            if lajme_te_perpunuara >= MAX_LAJME: break
                 
             link = entry.get("link", "")
             title = entry.get("title", "")
             
-            if link in existing_links:
-                continue
+            if link in existing_links: continue
 
+            # KONTROLLI SUPER STRIKT PËR DUPLIKATA (Pragu u ul në 0.40)
             is_duplicate = False
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
                 similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
-                if similarity > 0.55:
+                if similarity > 0.40:
                     is_duplicate = True
                     break
             
             if is_duplicate:
+                print(f"🚫 U bllokua si duplikat: {title}")
                 continue
 
-            summary = entry.get("summary", "")
             image_url = ""
-            
-            if "media_content" in entry and len(entry.media_content) > 0:
-                image_url = entry.media_content[0].get("url", "")
-            
+            summary = entry.get("summary", "")
+            if "media_content" in entry and entry.media_content: image_url = entry.media_content[0].get("url", "")
             if not image_url and "links" in entry:
                 for l in entry.links:
-                    if l.get("type", "").startswith("image") or l.get("rel", "") == "enclosure":
-                        image_url = l.get("href", "")
-                        break
-                        
+                    if l.get("type", "").startswith("image") or l.get("rel", "") == "enclosure": image_url = l.get("href", ""); break
             if not image_url:
                 match = re.search(r'<img[^>]+src="([^">]+)"', summary)
-                if match:
-                    image_url = match.group(1)
-            
-            if not image_url and "content" in entry and len(entry.content) > 0:
-                match = re.search(r'<img[^>]+src="([^">]+)"', entry.content[0].value)
-                if match:
-                    image_url = match.group(1)
-                    
+                if match: image_url = match.group(1)
             if not image_url and link:
                 try:
-                    req = urllib.request.Request(link, headers={'User-Agent': 'Mozilla/5.0'})
-                    html = urllib.request.urlopen(req, timeout=5).read().decode('utf-8', errors='ignore')
+                    html = urllib.request.urlopen(urllib.request.Request(link, headers={'User-Agent': 'Mozilla/5.0'}), timeout=5).read().decode('utf-8', errors='ignore')
                     match = re.search(r'<meta property="og:image" content="([^"]+)"', html)
-                    if match:
-                        image_url = match.group(1)
-                except Exception as e:
-                    pass
-            
-            if not image_url:
-                continue
+                    if match: image_url = match.group(1)
+                except: pass
+            if not image_url: continue
 
             print(f"\nDuke përpunuar: {title}")
             full_text = fetch_full_text(link)
-            if len(full_text) < 300: continue
+            if len(full_text) < 200: continue
 
-            ai_result = rewrite_with_ai(title, full_text)
+            # AI TANI PUNON VETËM PËR TITULL DHE KATEGORI
+            ai_result = gjenero_titull_dhe_kategori(title, full_text)
             time.sleep(3)
 
             if ai_result:
+                # Filtrimi kategorive të padëshiruara
+                kategoria = ai_result.get("kategoria", "Lajme")
+                if kategoria == "Kalo":
+                    print("⏩ Lajmi u kalua (jashtë fokusit).")
+                    continue
+
                 titulli_final = ai_result.get("titulli")
                 slug_final = krijo_slug(titulli_final)
                 
+                # PASTRIMI I TEKSTIT ORIGJINAL (Pa përdorur IA)
+                teksti_i_pastruar = full_text
+                portale_konkurrente = ["Telegrafi", "telegrafi.com", "Indeksonline", "indeksonline.net", "Gazeta Express", "gazetaexpress.com", "Express"]
+                for p in portale_konkurrente:
+                    # Kërkon emrin e portalit dhe e zëvendëson me Zani Digjital kudo që të jetë
+                    teksti_i_pastruar = re.sub(rf'(?i)\b{p}\b', 'Zani Digjital', teksti_i_pastruar)
+                
                 article = {
                     "titulli": titulli_final,
-                    "permbajtja": ai_result.get("permbajtja"),
-                    "kategoria": ai_result.get("kategoria", "Lajme"),
+                    "permbajtja": teksti_i_pastruar,
+                    "kategoria": kategoria,
                     "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
                     "link_origjinal": link,
@@ -526,15 +449,10 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                permbajtja_plote = ai_result.get("permbajtja", "")
-                paragrafet = [p.strip() for p in permbajtja_plote.split('\n') if p.strip()]
-                paragrafi_pare = paragrafet[0] if paragrafet else ""
+                paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
+                paragrafi_pare = paragrafet[0][:200] + "..." if paragrafet else titulli_final
                 
-                fb_posts_queue.append({
-                    "mesazhi": paragrafi_pare,
-                    "linku": linku_fb
-                })
-                
+                fb_posts_queue.append({"mesazhi": paragrafi_pare, "linku": linku_fb})
                 new_entries.append(article)
                 existing_links.add(link)
                 lajme_te_perpunuara += 1
@@ -545,30 +463,22 @@ def main():
         krijo_rss(updated_news)
         krijo_sitemap(updated_news)
         
-        print("\nDuke gjeneruar faqet statike të lajmeve (HTML)...")
-        for article in new_entries:
-            gjenero_artikullin_html(article, updated_news)
+        print("\nDuke gjeneruar faqet statike HTML...")
+        for article in new_entries: gjenero_artikullin_html(article, updated_news)
         
-        print(f"\nSukses! U shtuan dhe u gjeneruan {len(new_entries)} lajme të reja.")
-        
-        print("\nDuke e dërguar kodin në GitHub...")
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtuan lajme dhe Sitemap automatikisht"')
+        os.system('git commit -m "U shtuan lajme origjinale pa halucinacione AI"')
         os.system('git push')
         
-        print("\n⏳ Presim 80 sekonda që faqja të bëhet live në internet (për të shmangur Error 404 në Facebook)...")
+        print("\n⏳ Presim 80 sekonda për Facebook...")
         time.sleep(80)
-        
-        print("\nDuke i postuar në Facebook tani...")
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(3)
-            
-        print("\nProcesi përfundoi me sukses të plotë!")
     else:
-        print("\nS'ka lajme të reja për momentin.")
+        print("\nS'ka lajme të reja.")
 
 if __name__ == "__main__":
     main()
