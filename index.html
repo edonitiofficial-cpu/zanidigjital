@@ -29,7 +29,6 @@
     <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lidhje e shpejte me serverin e ri te fotove dhe fontet -->
     <link rel="preconnect" href="https://wsrv.nl">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,7 +162,6 @@
     </footer>
 
     <script>
-        // SHPEJTESIA: Nisim shkarkimin e lajmeve direkt, pa pritur qe faqja te vizatohet e plote
         const sysTimestamp = Math.floor(new Date().getTime() / 60000);
         const lajmetPromise = fetch(`ballina.json?t=${sysTimestamp}`)
             .then(res => { if(!res.ok) throw new Error("Ska ballina"); return res.json(); })
@@ -181,7 +179,6 @@
                 .replace(/^-+|-+$/g, '');
         }
 
-        // SHPEJTESIA E FOTOVE: Kompresimi WEBP ne fluturim (e zvogelon foton 90%)
         function optimizoFoton(url, isLarge) {
             if(!url) return '';
             const width = isLarge ? 800 : 400;
@@ -200,7 +197,6 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                // Presim rezultatin nga shkarkimi qe nisi me heret
                 let allNews = await lajmetPromise;
                 
                 const bentoGrid = document.getElementById('bento-grid'); 
@@ -224,11 +220,10 @@
                     const n = newsWithId[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
+                    // Ketu u hoq .html per link te paster
                     const url = `/lajme/${slug}`;
                     
-                    // Aplikojme kompresimin e fotos
                     const imgOptimized = optimizoFoton(n.imazhi, true);
-                    // Nese CDN deshton, kthehet direkt te fotoja origjinale si plan B
                     const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
                     
                     if (i === 0) {
@@ -246,6 +241,7 @@
                     const n = newsWithId[i]; 
                     const [,txt] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
+                    // Ketu u hoq .html per link te paster
                     const url = `/lajme/${slug}`;
                     
                     const imgOptimized = optimizoFoton(n.imazhi, false);
