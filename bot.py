@@ -310,7 +310,6 @@ def load_news():
                 return []
     return []
 
-# KETU ESHTE NDRYSHIMI KRYESOR - KRIJOHET ballina.json E LEHTE
 def save_news(news_list):
     # 1. Ruhet baza e madhe normale
     with open(DB_FILE, "w", encoding="utf-8") as f:
@@ -340,22 +339,20 @@ def fetch_full_text(url):
     except:
         return ""
 
-def gjenero_titull_dhe_kategori(original_title, full_text):
+def gjenero_kategori_dhe_hashtags(original_title, full_text):
     prompt = f"""
     Ti je Kryeredaktori i portalit "Zani Digjital".
     
-    DETYRA JOTE:
-    1. Rishkruaj VETËM TITULLIN origjinal që të jetë i qartë, profesional, dhe absolutisht PA CLICKBAIT. 
-    2. Përcakto KATEGORINË. PRIORITETI YNË ABSOLUT JANE KËTO: Politikë, Sport, Ekonomi (me fokus Kosovën) dhe Teknologji. Zgjidh njërën nga këto.
-    3. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, ose e zezë banale, kthe VETËM kategorinë "Kalo". 
-    4. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale, të lidhur direkt me temën e lajmit (p.sh. #Kosovë #Politikë).
+    DETYRA JOTE (NUK DUHET TE PREKESH TITULLIN):
+    1. Përcakto KATEGORINË bazuar në titull dhe tekst. PRIORITETI YNË ABSOLUT JANE KËTO: Politikë, Sport, Ekonomi (me fokus Kosovën) dhe Teknologji. Zgjidh njërën.
+    2. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, ose e zezë banale, kthe VETËM kategorinë "Kalo". 
+    3. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale (p.sh. #Kosovë #Politikë).
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:800]}
     
     KTHE VETËM SKEDARIN JSON (asgjë tjetër):
     {{
-      "titulli": "Titulli yt i ri dhe pa gabime",
       "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
       "hashtags": "3-4 hashtags, të ndarë me hapësirë"
     }}
@@ -390,7 +387,6 @@ def main():
         if lajme_te_perpunuara >= MAX_LAJME: break
             
         parsed = feedparser.parse(feed_url)
-        # Skanon 100 lajme për të gjetur 5 super të reja
         for entry in parsed.entries[:100]: 
             if lajme_te_perpunuara >= MAX_LAJME: break
                 
@@ -403,7 +399,6 @@ def main():
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
                 similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
-                # Pragu u zbut në 0.70 që të mos bllokojë lajmet e sportit me emra të ngjashëm
                 if similarity > 0.70:
                     is_duplicate = True
                     break
@@ -433,7 +428,8 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            ai_result = gjenero_titull_dhe_kategori(title, full_text)
+            # AI TANI KËRKON VETËM KATEGORINË DHE HASHTAGS (Nuk e ndryshon titullin)
+            ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
             if ai_result:
@@ -442,11 +438,13 @@ def main():
                     print("⏩ Lajmi u kalua (jashtë interesit/showbiz).")
                     continue
 
-                titulli_final = ai_result.get("titulli")
-                slug_final = krijo_slug(titulli_final)
                 hashtags = ai_result.get("hashtags", "")
                 
+                # TITULLI MERRET ORIGJINAL NGA FEED-i
+                titulli_final = title
                 teksti_i_pastruar = full_text
+                
+                # Fshihen emrat e portaleve tjerë nga TEKSTI dhe nga TITULLI
                 portale_regex = [
                     r'(?i)telegraf(i|it|in)?(\.com)?',
                     r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
@@ -457,6 +455,9 @@ def main():
                 
                 for pattern in portale_regex:
                     teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
+                    titulli_final = re.sub(pattern, 'Zani Digjital', titulli_final)
+                
+                slug_final = krijo_slug(titulli_final)
                 
                 article = {
                     "titulli": titulli_final,
@@ -494,7 +495,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtua skedari i lehte ballina.json per shpejtesi"')
+        os.system('git commit -m "Tituj 100% origjinale, pa nderhyrje nga AI"')
         os.system('git push')
         
         print("\n⏳ Presim 80 sekonda për Facebook...")
