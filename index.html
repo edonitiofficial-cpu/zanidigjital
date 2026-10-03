@@ -46,12 +46,10 @@
 
     <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Kemi shtuar 'preconnect' per te rritur shpejtesine e fonteve -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     
-    <!-- Ngarkimi asinkron i Supabase per te mos bllokuar faqen -->
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
@@ -62,7 +60,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Loading animation e re me e bukur nese vonohet shume pak */
         .shimmer {
             background: #f6f7f8;
             background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
@@ -108,7 +105,6 @@
         <section>
             <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">Çka po flitet ma shumë?</h2>
             
-            <!-- Skeleton Loading i bukur (Nderkohe qe presim lajmet e verteta) -->
             <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
                 <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shimmer h-64 md:h-full w-full"></div>
                 <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
@@ -118,7 +114,6 @@
             </div>
         </section>
 
-        <!-- BANERI 1 (LART) -->
         <div id="banner-top-container" class="w-full"></div>
 
         <section class="border-t border-gray-300 pt-8 mt-8">
@@ -126,7 +121,6 @@
                 <span class="bg-black text-white px-3 py-1 mr-3 rounded-lg">Të fundit</span> Rrjedha e lajmeve
             </h2>
             <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skeleton per te fundit -->
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                 <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
@@ -157,7 +151,6 @@
             </div>
         </section>
         
-        <!-- BANERI 2 (NË MES) -->
         <div id="banner-middle-container" class="w-full"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
@@ -185,7 +178,6 @@
     </footer>
 
     <script>
-        // Funksionet Bazë 
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Teknologji': ['bg-blue-600','text-blue-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
         
         function krijoSlug(titulli) {
@@ -198,7 +190,6 @@
                 .replace(/^-+|-+$/g, '');
         }
 
-        // Ngarkimi i Lajmeve me Optimizim Shpejtesie
         async function loadNews() {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -211,15 +202,19 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                // Perdorim timestamp per te detyruar browserin te shkarkoje versionin me te ri te lajmeve, pa u bllokuar nga cache i GitHub Pages
                 const timestamp = new Date().getTime();
-                const response = await fetch(`lajmet.json?t=${timestamp}`); 
+                let allNews = [];
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                try {
+                    // Së pari tentojmë të marrim skedarin e lehtë (ballina.json)
+                    const resFast = await fetch(`ballina.json?t=${timestamp}`);
+                    if (!resFast.ok) throw new Error("Ska ballina");
+                    allNews = await resFast.json();
+                } catch(e) {
+                    // Nëse roboti s'e ka krijuar ende ballina.json, hapim lajmet.json për momentin
+                    const resSlow = await fetch(`lajmet.json?t=${timestamp}`);
+                    allNews = await resSlow.json();
                 }
-                
-                let allNews = await response.json();
                 
                 const bentoGrid = document.getElementById('bento-grid'); 
                 const teFunditGrid = document.getElementById('te-fundit-grid');
@@ -236,7 +231,6 @@
                     return;
                 }
 
-                // Vizatojme Bento Grid (Lart)
                 let bentoHtml = '';
                 for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
                     const n = newsWithId[i]; 
@@ -249,7 +243,6 @@
                 }
                 bentoGrid.innerHTML = bentoHtml;
                 
-                // Vizatojme Rrjedhen e Lajmeve (Poshte)
                 let limitLajme = kategoriaZgjedhur ? Math.min(100, newsWithId.length) : Math.min(17, newsWithId.length); 
                 let teFunditHtml = '';
 
