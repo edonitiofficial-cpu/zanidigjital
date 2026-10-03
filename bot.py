@@ -66,6 +66,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     kategoria = article.get("kategoria", "Lajme")
     koha = article.get("koha", "")
     
+    # URL e paster pa .html
     url_baze = f"https://zanidigjital.com/lajme/{slug}"
     
     permbajtja_meta = permbajtja[:150].replace('"', '&quot;') + "..."
@@ -79,6 +80,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         if count >= 5: break
         c_text = get_category_text(s.get("kategoria", "Lajme"))
         s_slug = s.get("slug")
+        # Sugjerime pa .html
         sugjerime_html += f"""
         <a href="https://zanidigjital.com/lajme/{s_slug}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
             <img src="{s.get('imazhi')}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
@@ -91,7 +93,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </a>"""
         count += 1
 
-    folder_path = "lajme"
+    # Ndryshimi i menaxhimit te dosjeve (Clean URL Hack per Github Pages)
+    folder_path = os.path.join("lajme", slug)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
@@ -108,7 +111,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
       window.dataLayer = window.dataLayer || [];
       function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
-
       gtag('config', 'G-F3XJ36058R');
     </script>
     
@@ -128,7 +130,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="twitter:description" content="{permbajtja_meta}">
     <meta name="twitter:image" content="{imazhi}">
 
-    <link rel="icon" type="image/png" href="../zanidigjitalfavicon.png">
+    <!-- Imazhet tani jane absolute me / qe te hapen nga cfaredo folderi -->
+    <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
@@ -143,7 +146,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <a href="https://zanidigjital.com/" class="flex-shrink-0 mb-4 md:mb-0">
-                    <img src="../zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                    <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
                 
                 <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
@@ -205,11 +208,11 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
             <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
                 <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                <img src="../burger.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop'">
+                <img src="/burger.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop'">
             </a>
             <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
                 <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                <img src="../chair.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?q=80&w=400&auto=format&fit=crop'">
+                <img src="/chair.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?q=80&w=400&auto=format&fit=crop'">
             </a>
         </aside>
     </main>
@@ -222,7 +225,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 </body>
 </html>"""
 
-    file_path = os.path.join(folder_path, f"{slug}.html")
+    # Ruhet si index.html brenda dosjes me emrin e lajmit
+    file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
@@ -311,11 +315,9 @@ def load_news():
     return []
 
 def save_news(news_list):
-    # 1. Ruhet baza e madhe normale
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
         
-    # 2. Krijohet skedari "fluturim" vetem me 50 titujt per ballinen
     lajmet_ballina = []
     for lajm in news_list[:50]:
         lajmet_ballina.append({
@@ -428,7 +430,6 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # AI TANI KËRKON VETËM KATEGORINË DHE HASHTAGS (Nuk e ndryshon titullin)
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -439,12 +440,9 @@ def main():
                     continue
 
                 hashtags = ai_result.get("hashtags", "")
-                
-                # TITULLI MERRET ORIGJINAL NGA FEED-i
                 titulli_final = title
                 teksti_i_pastruar = full_text
                 
-                # Fshihen emrat e portaleve tjerë nga TEKSTI dhe nga TITULLI
                 portale_regex = [
                     r'(?i)telegraf(i|it|in)?(\.com)?',
                     r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
@@ -470,6 +468,7 @@ def main():
                     "slug": slug_final
                 }
                 
+                # U hoq .html edhe nga linku per Facebook
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
                 paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
@@ -496,11 +495,11 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtua RTK tek rregullat e pastrimit të tekstit"')
+        os.system('git commit -m "Zgjidhja perfundimtare: Clean URLs pa .html"')
         os.system('git push')
         
-        print("\n⏳ Presim 80 sekonda për Facebook...")
-        time.sleep(80)
+        print("\n⏳ Presim 120 sekonda për Facebook (që të publikohet faqja).")
+        time.sleep(120)
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(3)
