@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zani Digjital</title>
-    <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
+    <title>Zani Digjital | Lajmi</title>
     
+    <!-- SEO BAZË (Dinamike nga JavaScript më poshtë) -->
+    <meta name="description" content="Lexoni lajmin e plotë në Zani Digjital, portali më inovativ i lajmeve në Kosovë.">
+    <link rel="canonical" id="canonical-link" href="https://zanidigjital.com/">
+    
+    <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
@@ -69,7 +73,7 @@
 
     <footer class="bg-white border-t border-gray-200 py-8 mt-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm font-medium">&copy; 2026 ZaniDigjital. Të gjitha të drejtat e rezervuara.</p>
+            <p class="text-gray-500 text-sm font-medium">&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
 
@@ -83,7 +87,7 @@
             return colors[cat] || 'text-black';
         }
 
-        // Funksioni për krijimin e slug-ut (i njëjtë me atë në index.html)
+        // Funksioni për krijimin e slug-ut
         function krijoSlug(titulli) {
             if (!titulli) return '';
             return titulli.toString().toLowerCase()
@@ -127,15 +131,38 @@
                         const catBg = getCategoryBg(lajmi.kategoria);
                         let permbajtjaHTML = lajmi.permbajtja.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('');
                         
-                        // Set the page title for better browser history and tab reading
+                        // SEO Dinamike
                         document.title = `${lajmi.titulli} - Zani Digjital`;
+                        
+                        // Linku zyrtar për ndarje në rrjete sociale
+                        const currentSlug = lajmi.slug ? lajmi.slug : krijoSlug(lajmi.titulli);
+                        const shareUrl = `https://zanidigjital.com/lajme/${currentSlug}.html`;
+                        document.getElementById('canonical-link').href = shareUrl;
 
+                        // Ndërtimi i pamjes së lajmit me Butonat Share
                         document.getElementById('artikulli-container').innerHTML = `
                             <div class="flex items-center gap-4 mb-4 font-bold">
                                 <span class="${catBg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">${lajmi.kategoria}</span>
                                 <span class="text-gray-400 text-sm font-medium">${lajmi.koha}</span>
                             </div>
-                            <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-8">${lajmi.titulli}</h1>
+                            <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">${lajmi.titulli}</h1>
+                            
+                            <!-- SHARE BUTONAT -->
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                    Ndaj
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url=${shareUrl}&text=${encodeURIComponent(lajmi.titulli)}" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition flex items-center gap-2">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    Posto
+                                </a>
+                                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(lajmi.titulli)}%20${shareUrl}" target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-600 transition flex items-center gap-2">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.126.549 4.156 1.594 5.969L.25 24l6.188-1.594A11.966 11.966 0 0012.031 24c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm3.625 17.156c-.156.469-.938.875-1.344.938-.375.063-.844.094-2.281-.469-1.75-.688-2.875-2.5-3.25-3C8.406 14.156 7.5 12.688 7.5 11.156c0-1.563.813-2.313 1.094-2.625.281-.313.625-.375.844-.375.219 0 .438 0 .625.031.188.031.438-.063.688.531.25.625.875 2.125.938 2.25.063.156.125.344.031.531-.094.188-.156.281-.313.469-.156.188-.344.344-.469.531-.156.156-.313.344-.125.656.188.344.813 1.375 1.75 2.188 1.219 1.031 2.25 1.375 2.563 1.531.313.156.5.125.688-.094.188-.25.813-.969 1.031-1.313.219-.344.438-.281.719-.188.281.094 1.781.844 2.094 1 .313.156.5.219.594.344.094.156.094.656-.063 1.125z"/></svg>
+                                    Dërgo
+                                </a>
+                            </div>
+
                             <img src="${lajmi.imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="${lajmi.titulli}">
                             
                             <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
