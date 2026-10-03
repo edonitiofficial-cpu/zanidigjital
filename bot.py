@@ -102,6 +102,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{titulli} - Zani Digjital</title>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3XJ36058R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F3XJ36058R');
+    </script>
+    
     <meta name="description" content="{permbajtja_meta}">
     <link rel="canonical" href="{url_baze}">
     
@@ -242,7 +252,7 @@ def krijo_rss(lajmet):
     with open("rss.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
 
-# KËTU ËSHTË FUNKSIONI I RI PËR SITEMAP (GOOGLE SEO)
+# FUNKSIONI PËR SITEMAP (GOOGLE SEO)
 def krijo_sitemap(lajmet):
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -533,7 +543,7 @@ def main():
         updated_news = new_entries + existing_news
         save_news(updated_news)
         krijo_rss(updated_news)
-        krijo_sitemap(updated_news) # THIRRJA E FUNKSIONIT TË SITEMAP-IT KËTU
+        krijo_sitemap(updated_news)
         
         print("\nDuke gjeneruar faqet statike të lajmeve (HTML)...")
         for article in new_entries:
