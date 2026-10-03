@@ -26,7 +26,12 @@
     <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
+    <!-- Konfigurimet për Aplikacionin (PWA) dhe iPhone -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
+    <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://wsrv.nl">
@@ -70,7 +75,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center py-4">
                 <div class="flex-shrink-0 flex items-center mb-4 md:mb-0">
                     <a href="/">
-                        <img src="zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                        <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                     </a>
                 </div>
                 <nav id="nav-menu" class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
@@ -162,6 +167,15 @@
     </footer>
 
     <script>
+        // PWA Instaluesi
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(reg => {
+                    console.log('App gati për instalim!');
+                });
+            });
+        }
+
         const sysTimestamp = Math.floor(new Date().getTime() / 60000);
         const lajmetPromise = fetch(`ballina.json?t=${sysTimestamp}`)
             .then(res => { if(!res.ok) throw new Error("Ska ballina"); return res.json(); })
@@ -220,7 +234,6 @@
                     const n = newsWithId[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
-                    // Ketu u hoq .html per link te paster
                     const url = `/lajme/${slug}`;
                     
                     const imgOptimized = optimizoFoton(n.imazhi, true);
@@ -241,7 +254,6 @@
                     const n = newsWithId[i]; 
                     const [,txt] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
-                    // Ketu u hoq .html per link te paster
                     const url = `/lajme/${slug}`;
                     
                     const imgOptimized = optimizoFoton(n.imazhi, false);
