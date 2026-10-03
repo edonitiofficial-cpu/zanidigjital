@@ -211,8 +211,14 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                // Shtuam cache: "no-store" qe browseri mos te ngece te versioni i vjeter i json
-                const response = await fetch('lajmet.json', { cache: "no-store" }); 
+                // Perdorim timestamp per te detyruar browserin te shkarkoje versionin me te ri te lajmeve, pa u bllokuar nga cache i GitHub Pages
+                const timestamp = new Date().getTime();
+                const response = await fetch(`lajmet.json?t=${timestamp}`); 
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
                 let allNews = await response.json();
                 
                 const bentoGrid = document.getElementById('bento-grid'); 
@@ -244,7 +250,7 @@
                 bentoGrid.innerHTML = bentoHtml;
                 
                 // Vizatojme Rrjedhen e Lajmeve (Poshte)
-                let limitLajme = kategoriaZgjedhur ? Math.min(100, newsWithId.length) : Math.min(17, newsWithId.length); // Rrita numrin e lajmeve ne faqen kryesore nga 13 ne 17
+                let limitLajme = kategoriaZgjedhur ? Math.min(100, newsWithId.length) : Math.min(17, newsWithId.length); 
                 let teFunditHtml = '';
 
                 for (let i = 5; i < limitLajme; i++) {
@@ -260,15 +266,13 @@
             } catch (error) { 
                 console.error("Gabim gjate ngarkimit te lajmeve:", error);
                 document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 font-medium col-span-4">Ndodhi një gabim gjatë ngarkimit të lajmeve. Provoni përsëri më vonë.</p>';
+                document.getElementById('te-fundit-grid').innerHTML = '';
             }
         }
 
-        // Initialize Supabase & Other Features ONLY when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
-            // Ngarkojme lajmet menjehere, sepse jane me te rendesishmet
             loadNews();
             
-            // Shtyjme ngarkimin e gjerave dytesore per te mos penguar shpejtesine
             setTimeout(() => {
                 initSecondaryFeatures();
             }, 800);
