@@ -332,29 +332,25 @@ def fetch_full_text(url):
 
 def rewrite_with_ai(original_title, full_text):
     prompt_faza_1 = f"""
-    Je Kryeredaktori kryesor i portalit të lajmeve "ZaniDigjital".
-    Detyra: Rishkruaj lajmin në shqip bazuar VETËM në burim.
+    Ti je Kryeredaktori i portalit të lajmeve "Zani Digjital". 
+    Detyra jote është të rishkruash lajmin origjinal në një shqipe të pastër dhe profesionale.
     
-    RREGULLA FAKTIKE (CRITICAL):
-    - MOS shto informacione, emra, data, apo ngjarje.
-    - Ruaj 100% saktësinë e deklaratave.
+    ⛔ RREGULLA ABSOLUTE (Nëse i shkel, lajmi dështon):
+    1. FAKTET DHE NUMRAT: MOS shto ose ndrysho ASNJË emër njeriu, emër organizate/ekipi, parti politike (psh. ruaje saktë PDK, LDK, VV etj.), apo shifër.
+    2. SHQIPJA E PASTËR: Ndalohet rreptësisht shpikja e fjalëve inekzistente (p.sh. thuhet "ankohet", asnjëherë "ankton"). Përdor fjalor standard dhe fjali të rrjedhshme.
+    3. ASNJË MENDIM: Mos shto interpretime apo ngjyrim politik. Vetëm rishkruaj çfarë ka ndodhur.
+    4. STRUKTURA: 3-5 paragrafë të shkurtër, të ndarë me dy hapësira (\\n\\n).
     
-    STRUKTURA:
-    - 3-5 paragrafë të shkurtër (max 3 fjali secili).
-    - Përdor dy hapësira (\\n\\n) për të ndarë paragrafët.
-    
-    TITULLI: Krijo një titull të qartë, faktik, pa clickbait.
-    
-    KATEGORIA: Zgjidh VETËM njërën: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto.
+    KATEGORIA: Zgjidh VETËM njërën nga këto: Lajme, Kosovë, Politikë, Ekonomi, Sport, Botë, Kulturë, Teknologji, Auto.
     
     Titulli origjinal: {original_title}
     Teksti origjinal: {full_text}
     
-    KTHE VETËM një JSON valid fiks kështu:
+    KTHE VETËM një skedar JSON valid (pa asnjë tekst tjetër jashtë kllapave) në këtë format:
     {{
-      "titulli": "...",
-      "permbajtja": "...",
-      "kategoria": "..."
+      "titulli": "Titulli jot pa clickbait",
+      "permbajtja": "Permbajtja e rishkruar",
+      "kategoria": "Kategoria"
     }}
     """
     
@@ -365,7 +361,7 @@ def rewrite_with_ai(original_title, full_text):
             response = client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt_faza_1}],
                 model="openai/gpt-oss-120b",
-                temperature=0.1,
+                temperature=0.0,
             )
             text = response.choices[0].message.content.strip()
             
@@ -394,18 +390,18 @@ def rewrite_with_ai(original_title, full_text):
     permbajtja_e_pare = lajmi_baze.get("permbajtja", "")
     
     prompt_faza_2 = f"""
-    Ti je një Redaktor Gjuhësor Shqiptar profesionist me shumë përvojë në gazetari.
-    Detyra jote: KORRIGJO këtë tekst që aktualisht tingëllon si përkthim i dobët i Google Translate.
+    Ti je Redaktor Gjuhësor Shqiptar për portale profesionale.
+    Detyra e VETME: Rregullo gabimet gramatikore (lakimet, rasat, gjinitë) dhe rregullo shprehjet që tingëllojnë si përkthim fjalëpërfjalshëm.
     
-    RREGULLAT E KRYESORE:
-    1. KORRIGJO GJINITË DHE RASAT: Emrat duhet të përshtaten saktë. (P.sh., gjej dhe ndreq gabime si "lajm e mirë" -> "lajm i mirë", ose "parashikoi Barcelona" -> "parashikoi Barcelonën").
-    2. SHMANG PËRKTHIMET FOTOGRAFIKE NGA ANGLISHTJA: Fjalitë duhet të rrjedhin natyrshëm në shqip. Ndrysho strukturën e fjalisë nëse tingëllon "robotike".
-    3. LAKIMI I EMRAVE: Sigurohu që emrat e përveçëm të jenë të lakuar saktë (p.sh., "vendimi i Ramës", jo "vendimi i Rama").
-    4. MOS shto asnjë informacion, fakt apo emër të ri. Vetëm rregullo gramatikën dhe logjikën e atyre që janë.
+    ⛔ RREGULLA TË HEKURTA:
+    1. MOS ndrysho asnjë emër njeriu, ekipi apo parti politike (Nëse shkruan PDK, lëre PDK, mos e kthe në PD).
+    2. MOS shtrembëro asnjë numër ose fakt historik/politik.
+    3. Ndalohet shpikja e fjalëve të panjohura.
     
-    KTHE VETËM TEKSTIN E KORRIGJUAR, pa asnjë shpjegim tjetër, pa markdown, pa "Ja teksti".
     Teksti:
     {permbajtja_e_pare}
+    
+    KTHE VETËM TEKSTIN E KORRIGJUAR (asgjë tjetër)!
     """
     
     permbajtja_finale = permbajtja_e_pare 
@@ -414,7 +410,7 @@ def rewrite_with_ai(original_title, full_text):
         response_2 = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt_faza_2}],
             model="openai/gpt-oss-120b",
-            temperature=0.1, 
+            temperature=0.0,
         )
         rezultati_korrigjuar = response_2.choices[0].message.content.strip()
         
