@@ -40,7 +40,6 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
-# --- FUNKSIONI PËR URL SLUG ---
 def krijo_slug(titulli):
     if not titulli:
         return ""
@@ -51,7 +50,6 @@ def krijo_slug(titulli):
     slug = re.sub(r'-+', '-', slug)
     return slug.strip('-')
 
-# --- FUNKSIONET PËR DIZAJNIN E NGJYRAVE ---
 def get_category_bg(cat):
     colors = { 'Sport': 'bg-green-600', 'Politikë': 'bg-red-600', 'Teknologji': 'bg-blue-600', 'Tech': 'bg-blue-600', 'Ekonomi': 'bg-yellow-600', 'Lajme': 'bg-black' }
     return colors.get(cat, 'bg-black')
@@ -60,7 +58,6 @@ def get_category_text(cat):
     colors = { 'Sport': 'text-green-600', 'Politikë': 'text-red-600', 'Teknologji': 'text-blue-600', 'Tech': 'text-blue-600', 'Ekonomi': 'text-yellow-600', 'Lajme': 'text-black' }
     return colors.get(cat, 'text-black')
 
-# --- GJENERATORI STATIC I LAJMIT (MAGJIA E RE) ---
 def gjenero_artikullin_html(article, te_gjitha_lajmet):
     slug = article["slug"]
     titulli = article["titulli"].replace('"', '&quot;')
@@ -69,14 +66,12 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     kategoria = article.get("kategoria", "Lajme")
     koha = article.get("koha", "")
     
-    # ADRESA E PASTËR!
     url_baze = f"https://zanidigjital.com/lajme/{slug}"
     
     permbajtja_meta = permbajtja[:150].replace('"', '&quot;') + "..."
     permbajtja_html = "".join([f"<p>{p.strip()}</p>" for p in permbajtja.split('\n') if p.strip()])
     cat_bg = get_category_bg(kategoria)
 
-    # Ndërtojmë sugjerimet anësore ("Lexo më shumë")
     sugjerime_html = ""
     count = 0
     for s in te_gjitha_lajmet:
@@ -100,7 +95,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
-    # FUSIM TË GJITHË KODIN NGA ARTIKULLI.HTML KËTU:
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -111,7 +105,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="description" content="{permbajtja_meta}">
     <link rel="canonical" href="{url_baze}">
     
-    <!-- FACEBOOK / OPEN GRAPH -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="{url_baze}">
     <meta property="og:title" content="{titulli}">
@@ -119,7 +112,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta property="og:image" content="{imazhi}">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <!-- TWITTER -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{url_baze}">
     <meta name="twitter:title" content="{titulli}">
@@ -137,7 +129,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 </head>
 <body class="text-gray-900 antialiased">
 
-    <!-- HEADER -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -147,11 +138,11 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 
                 <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
                     <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
-                    <a href="https://zanidigjital.com/index.html?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
-                    <a href="https://zanidigjital.com/index.html?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
-                    <a href="https://zanidigjital.com/index.html?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
-                    <a href="https://zanidigjital.com/index.html?kategoria=Sport" class="hover:text-black transition">Sport</a>
-                    <a href="https://zanidigjital.com/index.html?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
+                    <a href="https://zanidigjital.com/?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
+                    <a href="https://zanidigjital.com/?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
+                    <a href="https://zanidigjital.com/?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
+                    <a href="https://zanidigjital.com/?kategoria=Sport" class="hover:text-black transition">Sport</a>
+                    <a href="https://zanidigjital.com/?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
                 </nav>
             </div>
         </div>
@@ -170,7 +161,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             
             <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">{titulli}</h1>
             
-            <!-- SHARE BUTONAT -->
             <div class="flex flex-wrap gap-2 mb-8">
                 <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -203,7 +193,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 </div>
             </div>
 
-            <!-- Hapësira Reklamuese -->
             <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
                 <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
                 <img src="../burger.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop'">
@@ -252,6 +241,47 @@ def krijo_rss(lajmet):
     
     with open("rss.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
+
+# KËTU ËSHTË FUNKSIONI I RI PËR SITEMAP (GOOGLE SEO)
+def krijo_sitemap(lajmet):
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    koha_tani = (datetime.now() + timedelta(hours=2)).strftime("%Y-%m-%d")
+    
+    faqet_kryesore = [
+        "https://zanidigjital.com/",
+        "https://zanidigjital.com/?kategoria=Lajme",
+        "https://zanidigjital.com/?kategoria=Politikë",
+        "https://zanidigjital.com/?kategoria=Ekonomi",
+        "https://zanidigjital.com/?kategoria=Sport",
+        "https://zanidigjital.com/?kategoria=Teknologji"
+    ]
+    
+    for faqe in faqet_kryesore:
+        sitemap_content += f"  <url>\n    <loc>{faqe}</loc>\n    <lastmod>{koha_tani}</lastmod>\n    <changefreq>always</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
+    
+    for lajm in lajmet[:1000]:
+        slug = lajm.get("slug", "")
+        if not slug:
+            slug = krijo_slug(lajm.get("titulli", ""))
+        
+        linku = f"https://zanidigjital.com/lajme/{slug}"
+        
+        data_lajmit = koha_tani
+        if "koha" in lajm:
+            try:
+                obj_data = datetime.strptime(lajm["koha"], "%d/%m/%Y %H:%M")
+                data_lajmit = obj_data.strftime("%Y-%m-%d")
+            except:
+                pass
+                
+        sitemap_content += f"  <url>\n    <loc>{linku}</loc>\n    <lastmod>{data_lajmit}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
+        
+    sitemap_content += "</urlset>"
+    
+    with open("sitemap.xml", "w", encoding="utf-8") as f:
+        f.write(sitemap_content)
 
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
@@ -488,7 +518,6 @@ def main():
                     "slug": slug_final
                 }
                 
-                # ADRESA E PASTËR E FACEBOOK-UT
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
                 permbajtja_plote = ai_result.get("permbajtja", "")
@@ -508,27 +537,24 @@ def main():
         updated_news = new_entries + existing_news
         save_news(updated_news)
         krijo_rss(updated_news)
+        krijo_sitemap(updated_news) # THIRRJA E FUNKSIONIT TË SITEMAP-IT KËTU
         
-        # TANI GJENEROJMË KODIN HTML (ME SUGJERIMET E LAJMEVE TË TJERA)
         print("\nDuke gjeneruar faqet statike të lajmeve (HTML)...")
         for article in new_entries:
             gjenero_artikullin_html(article, updated_news)
         
         print(f"\nSukses! U shtuan dhe u gjeneruan {len(new_entries)} lajme të reja.")
         
-        # E publikojmë faqen në GitHub
         print("\nDuke e dërguar kodin në GitHub...")
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtuan lajme te reja statike automatikisht"')
+        os.system('git commit -m "U shtuan lajme dhe Sitemap automatikisht"')
         os.system('git push')
         
-        # Presim që GitHub Pages të rifreskohet (80 sekonda)
         print("\n⏳ Presim 80 sekonda që faqja të bëhet live në internet (për të shmangur Error 404 në Facebook)...")
         time.sleep(80)
         
-        # Postojmë në Facebook
         print("\nDuke i postuar në Facebook tani...")
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
