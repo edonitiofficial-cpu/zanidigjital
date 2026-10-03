@@ -450,7 +450,8 @@ def main():
                     r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
                     r'(?i)\bexpress(i|it|in)?\b',
                     r'(?i)indeksonline(\.net)?',
-                    r'(?i)indeks\s*online(\.net)?'
+                    r'(?i)indeks\s*online(\.net)?',
+                    r'(?i)\brtk(live)?(\.com)?\b'
                 ]
                 
                 for pattern in portale_regex:
@@ -495,7 +496,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "Tituj 100% origjinale, pa nderhyrje nga AI"')
+        os.system('git commit -m "U shtua RTK tek rregullat e pastrimit të tekstit"')
         os.system('git push')
         
         print("\n⏳ Presim 80 sekonda për Facebook...")
