@@ -325,7 +325,6 @@ def fetch_full_text(url):
     except:
         return ""
 
-# FUNKSIONI I RI: AI rishkruan VETËM titullin dhe gjen kategorinë. Nuk e prek tekstin!
 def gjenero_titull_dhe_kategori(original_title, full_text):
     prompt = f"""
     Ti je Kryeredaktori i portalit "Zani Digjital".
@@ -334,6 +333,7 @@ def gjenero_titull_dhe_kategori(original_title, full_text):
     1. Rishkruaj VETËM TITULLIN origjinal që të jetë i qartë, profesional, dhe absolutisht PA CLICKBAIT. 
     2. Përcakto KATEGORINË duke u bazuar te teksti. Fokusi ynë: Politikë (Kosovë), Sport, Ekonomi, Teknologji, ose Lajme të përgjithshme.
     3. RREGULLI I ARRTË: Nëse lajmi është Showbiz, Thashetheme, VIP, apo jashtë interesit tonë, kthe kategorinë "Kalo".
+    4. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale, të lidhur direkt me temën e lajmit (p.sh. #Kosovë #Politikë #Prishtinë).
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:800]}
@@ -341,7 +341,8 @@ def gjenero_titull_dhe_kategori(original_title, full_text):
     KTHE VETËM SKEDARIN JSON (asgjë tjetër):
     {{
       "titulli": "Titulli yt i ri dhe pa gabime",
-      "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo"
+      "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
+      "hashtags": "3-4 hashtags, të ndarë me hapësirë"
     }}
     """
     for attempt in range(1, 4):
@@ -382,7 +383,6 @@ def main():
             
             if link in existing_links: continue
 
-            # KONTROLLI SUPER STRIKT PËR DUPLIKATA (Pragu u ul në 0.40)
             is_duplicate = False
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
@@ -416,12 +416,10 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # AI TANI PUNON VETËM PËR TITULL DHE KATEGORI
             ai_result = gjenero_titull_dhe_kategori(title, full_text)
             time.sleep(3)
 
             if ai_result:
-                # Filtrimi kategorive të padëshiruara
                 kategoria = ai_result.get("kategoria", "Lajme")
                 if kategoria == "Kalo":
                     print("⏩ Lajmi u kalua (jashtë fokusit).")
@@ -429,12 +427,11 @@ def main():
 
                 titulli_final = ai_result.get("titulli")
                 slug_final = krijo_slug(titulli_final)
+                hashtags = ai_result.get("hashtags", "")
                 
-                # PASTRIMI I TEKSTIT ORIGJINAL (Pa përdorur IA)
                 teksti_i_pastruar = full_text
                 portale_konkurrente = ["Telegrafi", "telegrafi.com", "Indeksonline", "indeksonline.net", "Gazeta Express", "gazetaexpress.com", "Express"]
                 for p in portale_konkurrente:
-                    # Kërkon emrin e portalit dhe e zëvendëson me Zani Digjital kudo që të jetë
                     teksti_i_pastruar = re.sub(rf'(?i)\b{p}\b', 'Zani Digjital', teksti_i_pastruar)
                 
                 article = {
@@ -452,7 +449,10 @@ def main():
                 paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 paragrafi_pare = paragrafet[0][:200] + "..." if paragrafet else titulli_final
                 
-                fb_posts_queue.append({"mesazhi": paragrafi_pare, "linku": linku_fb})
+                # BASHKIMI I HASHTAGS ME TEKSTIN PËR FACEBOOK
+                mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
+                
+                fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
                 new_entries.append(article)
                 existing_links.add(link)
                 lajme_te_perpunuara += 1
@@ -469,7 +469,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtuan lajme origjinale pa halucinacione AI"')
+        os.system('git commit -m "U shtuan lajme origjinale dhe hashtags per FB"')
         os.system('git push')
         
         print("\n⏳ Presim 80 sekonda për Facebook...")
