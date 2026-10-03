@@ -10,7 +10,7 @@ import trafilatura
 from groq import Groq
 from datetime import datetime, timedelta
 
-# --- SISTEMI I RROTULLIMIT TË ÇELËSAVE (API ROTATION) ---
+# --- SISTEMI I RROTULLIMIT TË ÇELËSAVE ---
 api_keys = [
     os.environ.get("GROQ_API_KEY"),
     os.environ.get("GROQ_API_KEY_2"),
@@ -291,13 +291,13 @@ def krijo_sitemap(lajmet):
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
     if not fb_token:
-        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur. Postimi u anashkalua.")
+        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur.")
         return
     url = "https://graph.facebook.com/v19.0/me/feed"
     data = urllib.parse.urlencode({"message": mesazhi, "link": linku, "access_token": fb_token}).encode('utf-8')
     try:
         urllib.request.urlopen(urllib.request.Request(url, data=data))
-        print(f"✅ Postuar në Facebook! ({linku})")
+        print(f"✅ Postuar në FB! ({linku})")
     except Exception as e:
         print(f"❌ Gabim postimi: {e}")
 
@@ -310,9 +310,24 @@ def load_news():
                 return []
     return []
 
+# KETU ESHTE NDRYSHIMI KRYESOR - KRIJOHET ballina.json E LEHTE
 def save_news(news_list):
+    # 1. Ruhet baza e madhe normale
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
+        
+    # 2. Krijohet skedari "fluturim" vetem me 50 titujt per ballinen
+    lajmet_ballina = []
+    for lajm in news_list[:50]:
+        lajmet_ballina.append({
+            "titulli": lajm.get("titulli"),
+            "kategoria": lajm.get("kategoria"),
+            "imazhi": lajm.get("imazhi"),
+            "koha": lajm.get("koha"),
+            "slug": lajm.get("slug")
+        })
+    with open("ballina.json", "w", encoding="utf-8") as f:
+        json.dump(lajmet_ballina, f, ensure_ascii=False)
 
 def fetch_full_text(url):
     try:
@@ -375,7 +390,8 @@ def main():
         if lajme_te_perpunuara >= MAX_LAJME: break
             
         parsed = feedparser.parse(feed_url)
-        for entry in parsed.entries[:30]: 
+        # Skanon 100 lajme për të gjetur 5 super të reja
+        for entry in parsed.entries[:100]: 
             if lajme_te_perpunuara >= MAX_LAJME: break
                 
             link = entry.get("link", "")
@@ -387,7 +403,8 @@ def main():
             for existing_item in existing_news + new_entries:
                 existing_title = existing_item.get("titulli", "")
                 similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
-                if similarity > 0.65:
+                # Pragu u zbut në 0.70 që të mos bllokojë lajmet e sportit me emra të ngjashëm
+                if similarity > 0.70:
                     is_duplicate = True
                     break
             
@@ -429,7 +446,6 @@ def main():
                 slug_final = krijo_slug(titulli_final)
                 hashtags = ai_result.get("hashtags", "")
                 
-                # FShesa E RE (REGEX) - KAP ÇDO VARIANT TË EMRIT
                 teksti_i_pastruar = full_text
                 portale_regex = [
                     r'(?i)telegraf(i|it|in)?(\.com)?',
@@ -478,7 +494,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U rregullua pastrimi thellë i tekstit nga emrat e portaleve"')
+        os.system('git commit -m "U shtua skedari i lehte ballina.json per shpejtesi"')
         os.system('git push')
         
         print("\n⏳ Presim 80 sekonda për Facebook...")
