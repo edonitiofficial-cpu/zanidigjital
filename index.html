@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3XJ36058R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,32 +12,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zani Digjital | Lajmet e Fundit nga Kosova dhe Bota</title>
-    
-    <meta name="description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit nga politika, ekonomia, sporti dhe teknologjia në Zani Digjital.">
-    <meta name="keywords" content="lajme, kosovë, politikë, sport, teknologji, zani digjital, ekonomi">
-    <meta name="author" content="Zani Digjital">
+    <meta name="description" content="Portali më inovativ i lajmeve në Kosovë.">
     <link rel="canonical" href="https://zanidigjital.com">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zanidigjital.com/">
     <meta property="og:title" content="Zani Digjital | Lajmet e Fundit">
-    <meta property="og:description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit 24/7.">
     <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
-    <meta property="og:site_name" content="Zani Digjital">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
-    <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://wsrv.nl">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
@@ -49,20 +36,9 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        .shimmer {
-            background: #f6f7f8;
-            background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-            background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; 
-            animation: placeholderShimmer 1s linear infinite forwards;
-        }
+        .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
-
-        .glass-dark {
-            background: rgba(15, 15, 15, 0.7);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
+        .glass-dark { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
@@ -96,9 +72,9 @@
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                <a href="#" id="sidebar-left-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
                     <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img id="sidebar-left-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </a>
             </div>
         </aside>
@@ -127,7 +103,6 @@
                     <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                     <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                 </div>
-                
                 <div class="mt-10 flex justify-center">
                     <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
                 </div>
@@ -141,39 +116,16 @@
                         <button id="btn-promo-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
                     </div>
                 </div>
-                
                 <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
-                    </a>
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
-                    </a>
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Mundësi fantastike për start-ups, apliko tani për grantet e reja</h3></div>
-                    </a>
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Teknologjia 5G arrin mbulueshmëri 90% në të gjithë vendin</h3></div>
-                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div></a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div></a>
                 </div>
             </section>
 
             <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
-                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">
-                    FLASH
-                </div>
+                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">FLASH</div>
                 <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
-                    <div id="ticker-content" class="marquee-content space-x-12">
-                        Duke ngarkuar lajmet...
-                    </div>
+                    <div id="ticker-content" class="marquee-content space-x-12">Duke ngarkuar lajmet...</div>
                 </div>
             </section>
 
@@ -181,9 +133,6 @@
                 <div class="relative z-0 p-6 md:p-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
                     <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-50 -z-20"></div>
                     <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                    <div class="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400 opacity-10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                    
                     <div class="flex justify-between items-center mb-8 relative z-10">
                         <h2 class="text-2xl font-black uppercase tracking-wide text-gray-900">PUNA</h2>
                         <div class="flex gap-2 hidden md:flex">
@@ -207,9 +156,6 @@
                 </div>
 
                 <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden shadow-xl">
-                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
-                    
                     <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
                     <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
                     <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
@@ -222,9 +168,9 @@
 
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                <a href="#" id="sidebar-right-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
                     <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img id="sidebar-right-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </a>
             </div>
         </aside>
@@ -248,15 +194,12 @@
     </footer>
 
     <script>
-        // Lidhja me Supabase
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
-            });
+            window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js'); });
         }
 
         const sysTimestamp = Math.floor(new Date().getTime() / 60000);
@@ -265,24 +208,8 @@
             .catch(() => fetch(`lajmet.json?t=${sysTimestamp}`).then(res => res.json()).catch(() => []));
 
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Teknologji': ['bg-blue-600','text-blue-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
-        
-        function krijoSlug(titulli) {
-            if (!titulli) return '';
-            return titulli.toString().toLowerCase()
-                .replace(/ë/g, 'e').replace(/ç/g, 'c')
-                .replace(/[^a-z0-9 -]/g, '') 
-                .replace(/\s+/g, '-') 
-                .replace(/-+/g, '-')
-                .replace(/^-+|-+$/g, '');
-        }
-
-        function optimizoFoton(url, isLarge) {
-            if(!url) return '';
-            const width = isLarge ? 800 : 400;
-            return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`;
-        }
-
-        // Funksion për të kthyer datat në formatin e duhur për t'u renditur
+        function krijoSlug(titulli) { if (!titulli) return ''; return titulli.toString().toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c').replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, ''); }
+        function optimizoFoton(url, isLarge) { if(!url) return ''; const width = isLarge ? 800 : 400; return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`; }
         function parseDateCustom(dateStr) {
             if(!dateStr) return new Date(0);
             if(dateStr.includes('T') || dateStr.includes('-')) return new Date(dateStr); 
@@ -305,10 +232,7 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                // Tërheqim lajmet e Robotit
                 let autoNews = await lajmetPromise;
-                
-                // Tërheqim lajmet e tua Manuale nga Supabase
                 let manualNews = [];
                 try {
                     const { data: mNews } = await window.sb.from('manual_news').select('*').order('created_at', { ascending: false });
@@ -320,18 +244,11 @@
                             const yyyy = dateObj.getFullYear();
                             const hh = String(dateObj.getHours()).padStart(2, '0');
                             const min = String(dateObj.getMinutes()).padStart(2, '0');
-                            return {
-                                titulli: m.title,
-                                kategoria: m.category,
-                                imazhi: m.image_url,
-                                koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`,
-                                slug: krijoSlug(m.title)
-                            };
+                            return { titulli: m.title, kategoria: m.category, imazhi: m.image_url, koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`, slug: krijoSlug(m.title) };
                         });
                     }
                 } catch(e) { console.error("Gabim me lajmet manuale:", e); }
 
-                // Bashkimi dhe Renditja e lajmeve sipas dates
                 let allNews = [...manualNews, ...autoNews];
                 allNews.sort((a, b) => parseDateCustom(b.koha) - parseDateCustom(a.koha));
                 
@@ -348,10 +265,7 @@
                 const teFunditGrid = document.getElementById('te-fundit-grid');
                 
                 let newsWithId = allNews;
-                
-                if (kategoriaZgjedhur) {
-                    newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech'));
-                }
+                if (kategoriaZgjedhur) { newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech')); }
 
                 if (newsWithId.length === 0) {
                     bentoGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4 py-10">Nuk ka lajme në këtë kategori për momentin.</p>';
@@ -393,8 +307,6 @@
 
             } catch (error) { 
                 console.error("Gabim gjate ngarkimit te lajmeve:", error);
-                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 font-medium col-span-4">Ndodhi një gabim gjatë ngarkimit të lajmeve. Provoni përsëri më vonë.</p>';
-                document.getElementById('te-fundit-grid').innerHTML = '';
             }
         }
 
@@ -412,13 +324,22 @@
             document.getElementById('mobile-popup').style.display = 'none';
         }
 
-        function initMobileAds() {
+        async function initMobileAds() {
             if (window.innerWidth > 768) return;
-            const mobileAds = [
-                { img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" },
-                { img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", link: "#" }
+
+            let mobileAds = [
+                { img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }
             ];
-            
+
+            if (window.sb) {
+                try {
+                    const { data } = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', { ascending: false });
+                    if (data && data.length > 0) {
+                        mobileAds = data.map(b => ({ img: b.image_url, link: b.link_url || '#' }));
+                    }
+                } catch(e) { console.error("Gabim mobile ads:", e); }
+            }
+
             let currentAdIndex = 0;
             const popup = document.getElementById('mobile-popup');
             const popupImg = document.getElementById('mobile-popup-img');
@@ -462,16 +383,13 @@
             const btnPromoLeft = document.getElementById('btn-promo-left');
             const btnPromoRight = document.getElementById('btn-promo-right');
             const promoCar = document.getElementById('promo-carousel');
-            
             if(btnPromoLeft && btnPromoRight && promoCar) {
                 btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' });
                 btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' });
             }
-
             const btnJobsLeft = document.getElementById('btn-jobs-left');
             const btnJobsRight = document.getElementById('btn-jobs-right');
             const jobsCar = document.getElementById('jobs-carousel');
-            
             if(btnJobsLeft && btnJobsRight && jobsCar) {
                 btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' });
                 btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' });
@@ -556,20 +474,22 @@
             if(data) {
                 const topBanner = data.find(b => b.position === 'homepage_top');
                 const midBanner = data.find(b => b.position === 'homepage_middle');
+                const leftBanner = data.find(b => b.position === 'sidebar_left');
+                const rightBanner = data.find(b => b.position === 'sidebar_right');
                 
-                if(topBanner) document.getElementById('banner-top-container').innerHTML = `
-                    <div class="w-full">
-                        <a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full">
-                            <img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
-                        </a>
-                    </div>`;
-                    
-                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `
-                    <div class="w-full mt-8">
-                        <a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full">
-                            <img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
-                        </a>
-                    </div>`;
+                if(topBanner) document.getElementById('banner-top-container').innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`;
+                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `<div class="w-full mt-8"><a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`;
+                
+                if(leftBanner) {
+                    const img = document.getElementById('sidebar-left-img');
+                    const link = document.getElementById('sidebar-left-link');
+                    if(img && link) { img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }
+                }
+                if(rightBanner) {
+                    const img = document.getElementById('sidebar-right-img');
+                    const link = document.getElementById('sidebar-right-link');
+                    if(img && link) { img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }
+                }
             }
         }
 
