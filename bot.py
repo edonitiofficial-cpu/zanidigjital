@@ -42,20 +42,16 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
-# --- LOGJIKA E RE PËR DUPLIKATET SEMANTIKE ---
+# --- LOGJIKA KUNDËR DUPLIKATEVE SEMANTIKE ---
 def is_duplicate_news(title1, title2):
     t1 = title1.lower()
     t2 = title2.lower()
     
-    # 1. Kontrolli i drejtpërdrejtë
     if difflib.SequenceMatcher(None, t1, t2).ratio() > 0.55:
         return True
         
-    # 2. Kontrolli semantik (Fjalët rrënjë)
     def get_stems(text):
-        # Marrim vetëm fjalët me 4+ shkronja
         words = re.findall(r'\b[a-zëç]{4,}\b', text)
-        # I shkurtojmë në 5 shkronja për të anashkaluar lakimet (p.sh. Kurtit -> kurti)
         return set(w[:5] if len(w) > 5 else w for w in words)
         
     stems1 = get_stems(t1)
@@ -63,7 +59,6 @@ def is_duplicate_news(title1, title2):
     
     if stems1 and stems2:
         overlap = len(stems1.intersection(stems2))
-        # Nëse ndajnë 4 ose më shumë fjalë/rrënjë thelbësore, bllokohet!
         if overlap >= 4:
             return True
             
@@ -131,7 +126,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{titulli} - Zani Digjital</title>
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3XJ36058R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -156,7 +150,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta name="twitter:description" content="{permbajtja_meta}">
     <meta name="twitter:image" content="{imazhi}">
 
-    <!-- PWA & Icons për iPhone -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
@@ -172,8 +165,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 </head>
 <body class="text-gray-900 antialiased">
 
+    <!-- Header super i gjerë max-w-[1800px] -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <a href="https://zanidigjital.com/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
@@ -193,55 +187,81 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
-        <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
-            <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
-                ← Kthehu te Ballina
-            </a>
-            
-            <div class="flex items-center gap-4 mb-4 font-bold">
-                <span class="{cat_bg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">{kategoria}</span>
-                <span class="text-gray-400 text-sm font-medium">{koha}</span>
-            </div>
-            
-            <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">{titulli}</h1>
-            
-            <div class="flex flex-wrap gap-2 mb-8">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Ndaj
+    <!-- WRAPPER KRYESOR I GJERË PËR TË MBAJTUR EDHE BANERAT ANASH -->
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
+        
+        <!-- SHTYLLA E MAJTË -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
+            <div class="sticky top-28">
+                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </a>
-                <a href="https://twitter.com/intent/tweet?url={url_baze}&text={urllib.parse.quote(titulli)}" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition flex items-center gap-2">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    Posto
-                </a>
-                <a href="https://api.whatsapp.com/send?text={urllib.parse.quote(titulli)}%20{url_baze}" target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-600 transition flex items-center gap-2">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.126.549 4.156 1.594 5.969L.25 24l6.188-1.594A11.966 11.966 0 0012.031 24c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm3.625 17.156c-.156.469-.938.875-1.344.938-.375.063-.844.094-2.281-.469-1.75-.688-2.875-2.5-3.25-3C8.406 14.156 7.5 12.688 7.5 11.156c0-1.563.813-2.313 1.094-2.625.281-.313.625-.375.844-.375.219 0 .438 0 .625.031.188.031.438-.063.688.531.25.625.875 2.125.938 2.25.063.156.125.344.031.531-.094.188-.156.281-.313.469-.156.188-.344.344-.469.531-.156.156-.313.344-.125.656.188.344.813 1.375 1.75 2.188 1.219 1.031 2.25 1.375 2.563 1.531.313.156.5.125.688-.094.188-.25.813-.969 1.031-1.313.219-.344.438-.281.719-.188.281.094 1.781.844 2.094 1 .313.156.5.219.594.344.094.156.094.656-.063 1.125z"/></svg>
-                    Dërgo
-                </a>
-            </div>
-
-            <img src="{imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="{titulli}">
-            
-            <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
-                {permbajtja_html}
-            </div>
-        </article>
-
-        <aside class="lg:w-1/3 space-y-6">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
-                    <span class="bg-black text-white px-2 py-1 rounded text-xs uppercase">Të rejat</span> Lexo më shumë
-                </h3>
-                <div class="space-y-4">
-                    {sugjerime_html}
-                </div>
             </div>
         </aside>
-    </main>
+
+        <!-- Pjesa Qendrore -->
+        <main class="w-full max-w-7xl flex-1 py-8 flex flex-col lg:flex-row gap-8">
+            <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
+                <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
+                    ← Kthehu te Ballina
+                </a>
+                
+                <div class="flex items-center gap-4 mb-4 font-bold">
+                    <span class="{cat_bg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">{kategoria}</span>
+                    <span class="text-gray-400 text-sm font-medium">{koha}</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">{titulli}</h1>
+                
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Ndaj
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={url_baze}&text={urllib.parse.quote(titulli)}" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Posto
+                    </a>
+                    <a href="https://api.whatsapp.com/send?text={urllib.parse.quote(titulli)}%20{url_baze}" target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-600 transition flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.126.549 4.156 1.594 5.969L.25 24l6.188-1.594A11.966 11.966 0 0012.031 24c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm3.625 17.156c-.156.469-.938.875-1.344.938-.375.063-.844.094-2.281-.469-1.75-.688-2.875-2.5-3.25-3C8.406 14.156 7.5 12.688 7.5 11.156c0-1.563.813-2.313 1.094-2.625.281-.313.625-.375.844-.375.219 0 .438 0 .625.031.188.031.438-.063.688.531.25.625.875 2.125.938 2.25.063.156.125.344.031.531-.094.188-.156.281-.313.469-.156.188-.344.344-.469.531-.156.156-.313.344-.125.656.188.344.813 1.375 1.75 2.188 1.219 1.031 2.25 1.375 2.563 1.531.313.156.5.125.688-.094.188-.25.813-.969 1.031-1.313.219-.344.438-.281.719-.188.281.094 1.781.844 2.094 1 .313.156.5.219.594.344.094.156.094.656-.063 1.125z"/></svg>
+                        Dërgo
+                    </a>
+                </div>
+
+                <img src="{imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="{titulli}">
+                
+                <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
+                    {permbajtja_html}
+                </div>
+            </article>
+
+            <aside class="lg:w-1/3 space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
+                        <span class="bg-black text-white px-2 py-1 rounded text-xs uppercase">Të rejat</span> Lexo më shumë
+                    </h3>
+                    <div class="space-y-4">
+                        {sugjerime_html}
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- SHTYLLA E DJATHTË -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
+            <div class="sticky top-28">
+                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </a>
+            </div>
+        </aside>
+
+    </div>
 
     <footer class="bg-white border-t border-gray-200 py-8 mt-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="max-w-[1800px] mx-auto px-4 text-center">
             <p class="text-gray-500 text-sm font-medium">&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
@@ -411,7 +431,7 @@ def main():
             
             if link in existing_links: continue
 
-            # Kontrolli i ri semantik kundër duplikateve
+            # Kontrolli semantik kundër duplikateve
             is_duplicate = False
             recent_news = (new_entries + existing_news)[:150]
             for existing_item in recent_news:
@@ -456,7 +476,7 @@ def main():
                 titulli_final = title
                 teksti_i_pastruar = full_text
                 
-                # U shtua edhe Klan Kosova për pastrim të tekstit
+                # Zëvendësimi i emrave të portaleve
                 portale_regex = [
                     r'(?i)telegraf(i|it|in)?(\.com)?', r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
                     r'(?i)\bexpress(i|it|in)?\b', r'(?i)indeksonline(\.net)?',
@@ -466,6 +486,15 @@ def main():
                 for pattern in portale_regex:
                     teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
                     titulli_final = re.sub(pattern, 'Zani Digjital', titulli_final)
+                
+                # --- HEQJA E TITULLIT NGA PARAGRAFI I PARË ---
+                paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
+                if paragrafet_temp:
+                    ngjasia = difflib.SequenceMatcher(None, paragrafet_temp[0].lower(), titulli_final.lower()).ratio()
+                    if ngjasia > 0.8 or paragrafet_temp[0].lower() in titulli_final.lower() or titulli_final.lower() in paragrafet_temp[0].lower():
+                        paragrafet_temp.pop(0) 
+                        teksti_i_pastruar = "\n\n".join(paragrafet_temp)
+                # ---------------------------------------------
                 
                 slug_final = krijo_slug(titulli_final)
                 
@@ -499,7 +528,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "Bllokues Semantik Duplikatesh"')
+        os.system('git commit -m "U shtua filtri për heqjen e titullit nga teksti"')
         os.system('git pull --rebase')
         os.system('git push')
         
