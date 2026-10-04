@@ -119,6 +119,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
+    # Shablloni i ri i përditësuar me dizajnin e gjerë dhe banerat anësorë
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -161,14 +162,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; }}
         .permbajtja p {{ margin-bottom: 1.5rem; }}
         .line-clamp-2 {{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
+        .no-scrollbar::-webkit-scrollbar {{ display: none; }}
+        .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
     </style>
 </head>
 <body class="text-gray-900 antialiased">
 
-    <!-- Header super i gjerë max-w-[1800px] -->
+    <!-- Header super i gjerë dhe rreshtuar njësoj si ballina -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
                 <a href="https://zanidigjital.com/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
@@ -187,7 +190,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </header>
 
-    <!-- WRAPPER KRYESOR I GJERË PËR TË MBAJTUR EDHE BANERAT ANASH -->
+    <!-- WRAPPER KRYESOR I GJERË PËR TË MBAJTUR BANERAT ANASH -->
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
         
         <!-- SHTYLLA E MAJTË -->
@@ -200,7 +203,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </div>
         </aside>
 
-        <!-- Pjesa Qendrore -->
+        <!-- Pjesa Qendrore (Lajmi i plotë) -->
         <main class="w-full max-w-7xl flex-1 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
                 <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
@@ -260,6 +263,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     </div>
 
+    <!-- Footer super i gjerë -->
     <footer class="bg-white border-t border-gray-200 py-8 mt-8">
         <div class="max-w-[1800px] mx-auto px-4 text-center">
             <p class="text-gray-500 text-sm font-medium">&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
@@ -515,7 +519,6 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                # Facebook-u tani merr paragrafin e parë të pastruar!
                 paragrafi_pare = paragrafet_temp[0][:200] + "..." if paragrafet_temp else titulli_final
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
@@ -537,7 +540,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtua filtruesi i reklamave (Junk Filter)"')
+        os.system('git commit -m "U përditësua dizajni anësor edhe brenda lajmeve"')
         os.system('git pull --rebase')
         os.system('git push')
         
