@@ -165,11 +165,11 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
     </style>
 </head>
-<body class="text-gray-900 antialiased relative">
+<body class="text-gray-900 antialiased relative overflow-x-hidden w-full">
 
-    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
                 <a href="https://zanidigjital.com/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
@@ -188,7 +188,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </header>
 
-    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
@@ -199,7 +199,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </div>
         </aside>
 
-        <main class="w-full max-w-7xl flex-1 py-8 flex flex-col lg:flex-row gap-8">
+        <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
                 <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
                     ← Kthehu te Ballina
@@ -529,7 +529,6 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # Këtu thirret inteligjenca artificiale për ta rishkruar tekstin në mënyrë gazetareske
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -567,7 +566,17 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                paragrafi_pare = paragrafet_temp[0][:200] + "..." if paragrafet_temp else titulli_final
+                # Zgjidhja për mos-prerjen e fjalëve në Facebook
+                if paragrafet_temp:
+                    teksti_fillestar = paragrafet_temp[0]
+                    if len(teksti_fillestar) > 220:
+                        # Gjen hapësirën e fundit para shkronjës 220 për të mos prerë fjalën në mes
+                        paragrafi_pare = teksti_fillestar[:220].rsplit(' ', 1)[0] + "..."
+                    else:
+                        paragrafi_pare = teksti_fillestar
+                else:
+                    paragrafi_pare = titulli_final
+                
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
@@ -588,7 +597,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "Inteligjenca artificiale u përditësua për intervistat direkte"')
+        os.system('git commit -m "Zgjidhja e prerjes se fjaleve ne Facebook"')
         os.system('git pull --rebase')
         os.system('git push')
         
