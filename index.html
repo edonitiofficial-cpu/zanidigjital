@@ -65,7 +65,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Ticker Lëvizës - U ngadalësua në 65s */
+        /* Ticker Lëvizës */
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
@@ -74,8 +74,9 @@
 </head>
 <body class="text-gray-900 antialiased">
 
+    <!-- Header-i tani u bë super i gjerë max-w-[1800px] -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center py-4">
                 <div class="flex-shrink-0 flex items-center mb-4 md:mb-0">
                     <a href="/">
@@ -83,143 +84,166 @@
                     </a>
                 </div>
                 
-                <!-- Rregullimi i menysë për mobile: u shtua overflow-x-auto, no-scrollbar, whitespace-nowrap -->
                 <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
-                    <nav id="nav-menu" class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
-                        <a href="/" id="link-ballina" class="text-black border-b-2 border-black pb-1">Ballina</a>
-                        <a href="/?kategoria=Lajme" id="link-Lajme" class="hover:text-black transition pb-1">Lajme</a>
-                        <a href="/?kategoria=Politikë" id="link-Politikë" class="hover:text-black transition pb-1">Politikë</a>
-                        <a href="/?kategoria=Ekonomi" id="link-Ekonomi" class="hover:text-black transition pb-1">Ekonomi</a>
-                        <a href="/?kategoria=Sport" id="link-Sport" class="hover:text-black transition pb-1">Sport</a>
-                        <a href="/?kategoria=Teknologji" id="link-Teknologji" class="hover:text-black transition pb-1">Teknologji</a>
+                    <nav class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
+                        <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
+                        <a href="https://zanidigjital.com/?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
+                        <a href="https://zanidigjital.com/?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
+                        <a href="https://zanidigjital.com/?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
+                        <a href="https://zanidigjital.com/?kategoria=Sport" class="hover:text-black transition">Sport</a>
+                        <a href="https://zanidigjital.com/?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
-        <section>
-            <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
-            
-            <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
-                <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shimmer h-64 md:h-full w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
+    <!-- WRAPPER KRYESOR I GJERË PËR TË MBAJTUR EDHE BANERAT ANASH -->
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
+        
+        <!-- SHTYLLA E MAJTË (Baneri gjigant anësor, duket vetëm në ekrane XL) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
+            <div class="sticky top-28">
+                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </a>
             </div>
-        </section>
+        </aside>
 
-        <div id="banner-top-container" class="w-full"></div>
-
-        <section class="border-t border-gray-300 pt-8 mt-8">
-            <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
-                <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
-            </h2>
-            <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-            </div>
-            
-            <div class="mt-10 flex justify-center">
-                <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
-            </div>
-        </section>
-
-        <section class="border-t border-gray-300 pt-8">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-black uppercase tracking-wide">Promo Artikujt</h2>
-                <div class="flex gap-2 hidden md:flex">
-                    <button id="btn-promo-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button id="btn-promo-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+        <!-- PJESA QENDRORE (Këtu qëndron thelbi i portalit) -->
+        <main class="w-full max-w-7xl flex-1 py-8 space-y-12">
+            <section>
+                <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
+                <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
+                    <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shimmer h-64 md:h-full w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
                 </div>
-            </div>
-            
-            <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
-                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
-                </a>
-                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
-                </a>
-                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Mundësi fantastike për start-ups, apliko tani për grantet e reja</h3></div>
-                </a>
-                <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-5"><h3 class="font-bold text-lg leading-tight">Teknologjia 5G arrin mbulueshmëri 90% në të gjithë vendin</h3></div>
-                </a>
-            </div>
-        </section>
+            </section>
 
-        <!-- Titujt e Lajmeve në Lëvizje (Ticker) -->
-        <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
-            <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">
-                FLASH
-            </div>
-            <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
-                <div id="ticker-content" class="marquee-content space-x-12">
-                    Duke ngarkuar lajmet...
+            <div id="banner-top-container" class="w-full"></div>
+
+            <section class="border-t border-gray-300 pt-8 mt-8">
+                <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
+                    <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
+                </h2>
+                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
+                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Rubrika PUNA -->
-        <section class="border-t border-gray-300 pt-8 mt-8">
-            <div class="relative z-0 p-6 md:p-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
-                <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-50 -z-20"></div>
-                <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                <div class="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400 opacity-10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
                 
-                <div class="flex justify-between items-center mb-8 relative z-10">
-                    <h2 class="text-2xl font-black uppercase tracking-wide text-gray-900">PUNA</h2>
+                <div class="mt-10 flex justify-center">
+                    <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
+                </div>
+            </section>
+
+            <section class="border-t border-gray-300 pt-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-black uppercase tracking-wide">Promo Artikujt</h2>
                     <div class="flex gap-2 hidden md:flex">
-                        <button id="btn-jobs-left" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                        <button id="btn-jobs-right" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                        <button id="btn-promo-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                        <button id="btn-promo-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
                     </div>
                 </div>
-                <div id="jobs-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth relative z-10">
-                    <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
+                
+                <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
+                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
+                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Mundësi fantastike për start-ups, apliko tani për grantet e reja</h3></div>
+                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Teknologjia 5G arrin mbulueshmëri 90% në të gjithë vendin</h3></div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
+                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">
+                    FLASH
+                </div>
+                <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
+                    <div id="ticker-content" class="marquee-content space-x-12">
+                        Duke ngarkuar lajmet...
+                    </div>
+                </div>
+            </section>
+
+            <section class="border-t border-gray-300 pt-8 mt-8">
+                <div class="relative z-0 p-6 md:p-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-50 -z-20"></div>
+                    <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                    <div class="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-400 opacity-10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                    
+                    <div class="flex justify-between items-center mb-8 relative z-10">
+                        <h2 class="text-2xl font-black uppercase tracking-wide text-gray-900">PUNA</h2>
+                        <div class="flex gap-2 hidden md:flex">
+                            <button id="btn-jobs-left" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                            <button id="btn-jobs-right" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                        </div>
+                    </div>
+                    <div id="jobs-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth relative z-10">
+                        <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="banner-middle-container" class="w-full"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-black uppercase">Fjala jote</h2>
+                    <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
+                    <div id="poll-container"><p class="text-gray-500 font-medium text-center py-4">Duke ngarkuar sondazhin...</p></div>
+                </div>
+
+                <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden shadow-xl">
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
+                    <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
+                        <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner">
+                        <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap shadow-lg">Abonohu</button>
+                    </form>
                 </div>
             </div>
-        </section>
-        
-        <div id="banner-middle-container" class="w-full"></div>
+        </main>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                <h2 class="text-2xl font-black uppercase">Fjala jote</h2>
-                <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
-                <div id="poll-container"><p class="text-gray-500 font-medium text-center py-4">Duke ngarkuar sondazhin...</p></div>
+        <!-- SHTYLLA E DJATHTË (Baneri gjigant anësor) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
+            <div class="sticky top-28">
+                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </a>
             </div>
+        </aside>
 
-            <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden shadow-xl">
-                <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
-                <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
-                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
-                    <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner">
-                    <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap shadow-lg">Abonohu</button>
-                </form>
-            </div>
-        </div>
-    </main>
+    </div> <!-- FUNDI I WRAPPER-IT TË GJERË -->
 
+    <!-- Edhe footer u zgjerua -->
     <footer class="bg-white border-t border-gray-200 py-8 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 font-medium">
+        <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
@@ -268,7 +292,6 @@
 
                 let allNews = await lajmetPromise;
                 
-                // Gjenero Tickerin Levizes me 10 lajme
                 if (allNews && allNews.length > 0) {
                     let tickerHtml = '';
                     for (let i = 0; i < Math.min(10, allNews.length); i++) {
