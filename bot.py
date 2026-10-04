@@ -42,36 +42,40 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
+# --- ZBULIMI I BALLINËS SË BURIMIT ---
+def kontrollo_ballinen_e_burimit(link):
+    try:
+        domain = "{0.scheme}://{0.netloc}/".format(urllib.parse.urlsplit(link))
+        req = urllib.request.Request(domain, headers={'User-Agent': 'Mozilla/5.0'})
+        html = urllib.request.urlopen(req, timeout=5).read().decode('utf-8', errors='ignore')
+        
+        # Nese linku (ose pathi) gjendet ne HTML e faqes kryesore te portalit, eshte ne Balline
+        path = urllib.parse.urlparse(link).path
+        if path and len(path) > 5 and path in html:
+            return True
+        elif link in html:
+            return True
+        return False
+    except:
+        return False
+
 # --- LOGJIKA KUNDËR DUPLIKATEVE SEMANTIKE ---
 def is_duplicate_news(title1, title2):
     t1 = title1.lower()
     t2 = title2.lower()
-    
-    if difflib.SequenceMatcher(None, t1, t2).ratio() > 0.55:
-        return True
-        
+    if difflib.SequenceMatcher(None, t1, t2).ratio() > 0.55: return True
     def get_stems(text):
         words = re.findall(r'\b[a-zëç]{4,}\b', text)
         return set(w[:5] if len(w) > 5 else w for w in words)
-        
-    stems1 = get_stems(t1)
-    stems2 = get_stems(t2)
-    
-    if stems1 and stems2:
-        overlap = len(stems1.intersection(stems2))
-        if overlap >= 4:
-            return True
-            
+    stems1, stems2 = get_stems(t1), get_stems(t2)
+    if stems1 and stems2 and len(stems1.intersection(stems2)) >= 4: return True
     return False
 
 def krijo_slug(titulli):
-    if not titulli:
-        return ""
-    slug = titulli.lower()
-    slug = slug.replace('ë', 'e').replace('ç', 'c')
+    if not titulli: return ""
+    slug = titulli.lower().replace('ë', 'e').replace('ç', 'c')
     slug = re.sub(r'[^a-z0-9 -]', '', slug)
-    slug = re.sub(r'\s+', '-', slug)
-    slug = re.sub(r'-+', '-', slug)
+    slug = re.sub(r'\s+', '-', slug).replace(r'-+', '-')
     return slug.strip('-')
 
 def get_category_bg(cat):
@@ -91,7 +95,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     koha = article.get("koha", "")
     
     url_baze = f"https://zanidigjital.com/lajme/{slug}"
-    
     permbajtja_meta = permbajtja[:150].replace('"', '&quot;') + "..."
     permbajtja_html = "".join([f"<p>{p.strip()}</p>" for p in permbajtja.split('\n') if p.strip()])
     cat_bg = get_category_bg(kategoria)
@@ -108,16 +111,13 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             <img src="{s.get('imazhi')}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
             <div class="flex-1">
                 <span class="text-[10px] {c_text} font-bold uppercase tracking-wider">{s.get('kategoria')}</span>
-                <h4 class="text-[14px] font-bold text-gray-800 leading-snug group-hover:underline transition line-clamp-2 mt-1">
-                    {s.get('titulli')}
-                </h4>
+                <h4 class="text-[14px] font-bold text-gray-800 leading-snug group-hover:underline transition line-clamp-2 mt-1">{s.get('titulli')}</h4>
             </div>
         </a>"""
         count += 1
 
     folder_path = os.path.join("lajme", slug)
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
+    if not os.path.exists(folder_path): os.makedirs(folder_path)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
@@ -217,27 +217,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 
                 <div class="flex flex-wrap gap-2 mb-8">
                     <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        Ndaj
-                    </a>
-                    <a href="https://twitter.com/intent/tweet?url={url_baze}&text={urllib.parse.quote(titulli)}" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition flex items-center gap-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        Posto
-                    </a>
-                    <a href="https://api.whatsapp.com/send?text={urllib.parse.quote(titulli)}%20{url_baze}" target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-600 transition flex items-center gap-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.126.549 4.156 1.594 5.969L.25 24l6.188-1.594A11.966 11.966 0 0012.031 24c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm3.625 17.156c-.156.469-.938.875-1.344.938-.375.063-.844.094-2.281-.469-1.75-.688-2.875-2.5-3.25-3C8.406 14.156 7.5 12.688 7.5 11.156c0-1.563.813-2.313 1.094-2.625.281-.313.625-.375.844-.375.219 0 .438 0 .625.031.188.031.438-.063.688.531.25.625.875 2.125.938 2.25.063.156.125.344.031.531-.094.188-.156.281-.313.469-.156.188-.344.344-.469.531-.156.156-.313.344-.125.656.188.344.813 1.375 1.75 2.188 1.219 1.031 2.25 1.375 2.563 1.531.313.156.5.125.688-.094.188-.25.813-.969 1.031-1.313.219-.344.438-.281.719-.188.281.094 1.781.844 2.094 1 .313.156.5.219.594.344.094.156.094.656-.063 1.125z"/></svg>
-                        Dërgo
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Ndaj
                     </a>
                 </div>
 
                 <div id="banner-article-top" class="w-full mb-8"></div>
-
                 <img src="{imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="{titulli}">
                 
                 <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
                     {permbajtja_html}
                 </div>
-
                 <div id="banner-article-bottom" class="w-full mt-8"></div>
             </article>
 
@@ -261,7 +250,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 </a>
             </div>
         </aside>
-
     </div>
 
     <!-- POP-UP REKLAMA PËR MOBILE -->
@@ -280,68 +268,35 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </footer>
 
-    <!-- Supabase Scripts -->
     <script>
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         if (window.supabase) window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-        if ('serviceWorker' in navigator) {{
-            window.addEventListener('load', () => {{
-                navigator.serviceWorker.register('/sw.js');
-            }});
-        }}
+        if ('serviceWorker' in navigator) {{ window.addEventListener('load', () => {{ navigator.serviceWorker.register('/sw.js'); }}); }}
 
         let userClosedAd = false;
-        function mbyllMobileAd() {{
-            userClosedAd = true; 
-            document.getElementById('mobile-popup').style.display = 'none';
-        }}
+        function mbyllMobileAd() {{ userClosedAd = true; document.getElementById('mobile-popup').style.display = 'none'; }}
 
         async function initMobileAds() {{
             if (window.innerWidth > 768) return;
-
-            let mobileAds = [
-                {{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }}
-            ];
-
+            let mobileAds = [{{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }}];
             if (window.sb) {{
                 try {{
                     const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', {{ ascending: false }});
-                    if (data && data.length > 0) {{
-                        mobileAds = data.map(b => ({{ img: b.image_url, link: b.link_url || '#' }}));
-                    }}
-                }} catch(e) {{ console.error("Gabim mobile ads:", e); }}
+                    if (data && data.length > 0) mobileAds = data.map(b => ({{ img: b.image_url, link: b.link_url || '#' }}));
+                }} catch(e) {{}}
             }}
-
             let currentAdIndex = 0;
-            const popup = document.getElementById('mobile-popup');
-            const popupImg = document.getElementById('mobile-popup-img');
-            const popupLink = document.getElementById('mobile-popup-link');
-
+            const popup = document.getElementById('mobile-popup'), popupImg = document.getElementById('mobile-popup-img'), popupLink = document.getElementById('mobile-popup-link');
             function showAd() {{
                 if (userClosedAd) return;
                 if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
-                
-                popupImg.src = mobileAds[currentAdIndex].img;
-                popupLink.href = mobileAds[currentAdIndex].link;
-                
-                popup.classList.remove('translate-y-[150%]', 'opacity-0');
-                popup.classList.add('translate-y-0', 'opacity-100');
-
-                setTimeout(() => {{
-                    if (userClosedAd) return;
-                    hideAd();
-                    currentAdIndex++;
-                    setTimeout(showAd, 15000); 
-                }}, 5000); 
+                popupImg.src = mobileAds[currentAdIndex].img; popupLink.href = mobileAds[currentAdIndex].link;
+                popup.classList.remove('translate-y-[150%]', 'opacity-0'); popup.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => {{ if (userClosedAd) return; hideAd(); currentAdIndex++; setTimeout(showAd, 15000); }}, 5000); 
             }}
-
-            function hideAd() {{
-                popup.classList.remove('translate-y-0', 'opacity-100');
-                popup.classList.add('translate-y-[150%]', 'opacity-0');
-            }}
-
+            function hideAd() {{ popup.classList.remove('translate-y-0', 'opacity-100'); popup.classList.add('translate-y-[150%]', 'opacity-0'); }}
             setTimeout(showAd, 2000);
         }}
 
@@ -350,44 +305,19 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             try {{
                 const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', {{ ascending: false }});
                 if(data) {{
-                    const topBanner = data.find(b => b.position === 'article_top');
-                    const bottomBanner = data.find(b => b.position === 'article_bottom');
-                    const leftBanner = data.find(b => b.position === 'sidebar_left');
-                    const rightBanner = data.find(b => b.position === 'sidebar_right');
-                    
-                    if(topBanner) {{
-                        const cont = document.getElementById('banner-article-top');
-                        if(cont) cont.innerHTML = `<a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`;
-                    }}
-                    if(bottomBanner) {{
-                        const cont = document.getElementById('banner-article-bottom');
-                        if(cont) cont.innerHTML = `<a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`;
-                    }}
-                    if(leftBanner) {{
-                        const img = document.getElementById('sidebar-left-img');
-                        const link = document.getElementById('sidebar-left-link');
-                        if(img && link) {{ img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }}
-                    }}
-                    if(rightBanner) {{
-                        const img = document.getElementById('sidebar-right-img');
-                        const link = document.getElementById('sidebar-right-link');
-                        if(img && link) {{ img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }}
-                    }}
+                    const topBanner = data.find(b => b.position === 'article_top'), bottomBanner = data.find(b => b.position === 'article_bottom'), leftBanner = data.find(b => b.position === 'sidebar_left'), rightBanner = data.find(b => b.position === 'sidebar_right');
+                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
+                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
+                    if(leftBanner) {{ const img = document.getElementById('sidebar-left-img'), link = document.getElementById('sidebar-left-link'); if(img && link) {{ img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }} }}
+                    if(rightBanner) {{ const img = document.getElementById('sidebar-right-img'), link = document.getElementById('sidebar-right-link'); if(img && link) {{ img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }} }}
                 }}
-            }} catch(e) {{ console.error("Gabim banners:", e); }}
+            }} catch(e) {{}}
         }}
 
-        document.addEventListener('DOMContentLoaded', () => {{
-            setTimeout(() => {{
-                loadBanners();
-                initMobileAds();
-            }}, 800);
-        }});
+        document.addEventListener('DOMContentLoaded', () => {{ setTimeout(() => {{ loadBanners(); initMobileAds(); }}, 800); }});
     </script>
 </body>
 </html>"""
-
-    file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
@@ -395,105 +325,55 @@ def gjenero_lajmet_manuale(te_gjitha_lajmet):
     print("Duke kontrolluar për lajme manuale nga Admini...")
     supabase_url = "https://qqgkhioaqsbzygwconbh.supabase.co/rest/v1/manual_news"
     supabase_key = "sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai"
-    
-    req = urllib.request.Request(f"{supabase_url}?select=*", headers={
-        "apikey": supabase_key,
-        "Authorization": f"Bearer {supabase_key}"
-    })
+    req = urllib.request.Request(f"{supabase_url}?select=*", headers={"apikey": supabase_key, "Authorization": f"Bearer {supabase_key}"})
     try:
         response = urllib.request.urlopen(req)
         manual_news_data = json.loads(response.read().decode('utf-8'))
-        
         for m in manual_news_data:
             date_str = m.get('created_at', '')[:16]
             if not date_str: continue
-            
-            try:
-                date_obj = datetime.strptime(date_str, "%Y-%m-%dT%H:%M")
-                koha_format = date_obj.strftime("%d/%m/%Y %H:%M")
-            except:
-                koha_format = (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M")
-
-            article = {
-                "titulli": m['title'],
-                "permbajtja": m['content'],
-                "kategoria": m['category'],
-                "imazhi": m['image_url'],
-                "koha": koha_format,
-                "slug": krijo_slug(m['title'])
-            }
+            try: koha_format = datetime.strptime(date_str, "%Y-%m-%dT%H:%M").strftime("%d/%m/%Y %H:%M")
+            except: koha_format = (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M")
+            article = { "titulli": m['title'], "permbajtja": m['content'], "kategoria": m['category'], "imazhi": m['image_url'], "koha": koha_format, "slug": krijo_slug(m['title']), "eshte_balline": True }
             gjenero_artikullin_html(article, te_gjitha_lajmet)
-    except Exception as e:
-        print(f"Gabim gjatë marrjes së lajmeve manuale: {e}")
+    except: pass
 
 def krijo_rss(lajmet):
-    rss_content = """<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-  <title>Zani Digjital</title>
-  <link>https://zanidigjital.com/</link>
-  <description>Lajmet e fundit nga Zani Digjital</description>
-"""
+    rss_content = """<?xml version="1.0" encoding="UTF-8" ?>\n<rss version="2.0">\n<channel>\n  <title>Zani Digjital</title>\n  <link>https://zanidigjital.com/</link>\n  <description>Lajmet e fundit nga Zani Digjital</description>\n"""
     for lajm in lajmet[:15]:
         slug = lajm.get("slug", "")
         titulli = lajm.get("titulli", "").replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         linku = f"https://zanidigjital.com/lajme/{slug}"
         pershkrimi = lajm.get("permbajtja", "")[:150].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + "..."
-        
-        rss_content += f"""
-  <item>
-    <title>{titulli}</title>
-    <link>{linku}</link>
-    <description>{pershkrimi}</description>
-  </item>
-"""
+        rss_content += f"  <item>\n    <title>{titulli}</title>\n    <link>{linku}</link>\n    <description>{pershkrimi}</description>\n  </item>\n"
     rss_content += "</channel>\n</rss>"
-    
-    with open("rss.xml", "w", encoding="utf-8") as f:
-        f.write(rss_content)
+    with open("rss.xml", "w", encoding="utf-8") as f: f.write(rss_content)
 
 def krijo_sitemap(lajmet):
-    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     koha_tani = (datetime.now() + timedelta(hours=2)).strftime("%Y-%m-%d")
-    
-    faqet_kryesore = [
-        "https://zanidigjital.com/", "https://zanidigjital.com/?kategoria=Lajme",
-        "https://zanidigjital.com/?kategoria=Politikë", "https://zanidigjital.com/?kategoria=Ekonomi",
-        "https://zanidigjital.com/?kategoria=Sport", "https://zanidigjital.com/?kategoria=Teknologji"
-    ]
-    
-    for faqe in faqet_kryesore:
+    for faqe in ["https://zanidigjital.com/", "https://zanidigjital.com/?kategoria=Lajme", "https://zanidigjital.com/?kategoria=Politikë", "https://zanidigjital.com/?kategoria=Ekonomi", "https://zanidigjital.com/?kategoria=Sport", "https://zanidigjital.com/?kategoria=Teknologji"]:
         sitemap_content += f"  <url>\n    <loc>{faqe}</loc>\n    <lastmod>{koha_tani}</lastmod>\n    <changefreq>always</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
-    
     for lajm in lajmet[:1000]:
-        slug = lajm.get("slug", "")
-        if not slug: slug = krijo_slug(lajm.get("titulli", ""))
+        slug = lajm.get("slug", krijo_slug(lajm.get("titulli", "")))
         linku = f"https://zanidigjital.com/lajme/{slug}"
         data_lajmit = koha_tani
         if "koha" in lajm:
-            try:
-                obj_data = datetime.strptime(lajm["koha"], "%d/%m/%Y %H:%M")
-                data_lajmit = obj_data.strftime("%Y-%m-%d")
+            try: data_lajmit = datetime.strptime(lajm["koha"], "%d/%m/%Y %H:%M").strftime("%Y-%m-%d")
             except: pass
         sitemap_content += f"  <url>\n    <loc>{linku}</loc>\n    <lastmod>{data_lajmit}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
-        
     sitemap_content += "</urlset>"
-    with open("sitemap.xml", "w", encoding="utf-8") as f:
-        f.write(sitemap_content)
+    with open("sitemap.xml", "w", encoding="utf-8") as f: f.write(sitemap_content)
 
 def posto_ne_facebook(mesazhi, linku):
     fb_token = os.environ.get("FACEBOOK_PAGE_TOKEN")
-    if not fb_token:
-        print("⚠ FACEBOOK_PAGE_TOKEN nuk është vendosur.")
-        return
+    if not fb_token: return
     url = "https://graph.facebook.com/v19.0/me/feed"
     data = urllib.parse.urlencode({"message": mesazhi, "link": linku, "access_token": fb_token}).encode('utf-8')
     try:
         urllib.request.urlopen(urllib.request.Request(url, data=data))
-        print(f"✅ Postuar në FB! ({linku})")
-    except Exception as e:
-        print(f"❌ Gabim postimi: {e}")
+        print(f"✅ FB POST SUCCESS: {linku}")
+    except: pass
 
 def load_news():
     if os.path.exists(DB_FILE):
@@ -504,13 +384,12 @@ def load_news():
 
 def save_news(news_list):
     with open(DB_FILE, "w", encoding="utf-8") as f:
-        json.dump(news_list[:2000], f, ensure_ascii=False, indent=2)
-        
+        json.dump(news_list[:3000], f, ensure_ascii=False, indent=2)
     lajmet_ballina = []
-    for lajm in news_list[:50]:
+    for lajm in news_list[:150]:
         lajmet_ballina.append({
             "titulli": lajm.get("titulli"), "kategoria": lajm.get("kategoria"),
-            "imazhi": lajm.get("imazhi"), "koha": lajm.get("koha"), "slug": lajm.get("slug")
+            "imazhi": lajm.get("imazhi"), "koha": lajm.get("koha"), "slug": lajm.get("slug"), "eshte_balline": lajm.get("eshte_balline", True)
         })
     with open("ballina.json", "w", encoding="utf-8") as f:
         json.dump(lajmet_ballina, f, ensure_ascii=False)
@@ -527,27 +406,23 @@ def fetch_full_text(url):
 def gjenero_kategori_dhe_hashtags(original_title, full_text):
     prompt = f"""
     Ti je redaktori i portalit "Zani Digjital".
-    DETYRA JOTE E VETME:
-    1. Përcakto KATEGORINË bazuar në titull dhe tekst (Zgjidh vetëm njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme).
+    DETYRA JOTE:
+    1. Përcakto KATEGORINË bazuar në titull dhe tekst (Politikë, Sport, Ekonomi, Teknologji, Lajme).
     2. Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
-    3. Gjenero 3-4 HASHTAGS strategjikë për këtë lajm.
+    3. Gjenero 3-4 HASHTAGS strategjikë.
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:1000]}
     
-    KTHE VETËM SKEDARIN JSON me strukturën e mëposhtme:
+    KTHE VETËM SKEDARIN JSON me strukturën:
     {{
-      "kategoria": "Kategoria e zgjedhur",
-      "hashtags": "#hashtag1 #hashtag2 #hashtag3"
+      "kategoria": "Kategoria",
+      "hashtags": "#hashtag1 #hashtag2"
     }}
     """
     for attempt in range(1, 4):
         try:
-            response = client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt}],
-                model="openai/gpt-oss-120b",
-                temperature=0.0,
-            )
+            response = client.chat.completions.create(messages=[{"role": "user", "content": prompt}], model="openai/gpt-oss-120b", temperature=0.0)
             text = response.choices[0].message.content.strip()
             if text.startswith("```json"): text = text[7:-3].strip()
             elif text.startswith("```"): text = text[3:-3].strip()
@@ -569,8 +444,8 @@ def main():
 
     for feed_url in RSS_FEEDS:
         if lajme_te_perpunuara >= MAX_LAJME: break
-            
         parsed = feedparser.parse(feed_url)
+        
         for entry in parsed.entries[:100]: 
             if lajme_te_perpunuara >= MAX_LAJME: break
                 
@@ -580,16 +455,10 @@ def main():
             if link in existing_links: continue
 
             is_duplicate = False
-            recent_news = (new_entries + existing_news)[:150]
-            for existing_item in recent_news:
-                existing_title = existing_item.get("titulli", "")
-                if is_duplicate_news(title, existing_title):
-                    is_duplicate = True
-                    break
-            
-            if is_duplicate:
-                print(f"🚫 U bllokua si duplikat semantik: {title}")
-                continue
+            for existing_item in (new_entries + existing_news)[:150]:
+                if is_duplicate_news(title, existing_item.get("titulli", "")):
+                    is_duplicate = True; break
+            if is_duplicate: continue
 
             image_url = ""
             summary = entry.get("summary", "")
@@ -608,12 +477,12 @@ def main():
                 except: pass
             if not image_url: continue
 
-            print(f"\nDuke përpunuar: {title}")
-            
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # AI perdoret VETEM per Kategori dhe Hashtags (Asnje rishkrim teksti)
+            # Kontrollojmë nësë ky lajm gjendet në faqen e parë (Ballinë) të portalit origjinal
+            eshte_balline = kontrollo_ballinen_e_burimit(link)
+
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -623,8 +492,6 @@ def main():
 
                 hashtags = ai_result.get("hashtags", "")
                 titulli_final = title
-                
-                # Teksti mbetet 100% origjinal, pa u prekur nga AI, duke ruajtur cdo burim
                 teksti_i_pastruar = full_text
                 
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
@@ -644,26 +511,19 @@ def main():
                     lower_last = last_p.lower()
                     is_junk = False
                     
-                    if any(kw in lower_last for kw in junk_keywords_end):
-                        is_junk = True
-                    elif len(last_p) < 40 and not last_p.endswith(('.', '!', '?', '"', "'", '”', '“')):
-                        is_junk = True
-                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "indeksonline", "klan kosova"]:
-                        is_junk = True
+                    if any(kw in lower_last for kw in junk_keywords_end): is_junk = True
+                    elif len(last_p) < 40 and not last_p.endswith(('.', '!', '?', '"', "'", '”', '“')): is_junk = True
+                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "indeksonline", "klan kosova"]: is_junk = True
                         
-                    if is_junk:
-                        paragrafet_temp.pop()
-                    else:
-                        break
+                    if is_junk: paragrafet_temp.pop()
+                    else: break
                         
-                # Heqja e etiketave burimore NGA FUNDI (Nëse ka mbetur si tag /Telegrafi/ në fund fare)
                 portale_fund = [r'/Telegrafi/', r'/Indeksonline/', r'/Gazeta Express/', r'/Express/', r'/Klan Kosova/', r'/KlanKosova/']
                 for i in range(len(paragrafet_temp)):
                     for pattern in portale_fund:
                         paragrafet_temp[i] = re.sub(pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
 
                 teksti_i_pastruar = "\n".join(paragrafet_temp)
-                
                 slug_final = krijo_slug(titulli_final)
                 
                 article = {
@@ -673,25 +533,23 @@ def main():
                     "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
                     "link_origjinal": link,
-                    "slug": slug_final
+                    "slug": slug_final,
+                    "eshte_balline": eshte_balline
                 }
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                # POSTIMI NE FACEBOOK: Merr ekzaktesisht paragrafin e pare, pa nderhyrje te AI
-                if paragrafet_temp:
-                    paragrafi_pare = paragrafet_temp[0]
-                else:
-                    paragrafi_pare = titulli_final
+                # POSTIMI NE FB PA AI
+                if paragrafet_temp: paragrafi_pare = paragrafet_temp[0]
+                else: paragrafi_pare = titulli_final
                     
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
-                fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
+                fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb, "eshte_balline": eshte_balline})
                 new_entries.append(article)
                 existing_links.add(link)
                 
                 lajme_te_perpunuara += 1
-                print(f"✅ U shtua lajmi numër {lajme_te_perpunuara} nga 5 të kërkuara.")
 
     updated_news = new_entries + existing_news
     
@@ -710,18 +568,21 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "U hoq Inteligjenca Artificiale nga rishkrimi. Lajmet mbeten origjinale."')
+        os.system('git commit -m "Publikime FB te limituara dhe logjika e Ballines se re"')
         os.system('git pull --rebase')
         os.system('git push')
         
     if new_entries:
-        print("⏳ Duke pritur 2.5 minuta që GitHub të publikojë faqet...")
+        # Pasi te ruhet faqja, i japim perparesi lajmeve te "Ballines" per tu publikuar ne Facebook
+        fb_posts_queue.sort(key=lambda x: x["eshte_balline"], reverse=True)
+        
+        print("⏳ Duke pritur qe GitHub te publikoje faqet...")
         time.sleep(150) 
-        for post in fb_posts_queue:
+        
+        # Postojme vetem 2 lajmet kryesore te grumbullimit! (8 ne ore)
+        for post in fb_posts_queue[:2]:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(5)
-    else:
-        print("\nS'ka lajme të reja nga RSS.")
 
 if __name__ == "__main__":
     main()
