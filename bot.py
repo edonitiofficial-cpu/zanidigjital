@@ -611,11 +611,9 @@ def main():
 
             print(f"\nDuke përpunuar: {title}")
             
-            # 1. Merr lajmin fiks ashtu siç e ka shkruar gazetari (pa e kaluar neper AI per rishkrim)
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # 2. IA perdoret vetem per kategorine, hashtags dhe statusin e Facebook
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -626,11 +624,8 @@ def main():
                 hashtags = ai_result.get("hashtags", "")
                 postimi_fb_ai = ai_result.get("postimi_facebook", "")
                 titulli_final = title
-                
-                # Teksti nuk rishkruhet, perdoret origjinali me te gjithe paragrafet
                 teksti_i_pastruar = full_text
                 
-                # Filtron fjalite koti qe zakonisht lajne portalet ne fillim ose ne fund te lajmit
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 
                 if paragrafet_temp:
@@ -638,11 +633,35 @@ def main():
                     if ngjasia > 0.8 or paragrafet_temp[0].lower() in titulli_final.lower() or titulli_final.lower() in paragrafet_temp[0].lower():
                         paragrafet_temp.pop(0) 
                 
-                junk_keywords = ["advertisement", "reklamë", "reklama", "lexo edhe", "lexo po ashtu"]
-                while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords)):
+                junk_keywords_start = ["advertisement", "reklamë", "reklama", "lexo edhe", "lexo po ashtu"]
+                while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords_start)):
                     paragrafet_temp.pop(0)
                     
-                # Bashkon paragrafet serish me \n qe faqja HTML t'i lexoje dhe t'i lere me hapesira te rregullta
+                # HEQJA E MBETURINAVE NGA FUNDI I FAQES (Scraping Bleed Fix)
+                junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "nga telegrafi", "nga gazeta express", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
+                while paragrafet_temp:
+                    last_p = paragrafet_temp[-1].strip()
+                    lower_last = last_p.lower()
+                    is_junk = False
+                    
+                    if any(kw in lower_last for kw in junk_keywords_end):
+                        is_junk = True
+                    elif len(last_p) < 40 and not last_p.endswith(('.', '!', '?', '"', "'", '”', '“')):
+                        is_junk = True
+                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "indeksonline", "klan kosova"]:
+                        is_junk = True
+                        
+                    if is_junk:
+                        paragrafet_temp.pop()
+                    else:
+                        break
+                        
+                # HEQJA E ETIKETES BURIMORE SI /Telegrafi/ NË FUND TË PARAGRAFËVE
+                portale_fund = [r'/Telegrafi/', r'/Indeksonline/', r'/Gazeta Express/', r'/Express/', r'/Klan Kosova/', r'/KlanKosova/']
+                for i in range(len(paragrafet_temp)):
+                    for pattern in portale_fund:
+                        paragrafet_temp[i] = re.sub(pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
+
                 teksti_i_pastruar = "\n".join(paragrafet_temp)
                 
                 slug_final = krijo_slug(titulli_final)
@@ -690,7 +709,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Lajmet merren 100% origjinale, pa u prekur nga AI"')
+        os.system('git commit -m "Lajmet pastrohen nga menytë, reklamat dhe etiketat e burimit"')
         os.system('git pull --rebase')
         os.system('git push')
         time.sleep(15)
