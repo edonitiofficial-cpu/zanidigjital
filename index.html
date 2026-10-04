@@ -38,7 +38,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
@@ -68,12 +69,10 @@
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
-<!-- U shtua overflow-x-hidden për të bllokuar shiritin horizontal poshtë -->
 <body class="text-gray-900 antialiased relative overflow-x-hidden w-full">
 
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <!-- Menyja tani rreshtohet fiks me lajmet e mesit max-w-[1100px] -->
             <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
                 <a href="/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
@@ -104,7 +103,6 @@
             </div>
         </aside>
 
-        <!-- Këtu u shtua min-w-0 dhe u zvogëlua max-width në 1100px për të garantuar përshtatjen FIT -->
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
             <section>
                 <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
@@ -250,6 +248,11 @@
     </footer>
 
     <script>
+        // Lidhja me Supabase
+        const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
+        const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
+        window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js');
@@ -279,6 +282,17 @@
             return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`;
         }
 
+        // Funksion për të kthyer datat në formatin e duhur për t'u renditur
+        function parseDateCustom(dateStr) {
+            if(!dateStr) return new Date(0);
+            if(dateStr.includes('T') || dateStr.includes('-')) return new Date(dateStr); 
+            const parts = dateStr.split(' ');
+            if(parts.length !== 2) return new Date(0);
+            const [day, month, year] = parts[0].split('/');
+            const [hour, min] = parts[1].split(':');
+            return new Date(`${year}-${month}-${day}T${hour}:${min}:00`);
+        }
+
         async function loadNews() {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -291,7 +305,35 @@
                     document.getElementById('section-title').innerText = `Kategoria: ${kategoriaZgjedhur}`;
                 }
 
-                let allNews = await lajmetPromise;
+                // Tërheqim lajmet e Robotit
+                let autoNews = await lajmetPromise;
+                
+                // Tërheqim lajmet e tua Manuale nga Supabase
+                let manualNews = [];
+                try {
+                    const { data: mNews } = await window.sb.from('manual_news').select('*').order('created_at', { ascending: false });
+                    if (mNews) {
+                        manualNews = mNews.map(m => {
+                            const dateObj = new Date(m.created_at);
+                            const dd = String(dateObj.getDate()).padStart(2, '0');
+                            const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+                            const yyyy = dateObj.getFullYear();
+                            const hh = String(dateObj.getHours()).padStart(2, '0');
+                            const min = String(dateObj.getMinutes()).padStart(2, '0');
+                            return {
+                                titulli: m.title,
+                                kategoria: m.category,
+                                imazhi: m.image_url,
+                                koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`,
+                                slug: krijoSlug(m.title)
+                            };
+                        });
+                    }
+                } catch(e) { console.error("Gabim me lajmet manuale:", e); }
+
+                // Bashkimi dhe Renditja e lajmeve sipas dates
+                let allNews = [...manualNews, ...autoNews];
+                allNews.sort((a, b) => parseDateCustom(b.koha) - parseDateCustom(a.koha));
                 
                 if (allNews && allNews.length > 0) {
                     let tickerHtml = '';
@@ -409,11 +451,6 @@
         }
 
         async function initSecondaryFeatures() {
-            if(!window.supabase) return;
-            const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
-            const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
-            window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
-            
             await loadJobs(); 
             await loadPoll(); 
             await loadBanners();
