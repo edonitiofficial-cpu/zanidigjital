@@ -39,7 +39,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
@@ -49,6 +49,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
+        /* Shimmer Loading */
         .shimmer {
             background: #f6f7f8;
             background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
@@ -57,12 +58,14 @@
         }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
 
+        /* Liquid Glass Efektet */
         .glass-dark {
             background: rgba(15, 15, 15, 0.7);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Ticker Lëvizës */
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
@@ -94,13 +97,17 @@
 
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
         
-        <!-- SHTYLLA MAJTAS -->
-        <aside id="sidebar-left" class="hidden xl:block w-[300px] shrink-0 pt-8">
+        <!-- SHTYLLA E MAJTË -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <!-- Rezervuar për Banerin Majtas (Mbushet nga Javascript) -->
+                <a href="#" id="sidebar-left-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img id="sidebar-left-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </a>
             </div>
         </aside>
 
+        <!-- PJESA QENDRORE -->
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
             <section>
                 <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
@@ -113,7 +120,7 @@
                 </div>
             </section>
 
-            <!-- BANERI LART -->
+            <!-- Baneri Lart (Ballinë) -->
             <div id="banner-top-container" class="w-full"></div>
 
             <section class="border-t border-gray-300 pt-8 mt-8">
@@ -142,11 +149,20 @@
                 </div>
                 
                 <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
-                    <!-- Promo Artikujt... mund t'i lidhim me DB në të ardhmen -->
                     <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
                         <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
                         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div>
+                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div>
+                    </a>
+                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition">
+                        <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-5"><h3 class="font-bold text-lg leading-tight">Mundësi fantastike për start-ups, apliko tani për grantet e reja</h3></div>
                     </a>
                 </div>
             </section>
@@ -182,7 +198,7 @@
                 </div>
             </section>
             
-            <!-- BANERI NË MES -->
+            <!-- Baneri Mes (Ballinë) -->
             <div id="banner-middle-container" class="w-full"></div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
@@ -206,10 +222,13 @@
             </div>
         </main>
 
-        <!-- SHTYLLA DJATHTAS -->
-        <aside id="sidebar-right" class="hidden xl:block w-[300px] shrink-0 pt-8">
+        <!-- SHTYLLA E DJATHTË -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <!-- Rezervuar për Banerin Djathtas (Mbushet nga Javascript) -->
+                <a href="#" id="sidebar-right-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
+                    <img id="sidebar-right-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </a>
             </div>
         </aside>
 
@@ -225,6 +244,75 @@
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- ZANI AI CHATBOT                            -->
+    <!-- ========================================== -->
+    <div id="zani-ai-chatbot" class="fixed bottom-6 right-4 md:right-8 z-[110] flex flex-col items-end pointer-events-none">
+        
+        <!-- Dritarja e Chatit (E fshehur fillimisht) -->
+        <div id="zani-chat-window" class="hidden pointer-events-auto mb-4 w-[calc(100vw-32px)] md:w-[380px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
+            
+            <!-- Koka e Chatit (Header) -->
+            <div class="bg-black text-white p-4 flex justify-between items-center shadow-md z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center font-black text-lg shadow-inner">Z</div>
+                    <div>
+                        <h3 class="font-black text-sm uppercase tracking-wide leading-tight">Zani AI</h3>
+                        <p class="text-[11px] text-gray-300 flex items-center gap-1.5 font-medium mt-0.5">
+                            <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span> I gatshëm
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-gray-400 hover:text-white transition cursor-pointer p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Fusha e Mesazheve -->
+            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-5 text-sm">
+                
+                <!-- Mesazhi Mirëseardhës nga Bot-i -->
+                <div class="flex gap-2.5">
+                    <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 shadow-sm mt-1">Z</div>
+                    <div class="bg-white border border-gray-200 p-3.5 rounded-2xl rounded-tl-sm text-gray-800 shadow-sm leading-relaxed">
+                        Përshëndetje! 👋 Unë jam asistenti inteligjent i Zani Digjital.<br><br>
+                        Mund të m'i kërkosh lajmet e ditës me një fjali. Provo të klikosh një nga pyetjet e gatshme më poshtë:<br><br>
+                        
+                        <div class="flex flex-col gap-2 mt-2">
+                            <button onclick="autoAsk('Çfarë po ndodh sot në Kosovë?')" class="text-left text-xs bg-gray-100 hover:bg-gray-200 text-black font-semibold py-2 px-3 rounded-lg transition border border-gray-200">
+                                🇽🇰 Çfarë po ndodh sot në Kosovë?
+                            </button>
+                            <button onclick="autoAsk('Më trego një lajm të mirë sportiv')" class="text-left text-xs bg-gray-100 hover:bg-gray-200 text-black font-semibold py-2 px-3 rounded-lg transition border border-gray-200">
+                                ⚽ Më trego një lajm sportiv
+                            </button>
+                            <button onclick="autoAsk('Më bëj një përmbledhje të shkurtër të ditës')" class="text-left text-xs bg-gray-100 hover:bg-gray-200 text-black font-semibold py-2 px-3 rounded-lg transition border border-gray-200">
+                                📰 Përmbledhja e ditës
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Fusha e Shkrimit -->
+            <div class="p-3 bg-white border-t border-gray-200 flex gap-2 items-center">
+                <input type="text" id="chat-input" placeholder="Shkruaj pyetjen tënde..." class="flex-1 bg-gray-100 text-black font-medium px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm placeholder-gray-500">
+                <button onclick="sendChatMessage()" class="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition flex items-center justify-center shadow-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Butoni Hapës/Mbyllës lundrues -->
+        <button onclick="toggleChat()" class="pointer-events-auto bg-black text-white p-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform flex items-center justify-center relative group border-2 border-white">
+            <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
+            </span>
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
     <footer class="bg-white border-t border-gray-200 py-8 mt-12 w-full">
         <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
@@ -232,15 +320,13 @@
     </footer>
 
     <script>
-        // Lidhja me Supabase
+        // Supabase Init
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
-            });
+            window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js'); });
         }
 
         const sysTimestamp = Math.floor(new Date().getTime() / 60000);
@@ -249,23 +335,8 @@
             .catch(() => fetch(`lajmet.json?t=${sysTimestamp}`).then(res => res.json()).catch(() => []));
 
         function getCatStyles(cat) { const c = { 'Sport': ['bg-green-600','text-green-600'], 'Politikë': ['bg-red-600','text-red-600'], 'Teknologji': ['bg-blue-600','text-blue-600'], 'Tech': ['bg-blue-600','text-blue-600'], 'Ekonomi': ['bg-yellow-600','text-yellow-600'] }; return c[cat] || ['bg-black','text-black']; }
-        
-        function krijoSlug(titulli) {
-            if (!titulli) return '';
-            return titulli.toString().toLowerCase()
-                .replace(/ë/g, 'e').replace(/ç/g, 'c')
-                .replace(/[^a-z0-9 -]/g, '') 
-                .replace(/\s+/g, '-') 
-                .replace(/-+/g, '-')
-                .replace(/^-+|-+$/g, '');
-        }
-
-        function optimizoFoton(url, isLarge) {
-            if(!url) return '';
-            const width = isLarge ? 800 : 400;
-            return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`;
-        }
-
+        function krijoSlug(titulli) { if (!titulli) return ''; return titulli.toString().toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c').replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, ''); }
+        function optimizoFoton(url, isLarge) { if(!url) return ''; const width = isLarge ? 800 : 400; return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=80`; }
         function parseDateCustom(dateStr) {
             if(!dateStr) return new Date(0);
             if(dateStr.includes('T') || dateStr.includes('-')) return new Date(dateStr); 
@@ -300,13 +371,7 @@
                             const yyyy = dateObj.getFullYear();
                             const hh = String(dateObj.getHours()).padStart(2, '0');
                             const min = String(dateObj.getMinutes()).padStart(2, '0');
-                            return {
-                                titulli: m.title,
-                                kategoria: m.category,
-                                imazhi: m.image_url,
-                                koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`,
-                                slug: krijoSlug(m.title)
-                            };
+                            return { titulli: m.title, kategoria: m.category, imazhi: m.image_url, koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`, slug: krijoSlug(m.title) };
                         });
                     }
                 } catch(e) { console.error("Gabim me lajmet manuale:", e); }
@@ -327,10 +392,7 @@
                 const teFunditGrid = document.getElementById('te-fundit-grid');
                 
                 let newsWithId = allNews;
-                
-                if (kategoriaZgjedhur) {
-                    newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech'));
-                }
+                if (kategoriaZgjedhur) { newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech')); }
 
                 if (newsWithId.length === 0) {
                     bentoGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4 py-10">Nuk ka lajme në këtë kategori për momentin.</p>';
@@ -372,8 +434,6 @@
 
             } catch (error) { 
                 console.error("Gabim gjate ngarkimit te lajmeve:", error);
-                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 font-medium col-span-4">Ndodhi një gabim gjatë ngarkimit të lajmeve. Provoni përsëri më vonë.</p>';
-                document.getElementById('te-fundit-grid').innerHTML = '';
             }
         }
 
@@ -381,24 +441,33 @@
             loadNews();
             setTimeout(() => {
                 initSecondaryFeatures();
+                initMobileAds();
             }, 800);
         });
 
-        /* --- LOGJIKA DINAMIKE E REKLAMAVE MOBILE --- */
+        // --- MOBILE ADS ---
         let userClosedAd = false;
-        let mobileAdTimer1, mobileAdTimer2;
-
         function mbyllMobileAd() {
             userClosedAd = true; 
             document.getElementById('mobile-popup').style.display = 'none';
-            clearTimeout(mobileAdTimer1);
-            clearTimeout(mobileAdTimer2);
         }
 
-        function initMobileAds(dynamicAds) {
+        async function initMobileAds() {
             if (window.innerWidth > 768) return;
-            if (!dynamicAds || dynamicAds.length === 0) return;
-            
+
+            let mobileAds = [
+                { img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }
+            ];
+
+            if (window.sb) {
+                try {
+                    const { data } = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', { ascending: false });
+                    if (data && data.length > 0) {
+                        mobileAds = data.map(b => ({ img: b.image_url, link: b.link_url || '#' }));
+                    }
+                } catch(e) { console.error("Gabim mobile ads:", e); }
+            }
+
             let currentAdIndex = 0;
             const popup = document.getElementById('mobile-popup');
             const popupImg = document.getElementById('mobile-popup-img');
@@ -406,19 +475,19 @@
 
             function showAd() {
                 if (userClosedAd) return;
-                if (currentAdIndex >= dynamicAds.length) currentAdIndex = 0; 
+                if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
                 
-                popupImg.src = dynamicAds[currentAdIndex].img;
-                popupLink.href = dynamicAds[currentAdIndex].link;
+                popupImg.src = mobileAds[currentAdIndex].img;
+                popupLink.href = mobileAds[currentAdIndex].link;
                 
                 popup.classList.remove('translate-y-[150%]', 'opacity-0');
                 popup.classList.add('translate-y-0', 'opacity-100');
 
-                mobileAdTimer1 = setTimeout(() => {
+                setTimeout(() => {
                     if (userClosedAd) return;
                     hideAd();
                     currentAdIndex++;
-                    mobileAdTimer2 = setTimeout(showAd, 15000); 
+                    setTimeout(showAd, 15000); 
                 }, 5000); 
             }
 
@@ -442,22 +511,20 @@
             const btnPromoLeft = document.getElementById('btn-promo-left');
             const btnPromoRight = document.getElementById('btn-promo-right');
             const promoCar = document.getElementById('promo-carousel');
-            
             if(btnPromoLeft && btnPromoRight && promoCar) {
                 btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' });
                 btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' });
             }
-
             const btnJobsLeft = document.getElementById('btn-jobs-left');
             const btnJobsRight = document.getElementById('btn-jobs-right');
             const jobsCar = document.getElementById('jobs-carousel');
-            
             if(btnJobsLeft && btnJobsRight && jobsCar) {
                 btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' });
                 btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' });
             }
         }
 
+        // --- POLLS ---
         async function loadPoll() {
             const pollContainer = document.getElementById('poll-container');
             if(!window.sb) return;
@@ -511,6 +578,7 @@
             container.innerHTML = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div><div class="flex justify-between text-sm font-bold mb-1"><span>Mesatarja e të gjithë votuesve</span><span>${average}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div></div></div>`;
         }
 
+        // --- JOBS ---
         async function loadJobs() {
             const carousel = document.getElementById('jobs-carousel');
             if(!window.sb) return;
@@ -530,50 +598,37 @@
             });
         }
 
-        // Këtu bëhet lidhja dinamike e të GJITHA hapësirave me Databazën!
+        // --- BANNERS ---
         async function loadBanners() {
             if(!window.sb) return;
-            const { data } = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', { ascending: false });
-            if(data) {
-                const topBanner = data.find(b => b.position === 'homepage_top');
-                const midBanner = data.find(b => b.position === 'homepage_middle');
-                const leftBanner = data.find(b => b.position === 'sidebar_left');
-                const rightBanner = data.find(b => b.position === 'sidebar_right');
-                
-                // Mbledhim të gjitha reklamat për telefon që i ke ngarkuar
-                const mobileBanners = data.filter(b => b.position === 'mobile_popup');
-
-                if(topBanner) document.getElementById('banner-top-container').innerHTML = `
-                    <div class="w-full">
-                        <a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full">
-                            <img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
-                        </a>
-                    </div>`;
+            try {
+                const { data } = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', { ascending: false });
+                if(data) {
+                    const topBanner = data.find(b => b.position === 'homepage_top');
+                    const midBanner = data.find(b => b.position === 'homepage_middle');
+                    const leftBanner = data.find(b => b.position === 'sidebar_left');
+                    const rightBanner = data.find(b => b.position === 'sidebar_right');
                     
-                if(midBanner) document.getElementById('banner-middle-container').innerHTML = `
-                    <div class="w-full mt-8">
-                        <a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full">
-                            <img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy">
-                        </a>
-                    </div>`;
-
-                // Shtyllat Anësore
-                if(leftBanner) {
-                    const leftCont = document.getElementById('sidebar-left');
-                    if(leftCont) leftCont.innerHTML = `<div class="sticky top-28"><a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`;
+                    if(topBanner) {
+                        const cont = document.getElementById('banner-top-container');
+                        if(cont) cont.innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`;
+                    }
+                    if(midBanner) {
+                        const cont = document.getElementById('banner-middle-container');
+                        if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`;
+                    }
+                    if(leftBanner) {
+                        const img = document.getElementById('sidebar-left-img');
+                        const link = document.getElementById('sidebar-left-link');
+                        if(img && link) { img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }
+                    }
+                    if(rightBanner) {
+                        const img = document.getElementById('sidebar-right-img');
+                        const link = document.getElementById('sidebar-right-link');
+                        if(img && link) { img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }
+                    }
                 }
-
-                if(rightBanner) {
-                    const rightCont = document.getElementById('sidebar-right');
-                    if(rightCont) rightCont.innerHTML = `<div class="sticky top-28"><a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`;
-                }
-
-                // Dërgojmë reklamat e telefonit nga Databaza te funksioni që i lëviz
-                if(mobileBanners.length > 0) {
-                    const adsForMobile = mobileBanners.map(b => ({ img: b.image_url, link: b.link_url || '#' }));
-                    initMobileAds(adsForMobile);
-                }
-            }
+            } catch(e) { console.error("Gabim banners:", e); }
         }
 
         function setupNewsletter() {
@@ -587,6 +642,71 @@
                 });
             }
         }
+
+        // --- ZANI AI CHATBOT LOGIC ---
+        function toggleChat() {
+            const chatWindow = document.getElementById('zani-chat-window');
+            chatWindow.classList.toggle('hidden');
+            if(!chatWindow.classList.contains('hidden')) {
+                document.getElementById('chat-input').focus();
+            }
+        }
+
+        function autoAsk(question) {
+            document.getElementById('chat-input').value = question;
+            sendChatMessage();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            
+            if(!text) return;
+            
+            messages.innerHTML += `
+            <div class="flex gap-2 justify-end">
+                <div class="bg-black text-white px-4 py-3 rounded-2xl rounded-tr-sm shadow-sm font-medium leading-relaxed max-w-[85%] text-[13px]">
+                    ${text}
+                </div>
+            </div>`;
+            
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+            
+            const thinkingId = 'think-' + Date.now();
+            messages.innerHTML += `
+            <div id="${thinkingId}" class="flex gap-2.5">
+                <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1 shadow-sm">Z</div>
+                <div class="bg-white border border-gray-200 p-4 rounded-2xl rounded-tl-sm text-gray-500 shadow-sm flex gap-1.5 items-center">
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                </div>
+            </div>`;
+            messages.scrollTop = messages.scrollHeight;
+            
+            setTimeout(() => {
+                const thinkingElement = document.getElementById(thinkingId);
+                if(thinkingElement) thinkingElement.remove();
+                
+                messages.innerHTML += `
+                <div class="flex gap-2.5">
+                    <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1 shadow-sm">Z</div>
+                    <div class="bg-white border border-gray-200 p-3.5 rounded-2xl rounded-tl-sm text-gray-800 shadow-sm leading-relaxed max-w-[90%] text-[13px]">
+                        <strong>Ky është një test vizual i dizajnit!</strong> 🚀 <br><br>
+                        Kur ta lidhim me Trurin e Groq, këtu do të shfaqet teksti i gjeneruar direkt nga lajmet që portali ka grumbulluar gjatë ditës. A po të pëlqen pamja deri tani?
+                    </div>
+                </div>`;
+                messages.scrollTop = messages.scrollHeight;
+            }, 2000);
+        }
+
+        document.getElementById('chat-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
     </script>
 </body>
 </html>
