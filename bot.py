@@ -156,6 +156,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
         body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; }}
@@ -277,7 +280,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </footer>
 
-    <!-- Supabase Scripts (Same as index.html) -->
+    <!-- Supabase Scripts -->
     <script>
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
@@ -523,20 +526,18 @@ def fetch_full_text(url):
 
 def gjenero_kategori_dhe_hashtags(original_title, full_text):
     prompt = f"""
-    Ti je Kryeredaktori i portalit "Zani Digjital".
-    DETYRA JOTE:
-    1. Përcakto KATEGORINË bazuar në titull dhe tekst.
+    Ti je redaktori i portalit "Zani Digjital".
+    DETYRA JOTE E VETME:
+    1. Përcakto KATEGORINË bazuar në titull dhe tekst (Zgjidh vetëm njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme).
     2. Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
-    3. SHKRUAJ STATUSIN E FACEBOOK (Kritike!): Shkruaj 1-2 fjali të plota dhe tërheqëse për ta postuar këtë lajm në Facebook. Fjalitë duhet të mbarojnë GJITHMONË me pikë (.) dhe nuk duhet të priten në mes. Maksimumi 150-200 karaktere.
-    4. Gjenero 3-4 HASHTAGS strategjikë.
+    3. Gjenero 3-4 HASHTAGS strategjikë për këtë lajm.
     
     Titulli origjinal: {original_title}
-    Teksti: {full_text[:1200]}
+    Teksti: {full_text[:1000]}
     
     KTHE VETËM SKEDARIN JSON me strukturën e mëposhtme:
     {{
-      "kategoria": "Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
-      "postimi_facebook": "Këtu vendos fjalinë e plotë përmbledhëse për Facebook që mbaron me pikë.",
+      "kategoria": "Kategoria e zgjedhur",
       "hashtags": "#hashtag1 #hashtag2 #hashtag3"
     }}
     """
@@ -612,6 +613,7 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
+            # AI perdoret VETEM per Kategori dhe Hashtags (Asnje rishkrim teksti)
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -620,8 +622,9 @@ def main():
                 if kategoria == "Kalo": continue
 
                 hashtags = ai_result.get("hashtags", "")
-                postimi_fb_ai = ai_result.get("postimi_facebook", "")
                 titulli_final = title
+                
+                # Teksti mbetet 100% origjinal, pa u prekur nga AI, duke ruajtur cdo burim
                 teksti_i_pastruar = full_text
                 
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
@@ -635,7 +638,7 @@ def main():
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords_start)):
                     paragrafet_temp.pop(0)
                     
-                junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "nga telegrafi", "nga gazeta express", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
+                junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
                 while paragrafet_temp:
                     last_p = paragrafet_temp[-1].strip()
                     lower_last = last_p.lower()
@@ -653,6 +656,7 @@ def main():
                     else:
                         break
                         
+                # Heqja e etiketave burimore NGA FUNDI (Nëse ka mbetur si tag /Telegrafi/ në fund fare)
                 portale_fund = [r'/Telegrafi/', r'/Indeksonline/', r'/Gazeta Express/', r'/Express/', r'/Klan Kosova/', r'/KlanKosova/']
                 for i in range(len(paragrafet_temp)):
                     for pattern in portale_fund:
@@ -663,23 +667,24 @@ def main():
                 slug_final = krijo_slug(titulli_final)
                 
                 article = {
-                    "titulli": titulli_final, "permbajtja": teksti_i_pastruar,
-                    "kategoria": kategoria, "imazhi": image_url,
+                    "titulli": titulli_final,
+                    "permbajtja": teksti_i_pastruar,
+                    "kategoria": kategoria,
+                    "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
-                    "link_origjinal": link, "slug": slug_final
+                    "link_origjinal": link,
+                    "slug": slug_final
                 }
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                if postimi_fb_ai:
-                    mesazhi_fb = f"{postimi_fb_ai}\n\n{hashtags}".strip()
+                # POSTIMI NE FACEBOOK: Merr ekzaktesisht paragrafin e pare, pa nderhyrje te AI
+                if paragrafet_temp:
+                    paragrafi_pare = paragrafet_temp[0]
                 else:
-                    if paragrafet_temp:
-                        fjalite = paragrafet_temp[0].split('.')
-                        paragrafi_pare = fjalite[0].strip() + "." if len(fjalite[0]) > 20 else titulli_final
-                    else:
-                        paragrafi_pare = titulli_final
-                    mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
+                    paragrafi_pare = titulli_final
+                    
+                mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
                 new_entries.append(article)
@@ -705,13 +710,13 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Rregulluar koha e publikimit per Facebook"')
+        os.system('git commit -m "U hoq Inteligjenca Artificiale nga rishkrimi. Lajmet mbeten origjinale."')
         os.system('git pull --rebase')
         os.system('git push')
         
     if new_entries:
-        print("⏳ Duke pritur 2.5 minuta që GitHub të publikojë faqet, që Facebook të mos gjejë faqe boshe...")
-        time.sleep(150) # 2.5 minuta pritje absolute që GitHub të ngarkojë faqen para postimit
+        print("⏳ Duke pritur 2.5 minuta që GitHub të publikojë faqet...")
+        time.sleep(150) 
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(5)
