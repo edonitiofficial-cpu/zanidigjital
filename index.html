@@ -74,24 +74,22 @@
 </head>
 <body class="text-gray-900 antialiased">
 
-    <!-- Header-i tani u bë super i gjerë max-w-[1800px] -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center py-4">
-                <div class="flex-shrink-0 flex items-center mb-4 md:mb-0">
-                    <a href="/">
-                        <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
-                    </a>
-                </div>
+    <!-- Header-i tani është i rreshtuar fiks me qendrën e lajmeve (max-w-7xl) -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <a href="/" class="flex-shrink-0 mb-4 md:mb-0">
+                    <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                </a>
                 
                 <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
-                    <nav class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
-                        <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
-                        <a href="https://zanidigjital.com/?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
-                        <a href="https://zanidigjital.com/?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
-                        <a href="https://zanidigjital.com/?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
-                        <a href="https://zanidigjital.com/?kategoria=Sport" class="hover:text-black transition">Sport</a>
-                        <a href="https://zanidigjital.com/?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
+                    <nav id="nav-menu" class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
+                        <a href="/" id="link-ballina" class="text-black border-b-2 border-black pb-1">Ballina</a>
+                        <a href="/?kategoria=Lajme" id="link-Lajme" class="hover:text-black transition pb-1">Lajme</a>
+                        <a href="/?kategoria=Politikë" id="link-Politikë" class="hover:text-black transition pb-1">Politikë</a>
+                        <a href="/?kategoria=Ekonomi" id="link-Ekonomi" class="hover:text-black transition pb-1">Ekonomi</a>
+                        <a href="/?kategoria=Sport" id="link-Sport" class="hover:text-black transition pb-1">Sport</a>
+                        <a href="/?kategoria=Teknologji" id="link-Teknologji" class="hover:text-black transition pb-1">Teknologji</a>
                     </nav>
                 </div>
             </div>
@@ -241,7 +239,6 @@
 
     </div> <!-- FUNDI I WRAPPER-IT TË GJERË -->
 
-    <!-- Edhe footer u zgjerua -->
     <footer class="bg-white border-t border-gray-200 py-8 mt-12">
         <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
