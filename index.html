@@ -38,7 +38,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     
-    <!-- Rregulluar: U hoq 'defer' qe Supabase te jete gati menjehere -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
@@ -287,7 +286,6 @@
     </footer>
 
     <script>
-        // Inicializimi i Supabase është i sigurt këtu!
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
         window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
@@ -338,7 +336,14 @@
                             const yyyy = dateObj.getFullYear();
                             const hh = String(dateObj.getHours()).padStart(2, '0');
                             const min = String(dateObj.getMinutes()).padStart(2, '0');
-                            return { titulli: m.title, kategoria: m.category, imazhi: m.image_url, koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`, slug: krijoSlug(m.title) };
+                            return { 
+                                titulli: m.title, 
+                                kategoria: m.category, 
+                                imazhi: m.image_url, 
+                                koha: `${dd}/${mm}/${yyyy} ${hh}:${min}`, 
+                                slug: krijoSlug(m.title),
+                                eshte_balline: true // Lajmet manuale jane gjithmone balline
+                            };
                         });
                     }
                 } catch(e) { console.error("Gabim me lajmet manuale:", e); }
@@ -358,18 +363,42 @@
                 const bentoGrid = document.getElementById('bento-grid'); 
                 const teFunditGrid = document.getElementById('te-fundit-grid');
                 
-                let newsWithId = allNews;
-                if (kategoriaZgjedhur) { newsWithId = newsWithId.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech')); }
+                let bentoNews = [];
+                let remainingNews = [];
 
-                if (newsWithId.length === 0) {
+                // LOGJIKA E NDARJES SË BALLINËS DHE TË FUNDIT
+                if (kategoriaZgjedhur) { 
+                    // Nëse vizitori ka zgjedhur një kategori, thjesht shfaqim të gjitha aty
+                    let catNews = allNews.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech'));
+                    bentoNews = catNews.slice(0, 5);
+                    remainingNews = catNews.slice(5);
+                } else {
+                    // Nëse jemi në Ballinën kryesore, bëjmë ndarjen e zgjuar!
+                    let ballinaKandidat = allNews.filter(n => n.eshte_balline !== false);
+                    let teFunditKandidat = allNews.filter(n => n.eshte_balline === false);
+                    
+                    bentoNews = ballinaKandidat.slice(0, 5);
+                    
+                    // Nëse nuk u gjendën mjaftueshëm lajme balline, e mbushim me të fundit
+                    if(bentoNews.length < 5) {
+                        const needed = 5 - bentoNews.length;
+                        bentoNews = bentoNews.concat(teFunditKandidat.slice(0, needed));
+                        teFunditKandidat = teFunditKandidat.slice(needed);
+                    }
+                    
+                    remainingNews = [...ballinaKandidat.slice(5), ...teFunditKandidat];
+                    remainingNews.sort((a, b) => parseDateCustom(b.koha) - parseDateCustom(a.koha));
+                }
+
+                if (bentoNews.length === 0 && remainingNews.length === 0) {
                     bentoGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4 py-10">Nuk ka lajme në këtë kategori për momentin.</p>';
                     teFunditGrid.innerHTML = '<p class="text-gray-500 font-medium col-span-4">Nuk ka lajme shtesë.</p>';
                     return;
                 }
 
                 let bentoHtml = '';
-                for (let i = 0; i < Math.min(5, newsWithId.length); i++) {
-                    const n = newsWithId[i]; 
+                for (let i = 0; i < bentoNews.length; i++) {
+                    const n = bentoNews[i]; 
                     const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
@@ -384,11 +413,11 @@
                 }
                 bentoGrid.innerHTML = bentoHtml;
                 
-                let limitLajme = kategoriaZgjedhur ? Math.min(100, newsWithId.length) : Math.min(17, newsWithId.length); 
+                let limitLajme = kategoriaZgjedhur ? Math.min(100, remainingNews.length) : Math.min(16, remainingNews.length); 
                 let teFunditHtml = '';
 
-                for (let i = 5; i < limitLajme; i++) {
-                    const n = newsWithId[i]; 
+                for (let i = 0; i < limitLajme; i++) {
+                    const n = remainingNews[i]; 
                     const [,txt] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli);
                     const url = `/lajme/${slug}`;
@@ -401,7 +430,7 @@
 
             } catch (error) { 
                 console.error("Gabim gjate ngarkimit te lajmeve:", error);
-                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 font-medium col-span-4 p-4 text-center">Ndodhi një gabim gjatë ngarkimit të lajmeve. Rifreskoni faqen.</p>';
+                document.getElementById('bento-grid').innerHTML = '<p class="text-red-500 font-medium col-span-4 py-10 text-center">Ndodhi një gabim. Rifresko faqen.</p>';
                 document.getElementById('te-fundit-grid').innerHTML = '';
             }
         }
@@ -664,7 +693,7 @@
                     <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1 shadow-sm">Z</div>
                     <div class="bg-white border border-gray-200 p-3.5 rounded-2xl rounded-tl-sm text-gray-800 shadow-sm leading-relaxed max-w-[90%] text-[13px]">
                         <strong>Ky është një test vizual i dizajnit!</strong> 🚀 <br><br>
-                        Kur ta lidhim me Trurin e Groq, këtu do të shfaqet teksti i gjeneruar direkt nga lajmet që portali ka grumbulluar gjatë ditës. A po të pëlqen pamja deri tani?
+                        Kur ta lidhim me Trurin e Groq, këtu do të shfaqet teksti i gjeneruar direkt nga lajmet që portali ka grumbulluar gjatë ditës.
                     </div>
                 </div>`;
                 messages.scrollTop = messages.scrollHeight;
