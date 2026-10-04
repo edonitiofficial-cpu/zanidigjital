@@ -318,7 +318,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 </body>
 </html>"""
     
-    # RRESHTI I RREGULLUAR: file_path u shtua para rreshtit with open(...)
     file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
@@ -400,7 +399,6 @@ def fetch_full_text(url):
     try:
         downloaded = trafilatura.fetch_url(url)
         if downloaded:
-            # Rregulluar DeprecationWarning: u zevendesua no_fallback=True me fast=True
             text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, fast=True)
             if text: return text
         return ""
@@ -569,7 +567,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Riparim i plote: U shtua file_path per ndertimin e html-se"')
+        os.system('git commit -m "Riparimi final me path te ruajtjes se HTML"')
         os.system('git pull --rebase')
         os.system('git push')
         
