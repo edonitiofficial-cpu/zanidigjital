@@ -32,13 +32,42 @@ def switch_api_key():
     client = Groq(api_key=new_key)
     print(f"🔄 Kaluam te çelësi rezervë numër {current_key_index + 1}")
 
+# --- BURIMET E LAJMEVE ---
 RSS_FEEDS = [
     "https://telegrafi.com/feed/",
     "https://indeksonline.net/feed/",
-    "https://www.gazetaexpress.com/feed/"
+    "https://www.gazetaexpress.com/feed/",
+    "https://klankosova.tv/feed/"
 ]
 
 DB_FILE = "lajmet.json"
+
+# --- LOGJIKA E RE PËR DUPLIKATET SEMANTIKE ---
+def is_duplicate_news(title1, title2):
+    t1 = title1.lower()
+    t2 = title2.lower()
+    
+    # 1. Kontrolli i drejtpërdrejtë
+    if difflib.SequenceMatcher(None, t1, t2).ratio() > 0.55:
+        return True
+        
+    # 2. Kontrolli semantik (Fjalët rrënjë)
+    def get_stems(text):
+        # Marrim vetëm fjalët me 4+ shkronja
+        words = re.findall(r'\b[a-zëç]{4,}\b', text)
+        # I shkurtojmë në 5 shkronja për të anashkaluar lakimet (p.sh. Kurtit -> kurti)
+        return set(w[:5] if len(w) > 5 else w for w in words)
+        
+    stems1 = get_stems(t1)
+    stems2 = get_stems(t2)
+    
+    if stems1 and stems2:
+        overlap = len(stems1.intersection(stems2))
+        # Nëse ndajnë 4 ose më shumë fjalë/rrënjë thelbësore, bllokohet!
+        if overlap >= 4:
+            return True
+            
+    return False
 
 def krijo_slug(titulli):
     if not titulli:
@@ -150,14 +179,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
                 
-                <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 font-semibold text-gray-600">
-                    <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
-                    <a href="https://zanidigjital.com/?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
-                    <a href="https://zanidigjital.com/?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
-                    <a href="https://zanidigjital.com/?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
-                    <a href="https://zanidigjital.com/?kategoria=Sport" class="hover:text-black transition">Sport</a>
-                    <a href="https://zanidigjital.com/?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
-                </nav>
+                <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
+                    <nav class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
+                        <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
+                        <a href="https://zanidigjital.com/?kategoria=Lajme" class="hover:text-black transition">Lajme</a>
+                        <a href="https://zanidigjital.com/?kategoria=Politikë" class="hover:text-black transition">Politikë</a>
+                        <a href="https://zanidigjital.com/?kategoria=Ekonomi" class="hover:text-black transition">Ekonomi</a>
+                        <a href="https://zanidigjital.com/?kategoria=Sport" class="hover:text-black transition">Sport</a>
+                        <a href="https://zanidigjital.com/?kategoria=Teknologji" class="hover:text-black transition">Teknologji</a>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -206,15 +237,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     {sugjerime_html}
                 </div>
             </div>
-
-            <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
-                <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                <img src="/burger.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop'">
-            </a>
-            <a href="#" target="_blank" class="block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:opacity-90 hover:shadow-md transition duration-300 relative">
-                <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                <img src="/chair.png" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?q=80&w=400&auto=format&fit=crop'">
-            </a>
         </aside>
     </main>
 
@@ -266,16 +288,12 @@ def krijo_rss(lajmet):
 def krijo_sitemap(lajmet):
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    
     koha_tani = (datetime.now() + timedelta(hours=2)).strftime("%Y-%m-%d")
     
     faqet_kryesore = [
-        "https://zanidigjital.com/",
-        "https://zanidigjital.com/?kategoria=Lajme",
-        "https://zanidigjital.com/?kategoria=Politikë",
-        "https://zanidigjital.com/?kategoria=Ekonomi",
-        "https://zanidigjital.com/?kategoria=Sport",
-        "https://zanidigjital.com/?kategoria=Teknologji"
+        "https://zanidigjital.com/", "https://zanidigjital.com/?kategoria=Lajme",
+        "https://zanidigjital.com/?kategoria=Politikë", "https://zanidigjital.com/?kategoria=Ekonomi",
+        "https://zanidigjital.com/?kategoria=Sport", "https://zanidigjital.com/?kategoria=Teknologji"
     ]
     
     for faqe in faqet_kryesore:
@@ -283,16 +301,14 @@ def krijo_sitemap(lajmet):
     
     for lajm in lajmet[:1000]:
         slug = lajm.get("slug", "")
-        if not slug:
-            slug = krijo_slug(lajm.get("titulli", ""))
+        if not slug: slug = krijo_slug(lajm.get("titulli", ""))
         linku = f"https://zanidigjital.com/lajme/{slug}"
         data_lajmit = koha_tani
         if "koha" in lajm:
             try:
                 obj_data = datetime.strptime(lajm["koha"], "%d/%m/%Y %H:%M")
                 data_lajmit = obj_data.strftime("%Y-%m-%d")
-            except:
-                pass
+            except: pass
         sitemap_content += f"  <url>\n    <loc>{linku}</loc>\n    <lastmod>{data_lajmit}</lastmod>\n    <changefreq>never</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
         
     sitemap_content += "</urlset>"
@@ -315,10 +331,8 @@ def posto_ne_facebook(mesazhi, linku):
 def load_news():
     if os.path.exists(DB_FILE):
         with open(DB_FILE, "r", encoding="utf-8") as f:
-            try:
-                return json.load(f)
-            except:
-                return []
+            try: return json.load(f)
+            except: return []
     return []
 
 def save_news(news_list):
@@ -328,11 +342,8 @@ def save_news(news_list):
     lajmet_ballina = []
     for lajm in news_list[:50]:
         lajmet_ballina.append({
-            "titulli": lajm.get("titulli"),
-            "kategoria": lajm.get("kategoria"),
-            "imazhi": lajm.get("imazhi"),
-            "koha": lajm.get("koha"),
-            "slug": lajm.get("slug")
+            "titulli": lajm.get("titulli"), "kategoria": lajm.get("kategoria"),
+            "imazhi": lajm.get("imazhi"), "koha": lajm.get("koha"), "slug": lajm.get("slug")
         })
     with open("ballina.json", "w", encoding="utf-8") as f:
         json.dump(lajmet_ballina, f, ensure_ascii=False)
@@ -342,28 +353,24 @@ def fetch_full_text(url):
         downloaded = trafilatura.fetch_url(url)
         if downloaded:
             text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, no_fallback=True)
-            if text:
-                return text
+            if text: return text
         return ""
-    except:
-        return ""
+    except: return ""
 
 def gjenero_kategori_dhe_hashtags(original_title, full_text):
     prompt = f"""
     Ti je Kryeredaktori i portalit "Zani Digjital".
-    
-    DETYRA JOTE (NUK DUHET TE PREKESH TITULLIN):
-    1. Përcakto KATEGORINË bazuar në titull dhe tekst. PRIORITETI YNË ABSOLUT JANE KËTO: Politikë, Sport, Ekonomi (me fokus Kosovën) dhe Teknologji. Zgjidh njërën.
-    2. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, ose e zezë banale, kthe VETËM kategorinë "Kalo". 
-    3. Gjenero 3-4 HASHTAGS strategjikë për rrjetet sociale (p.sh. #Kosovë #Politikë).
-    
+    DETYRA JOTE:
+    1. Përcakto KATEGORINË bazuar në titull dhe tekst. PRIORITETI: Politikë, Sport, Ekonomi (Kosove) dhe Teknologji.
+    2. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
+    3. Gjenero 3-4 HASHTAGS strategjikë.
     Titulli origjinal: {original_title}
     Teksti: {full_text[:800]}
     
     KTHE VETËM SKEDARIN JSON (asgjë tjetër):
     {{
       "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
-      "hashtags": "3-4 hashtags, të ndarë me hapësirë"
+      "hashtags": "3-4 hashtags"
     }}
     """
     for attempt in range(1, 4):
@@ -404,16 +411,17 @@ def main():
             
             if link in existing_links: continue
 
+            # Kontrolli i ri semantik kundër duplikateve
             is_duplicate = False
-            for existing_item in existing_news + new_entries:
+            recent_news = (new_entries + existing_news)[:150]
+            for existing_item in recent_news:
                 existing_title = existing_item.get("titulli", "")
-                similarity = difflib.SequenceMatcher(None, title.lower(), existing_title.lower()).ratio()
-                if similarity > 0.70:
+                if is_duplicate_news(title, existing_title):
                     is_duplicate = True
                     break
             
             if is_duplicate:
-                print(f"🚫 U bllokua si duplikat i saktë: {title}")
+                print(f"🚫 U bllokua si duplikat semantik: {title}")
                 continue
 
             image_url = ""
@@ -442,23 +450,19 @@ def main():
 
             if ai_result:
                 kategoria = ai_result.get("kategoria", "Lajme")
-                if kategoria == "Kalo":
-                    print("⏩ Lajmi u kalua (jashtë interesit/showbiz).")
-                    continue
+                if kategoria == "Kalo": continue
 
                 hashtags = ai_result.get("hashtags", "")
                 titulli_final = title
                 teksti_i_pastruar = full_text
                 
+                # U shtua edhe Klan Kosova për pastrim të tekstit
                 portale_regex = [
-                    r'(?i)telegraf(i|it|in)?(\.com)?',
-                    r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
-                    r'(?i)\bexpress(i|it|in)?\b',
-                    r'(?i)indeksonline(\.net)?',
-                    r'(?i)indeks\s*online(\.net)?',
-                    r'(?i)\brtk(live)?(\.com)?\b'
+                    r'(?i)telegraf(i|it|in)?(\.com)?', r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
+                    r'(?i)\bexpress(i|it|in)?\b', r'(?i)indeksonline(\.net)?',
+                    r'(?i)indeks\s*online(\.net)?', r'(?i)\brtk(live)?(\.com)?\b',
+                    r'(?i)klankosova(\.tv)?', r'(?i)\bklan\s*kosov(a|ë|ës|ën)?\b'
                 ]
-                
                 for pattern in portale_regex:
                     teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
                     titulli_final = re.sub(pattern, 'Zani Digjital', titulli_final)
@@ -466,20 +470,15 @@ def main():
                 slug_final = krijo_slug(titulli_final)
                 
                 article = {
-                    "titulli": titulli_final,
-                    "permbajtja": teksti_i_pastruar,
-                    "kategoria": kategoria,
-                    "imazhi": image_url,
+                    "titulli": titulli_final, "permbajtja": teksti_i_pastruar,
+                    "kategoria": kategoria, "imazhi": image_url,
                     "koha": (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M"),
-                    "link_origjinal": link,
-                    "slug": slug_final
+                    "link_origjinal": link, "slug": slug_final
                 }
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
-                
                 paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 paragrafi_pare = paragrafet[0][:200] + "..." if paragrafet else titulli_final
-                
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
@@ -495,17 +494,15 @@ def main():
         krijo_rss(updated_news)
         krijo_sitemap(updated_news)
         
-        print("\nDuke gjeneruar faqet statike HTML...")
         for article in new_entries: gjenero_artikullin_html(article, updated_news)
         
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtuan lajme të reja automatikisht me integrim PWA"')
+        os.system('git commit -m "Bllokues Semantik Duplikatesh"')
         os.system('git pull --rebase')
         os.system('git push')
         
-        print("\n⏳ Presim 120 sekonda për Facebook (që të publikohet faqja).")
         time.sleep(120)
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
