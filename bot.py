@@ -48,15 +48,11 @@ def kontrollo_ballinen_e_burimit(link):
         domain = "{0.scheme}://{0.netloc}/".format(urllib.parse.urlsplit(link))
         req = urllib.request.Request(domain, headers={'User-Agent': 'Mozilla/5.0'})
         html = urllib.request.urlopen(req, timeout=5).read().decode('utf-8', errors='ignore')
-        
         path = urllib.parse.urlparse(link).path
-        if path and len(path) > 5 and path in html:
-            return True
-        elif link in html:
-            return True
+        if path and len(path) > 5 and path in html: return True
+        elif link in html: return True
         return False
-    except:
-        return False
+    except: return False
 
 # --- LOGJIKA KUNDËR DUPLIKATEVE SEMANTIKE ---
 def is_duplicate_news(title1, title2):
@@ -155,7 +151,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
@@ -175,7 +170,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 <a href="https://zanidigjital.com/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
-                
                 <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
                     <nav class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
                         <a href="https://zanidigjital.com/" class="hover:text-black transition">Ballina</a>
@@ -203,21 +197,14 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
-                <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
-                    ← Kthehu te Ballina
-                </a>
-                
+                <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">← Kthehu te Ballina</a>
                 <div class="flex items-center gap-4 mb-4 font-bold">
                     <span class="{cat_bg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">{kategoria}</span>
                     <span class="text-gray-400 text-sm font-medium">{koha}</span>
                 </div>
-                
                 <h1 class="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">{titulli}</h1>
-                
                 <div class="flex flex-wrap gap-2 mb-8">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Ndaj
-                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">Ndaj</a>
                 </div>
 
                 <div id="banner-article-top" class="w-full mb-8"></div>
@@ -234,9 +221,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
                         <span class="bg-black text-white px-2 py-1 rounded text-xs uppercase">Të rejat</span> Lexo më shumë
                     </h3>
-                    <div class="space-y-4">
-                        {sugjerime_html}
-                    </div>
+                    <div class="space-y-4">{sugjerime_html}</div>
                 </div>
             </aside>
         </main>
@@ -513,15 +498,15 @@ def main():
                     
                     if any(kw in lower_last for kw in junk_keywords_end): is_junk = True
                     elif len(last_p) < 40 and not last_p.endswith(('.', '!', '?', '"', "'", '”', '“')): is_junk = True
-                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "indeksonline", "klan kosova"]: is_junk = True
+                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "gazetaexpress", "indeksonline", "klan kosova", "rtsh", "rtk"]: is_junk = True
                         
                     if is_junk: paragrafet_temp.pop()
                     else: break
                         
-                portale_fund = [r'/Telegrafi/', r'/Indeksonline/', r'/Gazeta Express/', r'/Express/', r'/Klan Kosova/', r'/KlanKosova/']
+                # Rregulluar: Fshin te gjitha variacionet, me hapesira ose pa hapesira
+                regex_pattern = r'/(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK)\.?$'
                 for i in range(len(paragrafet_temp)):
-                    for pattern in portale_fund:
-                        paragrafet_temp[i] = re.sub(pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
+                    paragrafet_temp[i] = re.sub(regex_pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
 
                 teksti_i_pastruar = "\n".join(paragrafet_temp)
                 slug_final = krijo_slug(titulli_final)
@@ -567,15 +552,13 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Riparimi final me path te ruajtjes se HTML"')
+        os.system('git commit -m "U rregullua fshirja e variacioneve te GazetaExpress"')
         os.system('git pull --rebase')
         os.system('git push')
         
     if new_entries:
         fb_posts_queue.sort(key=lambda x: x["eshte_balline"], reverse=True)
-        print("⏳ Duke pritur qe GitHub te publikoje faqet...")
         time.sleep(150) 
-        
         for post in fb_posts_queue[:2]:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(5)
