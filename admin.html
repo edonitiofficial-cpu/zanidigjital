@@ -12,12 +12,13 @@
 </head>
 <body class="text-gray-900 antialiased h-screen overflow-hidden">
 
+    <!-- EKRANI I KYÇJES -->
     <div id="login-screen" class="flex items-center justify-center h-full bg-gray-50">
         <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-200 w-full max-w-md">
             <div class="text-center mb-8">
                 <img src="zanidigjital.png" alt="Logo" class="h-12 mx-auto mb-4 object-contain">
                 <h2 class="text-2xl font-black uppercase">Paneli i Kontrollit</h2>
-                <p class="text-gray-500 text-sm mt-1">Versioni Përfundimtar</p>
+                <p class="text-gray-500 text-sm mt-1">Zëri yt, Rregullat e tua.</p>
             </div>
             <div id="login-error" class="hidden bg-red-100 text-red-700 p-3 rounded-lg text-sm font-medium mb-4 text-center"></div>
             <form id="login-form" class="space-y-5">
@@ -28,7 +29,9 @@
         </div>
     </div>
 
+    <!-- PANELI KRYESOR -->
     <div id="admin-dashboard" class="hidden h-full flex flex-col md:flex-row w-full">
+        <!-- MENYJA ANËSORE -->
         <aside class="w-full md:w-64 bg-white border-r border-gray-200 flex flex-col h-full shadow-sm relative z-20">
             <div class="p-6 border-b border-gray-100">
                 <img src="zanidigjital.png" alt="Logo" class="h-8 object-contain">
@@ -36,6 +39,7 @@
             </div>
             <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
                 <a href="#" onclick="showSection('overview')" id="nav-overview" class="nav-link block px-4 py-3 rounded-xl font-bold bg-gray-100 text-black transition">Përmbledhja</a>
+                <a href="#" onclick="showSection('news')" id="nav-news" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Menaxhimi i Lajmeve</a>
                 <a href="#" onclick="showSection('jobs')" id="nav-jobs" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka ka për me punu?</a>
                 <a href="#" onclick="showSection('polls')" id="nav-polls" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka t'thotë populli?</a>
                 <a href="#" onclick="showSection('banners')" id="nav-banners" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Hapësirat Sponsorizuese</a>
@@ -44,15 +48,63 @@
             <div class="p-4 border-t border-gray-100"><p id="admin-email" class="text-xs font-bold text-gray-400 mb-2 truncate">admin@zanidigjital.com</p><button onclick="logOut()" class="w-full bg-red-50 text-red-600 font-bold py-2 rounded-lg hover:bg-red-100 transition">Dil nga llogaria</button></div>
         </aside>
 
+        <!-- HAPËSIRA E PUNËS -->
         <main class="flex-1 bg-gray-50 overflow-y-auto p-6 md:p-10 relative">
             
+            <!-- PËRMBLEDHJA -->
             <section id="sec-overview" class="content-section">
                 <h1 class="text-3xl font-black mb-8 uppercase">Përmbledhja</h1>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Lajme Man.</p><h3 id="stat-news" class="text-4xl font-black">0</h3></div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Punë Aktive</p><h3 id="stat-jobs" class="text-4xl font-black">0</h3></div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe Totale</p><h3 id="stat-polls" class="text-4xl font-black">0</h3></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe</p><h3 id="stat-polls" class="text-4xl font-black">0</h3></div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Abonentë</p><h3 id="stat-subs" class="text-4xl font-black">0</h3></div>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Banera Aktivë</p><h3 id="stat-banners" class="text-4xl font-black">0</h3></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Banera</p><h3 id="stat-banners" class="text-4xl font-black">0</h3></div>
+                </div>
+            </section>
+
+            <!-- LAJMET MANUALE (E RE) -->
+            <section id="sec-news" class="content-section hidden">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-black uppercase">Menaxhimi i Lajmeve</h1>
+                    <button onclick="toggleForm('news-form-container')" class="bg-black text-white px-5 py-2 rounded-xl font-bold hover:bg-gray-800 transition">+ Shkruaj Lajm</button>
+                </div>
+                <div id="news-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <form id="news-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Titulli i Lajmit</label>
+                            <input type="text" id="news-title" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Kategoria</label>
+                                <select id="news-cat" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                                    <option value="Lajme">Lajme (E Përgjithshme)</option>
+                                    <option value="Politikë">Politikë</option>
+                                    <option value="Ekonomi">Ekonomi</option>
+                                    <option value="Sport">Sport</option>
+                                    <option value="Teknologji">Teknologji</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Fotoja e Lajmit (Nga Kompjuteri)</label>
+                                <input type="file" id="news-image" accept="image/*" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Përmbajtja e Lajmit</label>
+                            <textarea id="news-content" rows="8" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black" placeholder="Shkruaj tekstin këtu..."></textarea>
+                        </div>
+                        <div class="flex justify-end gap-3 mt-4">
+                            <button type="button" onclick="toggleForm('news-form-container')" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button>
+                            <button type="submit" id="news-submit-btn" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Publiko Lajmin</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <tbody id="news-table-body"><tr><td class="p-4 text-center">Ngarkim...</td></tr></tbody>
+                    </table>
                 </div>
             </section>
 
@@ -111,7 +163,19 @@
                     <form id="banner-form" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div><label class="block text-sm font-bold text-gray-700 mb-1">Ngarko Foton e Banerit</label><input type="file" id="banner-file" accept="image/*" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
-                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozicioni në Faqe</label><select id="banner-pos" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"><option value="homepage_top">Baneri Lart (Nën Lajmet Kryesore)</option><option value="homepage_middle">Baneri në Mes (Nën Punët)</option></select></div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Pozicioni në Faqe</label>
+                                <select id="banner-pos" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                                    <option value="" disabled selected>-- Zgjidh Pozicionin --</option>
+                                    <option value="homepage_top">Ballina - Lart (Nën Në Vëmendje)</option>
+                                    <option value="homepage_middle">Ballina - Mes (Nën Punët)</option>
+                                    <option value="sidebar_left">Shtylla Majtas (Desktop 300x600)</option>
+                                    <option value="sidebar_right">Shtylla Djathtas (Desktop 300x600)</option>
+                                    <option value="mobile_popup">Pop-up në Telefon (Sticky Mobile)</option>
+                                    <option value="article_top">Brenda Lajmit - Lart (Nën titull)</option>
+                                    <option value="article_bottom">Brenda Lajmit - Poshtë (Nën tekst)</option>
+                                </select>
+                            </div>
                             <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Linku i Reklamës (Ku të çon kur klikohet)</label><input type="url" id="banner-link" placeholder="https://" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         </div>
                         <div class="flex justify-end gap-3 mt-4"><button type="button" onclick="toggleForm('banner-form-container')" class="px-6 py-2 rounded-xl font-bold text-gray-500 hover:bg-gray-100 transition">Anulo</button><button type="submit" id="banner-submit-btn" class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition">Ngarko Banerin</button></div>
@@ -147,13 +211,14 @@
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault(); const email = document.getElementById('email').value, password = document.getElementById('password').value;
             const { data, error } = await sb.auth.signInWithPassword({ email, password }); if (!error) showDashboard(data.user.email);
+            else { document.getElementById('login-error').innerText = "Kredencialet janë të gabuara!"; document.getElementById('login-error').classList.remove('hidden'); }
         });
 
         async function logOut() { await sb.auth.signOut(); window.location.reload(); }
 
         function showDashboard(email) {
             loginScreen.classList.add('hidden'); dashboardScreen.classList.remove('hidden'); document.getElementById('admin-email').innerText = email;
-            fetchJobs(); fetchPolls(); fetchBanners(); fetchSubs();
+            fetchJobs(); fetchPolls(); fetchBanners(); fetchSubs(); fetchNews();
         }
 
         function showSection(sectionId) {
@@ -164,6 +229,33 @@
         }
 
         function toggleForm(id) { document.getElementById(id).classList.toggle('hidden'); }
+
+        // --- LAJMET MANUALE ---
+        async function fetchNews() {
+            const { data } = await sb.from('manual_news').select('*').order('created_at', { ascending: false });
+            if (data) {
+                document.getElementById('stat-news').innerText = data.length; let html = '';
+                data.forEach(n => {
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${n.image_url}" class="h-10 w-10 object-cover rounded border"></td><td class="p-4"><p class="font-bold text-black">${n.title}</p><p class="text-xs font-semibold text-gray-500">${n.category}</p></td><td class="p-4 text-sm text-gray-600">${new Date(n.created_at).toLocaleDateString('sq-AL')}</td><td class="p-4"><button onclick="deleteRow('manual_news', '${n.id}', fetchNews)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                });
+                document.getElementById('news-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk keni shkruar ende asnjë lajm.</td></tr>';
+            }
+        }
+        
+        document.getElementById('news-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('news-submit-btn'); btn.innerText = "Po publikohet..."; btn.disabled = true;
+            const title = document.getElementById('news-title').value, category = document.getElementById('news-cat').value, content = document.getElementById('news-content').value, file = document.getElementById('news-image').files[0];
+            
+            const fileExt = file.name.split('.').pop(); const fileName = `news/${Date.now()}.${fileExt}`;
+            const { error: uploadError } = await sb.storage.from('media').upload(fileName, file);
+            if (uploadError) { alert('Gabim në ngarkimin e fotos!'); btn.innerText = "Publiko Lajmin"; btn.disabled = false; return; }
+            
+            const { data: pubData } = sb.storage.from('media').getPublicUrl(fileName);
+            await sb.from('manual_news').insert([{ title, category, content, image_url: pubData.publicUrl }]);
+            
+            document.getElementById('news-form').reset(); btn.innerText = "Publiko Lajmin"; btn.disabled = false; toggleForm('news-form-container'); fetchNews();
+        });
 
         // --- PUNËT ---
         async function fetchJobs() {
@@ -220,8 +312,13 @@
             if (data) {
                 document.getElementById('stat-banners').innerText = data.length; let html = '';
                 data.forEach(ban => {
-                    const posLabel = ban.position === 'homepage_top' ? 'Lart' : 'Në Mes';
-                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${ban.image_url}" class="h-10 rounded border"></td><td class="p-4 font-bold text-gray-700">${posLabel}</td><td class="p-4 text-blue-500 text-xs"><a href="${ban.link_url}" target="_blank">Linku</a></td><td class="p-4"><button onclick="deleteRow('banners', '${ban.id}', fetchBanners)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                    const posLabels = {
+                        'homepage_top': 'Ballinë (Lart)', 'homepage_middle': 'Ballinë (Mes)',
+                        'sidebar_left': 'Shtylla Majtas', 'sidebar_right': 'Shtylla Djathtas',
+                        'mobile_popup': 'Telefon (Pop-up)', 'article_top': 'Lajm (Lart)', 'article_bottom': 'Lajm (Poshtë)'
+                    };
+                    const lbl = posLabels[ban.position] || ban.position;
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${ban.image_url}" class="h-10 w-20 object-cover rounded border"></td><td class="p-4 font-bold text-gray-700">${lbl}</td><td class="p-4 text-blue-500 text-xs"><a href="${ban.link_url}" target="_blank">Linku</a></td><td class="p-4"><button onclick="deleteRow('banners', '${ban.id}', fetchBanners)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
                 });
                 document.getElementById('banners-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk ka banera.</td></tr>';
             }
