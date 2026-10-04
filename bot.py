@@ -156,9 +156,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
         body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; }}
@@ -280,10 +277,11 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </footer>
 
+    <!-- Supabase Scripts (Same as index.html) -->
     <script>
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
         const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
-        window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
+        if (window.supabase) window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         if ('serviceWorker' in navigator) {{
             window.addEventListener('load', () => {{
@@ -637,7 +635,6 @@ def main():
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords_start)):
                     paragrafet_temp.pop(0)
                     
-                # HEQJA E MBETURINAVE NGA FUNDI I FAQES (Scraping Bleed Fix)
                 junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "nga telegrafi", "nga gazeta express", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
                 while paragrafet_temp:
                     last_p = paragrafet_temp[-1].strip()
@@ -656,7 +653,6 @@ def main():
                     else:
                         break
                         
-                # HEQJA E ETIKETES BURIMORE SI /Telegrafi/ NË FUND TË PARAGRAFËVE
                 portale_fund = [r'/Telegrafi/', r'/Indeksonline/', r'/Gazeta Express/', r'/Express/', r'/Klan Kosova/', r'/KlanKosova/']
                 for i in range(len(paragrafet_temp)):
                     for pattern in portale_fund:
@@ -709,15 +705,16 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Lajmet pastrohen nga menytë, reklamat dhe etiketat e burimit"')
+        os.system('git commit -m "Rregulluar koha e publikimit per Facebook"')
         os.system('git pull --rebase')
         os.system('git push')
-        time.sleep(15)
         
     if new_entries:
+        print("⏳ Duke pritur 2.5 minuta që GitHub të publikojë faqet, që Facebook të mos gjejë faqe boshe...")
+        time.sleep(150) # 2.5 minuta pritje absolute që GitHub të ngarkojë faqen para postimit
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
-            time.sleep(3)
+            time.sleep(5)
     else:
         print("\nS'ka lajme të reja nga RSS.")
 
