@@ -279,7 +279,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             }});
         }}
 
-        /* --- LOGJIKA E REKLAMAVE MOBILE --- */
         let userClosedAd = false;
         function mbyllMobileAd() {{
             userClosedAd = true; 
@@ -446,7 +445,8 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     3. RISHKRUAJ LAJMIN PËR TË LARGUR BURIMIN: 
        - Nëse sheh emrat e portaleve "Telegrafi", "Klan Kosova", "Gazeta Express", "Indeksonline" si burim informacioni, zëvendësoji me "Zani Digjital".
        - RREGULLI KRYESOR: Nëse dikush po jep një INTERVISTË direkte për këto media (p.sh. "ka folur për Klan Kosova"), NUK DUHET ta zëvendësosh me Zani Digjital. Përdor terma neutralë si "ka folur për mediat", "në një intervistë", ose fshije plotësisht frazën që përmend televizionin/portalin specifik.
-    4. Gjenero 3-4 HASHTAGS strategjikë.
+    4. SHKRUAJ STATUSIN E FACEBOOK (Kritike!): Shkruaj 1-2 fjali të plota dhe tërheqëse për ta postuar këtë lajm në Facebook. Fjalitë duhet të mbarojnë GJITHMONË me pikë (.) dhe nuk duhet të priten në mes. Maksimumi 150-200 karaktere.
+    5. Gjenero 3-4 HASHTAGS strategjikë.
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:1200]}
@@ -455,6 +455,7 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     {{
       "kategoria": "Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
       "teksti_i_perpunuar": "Teksti i plotë i lajmit i rishkruar sipas rregullit 3",
+      "postimi_facebook": "Këtu vendos fjalinë e plotë përmbledhëse për Facebook që mbaron me pikë.",
       "hashtags": "#hashtag1 #hashtag2 #hashtag3"
     }}
     """
@@ -538,6 +539,7 @@ def main():
 
                 hashtags = ai_result.get("hashtags", "")
                 teksti_i_pastruar = ai_result.get("teksti_i_perpunuar", full_text)
+                postimi_fb_ai = ai_result.get("postimi_facebook", "")
                 titulli_final = title
                 
                 # --- FILTRUESI I MBETURINAVE (JUNK FILTER) ---
@@ -566,18 +568,16 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                # Zgjidhja për mos-prerjen e fjalëve në Facebook
-                if paragrafet_temp:
-                    teksti_fillestar = paragrafet_temp[0]
-                    if len(teksti_fillestar) > 220:
-                        # Gjen hapësirën e fundit para shkronjës 220 për të mos prerë fjalën në mes
-                        paragrafi_pare = teksti_fillestar[:220].rsplit(' ', 1)[0] + "..."
-                    else:
-                        paragrafi_pare = teksti_fillestar
+                # Logjika e re për postimin në Facebook (Nga AI ose prerje e sigurt tek Pika)
+                if postimi_fb_ai:
+                    mesazhi_fb = f"{postimi_fb_ai}\n\n{hashtags}".strip()
                 else:
-                    paragrafi_pare = titulli_final
-                
-                mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
+                    if paragrafet_temp:
+                        fjalite = paragrafet_temp[0].split('.')
+                        paragrafi_pare = fjalite[0].strip() + "." if len(fjalite[0]) > 20 else titulli_final
+                    else:
+                        paragrafi_pare = titulli_final
+                    mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
                 new_entries.append(article)
@@ -597,7 +597,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "Zgjidhja e prerjes se fjaleve ne Facebook"')
+        os.system('git commit -m "U zgjidh prerja e fjaleve permes AI"')
         os.system('git pull --rebase')
         os.system('git push')
         
