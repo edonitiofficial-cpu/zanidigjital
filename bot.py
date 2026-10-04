@@ -487,13 +487,21 @@ def main():
                     teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
                     titulli_final = re.sub(pattern, 'Zani Digjital', titulli_final)
                 
-                # --- HEQJA E TITULLIT NGA PARAGRAFI I PARË ---
+                # --- FILTRUESI I MBETURINAVE (JUNK FILTER) ---
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
+                
+                # 1. Heqim titullin nëse përsëritet
                 if paragrafet_temp:
                     ngjasia = difflib.SequenceMatcher(None, paragrafet_temp[0].lower(), titulli_final.lower()).ratio()
                     if ngjasia > 0.8 or paragrafet_temp[0].lower() in titulli_final.lower() or titulli_final.lower() in paragrafet_temp[0].lower():
                         paragrafet_temp.pop(0) 
-                        teksti_i_pastruar = "\n\n".join(paragrafet_temp)
+                
+                # 2. Heqim fjalët e reklamave ose paragrafët absurdë të shkurtër
+                junk_keywords = ["advertisement", "reklamë", "reklama", "lexo edhe", "lexo po ashtu"]
+                while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords)):
+                    paragrafet_temp.pop(0)
+                    
+                teksti_i_pastruar = "\n\n".join(paragrafet_temp)
                 # ---------------------------------------------
                 
                 slug_final = krijo_slug(titulli_final)
@@ -506,8 +514,9 @@ def main():
                 }
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
-                paragrafet = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
-                paragrafi_pare = paragrafet[0][:200] + "..." if paragrafet else titulli_final
+                
+                # Facebook-u tani merr paragrafin e parë të pastruar!
+                paragrafi_pare = paragrafet_temp[0][:200] + "..." if paragrafet_temp else titulli_final
                 mesazhi_fb = f"{paragrafi_pare}\n\n{hashtags}".strip() if hashtags else paragrafi_pare
                 
                 fb_posts_queue.append({"mesazhi": mesazhi_fb, "linku": linku_fb})
@@ -528,7 +537,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U shtua filtri për heqjen e titullit nga teksti"')
+        os.system('git commit -m "U shtua filtruesi i reklamave (Junk Filter)"')
         os.system('git pull --rebase')
         os.system('git push')
         
