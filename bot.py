@@ -156,6 +156,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
         body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; }}
@@ -192,9 +195,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                <a href="#" id="sidebar-left-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
                     <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img id="sidebar-left-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </a>
             </div>
         </aside>
@@ -227,11 +230,15 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     </a>
                 </div>
 
+                <div id="banner-article-top" class="w-full mb-8"></div>
+
                 <img src="{imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="{titulli}">
                 
                 <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
                     {permbajtja_html}
                 </div>
+
+                <div id="banner-article-bottom" class="w-full mt-8"></div>
             </article>
 
             <aside class="lg:w-1/3 space-y-6">
@@ -248,9 +255,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
-                <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
+                <a href="#" id="sidebar-right-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
                     <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img id="sidebar-right-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 </a>
             </div>
         </aside>
@@ -272,7 +279,12 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
+
     <script>
+        const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
+        const supabaseKey = 'sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai';
+        window.sb = window.supabase.createClient(supabaseUrl, supabaseKey);
+
         if ('serviceWorker' in navigator) {{
             window.addEventListener('load', () => {{
                 navigator.serviceWorker.register('/sw.js');
@@ -285,14 +297,22 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             document.getElementById('mobile-popup').style.display = 'none';
         }}
 
-        function initMobileAds() {{
+        async function initMobileAds() {{
             if (window.innerWidth > 768) return;
 
-            const mobileAds = [
-                {{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }},
-                {{ img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", link: "#" }}
+            let mobileAds = [
+                {{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }}
             ];
-            
+
+            if (window.sb) {{
+                try {{
+                    const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', {{ ascending: false }});
+                    if (data && data.length > 0) {{
+                        mobileAds = data.map(b => ({{ img: b.image_url, link: b.link_url || '#' }}));
+                    }}
+                }} catch(e) {{ console.error("Gabim mobile ads:", e); }}
+            }}
+
             let currentAdIndex = 0;
             const popup = document.getElementById('mobile-popup');
             const popupImg = document.getElementById('mobile-popup-img');
@@ -300,7 +320,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
             function showAd() {{
                 if (userClosedAd) return;
-                
                 if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
                 
                 popupImg.src = mobileAds[currentAdIndex].img;
@@ -325,8 +344,41 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             setTimeout(showAd, 2000);
         }}
 
+        async function loadBanners() {{
+            if(!window.sb) return;
+            try {{
+                const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', {{ ascending: false }});
+                if(data) {{
+                    const topBanner = data.find(b => b.position === 'article_top');
+                    const bottomBanner = data.find(b => b.position === 'article_bottom');
+                    const leftBanner = data.find(b => b.position === 'sidebar_left');
+                    const rightBanner = data.find(b => b.position === 'sidebar_right');
+                    
+                    if(topBanner) {{
+                        const cont = document.getElementById('banner-article-top');
+                        if(cont) cont.innerHTML = `<a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`;
+                    }}
+                    if(bottomBanner) {{
+                        const cont = document.getElementById('banner-article-bottom');
+                        if(cont) cont.innerHTML = `<a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`;
+                    }}
+                    if(leftBanner) {{
+                        const img = document.getElementById('sidebar-left-img');
+                        const link = document.getElementById('sidebar-left-link');
+                        if(img && link) {{ img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }}
+                    }}
+                    if(rightBanner) {{
+                        const img = document.getElementById('sidebar-right-img');
+                        const link = document.getElementById('sidebar-right-link');
+                        if(img && link) {{ img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }}
+                    }}
+                }}
+            }} catch(e) {{ console.error("Gabim banners:", e); }}
+        }}
+
         document.addEventListener('DOMContentLoaded', () => {{
             setTimeout(() => {{
+                loadBanners();
                 initMobileAds();
             }}, 800);
         }});
@@ -337,6 +389,41 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
+
+def gjenero_lajmet_manuale(te_gjitha_lajmet):
+    print("Duke kontrolluar për lajme manuale nga Admini...")
+    supabase_url = "https://qqgkhioaqsbzygwconbh.supabase.co/rest/v1/manual_news"
+    supabase_key = "sb_publishable_2LH0wWF2qnbrWZjwZWBlyg_6-4sSYai"
+    
+    req = urllib.request.Request(f"{supabase_url}?select=*", headers={
+        "apikey": supabase_key,
+        "Authorization": f"Bearer {supabase_key}"
+    })
+    try:
+        response = urllib.request.urlopen(req)
+        manual_news_data = json.loads(response.read().decode('utf-8'))
+        
+        for m in manual_news_data:
+            date_str = m.get('created_at', '')[:16]
+            if not date_str: continue
+            
+            try:
+                date_obj = datetime.strptime(date_str, "%Y-%m-%dT%H:%M")
+                koha_format = date_obj.strftime("%d/%m/%Y %H:%M")
+            except:
+                koha_format = (datetime.now() + timedelta(hours=2)).strftime("%d/%m/%Y %H:%M")
+
+            article = {
+                "titulli": m['title'],
+                "permbajtja": m['content'],
+                "kategoria": m['category'],
+                "imazhi": m['image_url'],
+                "koha": koha_format,
+                "slug": krijo_slug(m['title'])
+            }
+            gjenero_artikullin_html(article, te_gjitha_lajmet)
+    except Exception as e:
+        print(f"Gabim gjatë marrjes së lajmeve manuale: {e}")
 
 def krijo_rss(lajmet):
     rss_content = """<?xml version="1.0" encoding="UTF-8" ?>
@@ -440,13 +527,10 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     prompt = f"""
     Ti je Kryeredaktori i portalit "Zani Digjital".
     DETYRA JOTE:
-    1. Përcakto KATEGORINË bazuar në titull dhe tekst. PRIORITETI: Politikë, Sport, Ekonomi (Kosove) dhe Teknologji.
-    2. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
-    3. RISHKRUAJ LAJMIN PËR TË LARGUR BURIMIN: 
-       - Nëse sheh emrat e portaleve "Telegrafi", "Klan Kosova", "Gazeta Express", "Indeksonline" si burim informacioni, zëvendësoji me "Zani Digjital".
-       - RREGULLI KRYESOR: Nëse dikush po jep një INTERVISTË direkte për këto media (p.sh. "ka folur për Klan Kosova"), NUK DUHET ta zëvendësosh me Zani Digjital. Përdor terma neutralë si "ka folur për mediat", "në një intervistë", ose fshije plotësisht frazën që përmend televizionin/portalin specifik.
-    4. SHKRUAJ STATUSIN E FACEBOOK (Kritike!): Shkruaj 1-2 fjali të plota dhe tërheqëse për ta postuar këtë lajm në Facebook. Fjalitë duhet të mbarojnë GJITHMONË me pikë (.) dhe nuk duhet të priten në mes. Maksimumi 150-200 karaktere.
-    5. Gjenero 3-4 HASHTAGS strategjikë.
+    1. Përcakto KATEGORINË bazuar në titull dhe tekst.
+    2. Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
+    3. SHKRUAJ STATUSIN E FACEBOOK (Kritike!): Shkruaj 1-2 fjali të plota dhe tërheqëse për ta postuar këtë lajm në Facebook. Fjalitë duhet të mbarojnë GJITHMONË me pikë (.) dhe nuk duhet të priten në mes. Maksimumi 150-200 karaktere.
+    4. Gjenero 3-4 HASHTAGS strategjikë.
     
     Titulli origjinal: {original_title}
     Teksti: {full_text[:1200]}
@@ -454,7 +538,6 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     KTHE VETËM SKEDARIN JSON me strukturën e mëposhtme:
     {{
       "kategoria": "Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
-      "teksti_i_perpunuar": "Teksti i plotë i lajmit i rishkruar sipas rregullit 3",
       "postimi_facebook": "Këtu vendos fjalinë e plotë përmbledhëse për Facebook që mbaron me pikë.",
       "hashtags": "#hashtag1 #hashtag2 #hashtag3"
     }}
@@ -527,9 +610,12 @@ def main():
             if not image_url: continue
 
             print(f"\nDuke përpunuar: {title}")
+            
+            # 1. Merr lajmin fiks ashtu siç e ka shkruar gazetari (pa e kaluar neper AI per rishkrim)
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
+            # 2. IA perdoret vetem per kategorine, hashtags dhe statusin e Facebook
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -538,11 +624,13 @@ def main():
                 if kategoria == "Kalo": continue
 
                 hashtags = ai_result.get("hashtags", "")
-                teksti_i_pastruar = ai_result.get("teksti_i_perpunuar", full_text)
                 postimi_fb_ai = ai_result.get("postimi_facebook", "")
                 titulli_final = title
                 
-                # --- FILTRUESI I MBETURINAVE (JUNK FILTER) ---
+                # Teksti nuk rishkruhet, perdoret origjinali me te gjithe paragrafet
+                teksti_i_pastruar = full_text
+                
+                # Filtron fjalite koti qe zakonisht lajne portalet ne fillim ose ne fund te lajmit
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 
                 if paragrafet_temp:
@@ -554,8 +642,8 @@ def main():
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords)):
                     paragrafet_temp.pop(0)
                     
-                teksti_i_pastruar = "\n\n".join(paragrafet_temp)
-                # ---------------------------------------------
+                # Bashkon paragrafet serish me \n qe faqja HTML t'i lexoje dhe t'i lere me hapesira te rregullta
+                teksti_i_pastruar = "\n".join(paragrafet_temp)
                 
                 slug_final = krijo_slug(titulli_final)
                 
@@ -568,7 +656,6 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                # Logjika e re për postimin në Facebook (Nga AI ose prerje e sigurt tek Pika)
                 if postimi_fb_ai:
                     mesazhi_fb = f"{postimi_fb_ai}\n\n{hashtags}".strip()
                 else:
@@ -586,27 +673,34 @@ def main():
                 lajme_te_perpunuara += 1
                 print(f"✅ U shtua lajmi numër {lajme_te_perpunuara} nga 5 të kërkuara.")
 
+    updated_news = new_entries + existing_news
+    
     if new_entries:
-        updated_news = new_entries + existing_news
         save_news(updated_news)
         krijo_rss(updated_news)
         krijo_sitemap(updated_news)
-        
-        for article in new_entries: gjenero_artikullin_html(article, updated_news)
-        
-        os.system('git config user.email "action@github.com"')
-        os.system('git config user.name "GitHub Actions"')
-        os.system('git add .')
-        os.system('git commit -m "U zgjidh prerja e fjaleve permes AI"')
+        for article in new_entries: 
+            gjenero_artikullin_html(article, updated_news)
+
+    gjenero_lajmet_manuale(updated_news)
+
+    os.system('git config user.email "action@github.com"')
+    os.system('git config user.name "GitHub Actions"')
+    os.system('git add .')
+    
+    status = os.system('git diff-index --quiet HEAD')
+    if status != 0:
+        os.system('git commit -m "Lajmet merren 100% origjinale, pa u prekur nga AI"')
         os.system('git pull --rebase')
         os.system('git push')
+        time.sleep(15)
         
-        time.sleep(120)
+    if new_entries:
         for post in fb_posts_queue:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(3)
     else:
-        print("\nS'ka lajme të reja nga kategoritë e kërkuara.")
+        print("\nS'ka lajme të reja nga RSS.")
 
 if __name__ == "__main__":
     main()
