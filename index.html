@@ -68,11 +68,13 @@
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
-<body class="text-gray-900 antialiased relative">
+<!-- U shtua overflow-x-hidden për të bllokuar shiritin horizontal poshtë -->
+<body class="text-gray-900 antialiased relative overflow-x-hidden w-full">
 
-    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+            <!-- Menyja tani rreshtohet fiks me lajmet e mesit max-w-[1100px] -->
+            <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
                 <a href="/" class="flex-shrink-0 mb-4 md:mb-0">
                     <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
@@ -91,7 +93,7 @@
         </div>
     </header>
 
-    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
@@ -102,7 +104,8 @@
             </div>
         </aside>
 
-        <main class="w-full max-w-7xl flex-1 py-8 space-y-12">
+        <!-- Këtu u shtua min-w-0 dhe u zvogëlua max-width në 1100px për të garantuar përshtatjen FIT -->
+        <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
             <section>
                 <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
                 <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
@@ -120,7 +123,7 @@
                 <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
                     <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
                 </h2>
-                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                     <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
                     <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
@@ -230,19 +233,17 @@
 
     </div>
 
-    <!-- POP-UP REKLAMA PËR MOBILE (Pa korniza të bardha) -->
+    <!-- POP-UP REKLAMA PËR MOBILE -->
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
         <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
-            <!-- Butoni X për ta mbyllur manualisht nëse lexuesi dëshiron -->
             <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
             <a id="mobile-popup-link" href="#" target="_blank" class="block">
-                <!-- Fotoja e reklamës që merr vetë formën e kornizës -->
                 <img id="mobile-popup-img" src="" class="w-full h-auto max-h-[120px] object-cover" alt="Reklamë">
             </a>
         </div>
     </div>
 
-    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12 w-full">
         <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
@@ -357,25 +358,20 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             loadNews();
-            
             setTimeout(() => {
                 initSecondaryFeatures();
-                initMobileAds(); // Ndizet logjika e reklamave në mobile
+                initMobileAds();
             }, 800);
         });
 
-        /* --- LOGJIKA E REKLAMAVE MOBILE --- */
         let userClosedAd = false;
         function mbyllMobileAd() {
-            userClosedAd = true; // Nëse e mbyll, nuk e bezdisim më atë vizitë
+            userClosedAd = true; 
             document.getElementById('mobile-popup').style.display = 'none';
         }
 
         function initMobileAds() {
-            // Kontrollon nëse lexuesi është nga telefoni (më pak se 768px gjerësi)
             if (window.innerWidth > 768) return;
-
-            // Kjo është lista testuese (këto foto mund t'i bësh vetë në Canva 600x200px)
             const mobileAds = [
                 { img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" },
                 { img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", link: "#" }
@@ -387,35 +383,28 @@
             const popupLink = document.getElementById('mobile-popup-link');
 
             function showAd() {
-                if (userClosedAd) return; // Ndalon ciklin nëse e ka mbyllur
-                
+                if (userClosedAd) return;
                 if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
                 
                 popupImg.src = mobileAds[currentAdIndex].img;
                 popupLink.href = mobileAds[currentAdIndex].link;
                 
-                // Animacioni për ta nxjerrë lart
                 popup.classList.remove('translate-y-[150%]', 'opacity-0');
                 popup.classList.add('translate-y-0', 'opacity-100');
 
-                // Pas 5 sekondash reklama fshihet automatikisht
                 setTimeout(() => {
                     if (userClosedAd) return;
                     hideAd();
                     currentAdIndex++;
-                    
-                    // Pret fiks 15 sekonda dhe nxjerr reklamën tjetër
                     setTimeout(showAd, 15000); 
                 }, 5000); 
             }
 
             function hideAd() {
-                // Animacioni për ta ulur poshtë
                 popup.classList.remove('translate-y-0', 'opacity-100');
                 popup.classList.add('translate-y-[150%]', 'opacity-0');
             }
 
-            // Nisja e ciklit të parë (2 sekonda pasi ka hyrë në faqe)
             setTimeout(showAd, 2000);
         }
 
@@ -452,7 +441,6 @@
             }
         }
 
-        /* --- SONDAZHET --- */
         async function loadPoll() {
             const pollContainer = document.getElementById('poll-container');
             if(!window.sb) return;
@@ -506,7 +494,6 @@
             container.innerHTML = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div><div class="flex justify-between text-sm font-bold mb-1"><span>Mesatarja e të gjithë votuesve</span><span>${average}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div></div></div>`;
         }
 
-        /* --- PUNËT --- */
         async function loadJobs() {
             const carousel = document.getElementById('jobs-carousel');
             if(!window.sb) return;
@@ -526,7 +513,6 @@
             });
         }
 
-        /* --- BANERAT --- */
         async function loadBanners() {
             if(!window.sb) return;
             const { data } = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', { ascending: false });
@@ -550,7 +536,6 @@
             }
         }
 
-        /* --- NEWSLETTER --- */
         function setupNewsletter() {
             const form = document.getElementById('newsletter-form');
             if(form) {
