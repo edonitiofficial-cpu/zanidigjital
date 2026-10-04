@@ -119,7 +119,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
-    # Shablloni i ri i përditësuar me dizajnin e gjerë dhe banerat anësorë
+    # Shablloni HTML (Përfshirë Reklamat Mobile, Banerat e Gjerë dhe Rreshtimin e Menysë)
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -166,9 +166,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
     </style>
 </head>
-<body class="text-gray-900 antialiased">
+<body class="text-gray-900 antialiased relative">
 
-    <!-- Header super i gjerë dhe rreshtuar njësoj si ballina -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
@@ -190,10 +189,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </header>
 
-    <!-- WRAPPER KRYESOR I GJERË PËR TË MBAJTUR BANERAT ANASH -->
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
         
-        <!-- SHTYLLA E MAJTË -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
                 <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
@@ -203,7 +200,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </div>
         </aside>
 
-        <!-- Pjesa Qendrore (Lajmi i plotë) -->
         <main class="w-full max-w-7xl flex-1 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
                 <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">
@@ -251,7 +247,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </aside>
         </main>
 
-        <!-- SHTYLLA E DJATHTË -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
                 <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
@@ -263,10 +258,21 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     </div>
 
-    <!-- Footer super i gjerë -->
-    <footer class="bg-white border-t border-gray-200 py-8 mt-8">
-        <div class="max-w-[1800px] mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm font-medium">&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
+    <!-- POP-UP REKLAMA PËR MOBILE (Pa korniza të bardha) -->
+    <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
+        <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
+            <!-- Butoni X për ta mbyllur -->
+            <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
+            <a id="mobile-popup-link" href="#" target="_blank" class="block">
+                <!-- Fotoja e reklamës (formati origjinal transparent pa kornizë) -->
+                <img id="mobile-popup-img" src="" class="w-full h-auto max-h-[120px] object-cover" alt="Reklamë">
+            </a>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+        <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
+            <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
     <script>
@@ -275,6 +281,59 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                 navigator.serviceWorker.register('/sw.js');
             }});
         }}
+
+        /* --- LOGJIKA E REKLAMAVE MOBILE --- */
+        let userClosedAd = false;
+        function mbyllMobileAd() {{
+            userClosedAd = true; 
+            document.getElementById('mobile-popup').style.display = 'none';
+        }}
+
+        function initMobileAds() {{
+            if (window.innerWidth > 768) return;
+
+            const mobileAds = [
+                {{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }},
+                {{ img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", link: "#" }}
+            ];
+            
+            let currentAdIndex = 0;
+            const popup = document.getElementById('mobile-popup');
+            const popupImg = document.getElementById('mobile-popup-img');
+            const popupLink = document.getElementById('mobile-popup-link');
+
+            function showAd() {{
+                if (userClosedAd) return;
+                
+                if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
+                
+                popupImg.src = mobileAds[currentAdIndex].img;
+                popupLink.href = mobileAds[currentAdIndex].link;
+                
+                popup.classList.remove('translate-y-[150%]', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+
+                setTimeout(() => {{
+                    if (userClosedAd) return;
+                    hideAd();
+                    currentAdIndex++;
+                    setTimeout(showAd, 15000); 
+                }}, 5000); 
+            }}
+
+            function hideAd() {{
+                popup.classList.remove('translate-y-0', 'opacity-100');
+                popup.classList.add('translate-y-[150%]', 'opacity-0');
+            }}
+
+            setTimeout(showAd, 2000);
+        }}
+
+        document.addEventListener('DOMContentLoaded', () => {{
+            setTimeout(() => {{
+                initMobileAds();
+            }}, 800);
+        }});
     </script>
 </body>
 </html>"""
@@ -540,7 +599,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U përditësua dizajni anësor edhe brenda lajmeve"')
+        os.system('git commit -m "U përditësua dizajni anësor dhe reklamat mobile brenda lajmeve"')
         os.system('git pull --rebase')
         os.system('git push')
         
