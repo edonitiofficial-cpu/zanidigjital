@@ -49,7 +49,6 @@ def kontrollo_ballinen_e_burimit(link):
         req = urllib.request.Request(domain, headers={'User-Agent': 'Mozilla/5.0'})
         html = urllib.request.urlopen(req, timeout=5).read().decode('utf-8', errors='ignore')
         
-        # Nese linku (ose pathi) gjendet ne HTML e faqes kryesore te portalit, eshte ne Balline
         path = urllib.parse.urlparse(link).path
         if path and len(path) > 5 and path in html:
             return True
@@ -318,6 +317,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     </script>
 </body>
 </html>"""
+    
+    # RRESHTI I RREGULLUAR: file_path u shtua para rreshtit with open(...)
+    file_path = os.path.join(folder_path, "index.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
@@ -398,7 +400,8 @@ def fetch_full_text(url):
     try:
         downloaded = trafilatura.fetch_url(url)
         if downloaded:
-            text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, no_fallback=True)
+            # Rregulluar DeprecationWarning: u zevendesua no_fallback=True me fast=True
+            text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, fast=True)
             if text: return text
         return ""
     except: return ""
@@ -480,7 +483,6 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
-            # Kontrollojmë nësë ky lajm gjendet në faqen e parë (Ballinë) të portalit origjinal
             eshte_balline = kontrollo_ballinen_e_burimit(link)
 
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
@@ -539,7 +541,6 @@ def main():
                 
                 linku_fb = f"https://zanidigjital.com/lajme/{slug_final}"
                 
-                # POSTIMI NE FB PA AI
                 if paragrafet_temp: paragrafi_pare = paragrafet_temp[0]
                 else: paragrafi_pare = titulli_final
                     
@@ -568,18 +569,15 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Publikime FB te limituara dhe logjika e Ballines se re"')
+        os.system('git commit -m "Riparim i plote: U shtua file_path per ndertimin e html-se"')
         os.system('git pull --rebase')
         os.system('git push')
         
     if new_entries:
-        # Pasi te ruhet faqja, i japim perparesi lajmeve te "Ballines" per tu publikuar ne Facebook
         fb_posts_queue.sort(key=lambda x: x["eshte_balline"], reverse=True)
-        
         print("⏳ Duke pritur qe GitHub te publikoje faqet...")
         time.sleep(150) 
         
-        # Postojme vetem 2 lajmet kryesore te grumbullimit! (8 ne ore)
         for post in fb_posts_queue[:2]:
             posto_ne_facebook(post["mesazhi"], post["linku"])
             time.sleep(5)
