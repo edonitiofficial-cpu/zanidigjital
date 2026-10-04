@@ -26,7 +26,6 @@
     <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <!-- PWA & Icons për iPhone -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
@@ -49,7 +48,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Shimmer Loading */
         .shimmer {
             background: #f6f7f8;
             background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
@@ -58,23 +56,20 @@
         }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
 
-        /* Liquid Glass Efektet */
         .glass-dark {
             background: rgba(15, 15, 15, 0.7);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Ticker Lëvizës */
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
-<body class="text-gray-900 antialiased">
+<body class="text-gray-900 antialiased relative">
 
-    <!-- Header-i -->
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
@@ -96,10 +91,8 @@
         </div>
     </header>
 
-    <!-- WRAPPER KRYESOR - U rregullua me justify-center -->
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 flex justify-center gap-8">
         
-        <!-- SHTYLLA E MAJTË -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
                 <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
@@ -109,7 +102,6 @@
             </div>
         </aside>
 
-        <!-- PJESA QENDRORE -->
         <main class="w-full max-w-7xl flex-1 py-8 space-y-12">
             <section>
                 <h2 id="section-title" class="text-2xl font-black mb-6 uppercase tracking-wide">NË VËMENDJE</h2>
@@ -227,7 +219,6 @@
             </div>
         </main>
 
-        <!-- SHTYLLA E DJATHTË -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
             <div class="sticky top-28">
                 <a href="#" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
@@ -237,7 +228,19 @@
             </div>
         </aside>
 
-    </div> <!-- FUNDI I WRAPPER-IT TË GJERË -->
+    </div>
+
+    <!-- POP-UP REKLAMA PËR MOBILE (Pa korniza të bardha) -->
+    <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
+        <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
+            <!-- Butoni X për ta mbyllur manualisht nëse lexuesi dëshiron -->
+            <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
+            <a id="mobile-popup-link" href="#" target="_blank" class="block">
+                <!-- Fotoja e reklamës që merr vetë formën e kornizës -->
+                <img id="mobile-popup-img" src="" class="w-full h-auto max-h-[120px] object-cover" alt="Reklamë">
+            </a>
+        </div>
+    </div>
 
     <footer class="bg-white border-t border-gray-200 py-8 mt-12">
         <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
@@ -357,8 +360,64 @@
             
             setTimeout(() => {
                 initSecondaryFeatures();
+                initMobileAds(); // Ndizet logjika e reklamave në mobile
             }, 800);
         });
+
+        /* --- LOGJIKA E REKLAMAVE MOBILE --- */
+        let userClosedAd = false;
+        function mbyllMobileAd() {
+            userClosedAd = true; // Nëse e mbyll, nuk e bezdisim më atë vizitë
+            document.getElementById('mobile-popup').style.display = 'none';
+        }
+
+        function initMobileAds() {
+            // Kontrollon nëse lexuesi është nga telefoni (më pak se 768px gjerësi)
+            if (window.innerWidth > 768) return;
+
+            // Kjo është lista testuese (këto foto mund t'i bësh vetë në Canva 600x200px)
+            const mobileAds = [
+                { img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" },
+                { img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", link: "#" }
+            ];
+            
+            let currentAdIndex = 0;
+            const popup = document.getElementById('mobile-popup');
+            const popupImg = document.getElementById('mobile-popup-img');
+            const popupLink = document.getElementById('mobile-popup-link');
+
+            function showAd() {
+                if (userClosedAd) return; // Ndalon ciklin nëse e ka mbyllur
+                
+                if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
+                
+                popupImg.src = mobileAds[currentAdIndex].img;
+                popupLink.href = mobileAds[currentAdIndex].link;
+                
+                // Animacioni për ta nxjerrë lart
+                popup.classList.remove('translate-y-[150%]', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+
+                // Pas 5 sekondash reklama fshihet automatikisht
+                setTimeout(() => {
+                    if (userClosedAd) return;
+                    hideAd();
+                    currentAdIndex++;
+                    
+                    // Pret fiks 15 sekonda dhe nxjerr reklamën tjetër
+                    setTimeout(showAd, 15000); 
+                }, 5000); 
+            }
+
+            function hideAd() {
+                // Animacioni për ta ulur poshtë
+                popup.classList.remove('translate-y-0', 'opacity-100');
+                popup.classList.add('translate-y-[150%]', 'opacity-0');
+            }
+
+            // Nisja e ciklit të parë (2 sekonda pasi ka hyrë në faqe)
+            setTimeout(showAd, 2000);
+        }
 
         async function initSecondaryFeatures() {
             if(!window.supabase) return;
