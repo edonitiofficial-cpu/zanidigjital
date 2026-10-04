@@ -119,7 +119,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
-    # Shablloni HTML (Përfshirë Reklamat Mobile, Banerat e Gjerë dhe Rreshtimin e Menysë)
     html_content = f"""<!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -258,19 +257,17 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     </div>
 
-    <!-- POP-UP REKLAMA PËR MOBILE (Pa korniza të bardha) -->
+    <!-- POP-UP REKLAMA PËR MOBILE -->
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
         <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
-            <!-- Butoni X për ta mbyllur -->
             <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
             <a id="mobile-popup-link" href="#" target="_blank" class="block">
-                <!-- Fotoja e reklamës (formati origjinal transparent pa kornizë) -->
                 <img id="mobile-popup-img" src="" class="w-full h-auto max-h-[120px] object-cover" alt="Reklamë">
             </a>
         </div>
     </div>
 
-    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12 w-full">
         <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
@@ -446,14 +443,19 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     DETYRA JOTE:
     1. Përcakto KATEGORINË bazuar në titull dhe tekst. PRIORITETI: Politikë, Sport, Ekonomi (Kosove) dhe Teknologji.
     2. RREGULLI I ARRTË: Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
-    3. Gjenero 3-4 HASHTAGS strategjikë.
-    Titulli origjinal: {original_title}
-    Teksti: {full_text[:800]}
+    3. RISHKRUAJ LAJMIN PËR TË LARGUR BURIMIN: 
+       - Nëse sheh emrat e portaleve "Telegrafi", "Klan Kosova", "Gazeta Express", "Indeksonline" si burim informacioni, zëvendësoji me "Zani Digjital".
+       - RREGULLI KRYESOR: Nëse dikush po jep një INTERVISTË direkte për këto media (p.sh. "ka folur për Klan Kosova"), NUK DUHET ta zëvendësosh me Zani Digjital. Përdor terma neutralë si "ka folur për mediat", "në një intervistë", ose fshije plotësisht frazën që përmend televizionin/portalin specifik.
+    4. Gjenero 3-4 HASHTAGS strategjikë.
     
-    KTHE VETËM SKEDARIN JSON (asgjë tjetër):
+    Titulli origjinal: {original_title}
+    Teksti: {full_text[:1200]}
+    
+    KTHE VETËM SKEDARIN JSON me strukturën e mëposhtme:
     {{
-      "kategoria": "Zgjidh VETËM njërën: Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
-      "hashtags": "3-4 hashtags"
+      "kategoria": "Politikë, Sport, Ekonomi, Teknologji, Lajme OSE Kalo",
+      "teksti_i_perpunuar": "Teksti i plotë i lajmit i rishkruar sipas rregullit 3",
+      "hashtags": "#hashtag1 #hashtag2 #hashtag3"
     }}
     """
     for attempt in range(1, 4):
@@ -494,7 +496,6 @@ def main():
             
             if link in existing_links: continue
 
-            # Kontrolli semantik kundër duplikateve
             is_duplicate = False
             recent_news = (new_entries + existing_news)[:150]
             for existing_item in recent_news:
@@ -528,6 +529,7 @@ def main():
             full_text = fetch_full_text(link)
             if len(full_text) < 200: continue
 
+            # Këtu thirret inteligjenca artificiale për ta rishkruar tekstin në mënyrë gazetareske
             ai_result = gjenero_kategori_dhe_hashtags(title, full_text)
             time.sleep(3)
 
@@ -536,30 +538,17 @@ def main():
                 if kategoria == "Kalo": continue
 
                 hashtags = ai_result.get("hashtags", "")
+                teksti_i_pastruar = ai_result.get("teksti_i_perpunuar", full_text)
                 titulli_final = title
-                teksti_i_pastruar = full_text
-                
-                # Zëvendësimi i emrave të portaleve
-                portale_regex = [
-                    r'(?i)telegraf(i|it|in)?(\.com)?', r'(?i)gazeta\s*express(i|it|in)?(\.com)?',
-                    r'(?i)\bexpress(i|it|in)?\b', r'(?i)indeksonline(\.net)?',
-                    r'(?i)indeks\s*online(\.net)?', r'(?i)\brtk(live)?(\.com)?\b',
-                    r'(?i)klankosova(\.tv)?', r'(?i)\bklan\s*kosov(a|ë|ës|ën)?\b'
-                ]
-                for pattern in portale_regex:
-                    teksti_i_pastruar = re.sub(pattern, 'Zani Digjital', teksti_i_pastruar)
-                    titulli_final = re.sub(pattern, 'Zani Digjital', titulli_final)
                 
                 # --- FILTRUESI I MBETURINAVE (JUNK FILTER) ---
                 paragrafet_temp = [p.strip() for p in teksti_i_pastruar.split('\n') if p.strip()]
                 
-                # 1. Heqim titullin nëse përsëritet
                 if paragrafet_temp:
                     ngjasia = difflib.SequenceMatcher(None, paragrafet_temp[0].lower(), titulli_final.lower()).ratio()
                     if ngjasia > 0.8 or paragrafet_temp[0].lower() in titulli_final.lower() or titulli_final.lower() in paragrafet_temp[0].lower():
                         paragrafet_temp.pop(0) 
                 
-                # 2. Heqim fjalët e reklamave ose paragrafët absurdë të shkurtër
                 junk_keywords = ["advertisement", "reklamë", "reklama", "lexo edhe", "lexo po ashtu"]
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords)):
                     paragrafet_temp.pop(0)
@@ -599,7 +588,7 @@ def main():
         os.system('git config user.email "action@github.com"')
         os.system('git config user.name "GitHub Actions"')
         os.system('git add .')
-        os.system('git commit -m "U përditësua dizajni anësor dhe reklamat mobile brenda lajmeve"')
+        os.system('git commit -m "Inteligjenca artificiale u përditësua për intervistat direkte"')
         os.system('git pull --rebase')
         os.system('git push')
         
