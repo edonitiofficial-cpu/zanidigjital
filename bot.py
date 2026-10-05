@@ -42,7 +42,6 @@ RSS_FEEDS = [
 
 DB_FILE = "lajmet.json"
 
-# --- ZBULIMI I BALLINËS SË BURIMIT ---
 def kontrollo_ballinen_e_burimit(link):
     try:
         domain = "{0.scheme}://{0.netloc}/".format(urllib.parse.urlsplit(link))
@@ -54,7 +53,6 @@ def kontrollo_ballinen_e_burimit(link):
         return False
     except: return False
 
-# --- LOGJIKA KUNDËR DUPLIKATEVE SEMANTIKE ---
 def is_duplicate_news(title1, title2):
     t1 = title1.lower()
     t2 = title2.lower()
@@ -507,7 +505,7 @@ def main():
                     else: break
                         
                 # Fshirja brutale e etiketave kudo qe mund te jene ngjitur ne fund te fjalisë (psh "/GazetaExpress/")
-                regex_pattern = r'[/\\]\s*(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK|RTSh)\s*[/\\]?\.?$'
+                regex_pattern = r'[/\\]?\s*(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK|RTSh)\s*[/\\]?\.?$'
                 for i in range(len(paragrafet_temp)):
                     paragrafet_temp[i] = re.sub(regex_pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
 
@@ -555,7 +553,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Bllokimi i Maqedonise dhe Pasterti ekstreme nga Slashet"')
+        os.system('git commit -m "Rregullimi i Llama-3.1 dhe Slasheve"')
         os.system('git pull --rebase')
         os.system('git push')
         
