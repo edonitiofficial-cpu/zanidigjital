@@ -2,10 +2,12 @@ name: Motori i Zani Digjital
 
 on:
   workflow_dispatch:
+
   repository_dispatch:
     types: [ndiz_motorin]
+
   schedule:
-    - cron: '17,47 * * * *' # E lëmë si plan B
+    - cron: '17,47 * * * *'
 
 permissions:
   contents: write
@@ -16,20 +18,33 @@ concurrency:
 
 jobs:
   update-news:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Instalo modulet
-        run: pip install feedparser groq trafilatura
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser groq trafilatura
+
+      - name: Kontrollo Python dhe modulet
+        run: |
+          python --version
+          pip --version
+          python -c "import feedparser; print('feedparser OK')"
+          python -c "import groq; print('groq OK')"
+          python -c "import trafilatura; print('trafilatura OK')"
 
       - name: Ekzekuto rishkrimin e lajmeve
         env:
@@ -37,7 +52,8 @@ jobs:
           GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
           GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
           FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
-        run: python bot.py
+        run: |
+          python bot.py
 
       - name: Ruaj dhe publiko online
         run: |
@@ -47,10 +63,12 @@ jobs:
           git add .
 
           if git diff --cached --quiet; then
-            echo "S'ka lajme të reja"
+            echo "S'ka ndryshime të reja."
             exit 0
           fi
 
           git commit -m "U shtuan lajme te reja automatikisht"
+
           git pull --rebase origin main
-          git push
+
+          git push origin HEAD:main
