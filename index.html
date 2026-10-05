@@ -180,7 +180,6 @@
                 </a>
             </div>
         </aside>
-
     </div>
 
     <!-- POP-UP REKLAMA PËR MOBILE -->
@@ -196,7 +195,6 @@
     <!-- ZANI DIGJITAL AI (Motor Kërkimi & Asistent) -->
     <div id="zani-ai-chatbot" class="fixed bottom-6 right-4 md:right-8 z-[110] flex flex-col items-end pointer-events-none">
         
-        <!-- Rregullimi për Mobile: max-h-[80vh] në vend të 85vh që të lërë hapësirë sipër -->
         <div id="zani-chat-window" class="hidden pointer-events-auto mb-4 w-[calc(100vw-32px)] md:w-[420px] max-h-[80vh] h-[600px] bg-white rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.2)] border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
             
             <!-- Header-i i Zani AI -->
@@ -392,7 +390,6 @@
             }, 800);
         });
 
-        // --- MOBILE ADS ---
         let userClosedAd = false;
         function mbyllMobileAd() { userClosedAd = true; document.getElementById('mobile-popup').style.display = 'none'; }
 
@@ -519,7 +516,7 @@
         }
 
         // =========================================================================
-        // ZANI AI (RAG SYSTEM) 
+        // ZANI AI (RAG SYSTEM) - ME "TRU TE RI" (JS BISHË)
         // =========================================================================
 
         let kategoriaEKaluar = null;
@@ -548,7 +545,6 @@
                 </div>
             </div>`;
 
-        // Skadimi i Sessionit per 1 ore (3600000 milisekonda)
         function initChatbotSession() {
             const messages = document.getElementById('chat-messages');
             const savedChat = sessionStorage.getItem('zani_chat_history');
@@ -573,7 +569,6 @@
         function toggleChat() {
             const chatWindow = document.getElementById('zani-chat-window');
             chatWindow.classList.toggle('hidden');
-            // Fokusimi eshte Hekur per mobile, qe mos t'i bllokohet ekrani.
         }
 
         function autoAsk(question) {
@@ -610,24 +605,52 @@
             </a>`;
         }
 
+        // MOTORI I RI I KËRKIMIT: Përfshin Sinonime dhe Kuptimin e Kohës ("sot", "dje")
         function parseIntent(query) {
-            let q = query.toLowerCase();
+            let q = query.toLowerCase().replace(/[?.,!]/g, '');
             let isLatest = false;
             let targetCategory = null;
             let hasKeywords = false;
+            let targetDate = null; // 'sot' ose 'dje'
             
-            const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'sot', 'ketu', 'kete', 'dje', 'nese', 'a', 'moti'];
+            // Fjalët lidhëse që Injorohen
+            const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne'];
             
-            if (q.includes('fundit') || q.includes('re') || q.includes('sot')) isLatest = true;
+            if (q.includes('fundit') || q.includes('reja') || q.includes('sot')) isLatest = true;
+            if (q.includes('dje')) targetDate = 'dje';
+            if (q.includes('sot')) targetDate = 'sot';
+            
             if (q.includes('sport') || q.includes('futboll')) targetCategory = 'Sport';
-            if (q.includes('politik') || q.includes('qeveri') || q.includes('kuvend')) targetCategory = 'Politikë';
-            if (q.includes('teknologji') || q.includes('tech') || q.includes('telefon')) targetCategory = 'Teknologji';
-            if (q.includes('ekonomi') || q.includes('biznes')) targetCategory = 'Ekonomi';
+            if (q.includes('politik') || q.includes('qeveri') || q.includes('kuvend') || q.includes('kryeministr')) targetCategory = 'Politikë';
+            if (q.includes('teknologji') || q.includes('tech') || q.includes('telefon') || q.includes('aplikacion')) targetCategory = 'Teknologji';
+            if (q.includes('ekonomi') || q.includes('biznes') || q.includes('para')) targetCategory = 'Ekonomi';
             
             let searchWords = q.split(' ').filter(word => !stopwords.includes(word) && word.length > 2);
-            if(searchWords.length > 0) hasKeywords = true;
+            
+            // FJALORI I SINONIMEVE: Kjo e bën JS të duket si një AI i vërtetë!
+            const synonyms = {
+                "kryeministri": ["kurti", "qeveria"],
+                "kurti": ["albin", "kryeministri"],
+                "qeveria": ["vv", "ministria", "kurti"],
+                "futboll": ["sport", "kampionati", "ndeshje", "kombetarja", "liga"],
+                "kosova": ["kosove", "prishtina", "kosovë"],
+                "aksident": ["aksidenti", "policia", "rrahje", "vdekje"]
+            };
 
-            return { isLatest, targetCategory, searchWords, hasKeywords };
+            // Shtojmë sinonimet e gjetura në kërkim
+            let expandedWords = [...searchWords];
+            searchWords.forEach(word => {
+                for (let key in synonyms) {
+                    if (word.includes(key) || key.includes(word)) {
+                        expandedWords = expandedWords.concat(synonyms[key]);
+                    }
+                }
+            });
+            
+            expandedWords = [...new Set(expandedWords)]; // Heqim fjalët e përsëritura
+            if(expandedWords.length > 0) hasKeywords = true;
+
+            return { isLatest, targetCategory, searchWords: expandedWords, hasKeywords, targetDate };
         }
 
         function performLocalSearch(query) {
@@ -641,16 +664,22 @@
                 else intent.isLatest = true; 
             }
 
-            if (intent.isLatest && !intent.hasKeywords && !intent.targetCategory) {
-                 return { results: window.allNewsData.slice(0, 4), intent };
-            }
+            // Gjenerojmë datën e sotme dhe të djeshme për krahasim
+            const sotObj = new Date();
+            const djeObj = new Date(sotObj);
+            djeObj.setDate(djeObj.getDate() - 1);
 
-            if(intent.targetCategory && !intent.hasKeywords) {
-                 const catResults = window.allNewsData.filter(n => n.kategoria === intent.targetCategory || (intent.targetCategory === 'Teknologji' && n.kategoria === 'Tech')).slice(0, 4);
-                 return { results: catResults, intent };
-            }
+            const strSot = String(sotObj.getDate()).padStart(2, '0') + '/' + String(sotObj.getMonth() + 1).padStart(2, '0') + '/' + sotObj.getFullYear();
+            const strDje = String(djeObj.getDate()).padStart(2, '0') + '/' + String(djeObj.getMonth() + 1).padStart(2, '0') + '/' + djeObj.getFullYear();
 
             for (const item of window.allNewsData) {
+                // Filtrimi sipas Kohës (Sot apo Dje)
+                let itemDate = "";
+                if (item.koha) itemDate = item.koha.split(' ')[0];
+                
+                if (intent.targetDate === 'dje' && itemDate !== strDje) continue;
+                if (intent.targetDate === 'sot' && itemDate !== strSot) continue;
+
                 let score = 0;
                 const titleLower = item.titulli.toLowerCase();
                 const textLower = (item.permbajtja || "").toLowerCase();
@@ -662,6 +691,11 @@
                 
                 if (intent.targetCategory && (item.kategoria === intent.targetCategory || (intent.targetCategory === 'Teknologji' && item.kategoria === 'Tech'))) {
                     score += 2;
+                }
+
+                // Nëse s'ka fjalë kyçe por do "Sot/Dje" të një kategorie specifike ose në përgjithësi
+                if (!intent.hasKeywords && (intent.targetDate || intent.isLatest || intent.targetCategory)) {
+                     score += 1;
                 }
 
                 if (score > 0) {
@@ -679,8 +713,8 @@
             }
             
             if (intent.searchWords.length > 0) {
-                const keywordStr = intent.searchWords.join(' ');
-                return `Kam kërkuar në arkivin tonë dhe ja çfarë ka publikuar redaksia së fundmi rreth <strong>"${keywordStr}"</strong>:`;
+                const isDjeshme = intent.targetDate === 'dje' ? ' dje' : '';
+                return `Kam kërkuar në arkivin tonë dhe ja çfarë ka ndodhur${isDjeshme} rreth këtyre zhvillimeve:`;
             }
             
             if (intent.targetCategory) {
