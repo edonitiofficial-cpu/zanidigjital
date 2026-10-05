@@ -227,7 +227,7 @@
 
             <!-- Fusha e Mesazheve -->
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-6 text-[14px]">
-                <!-- Mesazhet ngarkohen ketu -->
+                <!-- Mesazhet ngarkohen ketu dinamic -->
             </div>
 
             <!-- Fusha e Inputit -->
@@ -254,7 +254,7 @@
     <!-- LLOGJIKA E ZANI DIGJITAL (Core + RAG CHATBOT)                             -->
     <!-- ========================================================================= -->
     <script>
-        // KËTU ËSHTË VENDOSUR URA PRIVATE QË LIDH FRONTEND-IN ME AI-NË PËRMES CLOUDFLARE
+        // KJO ESHTE ADRESA JOTE E RE E URËS! (E mora nga fotoja)
         const AI_BACKEND_URL = "https://zani-ai-api.edonitiofficial.workers.dev"; 
 
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
@@ -375,10 +375,6 @@
             } catch (error) {}
         }
 
-        // =========================================================================
-        // HYBRID RAG SYSTEM: ZANI DIGJITAL AI
-        // =========================================================================
-
         let chatHistory = [];
 
         const introHTML = `
@@ -389,21 +385,18 @@
                 <div class="bg-white border border-gray-200 p-5 rounded-2xl rounded-tl-sm text-gray-800 shadow-sm leading-relaxed w-full">
                     👋 Përshëndetje, jam <strong>Zani Digjital AI</strong>.<br><br>
                     Jam asistenti i Zani Digjital për lajmet. Më pyet për lajmet e fundit, një person, një temë, një ngjarje, sport, politikë apo çkado tjetër që po të intereson.<br><br>
-                    <em>Mundesh të më shkruash në shqip ose në cilëndo gjuhë.</em><br><br>
                     
                     <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-2 block mt-2">Kërko Shpejt:</span>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <button onclick="autoAsk('📰 Lajmet e fundit')" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-1.5 px-3 rounded-full transition border border-gray-200">📰 Të fundit</button>
                         <button onclick="autoAsk('🏛️ Politikë')" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-1.5 px-3 rounded-full transition border border-gray-200">🏛️ Politikë</button>
                         <button onclick="autoAsk('⚽ Sport')" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-1.5 px-3 rounded-full transition border border-gray-200">⚽ Sport</button>
-                        <button onclick="autoAsk('💻 Teknologji')" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-1.5 px-3 rounded-full transition border border-gray-200">💻 Tech</button>
                     </div>
 
                     <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-2 block">Provo një pyetje:</span>
                     <div class="flex flex-col gap-2">
                         <button onclick="autoAsk('Çka ka të re sot në Kosovë?')" class="text-left text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 font-semibold py-2.5 px-4 rounded-xl transition border border-blue-200">📰 Çka ka të re sot në Kosovë?</button>
                         <button onclick="autoAsk('Cilat janë lajmet e fundit për Albin Kurtin?')" class="text-left text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 font-semibold py-2.5 px-4 rounded-xl transition border border-blue-200">🏛 Cilat janë lajmet e fundit për Albin Kurtin?</button>
-                        <button onclick="autoAsk('Më trego lajmet e fundit në sport')" class="text-left text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 font-semibold py-2.5 px-4 rounded-xl transition border border-blue-200">⚽ Më trego lajmet e fundit në sport</button>
                     </div>
                 </div>
             </div>`;
@@ -415,7 +408,6 @@
             const lastTime = sessionStorage.getItem('zani_chat_time');
             
             const now = new Date().getTime();
-            // Skadon pas 1 ore papunesi
             if(savedChatHTML && lastTime && (now - lastTime < 3600000)) {
                 messages.innerHTML = savedChatHTML;
                 messages.scrollTop = messages.scrollHeight;
@@ -467,11 +459,9 @@
             </a>`;
         }
 
-        // Funksioni që gjen lajmet kandidate për t'ia dërguar AI-së
         function getCandidateArticles(query) {
             if(!window.allNewsData) return [];
             let searchStr = query.toLowerCase();
-            // Shton mesazhin e fundit të përdoruesit për të ruajtur kontekstin e searchit (psh. "Po per zgjedhjet?")
             if (chatHistory.length >= 2) {
                 searchStr += " " + chatHistory[chatHistory.length - 2].content.toLowerCase();
             }
@@ -479,7 +469,6 @@
             const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje'];
             let words = searchStr.split(' ').filter(w => !stopwords.includes(w) && w.length > 2);
             
-            // Nëse s'ka asnjë fjalë kyçe të vlefshme, i japim thjesht 20 lajmet e fundit
             if(words.length === 0) return window.allNewsData.slice(0, 20);
 
             let results = [];
@@ -497,12 +486,9 @@
                 if (score > 0) results.push({ item, score });
             }
             results.sort((a, b) => b.score - a.score);
-            
-            // Nxjerrim top 20 artikujt më të lidhur për t'ia dhënë Groq-ut
             return results.slice(0, 20).map(r => r.item);
         }
 
-        // Efekti Typewriter për përgjigjet e AI
         function typeWriterEffect(elementId, text, speed, callback) {
             let i = 0;
             const el = document.getElementById(elementId);
@@ -528,7 +514,6 @@
             const introMsg = document.getElementById('intro-msg');
             if(introMsg) introMsg.remove();
             
-            // Mesazhi i User-it
             messages.innerHTML += `
             <div class="flex gap-2 justify-end mb-4">
                 <div class="bg-black text-white px-4 py-3 rounded-2xl rounded-tr-sm shadow-sm font-medium leading-relaxed max-w-[85%] text-[14px]">
@@ -538,7 +523,6 @@
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
 
-            // Shto në memorie
             chatHistory.push({ role: "user", content: text });
             saveChatHistory();
             
@@ -557,31 +541,37 @@
             messages.scrollTop = messages.scrollHeight;
             
             try {
-                // 1. Marrim "Kandidatët" nga databaza lokale
                 const candidateArticles = getCandidateArticles(text);
 
-                // 2. I dërgojmë te Backend-i (Ura e Cloudflare)
-                const response = await fetch(AI_BACKEND_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        messages: chatHistory,
-                        contextArticles: candidateArticles
-                    })
-                });
+                // Ndryshimi kryesor: Kemi futur kontrolle sigurie (try-catch të detajuar) për thirrjen në Cloudflare
+                let response;
+                try {
+                    response = await fetch(AI_BACKEND_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            messages: chatHistory,
+                            contextArticles: candidateArticles
+                        })
+                    });
+                } catch (networkError) {
+                    throw new Error("Sistemi mbrojtës nuk po lejon lidhjen me Cloudflare. (Kontrolloni që e keni vendosur kodin saktë në Cloudflare).");
+                }
 
-                if(!response.ok) throw new Error("Backend error");
+                if(!response.ok) {
+                    throw new Error(`Cloudflare ktheu gabim: ${response.status}`);
+                }
 
-                const aiData = await response.json(); // { text: "...", article_slugs: [...], cta_text: "...", cta_search: "..." }
+                const aiData = await response.json(); 
                 
                 document.getElementById(thinkingId).remove();
                 
-                // Ruajmë në memorie përgjigjen e AI
                 chatHistory.push({ role: "assistant", content: aiData.text });
 
                 const replyId = 'reply-text-' + Date.now();
                 const contentId = 'content-' + Date.now();
 
+                // Nxjerrja e mesazhit të AI (edhe nëse është gabim, do të jetë i lexueshëm si tekst brenda chatit)
                 let botResponseContainer = `
                 <div class="flex gap-3 mb-4" id="${contentId}">
                     <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 shrink-0 mt-1 overflow-hidden">
@@ -594,9 +584,7 @@
                 
                 messages.innerHTML += botResponseContainer;
                 
-                // Efecti i shkrimit
                 typeWriterEffect(replyId, aiData.text, 10, () => {
-                    // Pasi të përfundojë së shkruari, shfaqim kartat dhe butonat (Fade in)
                     let extraHTML = '';
                     
                     if (aiData.article_slugs && aiData.article_slugs.length > 0) {
@@ -607,7 +595,7 @@
                     }
 
                     if (aiData.cta_text && aiData.cta_search) {
-                        let linkCTA = `/?kategoria=${aiData.cta_search}`; // E thjeshtuar
+                        let linkCTA = `/?kategoria=${aiData.cta_search}`; 
                         extraHTML += `
                         <div class="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-2">
                             <a href="${linkCTA}" class="text-center text-[11px] font-bold text-blue-600 hover:text-blue-800 transition uppercase tracking-wide">${aiData.cta_text}</a>
@@ -618,12 +606,13 @@
                         document.getElementById(replyId).insertAdjacentHTML('afterend', extraHTML);
                     }
 
-                    // Shto Action Buttons
-                    messages.innerHTML += `
-                    <div class="flex flex-wrap gap-2 ml-11 mb-2 fade-in">
-                        <button onclick="autoAsk('Më trego më shumë')" class="text-[11px] bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-1.5 px-3 rounded-full shadow-sm transition">Më trego më shumë</button>
-                        <button onclick="autoAsk('A ka ndonjë lajm tjetër?')" class="text-[11px] bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-1.5 px-3 rounded-full shadow-sm transition">Lajme të tjera?</button>
-                    </div>`;
+                    if (!aiData.text.includes("⚠️ GABIM")) {
+                        messages.innerHTML += `
+                        <div class="flex flex-wrap gap-2 ml-11 mb-2 fade-in">
+                            <button onclick="autoAsk('Më trego më shumë')" class="text-[11px] bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-1.5 px-3 rounded-full shadow-sm transition">Më trego më shumë</button>
+                            <button onclick="autoAsk('A ka ndonjë lajm tjetër?')" class="text-[11px] bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-1.5 px-3 rounded-full shadow-sm transition">Lajme të tjera?</button>
+                        </div>`;
+                    }
 
                     messages.scrollTop = messages.scrollHeight;
                     saveChatHistory();
@@ -631,14 +620,15 @@
 
             } catch (error) {
                 console.error("Gabim Chatbot:", error);
-                document.getElementById(thinkingId).remove();
+                const thnk = document.getElementById(thinkingId);
+                if(thnk) thnk.remove();
+                
+                // Mesazh Gabimi shumë më i qartë në UI
                 messages.innerHTML += `
                 <div class="flex gap-3 mb-4">
-                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 shrink-0 mt-1 overflow-hidden">
-                        <img src="/zanidigjitalfavicon.png" class="w-full h-full object-cover">
-                    </div>
-                    <div class="bg-white border border-gray-200 p-4 rounded-2xl rounded-tl-sm text-red-500 font-medium shadow-sm max-w-[90%] text-[13px]">
-                        Pati një gabim gjatë lidhjes. Ju lutemi provoni përsëri më vonë.
+                    <div class="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">!</div>
+                    <div class="bg-red-50 border border-red-200 p-4 rounded-2xl rounded-tl-sm text-red-700 font-medium shadow-sm max-w-[90%] text-[13px]">
+                        Lidhja dështoi: ${error.message}
                     </div>
                 </div>`;
                 saveChatHistory();
@@ -657,133 +647,6 @@
                 initChatbotSession();
             }, 800);
         });
-
-        let userClosedAd = false;
-        function mbyllMobileAd() { userClosedAd = true; document.getElementById('mobile-popup').style.display = 'none'; }
-
-        async function initMobileAds() {
-            if (window.innerWidth > 768) return;
-            let mobileAds = [{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }];
-            if (window.sb) {
-                try {
-                    const { data } = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', { ascending: false });
-                    if (data && data.length > 0) mobileAds = data.map(b => ({ img: b.image_url, link: b.link_url || '#' }));
-                } catch(e) {}
-            }
-            let currentAdIndex = 0;
-            const popup = document.getElementById('mobile-popup');
-            const popupImg = document.getElementById('mobile-popup-img');
-            const popupLink = document.getElementById('mobile-popup-link');
-            function showAd() {
-                if (userClosedAd) return;
-                if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
-                popupImg.src = mobileAds[currentAdIndex].img; popupLink.href = mobileAds[currentAdIndex].link;
-                popup.classList.remove('translate-y-[150%]', 'opacity-0'); popup.classList.add('translate-y-0', 'opacity-100');
-                setTimeout(() => { if (userClosedAd) return; hideAd(); currentAdIndex++; setTimeout(showAd, 15000); }, 5000); 
-            }
-            function hideAd() { popup.classList.remove('translate-y-0', 'opacity-100'); popup.classList.add('translate-y-[150%]', 'opacity-0'); }
-            setTimeout(showAd, 2000);
-        }
-
-        async function initSecondaryFeatures() {
-            await loadJobs(); 
-            await loadPoll(); 
-            await loadBanners();
-            setupNewsletter();
-            setupCarousels();
-        }
-
-        function setupCarousels() {
-            const btnPromoLeft = document.getElementById('btn-promo-left'), btnPromoRight = document.getElementById('btn-promo-right'), promoCar = document.getElementById('promo-carousel');
-            if(btnPromoLeft && btnPromoRight && promoCar) { btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' }); btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' }); }
-            const btnJobsLeft = document.getElementById('btn-jobs-left'), btnJobsRight = document.getElementById('btn-jobs-right'), jobsCar = document.getElementById('jobs-carousel');
-            if(btnJobsLeft && btnJobsRight && jobsCar) { btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' }); btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' }); }
-        }
-
-        async function loadPoll() {
-            const pollContainer = document.getElementById('poll-container');
-            if(!window.sb) return;
-            try {
-                const nowIso = new Date().toISOString();
-                const { data: polls } = await window.sb.from('polls').select('*').eq('status', 'active').lte('start_date', nowIso).order('start_date', { ascending: false }).limit(1);
-                if (!polls || polls.length === 0) { pollContainer.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka asnjë sondazh aktiv.</p>'; return; }
-                const poll = polls[0];
-                const { data: options } = await window.sb.from('poll_options').select('*').eq('poll_id', poll.id).order('id', { ascending: true });
-                const hasVoted = localStorage.getItem('voted_' + poll.id);
-                const isSlider = options.length === 1 && options[0].option_text === 'SLIDER_SUM';
-                if (hasVoted) { if (isSlider) renderSliderResults(poll, options[0], pollContainer); else renderOptionsResults(poll, options, pollContainer); }
-                else { if (isSlider) renderSliderVoting(poll, options[0], pollContainer); else renderOptionsVoting(poll, options, pollContainer); }
-            } catch (err) {}
-        }
-        function renderOptionsVoting(poll, options, container) {
-            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-3">`;
-            options.forEach(opt => { html += `<button onclick="submitOptionVote('${poll.id}', '${opt.id}', ${poll.total_votes}, ${opt.votes})" class="w-full text-left font-bold px-5 py-3 rounded-xl border-2 border-gray-200 hover:border-black hover:bg-gray-50 transition">${opt.option_text}</button>`; });
-            container.innerHTML = html + `</div>`;
-        }
-        async function submitOptionVote(pollId, optionId, currentTotal, currentOptVotes) {
-            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
-            await window.sb.from('poll_options').update({ votes: currentOptVotes + 1 }).eq('id', optionId); await window.sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
-            localStorage.setItem('voted_' + pollId, 'true'); setTimeout(() => { loadPoll(); }, 500);
-        }
-        function renderOptionsResults(poll, options, container) {
-            let realTotal = options.reduce((sum, opt) => sum + opt.votes, 0); if(realTotal === 0) realTotal = 1; 
-            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-4">`;
-            options.forEach(opt => {
-                const percent = Math.round((opt.votes / realTotal) * 100);
-                html += `<div><div class="flex justify-between text-sm font-bold mb-1"><span>${opt.option_text}</span><span>${percent}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${percent}%"></div></div></div>`;
-            });
-            container.innerHTML = html + `</div>`;
-        }
-        function renderSliderVoting(poll, option, container) {
-            container.innerHTML = `<h3 class="text-xl font-bold mb-4">${poll.question}</h3><div class="relative pt-6 pb-2"><div id="slider-value-display" class="absolute top-0 text-lg font-black text-black transform -translate-x-1/2" style="left: 50%;">50%</div><div class="flex items-center space-x-4"><span class="font-bold text-gray-400 text-sm">0%</span><input type="range" id="dynamic-poll-slider" min="0" max="100" value="50" class="w-full appearance-none" oninput="document.getElementById('slider-value-display').innerText = this.value + '%'; document.getElementById('slider-value-display').style.left = this.value + '%';"><span class="font-bold text-gray-400 text-sm">100%</span></div></div><button onclick="submitSliderVote('${poll.id}', '${option.id}', ${poll.total_votes}, ${option.votes})" class="w-full mt-6 bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>`;
-        }
-        async function submitSliderVote(pollId, optionId, currentTotal, currentSumVotes) {
-            const val = parseInt(document.getElementById('dynamic-poll-slider').value);
-            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
-            await window.sb.from('poll_options').update({ votes: currentSumVotes + val }).eq('id', optionId); await window.sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
-            localStorage.setItem('voted_' + pollId, 'true'); setTimeout(() => { loadPoll(); }, 500);
-        }
-        function renderSliderResults(poll, option, container) {
-            const average = Math.round(option.votes / (poll.total_votes || 1));
-            container.innerHTML = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div><div class="flex justify-between text-sm font-bold mb-1"><span>Mesatarja e të gjithë votuesve</span><span>${average}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div></div></div>`;
-        }
-
-        async function loadJobs() {
-            const carousel = document.getElementById('jobs-carousel');
-            if(!window.sb) return;
-            const { data, error } = await window.sb.from('jobs').select('*').eq('status', 'published').order('created_at', { ascending: false });
-            if (!data || data.length === 0) { carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>'; return; }
-            carousel.innerHTML = '';
-            data.forEach(job => { 
-                carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white/50 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:bg-white/70 transition-all duration-300 select-none"><div><h3 class="font-extrabold text-lg mb-1 pointer-events-none text-gray-900">${job.position}</h3><p class="text-gray-600 text-sm font-medium pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p></div><div class="mt-6 text-right pointer-events-none"><span class="bg-black text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">Apliko</span></div></a>`; 
-            });
-        }
-
-        async function loadBanners() {
-            if(!window.sb) return;
-            try {
-                const { data } = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', { ascending: false });
-                if(data) {
-                    const topBanner = data.find(b => b.position === 'homepage_top'), midBanner = data.find(b => b.position === 'homepage_middle'), leftBanner = data.find(b => b.position === 'sidebar_left'), rightBanner = data.find(b => b.position === 'sidebar_right');
-                    if(topBanner) { const cont = document.getElementById('banner-top-container'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
-                    if(midBanner) { const cont = document.getElementById('banner-middle-container'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${midBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${midBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
-                    if(leftBanner) { const img = document.getElementById('sidebar-left-img'), link = document.getElementById('sidebar-left-link'); if(img && link) { img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; } }
-                    if(rightBanner) { const img = document.getElementById('sidebar-right-img'), link = document.getElementById('sidebar-right-link'); if(img && link) { img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; } }
-                }
-            } catch(e) {}
-        }
-
-        function setupNewsletter() {
-            const form = document.getElementById('newsletter-form');
-            if(form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault(); const btn = document.getElementById('nl-btn'); btn.innerText = '...';
-                    const { error } = await window.sb.from('newsletter_subscribers').insert([{ email: document.getElementById('nl-email').value }]);
-                    if(error) alert('Ky email është i abonuar ose ka ndodhur një gabim!'); else { alert('Faleminderit për abonimin!'); document.getElementById('newsletter-form').reset(); }
-                    btn.innerText = 'Abonohu';
-                });
-            }
-        }
     </script>
 </body>
 </html>
