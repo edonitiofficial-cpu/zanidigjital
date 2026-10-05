@@ -118,7 +118,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 <html lang="sq">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{titulli} - Zani Digjital</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3XJ36058R"></script>
@@ -139,12 +139,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     <meta property="og:image" content="{imazhi}">
     <meta property="og:site_name" content="Zani Digjital">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{url_baze}">
-    <meta name="twitter:title" content="{titulli}">
-    <meta name="twitter:description" content="{permbajtja_meta}">
-    <meta name="twitter:image" content="{imazhi}">
-
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
@@ -155,15 +149,15 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
-        body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; }}
+        body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: contain; }}
         .permbajtja p {{ margin-bottom: 1.5rem; }}
         .line-clamp-2 {{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
         .no-scrollbar::-webkit-scrollbar {{ display: none; }}
         .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
     </style>
 </head>
-<body class="text-gray-900 antialiased relative overflow-x-hidden w-full">
-
+<body class="text-gray-900 antialiased bg-[#F8F9FA] overscroll-y-auto">
+  <div class="relative w-full overflow-x-hidden min-h-screen">
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
@@ -236,7 +230,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </aside>
     </div>
 
-    <!-- POP-UP REKLAMA PËR MOBILE -->
+    <!-- POP-UP REKLAMA -->
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
         <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
             <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
@@ -251,6 +245,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
+  </div>
 
     <script>
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
@@ -394,7 +389,7 @@ def gjenero_kategori_dhe_hashtags(original_title, full_text):
     Ti je redaktori i portalit "Zani Digjital".
     DETYRA JOTE:
     1. Përcakto KATEGORINË bazuar në titull dhe tekst (Politikë, Sport, Ekonomi, Teknologji, Lajme).
-    2. Nëse lajmi është Showbiz, VIP, Thashetheme, kthe VETËM kategorinë "Kalo". 
+    2. Nëse lajmi është Showbiz, VIP, Thashetheme, ose ekskluzivisht për Maqedoninë e Veriut, kthe VETËM kategorinë "Kalo". 
     3. Gjenero 3-4 HASHTAGS strategjikë.
     
     Titulli origjinal: {original_title}
@@ -439,6 +434,12 @@ def main():
             title = entry.get("title", "")
             
             if link in existing_links: continue
+
+            # Kontrolli Anti-Maqedoni direkt nga Titulli
+            titulli_lower = title.lower()
+            if any(k in titulli_lower for k in ["maqedoni", "maqedonisë", "maqedoninë", "maqedonia", "shkup", "shkupi", "shkupin", "RMV"]):
+                print(f"🚫 U bllokua lajmi për Maqedoninë: {title}")
+                continue
 
             is_duplicate = False
             for existing_item in (new_entries + existing_news)[:150]:
@@ -491,6 +492,8 @@ def main():
                     paragrafet_temp.pop(0)
                     
                 junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
+                
+                # Fshi nga fundi te gjithe paragrafet koti
                 while paragrafet_temp:
                     last_p = paragrafet_temp[-1].strip()
                     lower_last = last_p.lower()
@@ -498,12 +501,13 @@ def main():
                     
                     if any(kw in lower_last for kw in junk_keywords_end): is_junk = True
                     elif len(last_p) < 40 and not last_p.endswith(('.', '!', '?', '"', "'", '”', '“')): is_junk = True
-                    elif lower_last in ["nga", "telegrafi", "express", "gazeta express", "gazetaexpress", "indeksonline", "klan kosova", "rtsh", "rtk"]: is_junk = True
+                    elif re.fullmatch(r'[/\\]?\s*(telegrafi|indeksonline|gazeta express|gazetaexpress|express|klan kosova|klankosova|rtsh|rtk)\s*[/\\]?\.?', lower_last): is_junk = True
                         
                     if is_junk: paragrafet_temp.pop()
                     else: break
                         
-                regex_pattern = r'/(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK)\.?$'
+                # Fshirja brutale e etiketave kudo qe mund te jene ngjitur ne fund te fjalisë (psh "/GazetaExpress/")
+                regex_pattern = r'[/\\]\s*(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK|RTSh)\s*[/\\]?\.?$'
                 for i in range(len(paragrafet_temp)):
                     paragrafet_temp[i] = re.sub(regex_pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
 
@@ -551,7 +555,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "U rregullua fshirja e variacioneve te GazetaExpress"')
+        os.system('git commit -m "Bllokimi i Maqedonise dhe Pasterti ekstreme nga Slashet"')
         os.system('git pull --rebase')
         os.system('git push')
         
