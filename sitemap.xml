@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/vetem-gjate-vitit-2025-jane-diagnostikuar-601-raste-te-reja-me-kancer-te-gjirit</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/gjendja-e-grupit-te-kosoves-pas-kater-ndeshjeve-te-para-te-liges-se-kombeve</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/kurti-deklarohet-per-ndeshjen-me-austrine-lojetareve-u-kerkon-me-shume-vemendje-ne-dy-perballjet-e-radhes</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/spo-verehet-mungesa-e-ronaldos-portugalia-vazhdon-me-fitore</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/greqia-spo-mposhtet-barazon-me-gjermanine</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/bashkepunim-artistik-kosove-shqiperi</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/be-zgjerohet-misioni-detar-ne-mesdhe-per-te-perballuar-floten-ruse-ne-hije</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/mijera-shtepi-dhe-biznese-pa-energji-ne-irlande-pas-ererave-te-forta-dhe-reshjeve-te-dendura</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ndalohen-tete-persona-ne-shkup-dhe-tetove-per-tregti-narkotike</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ekspertet-kerkojne-plan-kombetar-dhe-mbeshtetje-te-shtuar-per-fermeret-ne-perballimin-e-ndryshimeve-klimatike</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/kryetari-i-lipjanit-nenshkruan-memorandum-per-wifi-falas-ne-hapesirat-publike</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/haradinaj-fton-qytetaret-ne-proteste-kunder-vendimit-ndaj-udheheqesve-te-uck-se</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
