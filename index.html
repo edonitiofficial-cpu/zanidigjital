@@ -225,12 +225,10 @@
                 </button>
             </div>
 
-            <!-- Fusha e Mesazheve -->
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-6 text-[14px]">
                 <!-- Mesazhet ngarkohen ketu dinamic -->
             </div>
 
-            <!-- Fusha e Inputit -->
             <div class="p-3 bg-white border-t border-gray-200 shrink-0 z-20">
                 <div class="flex gap-2 items-center">
                     <input type="text" id="chat-input" placeholder="Shkruaj pyetjen tënde..." class="flex-1 bg-gray-100 text-black font-medium px-4 py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm placeholder-gray-500 transition-all">
@@ -254,7 +252,6 @@
     <!-- LLOGJIKA E ZANI DIGJITAL (Core + RAG CHATBOT)                             -->
     <!-- ========================================================================= -->
     <script>
-        // KJO ESHTE ADRESA JOTE E RE E URËS! (E mora nga fotoja)
         const AI_BACKEND_URL = "https://zani-ai-api.edonitiofficial.workers.dev"; 
 
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
@@ -543,7 +540,6 @@
             try {
                 const candidateArticles = getCandidateArticles(text);
 
-                // Ndryshimi kryesor: Kemi futur kontrolle sigurie (try-catch të detajuar) për thirrjen në Cloudflare
                 let response;
                 try {
                     response = await fetch(AI_BACKEND_URL, {
@@ -571,7 +567,6 @@
                 const replyId = 'reply-text-' + Date.now();
                 const contentId = 'content-' + Date.now();
 
-                // Nxjerrja e mesazhit të AI (edhe nëse është gabim, do të jetë i lexueshëm si tekst brenda chatit)
                 let botResponseContainer = `
                 <div class="flex gap-3 mb-4" id="${contentId}">
                     <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 shrink-0 mt-1 overflow-hidden">
@@ -623,7 +618,6 @@
                 const thnk = document.getElementById(thinkingId);
                 if(thnk) thnk.remove();
                 
-                // Mesazh Gabimi shumë më i qartë në UI
                 messages.innerHTML += `
                 <div class="flex gap-3 mb-4">
                     <div class="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-1">!</div>
@@ -647,6 +641,137 @@
                 initChatbotSession();
             }, 800);
         });
+
+        let userClosedAd = false;
+        function mbyllMobileAd() { userClosedAd = true; document.getElementById('mobile-popup').style.display = 'none'; }
+
+        async function initMobileAds() {
+            if (window.innerWidth > 768) return;
+            let mobileAds = [];
+            if (window.sb) {
+                try {
+                    const { data } = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', { ascending: false });
+                    if (data && data.length > 0) mobileAds = data.map(b => ({ img: b.image_url, link: b.link_url || '#' }));
+                } catch(e) {}
+            }
+            let currentAdIndex = 0;
+            const popup = document.getElementById('mobile-popup');
+            const popupImg = document.getElementById('mobile-popup-img');
+            const popupLink = document.getElementById('mobile-popup-link');
+            function showAd() {
+                if (userClosedAd || mobileAds.length === 0) return;
+                if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
+                popupImg.src = mobileAds[currentAdIndex].img; popupLink.href = mobileAds[currentAdIndex].link;
+                popup.classList.remove('translate-y-[150%]', 'opacity-0'); popup.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => { if (userClosedAd) return; hideAd(); currentAdIndex++; setTimeout(showAd, 15000); }, 5000); 
+            }
+            function hideAd() { popup.classList.remove('translate-y-0', 'opacity-100'); popup.classList.add('translate-y-[150%]', 'opacity-0'); }
+            setTimeout(showAd, 2000);
+        }
+
+        async function initSecondaryFeatures() {
+            await loadJobs(); 
+            await loadPoll(); 
+            await loadBanners();
+            setupNewsletter();
+            setupCarousels();
+        }
+
+        function setupCarousels() {
+            const btnPromoLeft = document.getElementById('btn-promo-left'), btnPromoRight = document.getElementById('btn-promo-right'), promoCar = document.getElementById('promo-carousel');
+            if(btnPromoLeft && btnPromoRight && promoCar) { btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' }); btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' }); }
+            const btnJobsLeft = document.getElementById('btn-jobs-left'), btnJobsRight = document.getElementById('btn-jobs-right'), jobsCar = document.getElementById('jobs-carousel');
+            if(btnJobsLeft && btnJobsRight && jobsCar) { btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' }); btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' }); }
+        }
+
+        async function loadPoll() {
+            const pollContainer = document.getElementById('poll-container');
+            if(!window.sb) return;
+            try {
+                const nowIso = new Date().toISOString();
+                const { data: polls } = await window.sb.from('polls').select('*').eq('status', 'active').lte('start_date', nowIso).order('start_date', { ascending: false }).limit(1);
+                if (!polls || polls.length === 0) { pollContainer.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka asnjë sondazh aktiv.</p>'; return; }
+                const poll = polls[0];
+                const { data: options } = await window.sb.from('poll_options').select('*').eq('poll_id', poll.id).order('id', { ascending: true });
+                const hasVoted = localStorage.getItem('voted_' + poll.id);
+                const isSlider = options.length === 1 && options[0].option_text === 'SLIDER_SUM';
+                if (hasVoted) { if (isSlider) renderSliderResults(poll, options[0], pollContainer); else renderOptionsResults(poll, options, pollContainer); }
+                else { if (isSlider) renderSliderVoting(poll, options[0], pollContainer); else renderOptionsVoting(poll, options, pollContainer); }
+            } catch (err) {}
+        }
+        function renderOptionsVoting(poll, options, container) {
+            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-3">`;
+            options.forEach(opt => { html += `<button onclick="submitOptionVote('${poll.id}', '${opt.id}', ${poll.total_votes}, ${opt.votes})" class="w-full text-left font-bold px-5 py-3 rounded-xl border-2 border-gray-200 hover:border-black hover:bg-gray-50 transition">${opt.option_text}</button>`; });
+            container.innerHTML = html + `</div>`;
+        }
+        async function submitOptionVote(pollId, optionId, currentTotal, currentOptVotes) {
+            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
+            await window.sb.from('poll_options').update({ votes: currentOptVotes + 1 }).eq('id', optionId); await window.sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
+            localStorage.setItem('voted_' + pollId, 'true'); setTimeout(() => { loadPoll(); }, 500);
+        }
+        function renderOptionsResults(poll, options, container) {
+            let realTotal = options.reduce((sum, opt) => sum + opt.votes, 0); if(realTotal === 0) realTotal = 1; 
+            let html = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div class="space-y-4">`;
+            options.forEach(opt => {
+                const percent = Math.round((opt.votes / realTotal) * 100);
+                html += `<div><div class="flex justify-between text-sm font-bold mb-1"><span>${opt.option_text}</span><span>${percent}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${percent}%"></div></div></div>`;
+            });
+            container.innerHTML = html + `</div>`;
+        }
+        function renderSliderVoting(poll, option, container) {
+            container.innerHTML = `<h3 class="text-xl font-bold mb-4">${poll.question}</h3><div class="relative pt-6 pb-2"><div id="slider-value-display" class="absolute top-0 text-lg font-black text-black transform -translate-x-1/2" style="left: 50%;">50%</div><div class="flex items-center space-x-4"><span class="font-bold text-gray-400 text-sm">0%</span><input type="range" id="dynamic-poll-slider" min="0" max="100" value="50" class="w-full appearance-none" oninput="document.getElementById('slider-value-display').innerText = this.value + '%'; document.getElementById('slider-value-display').style.left = this.value + '%';"><span class="font-bold text-gray-400 text-sm">100%</span></div></div><button onclick="submitSliderVote('${poll.id}', '${option.id}', ${poll.total_votes}, ${option.votes})" class="w-full mt-6 bg-black text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Voto</button>`;
+        }
+        async function submitSliderVote(pollId, optionId, currentTotal, currentSumVotes) {
+            const val = parseInt(document.getElementById('dynamic-poll-slider').value);
+            document.getElementById('poll-container').innerHTML = '<p class="text-center font-bold text-gray-500">Duke regjistruar votën...</p>';
+            await window.sb.from('poll_options').update({ votes: currentSumVotes + val }).eq('id', optionId); await window.sb.from('polls').update({ total_votes: currentTotal + 1 }).eq('id', pollId);
+            localStorage.setItem('voted_' + pollId, 'true'); setTimeout(() => { loadPoll(); }, 500);
+        }
+        function renderSliderResults(poll, option, container) {
+            const average = Math.round(option.votes / (poll.total_votes || 1));
+            container.innerHTML = `<h3 class="text-xl font-bold mb-5">${poll.question}</h3><div><div class="flex justify-between text-sm font-bold mb-1"><span>Mesatarja e të gjithë votuesve</span><span>${average}%</span></div><div class="w-full bg-gray-100 rounded-full h-4 overflow-hidden"><div class="bg-black h-4 rounded-full transition-all duration-1000 ease-out" style="width: ${average}%"></div></div></div>`;
+        }
+
+        async function loadJobs() {
+            const carousel = document.getElementById('jobs-carousel');
+            if(!window.sb) return;
+            const { data, error } = await window.sb.from('jobs').select('*').eq('status', 'published').order('created_at', { ascending: false });
+            if (!data || data.length === 0) { carousel.innerHTML = '<p class="text-gray-500 font-medium">Për momentin nuk ka vende të lira pune.</p>'; return; }
+            carousel.innerHTML = '';
+            data.forEach(job => { 
+                carousel.innerHTML += `<a href="${job.apply_link || '#'}" target="_blank" class="min-w-[280px] md:min-w-[320px] snap-start flex flex-col justify-between bg-white/50 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:bg-white/70 transition-all duration-300 select-none"><div><h3 class="font-extrabold text-lg mb-1 pointer-events-none text-gray-900">${job.position}</h3><p class="text-gray-600 text-sm font-medium pointer-events-none">${job.company} ${job.location ? `• ${job.location}`:''}</p></div><div class="mt-6 text-right pointer-events-none"><span class="bg-black text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">Apliko</span></div></a>`; 
+            });
+        }
+
+        async function loadBanners() {
+            if(!window.sb) return;
+            try {
+                const { data } = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', { ascending: false });
+                if(data) {
+                    const topBanner = data.find(b => b.position === 'homepage_top' || b.position === 'article_top');
+                    const bottomBanner = data.find(b => b.position === 'homepage_middle' || b.position === 'article_bottom');
+                    const leftBanner = data.find(b => b.position === 'sidebar_left');
+                    const rightBanner = data.find(b => b.position === 'sidebar_right');
+                    
+                    if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
+                    if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${bottomBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
+                    if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
+                    if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
+                }
+            } catch(e) {}
+        }
+
+        function setupNewsletter() {
+            const form = document.getElementById('newsletter-form');
+            if(form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault(); const btn = document.getElementById('nl-btn'); btn.innerText = '...';
+                    const { error } = await window.sb.from('newsletter_subscribers').insert([{ email: document.getElementById('nl-email').value }]);
+                    if(error) alert('Ky email është i abonuar ose ka ndodhur një gabim!'); else { alert('Faleminderit për abonimin!'); document.getElementById('newsletter-form').reset(); }
+                    btn.innerText = 'Abonohu';
+                });
+            }
+        }
     </script>
 </body>
 </html>
