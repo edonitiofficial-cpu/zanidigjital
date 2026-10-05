@@ -503,7 +503,6 @@ def main():
                     if is_junk: paragrafet_temp.pop()
                     else: break
                         
-                # Rregulluar: Fshin te gjitha variacionet, me hapesira ose pa hapesira
                 regex_pattern = r'/(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK)\.?$'
                 for i in range(len(paragrafet_temp)):
                     paragrafet_temp[i] = re.sub(regex_pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
