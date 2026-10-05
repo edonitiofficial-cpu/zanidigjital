@@ -11,7 +11,7 @@
     </script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zani Digjital | Lajmet e Fundit nga Kosova dhe Bota</title>
     
     <meta name="description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit nga politika, ekonomia, sporti dhe teknologjia në Zani Digjital.">
@@ -27,13 +27,15 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
-    
+    <link rel="apple-touch-icon" href="/zanidigjitalfavicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+        /* Për të lejuar PWA Swipe to Refresh, heqim overflow-x-hidden nga body */
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; }
         .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
         .glass-dark { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -48,13 +50,16 @@
         #chat-messages::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="text-gray-900 antialiased relative overflow-x-hidden w-full">
+<body class="text-gray-900 antialiased bg-[#F8F9FA]">
 
+  <!-- Mbështjellësi i ri për të parandaluar daljet jashtë ekranit, por për të lejuar Refresh në Mobile -->
+  <div class="relative w-full overflow-x-hidden min-h-screen">
+      
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
                 <a href="/" class="flex-shrink-0 mb-4 md:mb-0">
-                    <img src="/zanidigjital.png" alt="Zani Digjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                    <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
                 </a>
                 <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
                     <nav id="nav-menu" class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
@@ -195,9 +200,9 @@
     <!-- ZANI DIGJITAL AI (Motor Kërkimi & Asistent) -->
     <div id="zani-ai-chatbot" class="fixed bottom-6 right-4 md:right-8 z-[110] flex flex-col items-end pointer-events-none">
         
-        <div id="zani-chat-window" class="hidden pointer-events-auto mb-4 w-[calc(100vw-32px)] md:w-[420px] max-h-[80vh] h-[600px] bg-white rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.2)] border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
+        <!-- UI i Chatbotit - Madhësia max e kufizuar në telefon për pamje më të mirë -->
+        <div id="zani-chat-window" class="hidden pointer-events-auto mb-4 w-[calc(100vw-32px)] md:w-[420px] max-h-[75vh] h-[600px] bg-white rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.2)] border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
             
-            <!-- Header-i i Zani AI -->
             <div class="bg-black text-white p-4 flex justify-between items-center shadow-md z-20 relative">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden border-2 border-black">
@@ -215,7 +220,7 @@
                 </button>
             </div>
 
-            <!-- Fusha e Mesazheve -->
+            <!-- Fusha e Mesazheve ku nuk ka fokusim automatik -->
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-6 text-[14px]">
                 <!-- Mesazhet ngarkohen ketu -->
             </div>
@@ -231,7 +236,6 @@
             </div>
         </div>
 
-        <!-- Butoni Lundrues (Floating Button) me logon e re -->
         <button onclick="toggleChat()" class="pointer-events-auto bg-white p-2 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform flex items-center justify-center relative group border-2 border-black w-16 h-16">
             <span class="absolute -top-1 -right-1 flex h-4 w-4">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -246,6 +250,8 @@
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
+
+  </div> <!-- Mbyllja e Mbështjellësit të ri -->
 
     <script>
         const supabaseUrl = 'https://qqgkhioaqsbzygwconbh.supabase.co';
@@ -403,7 +409,9 @@
                 } catch(e) {}
             }
             let currentAdIndex = 0;
-            const popup = document.getElementById('mobile-popup'), popupImg = document.getElementById('mobile-popup-img'), popupLink = document.getElementById('mobile-popup-link');
+            const popup = document.getElementById('mobile-popup');
+            const popupImg = document.getElementById('mobile-popup-img');
+            const popupLink = document.getElementById('mobile-popup-link');
             function showAd() {
                 if (userClosedAd) return;
                 if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
@@ -605,7 +613,7 @@
             </a>`;
         }
 
-        // MOTORI I RI I KËRKIMIT: Përfshin Sinonime dhe Kuptimin e Kohës ("sot", "dje")
+        // MOTORI I KËRKIMIT: Përfshin Sinonime dhe Kohën ("sot", "dje")
         function parseIntent(query) {
             let q = query.toLowerCase().replace(/[?.,!]/g, '');
             let isLatest = false;
@@ -613,21 +621,20 @@
             let hasKeywords = false;
             let targetDate = null; // 'sot' ose 'dje'
             
-            // Fjalët lidhëse që Injorohen
-            const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne'];
+            const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në'];
             
             if (q.includes('fundit') || q.includes('reja') || q.includes('sot')) isLatest = true;
             if (q.includes('dje')) targetDate = 'dje';
             if (q.includes('sot')) targetDate = 'sot';
             
-            if (q.includes('sport') || q.includes('futboll')) targetCategory = 'Sport';
+            if (q.includes('sport') || q.includes('futboll') || q.includes('ndeshj')) targetCategory = 'Sport';
             if (q.includes('politik') || q.includes('qeveri') || q.includes('kuvend') || q.includes('kryeministr')) targetCategory = 'Politikë';
             if (q.includes('teknologji') || q.includes('tech') || q.includes('telefon') || q.includes('aplikacion')) targetCategory = 'Teknologji';
             if (q.includes('ekonomi') || q.includes('biznes') || q.includes('para')) targetCategory = 'Ekonomi';
             
             let searchWords = q.split(' ').filter(word => !stopwords.includes(word) && word.length > 2);
             
-            // FJALORI I SINONIMEVE: Kjo e bën JS të duket si një AI i vërtetë!
+            // FJALORI I SINONIMEVE 
             const synonyms = {
                 "kryeministri": ["kurti", "qeveria"],
                 "kurti": ["albin", "kryeministri"],
@@ -637,7 +644,6 @@
                 "aksident": ["aksidenti", "policia", "rrahje", "vdekje"]
             };
 
-            // Shtojmë sinonimet e gjetura në kërkim
             let expandedWords = [...searchWords];
             searchWords.forEach(word => {
                 for (let key in synonyms) {
@@ -647,7 +653,7 @@
                 }
             });
             
-            expandedWords = [...new Set(expandedWords)]; // Heqim fjalët e përsëritura
+            expandedWords = [...new Set(expandedWords)]; 
             if(expandedWords.length > 0) hasKeywords = true;
 
             return { isLatest, targetCategory, searchWords: expandedWords, hasKeywords, targetDate };
@@ -664,7 +670,7 @@
                 else intent.isLatest = true; 
             }
 
-            // Gjenerojmë datën e sotme dhe të djeshme për krahasim
+            // Gjenerojmë datat
             const sotObj = new Date();
             const djeObj = new Date(sotObj);
             djeObj.setDate(djeObj.getDate() - 1);
@@ -673,7 +679,6 @@
             const strDje = String(djeObj.getDate()).padStart(2, '0') + '/' + String(djeObj.getMonth() + 1).padStart(2, '0') + '/' + djeObj.getFullYear();
 
             for (const item of window.allNewsData) {
-                // Filtrimi sipas Kohës (Sot apo Dje)
                 let itemDate = "";
                 if (item.koha) itemDate = item.koha.split(' ')[0];
                 
@@ -693,7 +698,6 @@
                     score += 2;
                 }
 
-                // Nëse s'ka fjalë kyçe por do "Sot/Dje" të një kategorie specifike ose në përgjithësi
                 if (!intent.hasKeywords && (intent.targetDate || intent.isLatest || intent.targetCategory)) {
                      score += 1;
                 }
