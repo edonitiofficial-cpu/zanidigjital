@@ -75,14 +75,8 @@
 
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
         
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
-            <div class="sticky top-28">
-                <a href="#" id="sidebar-left-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
-                    <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img id="sidebar-left-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                </a>
-            </div>
-        </aside>
+        <!-- Sidebar Majtas Dinamik -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
             <section>
@@ -110,20 +104,6 @@
                 </div>
                 <div class="mt-10 flex justify-center">
                     <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
-                </div>
-            </section>
-
-            <section class="border-t border-gray-300 pt-8">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-black uppercase tracking-wide">Promo Artikujt</h2>
-                    <div class="flex gap-2 hidden md:flex">
-                        <button id="btn-promo-left" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                        <button id="btn-promo-right" class="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white transition cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
-                    </div>
-                </div>
-                <div id="promo-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-4 scroll-smooth">
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-lg leading-tight">Konferenca më e madhe e sigurisë kibernetike në Ballkan</h3></div></a>
-                    <a href="#" class="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-start bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative hover:shadow-md transition"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-lg leading-tight">Hapja e qendrës së re inovative në qendër të Prishtinës</h3></div></a>
                 </div>
             </section>
 
@@ -174,14 +154,8 @@
             </div>
         </main>
 
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
-            <div class="sticky top-28">
-                <a href="#" id="sidebar-right-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img id="sidebar-right-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                </a>
-            </div>
-        </aside>
+        <!-- Sidebar Djathtas Dinamik -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
     </div>
 
     <!-- POP-UP REKLAMA -->
@@ -199,13 +173,10 @@
             <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
         </div>
     </footer>
-  </div> <!-- Mbyllja e Wrapper-it -->
+  </div>
 
-    <!-- ========================================================================= -->
-    <!-- ZANI DIGJITAL AI CHAT UI                                                  -->
-    <!-- ========================================================================= -->
+    <!-- ZANI DIGJITAL AI CHAT UI -->
     <div id="zani-ai-chatbot" class="fixed bottom-6 right-4 md:right-8 z-[110] flex flex-col items-end pointer-events-none">
-        
         <div id="zani-chat-window" class="hidden pointer-events-auto mb-4 w-[calc(100vw-32px)] md:w-[420px] max-h-[80vh] h-[600px] bg-white rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.2)] border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right">
             
             <div class="bg-black text-white p-4 flex justify-between items-center shadow-md z-20 relative">
@@ -225,9 +196,7 @@
                 </button>
             </div>
 
-            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-6 text-[14px]">
-                <!-- Mesazhet ngarkohen ketu dinamic -->
-            </div>
+            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-6 text-[14px]"></div>
 
             <div class="p-3 bg-white border-t border-gray-200 shrink-0 z-20">
                 <div class="flex gap-2 items-center">
@@ -248,9 +217,7 @@
         </button>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- LLOGJIKA E ZANI DIGJITAL (Core + RAG CHATBOT)                             -->
-    <!-- ========================================================================= -->
+    <!-- LLOGJIKA E ZANI DIGJITAL -->
     <script>
         const AI_BACKEND_URL = "https://zani-ai-api.edonitiofficial.workers.dev"; 
 
@@ -310,7 +277,6 @@
                 let allNews = [...manualNews, ...autoNews];
                 allNews.sort((a, b) => parseDateCustom(b.koha) - parseDateCustom(a.koha));
                 
-                // DATA STORE PER ZANI AI CHATBOT
                 window.allNewsData = allNews;
                 
                 if (allNews && allNews.length > 0) {
@@ -633,7 +599,9 @@
             if (e.key === 'Enter') sendChatMessage();
         });
 
+        // 🚀 NGARKIMI I SHPEJTË I BANERAVE
         document.addEventListener('DOMContentLoaded', () => {
+            loadBanners(); // Tani hapen MENJËHERË, pa pritur 800ms
             loadNews();
             setTimeout(() => {
                 initSecondaryFeatures();
@@ -672,14 +640,11 @@
         async function initSecondaryFeatures() {
             await loadJobs(); 
             await loadPoll(); 
-            await loadBanners();
             setupNewsletter();
             setupCarousels();
         }
 
         function setupCarousels() {
-            const btnPromoLeft = document.getElementById('btn-promo-left'), btnPromoRight = document.getElementById('btn-promo-right'), promoCar = document.getElementById('promo-carousel');
-            if(btnPromoLeft && btnPromoRight && promoCar) { btnPromoLeft.onclick = () => promoCar.scrollBy({ left: -350, behavior: 'smooth' }); btnPromoRight.onclick = () => promoCar.scrollBy({ left: 350, behavior: 'smooth' }); }
             const btnJobsLeft = document.getElementById('btn-jobs-left'), btnJobsRight = document.getElementById('btn-jobs-right'), jobsCar = document.getElementById('jobs-carousel');
             if(btnJobsLeft && btnJobsRight && jobsCar) { btnJobsLeft.onclick = () => jobsCar.scrollBy({ left: -300, behavior: 'smooth' }); btnJobsRight.onclick = () => jobsCar.scrollBy({ left: 300, behavior: 'smooth' }); }
         }
