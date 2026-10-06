@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/presidenti-i-la-liges-javier-tebas-e-quan-real-madridin-ekipi-me-rebel-ne-spanje</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/afati-per-zgjedhjen-e-presidentit-skadon-sot-a-do-te-shkojme-serish-ne-zgjedhje</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/edhe-sot-proteste-ne-prishtine-pas-nje-nate-te-tensionuar-dhe-disa-te-lenduarve</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/moti-ne-shqiperi</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/mengjesi-i-ftohte-gjate-dites-temperaturat-deri-ne-25-grade</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/siljanovska-davkova-ceshtja-me-bullgarine-nuk-mund-te-cilesohet-as-si-bilaterale-as-vetem-si-problem-me-be-ne</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/wesley-clark-miloevici-kishte-mendje-gjenocidale-thaci-ishte-patriot</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/egla-ceno-denonon-publikimin-e-videove-intime-si-poshterim-ndaj-grave</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/tesla-model-3-perditeson-ekranin-ne-tregun-kinez-me-16-inc</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ministrja-e-financave-thekson-perfitimet-e-modernizimit-te-sistemit-tatimor-ne-20-vjetorin-e-drejtorise-se-tatimpaguesve-te-medhenj</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/udhezuesi-per-pastrimin-e-duhur-te-thikave-te-kuzhines</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/shtate-te-vdekur-pas-shperthimit-ne-fabriken-kimike-krasnozavodsk-moskva</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
