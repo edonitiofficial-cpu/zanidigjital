@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/juristet-kuvendi-shperndahet-automatikisht-nese-szgjidhet-presidenti-deri-ne-mesnate</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/detaje-te-reja-rreth-ish-shefit-te-inteligjences-gjermane-i-arrestuar-nen-dyshimet-per-spiunazh</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/mbi-10-sulme-fizike-ne-dite-punonjesit-e-transportit-publik-ne-zvicer-po-nencmohen-nga-udhetaret</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/miliarda-dollare-arme-amerikane-per-lindjen-e-mesme-shba-ja-miraton-marreveshjet-me-tri-shtete-arabe</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/cmendet-liverpooli-ofron-mbi-50-milione-euro-per-talentin-qe-luan-ne-ligen-e-meksikes</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/nasim-haradinaj-turp-qe-ligji-per-dhomat-e-specializuara-u-la-ne-oret-e-fundit</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/republikane-e-demokrate-ne-shba-bashkohen-kunder-serbise-kerkojne-ndryshime-ne-politiken-e-beogradit</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/aston-martin-shtyn-veturen-e-pare-elektrike-deri-ne-vitin-2033</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/nese-i-lani-rrobat-ne-kete-temperature-rrobalaresja-mund-te-harxhoje-shume-me-teper-energji</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/7-shenja-te-hershme-te-semundjeve-reumatike-qe-nuk-duhen-injoruar</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/hamza-pas-takimit-me-kurtin-te-miratohet-ligji-per-specialen-pastaj-jemi-te-gatshem-te-votojme-presidentin</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/do-tia-kthej-shqiperise-perkrenaren-dhe-shpaten-e-skenderbeut-premtimi-i-kandidatit-potencial-per-president-te-austrise</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
