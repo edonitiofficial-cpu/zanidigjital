@@ -178,14 +178,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
         
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
-            <div class="sticky top-28">
-                <a href="#" id="sidebar-left-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
-                    <span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img id="sidebar-left-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                </a>
-            </div>
-        </aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
@@ -218,17 +211,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </aside>
         </main>
 
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8">
-            <div class="sticky top-28">
-                <a href="#" id="sidebar-right-link" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100">
-                    <span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span>
-                    <img id="sidebar-right-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                </a>
-            </div>
-        </aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
     </div>
 
-    <!-- POP-UP REKLAMA -->
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
         <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
             <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
@@ -257,7 +242,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
         async function initMobileAds() {{
             if (window.innerWidth > 768) return;
-            let mobileAds = [{{ img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop", link: "#" }}];
+            let mobileAds = [];
             if (window.sb) {{
                 try {{
                     const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').eq('position', 'mobile_popup').order('created_at', {{ ascending: false }});
@@ -267,7 +252,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             let currentAdIndex = 0;
             const popup = document.getElementById('mobile-popup'), popupImg = document.getElementById('mobile-popup-img'), popupLink = document.getElementById('mobile-popup-link');
             function showAd() {{
-                if (userClosedAd) return;
+                if (userClosedAd || mobileAds.length === 0) return;
                 if (currentAdIndex >= mobileAds.length) currentAdIndex = 0; 
                 popupImg.src = mobileAds[currentAdIndex].img; popupLink.href = mobileAds[currentAdIndex].link;
                 popup.classList.remove('translate-y-[150%]', 'opacity-0'); popup.classList.add('translate-y-0', 'opacity-100');
@@ -282,16 +267,24 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             try {{
                 const {{ data }} = await window.sb.from('banners').select('*').eq('status', 'active').order('created_at', {{ ascending: false }});
                 if(data) {{
-                    const topBanner = data.find(b => b.position === 'article_top'), bottomBanner = data.find(b => b.position === 'article_bottom'), leftBanner = data.find(b => b.position === 'sidebar_left'), rightBanner = data.find(b => b.position === 'sidebar_right');
-                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
-                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
-                    if(leftBanner) {{ const img = document.getElementById('sidebar-left-img'), link = document.getElementById('sidebar-left-link'); if(img && link) {{ img.src = leftBanner.image_url; link.href = leftBanner.link_url || '#'; }} }}
-                    if(rightBanner) {{ const img = document.getElementById('sidebar-right-img'), link = document.getElementById('sidebar-right-link'); if(img && link) {{ img.src = rightBanner.image_url; link.href = rightBanner.link_url || '#'; }} }}
+                    const topBanner = data.find(b => b.position === 'homepage_top' || b.position === 'article_top');
+                    const bottomBanner = data.find(b => b.position === 'homepage_middle' || b.position === 'article_bottom');
+                    const leftBanner = data.find(b => b.position === 'sidebar_left');
+                    const rightBanner = data.find(b => b.position === 'sidebar_right');
+                    
+                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
+                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
+                    if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${{leftBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
+                    if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${{rightBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
                 }}
             }} catch(e) {{}}
         }}
 
-        document.addEventListener('DOMContentLoaded', () => {{ setTimeout(() => {{ loadBanners(); initMobileAds(); }}, 800); }});
+        // 🚀 Ngarkim SUPER i shpejtë i banerave!
+        document.addEventListener('DOMContentLoaded', () => {{ 
+            loadBanners(); 
+            setTimeout(() => {{ initMobileAds(); }}, 800); 
+        }});
     </script>
 </body>
 </html>"""
@@ -491,7 +484,6 @@ def main():
                     
                 junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
                 
-                # Fshi nga fundi te gjithe paragrafet koti
                 while paragrafet_temp:
                     last_p = paragrafet_temp[-1].strip()
                     lower_last = last_p.lower()
@@ -504,7 +496,6 @@ def main():
                     if is_junk: paragrafet_temp.pop()
                     else: break
                         
-                # Fshirja brutale e etiketave kudo qe mund te jene ngjitur ne fund te fjalisë (psh "/GazetaExpress/")
                 regex_pattern = r'[/\\]?\s*(Telegrafi|Indeksonline|Gazeta Express|GazetaExpress|Express|Klan Kosova|KlanKosova|RTSH|RTK|RTSh)\s*[/\\]?\.?$'
                 for i in range(len(paragrafet_temp)):
                     paragrafet_temp[i] = re.sub(regex_pattern, '', paragrafet_temp[i], flags=re.IGNORECASE).strip()
@@ -553,7 +544,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "Rregullimi i Llama-3.1 dhe Slasheve"')
+        os.system('git commit -m "U RREGULLUAN BANNERS, CHATBOTI DHE MAQEDONIA"')
         os.system('git pull --rebase')
         os.system('git push')
         
