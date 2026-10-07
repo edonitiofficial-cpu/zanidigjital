@@ -145,7 +145,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
-        body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: contain; }}
+        body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: contain; overflow-x: clip; }}
         .permbajtja p {{ margin-bottom: 1.5rem; }}
         .line-clamp-2 {{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
         .no-scrollbar::-webkit-scrollbar {{ display: none; }}
@@ -153,7 +153,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     </style>
 </head>
 <body class="text-gray-900 antialiased bg-[#F8F9FA] overscroll-y-auto">
-  <div class="relative w-full overflow-x-hidden min-h-screen">
+  <div class="relative w-full min-h-screen">
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
         <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
@@ -176,7 +176,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
 
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
         
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-left-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
@@ -209,7 +209,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </aside>
         </main>
 
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-right-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-right-container"></aside>
     </div>
 
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
@@ -270,10 +270,10 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     const leftBanner = data.find(b => b.position === 'sidebar_left');
                     const rightBanner = data.find(b => b.position === 'sidebar_right');
                     
-                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
-                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
-                    if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${{leftBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
-                    if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${{rightBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
+                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${{topBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{topBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
+                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${{bottomBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
+                    if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<a href="${{leftBanner.link_url || '#'}}"\ target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }}
+                    if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<a href="${{rightBanner.link_url || '#'}}"\ target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }}
                 }}
             }} catch(e) {{}}
         }}
