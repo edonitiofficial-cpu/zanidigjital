@@ -94,15 +94,15 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
     count = 0
     for s in te_gjitha_lajmet:
         if s.get("slug") == slug: continue
-        if count >= 5: break
+        if count >= 4: break
         c_text = get_category_text(s.get("kategoria", "Lajme"))
         s_slug = s.get("slug")
         sugjerime_html += f"""
-        <a href="https://zanidigjital.com/lajme/{s_slug}" class="group flex gap-4 items-center pb-4 border-b border-gray-50 last:border-0 last:pb-0">
-            <img src="{s.get('imazhi')}" class="w-20 h-20 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
-            <div class="flex-1">
+        <a href="https://zanidigjital.com/lajme/{s_slug}" class="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:shadow-md transition group flex flex-col gap-3">
+            <img src="{s.get('imazhi')}" class="w-full h-32 object-cover rounded-lg shadow-sm group-hover:opacity-90 transition" alt="">
+            <div>
                 <span class="text-[10px] {c_text} font-bold uppercase tracking-wider">{s.get('kategoria')}</span>
-                <h4 class="text-[14px] font-bold text-gray-800 leading-snug group-hover:underline transition line-clamp-2 mt-1">{s.get('titulli')}</h4>
+                <h4 class="text-[15px] font-bold text-gray-900 leading-snug group-hover:underline transition line-clamp-3 mt-1">{s.get('titulli')}</h4>
             </div>
         </a>"""
         count += 1
@@ -148,6 +148,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         body {{ font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: contain; overflow-x: clip; }}
         .permbajtja p {{ margin-bottom: 1.5rem; }}
         .line-clamp-2 {{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
+        .line-clamp-3 {{ display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }}
         .no-scrollbar::-webkit-scrollbar {{ display: none; }}
         .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
     </style>
@@ -178,8 +179,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-left-container"></aside>
 
-        <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
-            <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
+        <!-- Artikulli tani është W-FULL dhe pa panel djathtas për Sugjerime -->
+        <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8">
+            <article class="w-full bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
                 <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">← Kthehu te Ballina</a>
                 <div class="flex items-center gap-4 mb-4 font-bold">
                     <span class="{cat_bg} text-white px-3 py-1 rounded text-xs uppercase tracking-wider">{kategoria}</span>
@@ -197,19 +199,20 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     {permbajtja_html}
                 </div>
                 <div id="banner-article-bottom" class="w-full mt-8"></div>
-            </article>
-
-            <aside class="lg:w-1/3 space-y-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="font-extrabold text-lg mb-4 text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
-                        <span class="bg-black text-white px-2 py-1 rounded text-xs uppercase">Të rejat</span> Lexo më shumë
+                
+                <!-- Lajmet e sugjeruara dalin POSHTË me një format super elegant -->
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <h3 class="font-extrabold text-2xl mb-6 text-gray-900 flex items-center gap-2">
+                        <span class="bg-black text-white px-3 py-1 rounded-md text-sm uppercase tracking-wide">Të rejat</span> Lexo më shumë
                     </h3>
-                    <div class="space-y-4">{sugjerime_html}</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {sugjerime_html}
+                    </div>
                 </div>
-            </aside>
+            </article>
         </main>
 
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-right-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
     </div>
 
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
@@ -270,8 +273,8 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     const leftBanner = data.find(b => b.position === 'sidebar_left');
                     const rightBanner = data.find(b => b.position === 'sidebar_right');
                     
-                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${{topBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{topBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
-                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${{bottomBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
+                    if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${{topBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{topBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
+                    if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${{bottomBanner.link_url || '#'}}"\ target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }}
                     if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<a href="${{leftBanner.link_url || '#'}}"\ target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }}
                     if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<a href="${{rightBanner.link_url || '#'}}"\ target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }}
                 }}
@@ -352,7 +355,6 @@ def load_news():
     return []
 
 def save_news(news_list):
-    # KAPACITETI U RRIT NË 7000 LAJME
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(news_list[:7000], f, ensure_ascii=False, indent=2)
     lajmet_ballina = []
@@ -479,7 +481,6 @@ def main():
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords_start)):
                     paragrafet_temp.pop(0)
                     
-                # KËTU FSHIHEN FJALËT E FUNDIT TË PËRSHIKURA "TRANSMETON", etj.
                 junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok", "transmeton", "lexo më shumë", "burimi"]
                 
                 while paragrafet_temp:
@@ -542,7 +543,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "U RREGULLUAN BANNERS, CHATBOTI DHE LIMITI 7000"')
+        os.system('git commit -m "U RREGULLUAN BANNERS DHE DIZAJNI I ARTIKULLIT"')
         os.system('git pull --rebase')
         os.system('git push')
         
