@@ -33,7 +33,6 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
-        /* Shtuam overflow-x: clip; për të ruajtur dizajnin pa prishur Sticky-n */
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; overflow-x: clip; }
         .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
@@ -52,7 +51,6 @@
 </head>
 <body class="text-gray-900 antialiased bg-[#F8F9FA]">
 
-  <!-- Këtu u hoq overflow-x-hidden që po vriste Sticky-n -->
   <div class="relative w-full min-h-screen">
       
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
@@ -77,7 +75,7 @@
 
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
         
-        <!-- Sidebar Majtas - Tani lëviz lirshëm -->
+        <!-- Sidebar Majtas - RRËSHQITËS (Sticky) -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
@@ -156,8 +154,8 @@
             </div>
         </main>
 
-        <!-- Sidebar Djathtas - Tani lëviz lirshëm -->
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-right-container"></aside>
+        <!-- Sidebar Djathtas - STATIK (Nuk ka sticky top) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
     </div>
 
     <!-- POP-UP REKLAMA -->
