@@ -73,10 +73,10 @@
         </div>
     </header>
 
-    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
+    <!-- Shtuam items-start që banerat të lëvizin bashkë me faqen poshtë -->
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
         
-        <!-- Sidebar Majtas Dinamik -->
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-left-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
             <section>
@@ -154,8 +154,7 @@
             </div>
         </main>
 
-        <!-- Sidebar Djathtas Dinamik -->
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-right-container"></aside>
     </div>
 
     <!-- POP-UP REKLAMA -->
@@ -217,7 +216,6 @@
         </button>
     </div>
 
-    <!-- LLOGJIKA E ZANI DIGJITAL -->
     <script>
         const AI_BACKEND_URL = "https://zani-ai-api.edonitiofficial.workers.dev"; 
 
@@ -320,8 +318,13 @@
                     const n = bentoNews[i]; const [bg] = getCatStyles(n.kategoria); 
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli); const url = `/lajme/${slug}`;
                     const imgOptimized = optimizoFoton(n.imazhi, true); const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
-                    if (i === 0) { bentoHtml += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm bg-white"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`; } 
-                    else { bentoHtml += `<a href="${url}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${bg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`; }
+                    
+                    // KËTU ËSHTË SHTUAR BORDERI BLU I TRASHË PËR LAJMIN KRYESOR
+                    if (i === 0) { 
+                        bentoHtml += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-lg bg-white border-[3px] border-[#2563eb]"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`; 
+                    } else { 
+                        bentoHtml += `<a href="${url}" class="group relative rounded-xl overflow-hidden shadow-sm bg-white h-48 md:h-auto"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><span class="${bg} text-white text-[10px] font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-md font-bold mt-1 group-hover:underline">${n.titulli}</h3></div></a>`; 
+                    }
                 }
                 bentoGrid.innerHTML = bentoHtml;
                 
@@ -429,7 +432,8 @@
                 searchStr += " " + chatHistory[chatHistory.length - 2].content.toLowerCase();
             }
 
-            const stopwords = ['cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'cka', 'çka', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje'];
+            // U shtuan më shumë fjalë zhargoni për t'i injoruar gjatë kërkimit ekzakt
+            const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të'];
             let words = searchStr.split(' ').filter(w => !stopwords.includes(w) && w.length > 2);
             
             if(words.length === 0) return window.allNewsData.slice(0, 20);
@@ -599,13 +603,12 @@
             if (e.key === 'Enter') sendChatMessage();
         });
 
-        // 🚀 NGARKIMI I SHPEJTË I BANERAVE
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBanners(); // Tani hapen MENJËHERË, pa pritur 800ms
+        document.addEventListener('DOMContentLoaded', () => { 
+            loadBanners(); 
+            setTimeout(() => { initMobileAds(); }, 800); 
             loadNews();
             setTimeout(() => {
                 initSecondaryFeatures();
-                initMobileAds();
                 initChatbotSession();
             }, 800);
         });
@@ -720,8 +723,8 @@
                     
                     if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
                     if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${bottomBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
-                    if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
-                    if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
+                    if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
+                    if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }
                 }
             } catch(e) {}
         }
