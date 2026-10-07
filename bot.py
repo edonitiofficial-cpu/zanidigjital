@@ -10,7 +10,6 @@ import trafilatura
 from groq import Groq
 from datetime import datetime, timedelta
 
-# --- SISTEMI I RROTULLIMIT TË ÇELËSAVE ---
 api_keys = [
     os.environ.get("GROQ_API_KEY"),
     os.environ.get("GROQ_API_KEY_2"),
@@ -32,7 +31,6 @@ def switch_api_key():
     client = Groq(api_key=new_key)
     print(f"🔄 Kaluam te çelësi rezervë numër {current_key_index + 1}")
 
-# --- BURIMET E LAJMEVE ---
 RSS_FEEDS = [
     "https://telegrafi.com/feed/",
     "https://indeksonline.net/feed/",
@@ -176,9 +174,9 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         </div>
     </header>
 
-    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center gap-6 xl:gap-8 w-full">
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
         
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-left-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-left-container"></aside>
 
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8 flex flex-col lg:flex-row gap-8">
             <article class="lg:w-2/3 bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
@@ -211,7 +209,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </aside>
         </main>
 
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-right-container"></aside>
     </div>
 
     <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
@@ -274,13 +272,12 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     
                     if(topBanner) {{ const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${{topBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{topBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
                     if(bottomBanner) {{ const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${{bottomBanner.link_url || '#'}}"" target="_blank" class="block w-full"><img src="${{bottomBanner.image_url}}"" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }}
-                    if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${{leftBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
-                    if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-28"><a href="${{rightBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
+                    if(leftBanner) {{ const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${{leftBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{leftBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
+                    if(rightBanner) {{ const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<div class="sticky top-20"><a href="${{rightBanner.link_url || '#'}}"" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${{rightBanner.image_url}}"" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a></div>`; }}
                 }}
             }} catch(e) {{}}
         }}
 
-        // 🚀 Ngarkim SUPER i shpejtë i banerave!
         document.addEventListener('DOMContentLoaded', () => {{ 
             loadBanners(); 
             setTimeout(() => {{ initMobileAds(); }}, 800); 
@@ -355,8 +352,9 @@ def load_news():
     return []
 
 def save_news(news_list):
+    # KAPACITETI U RRIT NË 7000 LAJME
     with open(DB_FILE, "w", encoding="utf-8") as f:
-        json.dump(news_list[:3000], f, ensure_ascii=False, indent=2)
+        json.dump(news_list[:7000], f, ensure_ascii=False, indent=2)
     lajmet_ballina = []
     for lajm in news_list[:150]:
         lajmet_ballina.append({
@@ -426,7 +424,6 @@ def main():
             
             if link in existing_links: continue
 
-            # Kontrolli Anti-Maqedoni direkt nga Titulli
             titulli_lower = title.lower()
             if any(k in titulli_lower for k in ["maqedoni", "maqedonisë", "maqedoninë", "maqedonia", "shkup", "shkupi", "shkupin", "RMV"]):
                 print(f"🚫 U bllokua lajmi për Maqedoninë: {title}")
@@ -482,7 +479,8 @@ def main():
                 while paragrafet_temp and (len(paragrafet_temp[0]) < 25 or any(j in paragrafet_temp[0].lower() for j in junk_keywords_start)):
                     paragrafet_temp.pop(0)
                     
-                junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok"]
+                # KËTU FSHIHEN FJALËT E FUNDIT TË PËRSHIKURA "TRANSMETON", etj.
+                junk_keywords_end = ["minuta më parë", "orë më parë", "ditë më parë", "top lajme", "reklamo", "promo", "jobs", "real estate", "kampionati", "na ndiqni", "facebook", "twitter", "instagram", "tiktok", "transmeton", "lexo më shumë", "burimi"]
                 
                 while paragrafet_temp:
                     last_p = paragrafet_temp[-1].strip()
@@ -544,7 +542,7 @@ def main():
     
     status = os.system('git diff-index --quiet HEAD')
     if status != 0:
-        os.system('git commit -m "U RREGULLUAN BANNERS, CHATBOTI DHE MAQEDONIA"')
+        os.system('git commit -m "U RREGULLUAN BANNERS, CHATBOTI DHE LIMITI 7000"')
         os.system('git pull --rebase')
         os.system('git push')
         
