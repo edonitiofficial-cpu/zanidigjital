@@ -73,7 +73,6 @@
         </div>
     </header>
 
-    <!-- Shtuam items-start që banerat të lëvizin bashkë me faqen poshtë -->
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-20" id="sidebar-left-container"></aside>
@@ -319,7 +318,6 @@
                     const slug = n.slug ? n.slug : krijoSlug(n.titulli); const url = `/lajme/${slug}`;
                     const imgOptimized = optimizoFoton(n.imazhi, true); const fallback = "this.onerror=null; this.src='" + n.imazhi + "';";
                     
-                    // KËTU ËSHTË SHTUAR BORDERI BLU I TRASHË PËR LAJMIN KRYESOR
                     if (i === 0) { 
                         bentoHtml += `<a href="${url}" class="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden shadow-lg bg-white border-[3px] border-[#2563eb]"><img src="${imgOptimized}" onerror="${fallback}" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-6"><span class="${bg} text-white text-xs font-bold px-2 py-1 rounded uppercase">${n.kategoria}</span><h3 class="text-white text-2xl md:text-3xl font-bold mt-2 group-hover:underline">${n.titulli}</h3><p class="text-gray-300 text-sm mt-2">${n.koha}</p></div></a>`; 
                     } else { 
@@ -432,7 +430,6 @@
                 searchStr += " " + chatHistory[chatHistory.length - 2].content.toLowerCase();
             }
 
-            // U shtuan më shumë fjalë zhargoni për t'i injoruar gjatë kërkimit ekzakt
             const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të'];
             let words = searchStr.split(' ').filter(w => !stopwords.includes(w) && w.length > 2);
             
