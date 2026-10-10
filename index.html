@@ -92,6 +92,14 @@
 
             <div id="banner-top-container" class="w-full"></div>
 
+            <!-- Seksioni FLASH i zhvendosur lart, në mes të Në Vëmendje dhe Të Fundit -->
+            <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
+                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">FLASH</div>
+                <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
+                    <div id="ticker-content" class="marquee-content space-x-12">Duke ngarkuar lajmet...</div>
+                </div>
+            </section>
+
             <section class="border-t border-gray-300 pt-8 mt-8">
                 <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
                     <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
@@ -104,13 +112,6 @@
                 </div>
                 <div class="mt-10 flex justify-center">
                     <a href="/?kategoria=Lajme" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">LEXO MË SHUMË</a>
-                </div>
-            </section>
-
-            <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
-                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">FLASH</div>
-                <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
-                    <div id="ticker-content" class="marquee-content space-x-12">Duke ngarkuar lajmet...</div>
                 </div>
             </section>
 
@@ -154,8 +155,8 @@
             </div>
         </main>
 
-        <!-- Sidebar Djathtas - STATIK (Nuk ka sticky top) -->
-        <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
+        <!-- Sidebar Djathtas - RRËSHQITËS VETËM NË BALLINË (Sticky) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-right-container"></aside>
     </div>
 
     <!-- POP-UP REKLAMA -->
@@ -292,7 +293,8 @@
                 let bentoNews = [];
                 let remainingNews = [];
 
-                if (kategoriaZgjedhur) { 
+                // LOGJIKA E RE: Nëse kategoria është 'Lajme', i tregon të gjitha pa filtruar!
+                if (kategoriaZgjedhur && kategoriaZgjedhur !== 'Lajme') { 
                     let catNews = allNews.filter(n => n.kategoria === kategoriaZgjedhur || (kategoriaZgjedhur === 'Teknologji' && n.kategoria === 'Tech'));
                     bentoNews = catNews.slice(0, 5); remainingNews = catNews.slice(5);
                 } else {
@@ -720,8 +722,8 @@
                     const leftBanner = data.find(b => b.position === 'sidebar_left');
                     const rightBanner = data.find(b => b.position === 'sidebar_right');
                     
-                    if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<div class="w-full"><a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
-                    if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<div class="w-full mt-8"><a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${bottomBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a></div>`; }
+                    if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
+                    if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${bottomBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
                     if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
                     if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
                 }
