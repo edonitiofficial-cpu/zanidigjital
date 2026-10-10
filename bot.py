@@ -179,7 +179,6 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
         
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-left-container"></aside>
 
-        <!-- Artikulli tani është W-FULL dhe pa panel djathtas për Sugjerime -->
         <main class="w-full max-w-[1100px] flex-1 min-w-0 py-8">
             <article class="w-full bg-white p-6 lg:p-10 rounded-2xl shadow-sm border border-gray-100 relative">
                 <a href="https://zanidigjital.com/" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-black mb-6 transition">← Kthehu te Ballina</a>
@@ -192,15 +191,16 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
                     <a href="https://www.facebook.com/sharer/sharer.php?u={url_baze}" target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">Ndaj</a>
                 </div>
 
-                <div id="banner-article-top" class="w-full mb-8"></div>
                 <img src="{imazhi}" class="w-full h-auto max-h-[500px] rounded-xl object-cover mb-10 shadow-sm border border-gray-100" alt="{titulli}">
                 
                 <div class="permbajtja text-[18px] text-gray-800 leading-relaxed font-medium">
                     {permbajtja_html}
                 </div>
-                <div id="banner-article-bottom" class="w-full mt-8"></div>
                 
-                <!-- Lajmet e sugjeruara dalin POSHTË me një format super elegant -->
+                <!-- Baneri vendoset direkt pas tekstit të lajmit -->
+                <div id="banner-article-top" class="w-full mt-8"></div>
+                <div id="banner-article-bottom" class="w-full mt-6"></div>
+                
                 <div class="mt-12 pt-8 border-t border-gray-100">
                     <h3 class="font-extrabold text-2xl mb-6 text-gray-900 flex items-center gap-2">
                         <span class="bg-black text-white px-3 py-1 rounded-md text-sm uppercase tracking-wide">Të rejat</span> Lexo më shumë
@@ -212,6 +212,7 @@ def gjenero_artikullin_html(article, te_gjitha_lajmet):
             </article>
         </main>
 
+        <!-- Baneri djathtas te artikulli NUK ka sticky - qëndron lart statik -->
         <aside class="hidden xl:block w-[300px] shrink-0 pt-8" id="sidebar-right-container"></aside>
     </div>
 
