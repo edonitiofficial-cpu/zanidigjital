@@ -77,7 +77,7 @@
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozita Aktuale (p.sh. Kryeministër i Kosovës)</label><input type="text" id="ai-current-pos" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Institucioni (p.sh. Qeveria e Kosovës)</label><input type="text" id="ai-institution" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
                         <div><label class="block text-sm font-bold text-gray-700 mb-1">Partia</label><input type="text" id="ai-party" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Aliaset me presje (p.sh. Albin, Kurti, Albini)</label><input type="text" id="ai-aliases" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Aliaset me presje (p.sh. Albin, Kurti, Albini)</label><input type="text" id="ai-aliases" class="w-full px-4 py-2 rounded-xl border border-gray-300" placeholder='Shenoji brenda kllapave, psh: ["Kurti", "Albin"]'></div>
                         <div class="md:col-span-2 flex justify-end mt-2"><button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700">Ruaj në Databazën e AI-së</button></div>
                     </form>
                 </div>
@@ -277,8 +277,12 @@
             const current_position = document.getElementById('ai-current-pos').value;
             const current_institution = document.getElementById('ai-institution').value;
             const political_party = document.getElementById('ai-party').value;
-            const aliases = document.getElementById('ai-aliases').value;
             
+            // Formatimi i stringut ne JSON te vlefshme ne momentin e ruajtjes
+            let rawAliases = document.getElementById('ai-aliases').value;
+            let aliases = '[]';
+            try { if (rawAliases) aliases = JSON.parse(rawAliases); } catch(err) { aliases = rawAliases; }
+
             await sb.from('ai_persons').insert([{ full_name, current_position, current_institution, political_party, aliases }]);
             alert("Personi u ruajt me sukses për AI!");
             document.getElementById('ai-person-form').reset();
