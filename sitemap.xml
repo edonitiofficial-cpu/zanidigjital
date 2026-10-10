@@ -2,39 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/kur-do-te-arrije-kulmin-el-nio-dhe-kur-do-te-perfundoje-fenomeni-klimatik-qe-po-ndikon-ne-motin-ne-mbare-boten</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/turqia-pergatit-ndryshimin-e-madh-nje-legjende-pritet-te-marre-drejtimin-e-kombetares</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/reagime-te-ashpra-nga-kosova</loc>
@@ -6020,18 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/mbappe-ne-telashe-te-real-madridi-mourinho-e-qortoi-per-veprimin-e-fundit</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/enzo-fernandez-shpertheu-ne-lot-ne-mes-te-fjalimit-lamtumires-te-messit-me-vone-i-kushtoi-nje-leter-emocionuese</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/gastronomi-shqiptar-con-shijen-e-flise-ne-zvicer-zviceranet-mahniten-nga-tradita-shqiptare-dhe-turshite</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
