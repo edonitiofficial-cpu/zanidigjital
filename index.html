@@ -36,7 +36,7 @@
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; overflow-x: clip; }
         .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
-        .glass-dark { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-dark { background: rgba(15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
@@ -426,7 +426,9 @@
             </a>`;
         }
 
-        // KODI I NDRYSHUAR PER KERKIM TE THELLE
+        // ==========================================
+        // KODI I RI DHE INTELIGJENT I KËRKIMIT
+        // ==========================================
         function getCandidateArticles(query) {
             if (!window.allNewsData) return [];
             
@@ -435,43 +437,52 @@
                 searchStr += " " + chatHistory[chatHistory.length - 2].content.toLowerCase();
             }
 
-            // Kthejme te pakten 15 lajmet e fundit kronologjikisht GJITHMONE per ti dhene "context" dites se sotme AI-se
-            let latestNews = window.allNewsData.slice(0, 15);
+            // Dërgojmë 25 lajmet e fundit kronologjikisht GJITHMONË, që AI të shohë thelbin e ditës
+            let latestNews = window.allNewsData.slice(0, 25);
             
-            const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të', 're'];
-            let words = searchStr.split(' ').filter(w => !stopwords.includes(w) && w.length > 2);
+            const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të', 're', 'ri', 'ka'];
+            
+            let words = searchStr.replace(/ë/g, 'e').replace(/ç/g, 'c').split(/\s+/).filter(w => !stopwords.includes(w) && w.length > 2);
             
             if(words.length === 0) return latestNews;
 
             let results = [];
             for (const item of window.allNewsData) {
                 let score = 0;
-                const titleLower = item.titulli.toLowerCase();
-                const textLower = (item.permbajtja || "").toLowerCase();
-                const catLower = item.kategoria.toLowerCase();
+                let tClean = item.titulli.toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
+                let pClean = (item.permbajtja || "").toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
+                let cClean = item.kategoria.toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
 
-                for (const word of words) {
-                    let wClean = word.replace(/ë/g, 'e').replace(/ç/g, 'c');
-                    let tClean = titleLower.replace(/ë/g, 'e').replace(/ç/g, 'c');
-                    let pClean = textLower.replace(/ë/g, 'e').replace(/ç/g, 'c');
-                    let cClean = catLower.replace(/ë/g, 'e').replace(/ç/g, 'c');
+                for (let w of words) {
+                    // Logjika e gjuhës shqipe: "Kurtin" ose "Kurtit" bëhet "Kurti" / "Presidenten" bëhet "Presidente"
+                    let root = w;
+                    if (w.endsWith('in') || w.endsWith('it') || w.endsWith('en')) {
+                        root = w.slice(0, -2);
+                    } else if (w.endsWith('n') || w.endsWith('t')) {
+                        root = w.slice(0, -1);
+                    }
                     
-                    if (tClean.includes(wClean)) score += 3;
-                    else if (pClean.includes(wClean)) score += 1;
-                    else if (cClean.includes(wClean)) score += 2;
+                    if (tClean.includes(root)) score += 5;
+                    else if (pClean.includes(root)) score += 2;
+                    else if (cClean.includes(root)) score += 1;
                 }
                 if (score > 0) results.push({ item, score });
             }
-            results.sort((a, b) => b.score - a.score);
-            let scoredNews = results.slice(0, 10).map(r => r.item);
             
-            // Bashkojmë lajmet me pikë me lajmet e fundit, duke hequr duplikatet
+            results.sort((a, b) => b.score - a.score);
+            let scoredNews = results.map(r => r.item);
+            
+            // Bashkojmë lajmet që përputhen me fjalët e pyetjes + 25 lajmet e fundit kronologjike
             let combined = [...scoredNews, ...latestNews];
+            
+            // Heqim duplikatet
             let uniqueNews = Array.from(new Set(combined.map(a => a.slug)))
                                   .map(slug => combined.find(a => a.slug === slug));
 
-            return uniqueNews.slice(0, 20); // Dërgojme deri ne 20 artikuj
+            // Dërgojmë te AI një "paketë" të madhe me 40 lajme, që atij të mos i shpëtojë asnjë gjë!
+            return uniqueNews.slice(0, 40); 
         }
+        // ==========================================
 
         function typeWriterEffect(elementId, text, speed, callback) {
             let i = 0;
