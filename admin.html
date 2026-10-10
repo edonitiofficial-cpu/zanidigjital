@@ -39,6 +39,7 @@
             </div>
             <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
                 <a href="#" onclick="showSection('overview')" id="nav-overview" class="nav-link block px-4 py-3 rounded-xl font-bold bg-gray-100 text-black transition">Përmbledhja</a>
+                <a href="#" onclick="showSection('ai')" id="nav-ai" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition">🧠 Baza e AI-së</a>
                 <a href="#" onclick="showSection('news')" id="nav-news" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Menaxhimi i Lajmeve</a>
                 <a href="#" onclick="showSection('jobs')" id="nav-jobs" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka ka për me punu?</a>
                 <a href="#" onclick="showSection('polls')" id="nav-polls" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka t'thotë populli?</a>
@@ -63,7 +64,35 @@
                 </div>
             </section>
 
-            <!-- LAJMET MANUALE (E RE) -->
+            <!-- BAZA E AI-SE -->
+            <section id="sec-ai" class="content-section hidden">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-black uppercase text-blue-700">Truri i Zani AI</h1>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 mb-8 border-l-4 border-l-blue-500">
+                    <h2 class="text-xl font-bold mb-4">Shto Person të Rëndësishëm</h2>
+                    <form id="ai-person-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Emri i Plotë (p.sh. Albin Kurti)</label><input type="text" id="ai-full-name" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozita Aktuale (p.sh. Kryeministër i Kosovës)</label><input type="text" id="ai-current-pos" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Institucioni (p.sh. Qeveria e Kosovës)</label><input type="text" id="ai-institution" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Partia</label><input type="text" id="ai-party" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Aliaset me presje (p.sh. Albin, Kurti, Albini)</label><input type="text" id="ai-aliases" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div class="md:col-span-2 flex justify-end mt-2"><button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700">Ruaj në Databazën e AI-së</button></div>
+                    </form>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <h2 class="text-xl font-bold mb-4">Shto Alias / Nofkë për Kërkim</h2>
+                    <form id="ai-alias-form" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Fjala që përdor qytetari (p.sh. Presidentja)</label><input type="text" id="ai-alias-word" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Për kë e ka fjalën (p.sh. Vjosa Osmani)</label><input type="text" id="ai-canonical" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
+                        <div class="flex items-end"><button type="submit" class="w-full bg-black text-white px-6 py-2 rounded-xl font-bold">Lidhe Fjalën me Personin</button></div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- LAJMET MANUALE -->
             <section id="sec-news" class="content-section hidden">
                 <div class="flex justify-between items-center mb-8">
                     <h1 class="text-3xl font-black uppercase">Menaxhimi i Lajmeve</h1>
@@ -223,12 +252,47 @@
 
         function showSection(sectionId) {
             document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
-            document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('bg-gray-100', 'text-black'); link.classList.add('text-gray-500'); });
+            document.querySelectorAll('.nav-link').forEach(link => { 
+                link.classList.remove('bg-gray-100', 'text-black', 'text-blue-600', 'bg-blue-50'); 
+                link.classList.add('text-gray-500'); 
+            });
             document.getElementById(`sec-${sectionId}`).classList.remove('hidden');
-            const activeLink = document.getElementById(`nav-${sectionId}`); activeLink.classList.remove('text-gray-500'); activeLink.classList.add('bg-gray-100', 'text-black');
+            
+            const activeLink = document.getElementById(`nav-${sectionId}`); 
+            if(sectionId === 'ai') {
+                activeLink.classList.remove('text-gray-500'); 
+                activeLink.classList.add('bg-blue-50', 'text-blue-600');
+            } else {
+                activeLink.classList.remove('text-gray-500'); 
+                activeLink.classList.add('bg-gray-100', 'text-black');
+            }
         }
 
         function toggleForm(id) { document.getElementById(id).classList.toggle('hidden'); }
+
+        // --- AI LOGIC ---
+        document.getElementById('ai-person-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const full_name = document.getElementById('ai-full-name').value;
+            const current_position = document.getElementById('ai-current-pos').value;
+            const current_institution = document.getElementById('ai-institution').value;
+            const political_party = document.getElementById('ai-party').value;
+            const aliases = document.getElementById('ai-aliases').value;
+            
+            await sb.from('ai_persons').insert([{ full_name, current_position, current_institution, political_party, aliases }]);
+            alert("Personi u ruajt me sukses për AI!");
+            document.getElementById('ai-person-form').reset();
+        });
+
+        document.getElementById('ai-alias-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const alias = document.getElementById('ai-alias-word').value;
+            const canonical_name = document.getElementById('ai-canonical').value;
+            
+            await sb.from('ai_aliases').insert([{ alias, canonical_name }]);
+            alert("Aliasi u lidh me sukses për AI!");
+            document.getElementById('ai-alias-form').reset();
+        });
 
         // --- LAJMET MANUALE ---
         async function fetchNews() {
