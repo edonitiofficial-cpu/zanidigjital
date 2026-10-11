@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/a-mund-te-shkojne-astronautet-evropiane-ne-hapesire-pa-nasa-n</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/polemikat-dhe-kartoni-i-kuq-i-viniciusit-mourinho-frikesohet-nga-pasojat-para-el-clasicos</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/a-po-i-ruani-ushqimet-sic-duhet-ne-frigorifer-keto-gabime-mund-ti-prishin-me-shpejt</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/zelensky-komenton-mundesine-e-mbajtjes-se-zgjedhjeve-ne-ukraine</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/neser-mblidhet-kryesia-pritet-te-caktohet-seanca-e-radhes-plenare-e-kuvendit</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/shpetohen-dy-bjeshkatare-ceke-te-bllokuar-nga-moti-i-keq-ne-majen-e-piribregut</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/arsenali-se-ka-harruar-julian-alvarezin-gati-oferta-marramendese-per-janar</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/10-mije-franga-shperblim-kush-e-gjen-damir-kocanin-i-zhdukur-qe-tri-vite-ne-cyrih-te-zvicres</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/doli-mburoje-para-nxenesve-protestues-kryebashkiaku-francez-goditet-me-gaz-lotsjelles</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ibishi-zjarri-ne-trafon-e-trepces-eshte-lokalizuar-minatoret-kane-nisur-te-dalin</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/nese-ska-prishje-tjera-kjo-rregullohet-flet-punetori-i-keds-it-per-situaten-ne-trepce</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/friburgu-kantoni-i-pare-ne-zvicer-qe-ofron-ndihme-financiare-per-fermeret-e-prekur-nga-thatesira</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
