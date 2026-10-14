@@ -2,39 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/pse-miliardat-e-shpenzuara-per-sigurine-nuk-po-e-mbrojne-arabine-saudite-nga-huthet</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/dy-asistime-dhe-nje-tjeter-paraqitje-vendimtare-lamine-yamal-udheheqi-barcelonen-ne-ligen-e-kampioneve</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/bojleri-i-fshehur-ndryshon-pamjen-e-banjes-hapesira-duket-me-e-madhe-dhe-me-elegante</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/parashikimi-i-motit-per-te-merkuren</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/lisandro-martinez-kritikon-hapur-drejtuesit-e-klubit-pres-me-shume-nga-drejtori-yne-teknik</loc>
@@ -6008,30 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/jam-mire-pse-te-kontrollohem-onkologu-arben-bislimi-tregon-pse-ky-mendim-eshte-i-gabuar</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/mot-me-shi-ne-shqiperi</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/zelensky-kritikon-marreveshjen-per-naften-ruse-dhuratat-per-putinin-nuk-sjellin-paqe</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/pyetet-se-a-eshte-duke-e-demtuar-premierligen-ceshtja-city-ja-si-pergjigjet-arteta</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/punime-ne-rrjet-keto-vende-mbesin-pa-rryme-sot</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
