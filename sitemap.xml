@@ -2,39 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/maresca-zbulon-cfare-e-demtoi-cityn-ndaj-psg-se</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/kylian-mbappe-e-thyen-rekordin-e-madh-te-lionel-messit-ne-ligen-e-kampioneve</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/kaosi-ne-tirane-me-dhune-e-shkaterrime-ne-institucione-publike-e-biznese-private-shoqerohen-disa-te-rinj-pas-perfundimit-te-tubimit</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/molliqaj-per-zgjedhjen-e-konjufces-u-be-per-te-mashtruar-qytetaret-dhe-per-ti-bere-hajgare-pdk-se</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/pritje-madheshtore-per-mourinhon-ne-rome-tifozet-e-nderojne-me-banderola-dhe-ovacione</loc>
@@ -6008,30 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/insekte-te-rralla-tropikale-ekspozohen-ne-kopshtin-e-fluturave-ne-konya-te-turqise</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/te-tjere-te-lenduar-pasi-nje-sulm-me-predhe-shkaktoi-zjarr-ne-aeroportin-e-riadit</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ariu-mbeti-ne-gjemba-ne-junik-shpetohet-nga-komuniteti-pamje</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/milani-nuk-arrin-me-shume-se-nje-barazim-ndaj-skuadres-se-aro-muricit</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/kurti-viziton-familjet-e-salih-meziut-dhe-idriz-rrecajt-mbetjet-mortore-te-te-cileve-u-gjeten-ne-zubin-potok</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
