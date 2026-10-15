@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/raporti-i-dash-it-denime-te-lehta-per-trafikantet-dhe-deshtim-ne-mbrojtjen-e-femijeve-ne-kosove</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/zekirija-ramadani-kthehet-te-gjilani-heren-e-pare-e-dergoi-ne-evrope-tani-synon-me-shume</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/berisha-publikon-pamje-te-te-arrestuarve-ne-komisariate-torture-kolektive-ndaj-studenteve</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/zelensky-kerkon-starlink-me-qasje-ne-territorin-rus</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/morina-inspekton-punimet-ne-autostraden-ibrahim-rugova-evidenton-mangesi</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/arda-guler-celesi-i-rebelimit-te-organizuar-te-mourinhos-ne-permbysjen-e-real-madridit-ndaj-romes</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/pse-houthet-po-sulmojne-aeroportet-saudite-dhe-pse-riadi-nuk-mundi-ti-ndalonte-raketat</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/pese-modele-ballukesh-qe-e-bejne-fytyren-te-duket-me-e-re-pa-ndryshuar-gjatesine-e-flokeve</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/arrestohet-gani-geci</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/mustafa-i-pergjigjet-jgp-se-nuk-mund-te-fshiheni-pas-flamurit-te-kosoves-e-te-jeni-zgjatim-i-vuciqit</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/kek-me-molle-qe-pergatitet-pa-furre-dhe-pa-mikser-ju-duhen-vetem-nje-veze-dhe-dy-molle</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/jgp-reagon-ndaj-filiz-mustafes-gora-dhe-opoja-nuk-jane-arene-per-manipulime-politike</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
