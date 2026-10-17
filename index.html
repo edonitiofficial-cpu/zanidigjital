@@ -36,7 +36,7 @@
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; overflow-x: clip; }
         .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
-        .glass-dark { background: rgba(15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-dark { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
         .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
         .marquee-content:hover { animation-play-state: paused; }
@@ -426,63 +426,35 @@
             </a>`;
         }
 
-        // ==========================================
-        // KODI I RI DHE INTELIGJENT I KËRKIMIT
-        // ==========================================
         function getCandidateArticles(query) {
-            if (!window.allNewsData) return [];
-            
+            if(!window.allNewsData) return [];
             let searchStr = query.toLowerCase();
             if (chatHistory.length >= 2) {
                 searchStr += " " + chatHistory[chatHistory.length - 2].content.toLowerCase();
             }
 
-            // Dërgojmë 25 lajmet e fundit kronologjikisht GJITHMONË, që AI të shohë thelbin e ditës
-            let latestNews = window.allNewsData.slice(0, 25);
+            const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të'];
+            let words = searchStr.split(' ').filter(w => !stopwords.includes(w) && w.length > 2);
             
-            const stopwords = ['najsen', 'dicka', 'diçka', 'cka', 'çka', 'qka', 'kush', 'cili', 'cila', 'cilat', 'jane', 'janë', 'lajmet', 'e', 'fundit', 'per', 'për', 'po', 'ndodh', 'me', 'tregom', 'ketu', 'kete', 'nese', 'a', 'moti', 'cfare', 'çfarë', 'nje', 'ne', 'në', 'sot', 'dje', 'u', 'i', 'te', 'të', 're', 'ri', 'ka'];
-            
-            let words = searchStr.replace(/ë/g, 'e').replace(/ç/g, 'c').split(/\s+/).filter(w => !stopwords.includes(w) && w.length > 2);
-            
-            if(words.length === 0) return latestNews;
+            if(words.length === 0) return window.allNewsData.slice(0, 20);
 
             let results = [];
             for (const item of window.allNewsData) {
                 let score = 0;
-                let tClean = item.titulli.toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
-                let pClean = (item.permbajtja || "").toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
-                let cClean = item.kategoria.toLowerCase().replace(/ë/g, 'e').replace(/ç/g, 'c');
+                const titleLower = item.titulli.toLowerCase();
+                const textLower = (item.permbajtja || "").toLowerCase();
+                const catLower = item.kategoria.toLowerCase();
 
-                for (let w of words) {
-                    // Logjika e gjuhës shqipe: "Kurtin" ose "Kurtit" bëhet "Kurti" / "Presidenten" bëhet "Presidente"
-                    let root = w;
-                    if (w.endsWith('in') || w.endsWith('it') || w.endsWith('en')) {
-                        root = w.slice(0, -2);
-                    } else if (w.endsWith('n') || w.endsWith('t')) {
-                        root = w.slice(0, -1);
-                    }
-                    
-                    if (tClean.includes(root)) score += 5;
-                    else if (pClean.includes(root)) score += 2;
-                    else if (cClean.includes(root)) score += 1;
+                for (const word of words) {
+                    if (titleLower.includes(word)) score += 3;
+                    else if (textLower.includes(word)) score += 1;
+                    else if (catLower.includes(word)) score += 2;
                 }
                 if (score > 0) results.push({ item, score });
             }
-            
             results.sort((a, b) => b.score - a.score);
-            let scoredNews = results.map(r => r.item);
-            
-            // Bashkojmë lajmet që përputhen me fjalët e pyetjes + 25 lajmet e fundit kronologjike
-            let combined = [...scoredNews, ...latestNews];
-            
-            // Heqim duplikatet
-            let uniqueNews = Array.from(new Set(combined.map(a => a.slug)))
-                                  .map(slug => combined.find(a => a.slug === slug));
-
-            // Dërgojmë te AI një "paketë" të madhe me 40 lajme, që atij të mos i shpëtojë asnjë gjë!
-            return uniqueNews.slice(0, 40); 
+            return results.slice(0, 20).map(r => r.item);
         }
-        // ==========================================
 
         function typeWriterEffect(elementId, text, speed, callback) {
             let i = 0;
@@ -749,10 +721,12 @@
                     const leftBanner = data.find(b => b.position === 'sidebar_left');
                     const rightBanner = data.find(b => b.position === 'sidebar_right');
                     
-                    if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${topBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
-                    if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${bottomBanner.image_url}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
-                    if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${leftBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
-                    if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${rightBanner.image_url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
+                    const mbrojtjaCache = (url) => url ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=webp&q=100` : '#';
+
+                    if(topBanner) { const cont = document.getElementById('banner-article-top'); if(cont) cont.innerHTML = `<a href="${topBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${mbrojtjaCache(topBanner.image_url)}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
+                    if(bottomBanner) { const cont = document.getElementById('banner-article-bottom'); if(cont) cont.innerHTML = `<a href="${bottomBanner.link_url || '#'}" target="_blank" class="block w-full"><img src="${mbrojtjaCache(bottomBanner.image_url)}" class="w-full h-auto rounded-xl shadow-sm border border-gray-100 hover:opacity-90 transition object-cover" loading="lazy"></a>`; }
+                    if(leftBanner) { const cont = document.getElementById('sidebar-left-container'); if(cont) cont.innerHTML = `<a href="${leftBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 left-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${mbrojtjaCache(leftBanner.image_url)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
+                    if(rightBanner) { const cont = document.getElementById('sidebar-right-container'); if(cont) cont.innerHTML = `<a href="${rightBanner.link_url || '#'}" target="_blank" class="block w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group bg-gray-100"><span class="absolute top-2 right-2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 rounded uppercase z-10">Sponsorizuar</span><img src="${mbrojtjaCache(rightBanner.image_url)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>`; }
                 }
             } catch(e) {}
         }
