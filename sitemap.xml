@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/deshira-ekziston-por-orgazma-mungon-cfare-i-pengon-grate-te-arrijne-kulmin-e-kenaqesise</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/gjakderdhja-e-mishrave-te-dhembeve-dhe-tharja-e-gojes-a-jane-shenja-te-kolesterolit-te-larte</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/dita-e-tete-e-protestes-ne-tirane-permes-fotografive</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/zbriten-kameren-ne-zonen-e-mesnates-te-oqeanit-pamjet-e-krijesave-qe-jetojne-ne-erresire-i-lane-shikuesit-te-habitur</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/italia-miraton-masa-te-ashpra-kunder-protestuesve-deri-ne-pese-vjet-burg</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/partite-shqiptare-te-lugines-bashkohen-ne-fushate-per-perfaqesim-me-te-fuqishem</loc>
@@ -6003,36 +6033,6 @@
   <url>
     <loc>https://zanidigjital.com/lajme/menduh-thaci-komentonzhvillimet-ne-kosove-e-shqiperi-dhe-denimin-e-hashim-thacit-kjo-situate-sdo-te-ndalet</loc>
     <lastmod>2026-10-18</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/perleshje-plackitje-ndertesa-te-perfshira-nga-zjarri-dhe-qindra-te-arrestuar---pamje-dhe-detaje-te-tjera-nga-protestave-ne-france</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/ylli-i-betisit-e-kritikon-referimin-dhe-permend-golin-e-anuluar-po-ta-shenonte-barcelona-ate-gol-a-do-te-anulohej</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/sherr-ne-nje-dasme-ne-mitrovice-dyshohet-per-te-lenduar</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/roma-e-mposht-genoan-vazhdon-ndjekjen-ndaj-interit</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/lepenci-ndan-rruget-me-faruk-statovcin-pas-rezultateve-te-fundit</loc>
-    <lastmod>2026-10-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
