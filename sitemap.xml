@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/si-po-ecen-realisht-ekonomia-amerikane-nen-presidentin-trump</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/ronaldinho-rikthehet-ne-fushe-ne-moshen-46-vjecare-klubi-zbulon-daten-e-debutimit-te-tij</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/protestat-masive-tronditin-serbine-ne-prag-te-zgjedhjeve-parlamentare-levizja-studentore-synon-te-rrezoje-partine-e-vucicit</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/kryesia-e-kuvendit-mblidhet-te-henen-ne-rend-dite-projektligji-per-buxhetin-e-vitit-2026</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/fermin-lopez-e-kritikon-realin-per-ankesat-ne-referim</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/shba-e-shpall-heliumin-material-kritik-per-sigurine-kombetare</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/ish-i-i-interit-ne-bisedime-per-tu-bere-trajner-i-juventusit</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/mbremje-e-madhe-ne-ligen-e-kampioneve-bayern-munich-arsenal-perballja-qe-vjedh-vemendjen</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/kryeministri-maqedonas-kalon-transit-neper-kosove---policia-paralajmeron-nderprerje-te-perkohshme-te-trafikut</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/musliu-shoshi-e-cileson-te-zbehte-fjalimin-e-konjufces-ne-okb-e-verteta-historike-nuk-mbrohet-me-gjysme-zeri</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/dy-komisione-parlamentare-mblidhen-sot-ne-fokus-ndryshimet-buxhetore-dhe-plani-i-punes</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/mot-i-vranet-kohe-pas-kohe-me-diell</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
