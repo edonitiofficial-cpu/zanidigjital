@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/ne-vjeshte-behet-edhe-me-e-bukur-bima-dekorative-qe-kerkon-pak-kujdes-dhe-i-jep-hijeshi-cdo-ambienti</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/cmimet-e-ushqimeve-ne-kosove-dhe-evrope---ku-jane-me-te-shtrenjta-dhe-pse</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/13-te-lenduar-gjate-protestes-nje-i-plagosur-ne-sy</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/turqia-kerkon-ndryshime-ne-okb-erdogan-permend-gazen</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/flick-zbulon-armen-sekrete-kunder-mbappes-rikthen-planin-gjenial-te-vitit-2024-ne-el-clasico</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/kosova-importon-6-fish-me-shume-se-sa-eksporton-mbi-643-milione-euro-per-mallra-ne-shtator</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/mbappe-barazon-rekordin-e-zidanes-dhe-i-afrohet-benzemas-ne-historine-e-liges-se-kampioneve</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/te-gjithe-po-flasin-per-te---yan-diamonde-ka-shenuar-nje-super-gol-ndaj-ish-skuadres-ne-ligen-e-kampioneve</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/pse-po-protestojne-te-rinjte-ne-evrope</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/hoxha-thote-se-pdk-e-ka-pasur-hamzen-si-administrator-jo-si-lider</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/gjykata-zvicerane-ndalon-incizimin-e-zerit-pa-pelqimin-e-klienteve</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/nga-monaco-te-real-madridi-mbappe-thyen-rekordin-e-legjendave-franceze-me-gola</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
