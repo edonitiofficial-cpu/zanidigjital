@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/daciq-peson-disfate-te-rende-ne-zgjedhje</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/a-ju-duket-e-njohur-kjo-vjen-reagimi-i-kryeministrit-hungarez-pas-humbjes-se-vuciqit-ne-serbi</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/fitorja-e-studenteve-ne-serbi-jehon-ne-rajon-dhe-evrope-lideret-urojne-fundin-e-dominimit-te-vuciqit</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/milani-triumfon-ndaj-udineses-ardon-jashari-le-gjurme-ne-fitoren-e-kuqezinjve</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/mbyllet-klasikja-mbappe-hero-i-real-madridit-mourinho-tregon-pse-eshte-special-one</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/do-te-ishte-nje-turp-i-madh-gazetari-francez-kundershton-fitimin-e-topit-te-arte-nga-mbappe</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/bournemouth-shenon-fitore-komode-ndaj-milanit</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/egnatia-merr-barazim-ne-danimarke-dy-pike-pas-dy-ndeshjeve-ne-ligen-e-konferences</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/hoxha-jane-paguar-rreth-1495-milione-denare-per-1934-kultivues-te-molleve</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/milan-turperohet-nga-bournemouthi-peson-humbje-te-thelle-ne-europa-league</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/familja-e-auron-thaqit-kerkon-drejtesi-neser-mbahet-seanca-per-vdekjen-tragjike-te-26-vjecarit</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/parisi-zgjat-orarin-e-kufizimit-te-levizjes-marseja-e-lioni-ndalojne-protestat</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
