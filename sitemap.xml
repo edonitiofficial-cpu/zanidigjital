@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/shba-ja-dhe-kanadaja-negociojne-marreveshje-per-uljen-e-tarifave-ndaj-celikut-dhe-automjeteve</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/floke-te-crregulluar-dhe-faqe-te-skuqura-gjashte-tendencat-e-bukurise-qe-do-te-dominojne-vjeshten-dhe-dimrin</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/zvicra-propozon-gjashte-masa-te-reja-per-frenimin-e-kostove-te-shendetesise</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/npl-fushe-kosova-largon-dy-deponi-ilegale-transportohen-gjashte-kamione-me-mbeturina</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/ministria-e-mbrojtjes-ndan-mbi-gjysme-milioni-euro-per-ndertimin-dhe-renovimin-e-poligoneve-te-fsk-se</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/jeni-ftohur-por-deshironi-te-sterviteni-mjeket-tregojne-kur-mund-te-beni-ushtrime-dhe-kur-duhet-te-pushoni</loc>
@@ -6002,36 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/floke-me-te-dendur-per-vetem-disa-sekonda-nje-ndryshim-i-vogel-qe-jep-rezultat-te-menjehershem</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/tjeter-mbremje-e-qete-ne-tirane-te-rinjte-qendrojne-perpara-kryeministrise-per-ore-te-tera-pa-krijuar-incidente</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/raportohet-se-eshte-ekstraduar-ne-kosove-edon-bytyqi-dyshohet-se-mashtroi-qytetaret-ne-emer-te-veton-elshanit</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/sancho-merr-nje-oferte-qesharake-nga-getafe-paga-e-tij-peson-renie-drastike</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/me-emrin-e-gjyshit-hero-dhe-uniformen-e-fsk-se-hazir-berisha-nga-shkaba-e-drenasit-nis-rrugetimin-ne-sherbim-te-kosoves</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/greqia-ndalon-me-ligj-perdorimin-e-rrjeteve-sociale-per-femijet-nen-15-vjec</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
