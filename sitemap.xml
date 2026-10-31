@@ -2,39 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/radiatoret-jane-te-nxehte-por-dhoma-mbetet-e-ftohte-shkaku-mund-te-jete-aty-ku-nuk-e-prisni</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/milani-behet-makth-per-interin-tete-derbi-radhazi-pa-fitore-per-zikalterit</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/nga-semetishti-i-suharekes-ne-berlin-lediona-bytyqi-kthehet-me-cmim-nderkombetar</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/kurti-buxheti-i-vitit-2027-do-te-sjelle-investime-rekorde-ne-infrastrukture</loc>
@@ -6014,24 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/arben-gashi-pyetet-se-ke-perfaqeson-ldk-ja-qendron-per-sot-dhe-te-ardhmen</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/kina-pranon-kerkimfaljen-e-mbapps-por-nuk-heq-dore-nga-bojkoti-ndaj-la-liges-dhe-real-madridit</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/parashikimi-i-motit-per-te-enjten</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/nga-1-janari-banoret-e-ohrit-do-te-paguajne-fatura-me-te-larta-te-ujit</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
