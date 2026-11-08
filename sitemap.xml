@@ -2,39 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zanidigjital.com/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Lajme</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Politikë</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Ekonomi</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Sport</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/?kategoria=Teknologji</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/apeli-zbardh-arsyet-pse-u-izolua-ne-shtepi-vlora-hyseni</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/mediat-iraniane-shba-ja-leshon-predha-drejt-ishullit-qeshm-ne-ngushticen-e-hormuzit</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/shba-ja-i-kerkon-irakut-te-mbylle-pikat-kufitare-me-iranin-thote-ministri-i-jashtem</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanidigjital.com/lajme/irani-kercenon-se-do-te-leshoje-ferrin-nese-shba-ja-rifillon-luften</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/zbulohen-kerkesat-e-pazakonta-te-vajzave---duan-kembe-me-te-vogla-dhe-shpatulla-me-te-ngushta</loc>
@@ -6008,30 +6032,6 @@
   </url>
   <url>
     <loc>https://zanidigjital.com/lajme/prona-qe-po-kerkoni-mund-te-publikohet-neser--moovna-ju-njofton</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/koreja-e-jugut-planifikon-te-zgjeroje-patrullimet-detare-prane-ngushtices-se-hormuzit</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/hapet-tregu-i-gjelbert-ne-istog-komuna-tregon-qellimin-e-tij</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/shqipe-selimi-kujton-6-vjetorin-e-shkuarjes-se-rexhep-selimit-ne-hage-publikon-mesazhin-e-bashkeshortit</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zanidigjital.com/lajme/nga-karriera-si-futbollist-te-sfida-e-trajnerit-gjeraj-zbulon-objektivat-me-drinin-e-bardhe</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
