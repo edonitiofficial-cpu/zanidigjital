@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style> body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; } .hidden { display: none !important; } </style>
+<link rel="stylesheet" href="/site.css">
+<script src="/site.js"></script>
+<script src="/admin-tools.js"></script>
+<script src="/admin-robot.js" defer></script>
 </head>
 <body class="text-gray-900 antialiased h-screen overflow-hidden">
 
@@ -39,7 +43,7 @@
             </div>
             <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
                 <a href="#" onclick="showSection('overview')" id="nav-overview" class="nav-link block px-4 py-3 rounded-xl font-bold bg-gray-100 text-black transition">Përmbledhja</a>
-                <a href="#" onclick="showSection('ai')" id="nav-ai" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition">🧠 Baza e AI-së</a>
+                <a href="#" onclick="showSection('robot');loadRobotStatus()" id="nav-robot" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50">Shëndeti i robotit</a>
                 <a href="#" onclick="showSection('news')" id="nav-news" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Menaxhimi i Lajmeve</a>
                 <a href="#" onclick="showSection('jobs')" id="nav-jobs" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka ka për me punu?</a>
                 <a href="#" onclick="showSection('polls')" id="nav-polls" class="nav-link block px-4 py-3 rounded-xl font-bold text-gray-500 hover:bg-gray-50 hover:text-black transition">Çka t'thotë populli?</a>
@@ -51,6 +55,17 @@
 
         <!-- HAPËSIRA E PUNËS -->
         <main class="flex-1 bg-gray-50 overflow-y-auto p-6 md:p-10 relative">
+            <section id="sec-robot" class="content-section hidden">
+                <div class="flex flex-wrap justify-between items-center gap-4 mb-6"><h1 class="text-3xl font-black">Shëndeti i robotit</h1><button type="button" onclick="loadRobotStatus()" class="bg-black text-white px-5 py-3 rounded-xl font-bold">Rifresko raportin</button></div>
+                <p id="robot-status" role="status" class="text-gray-600 mb-5">Raporti ngarkohet kur e hap këtë pjesë.</p>
+                <div id="robot-summary" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6"></div>
+                <h2 class="text-xl font-bold mb-3">Burimet</h2><div id="robot-sources" class="mb-8"></div>
+                <h2 class="text-xl font-bold mb-3">Pse u zgjodhën 5 lajmet kryesore?</h2><div id="robot-featured" class="mb-8"></div>
+                <div class="flex gap-4 items-center flex-wrap mb-4"><h2 class="text-xl font-bold">Çfarë u përpunua apo u refuzua?</h2><label for="robot-filter" class="sr-only">Filtro arsyet</label><select id="robot-filter" class="border rounded-lg p-2"><option value="">Të gjitha arsyet</option></select></div>
+                <div id="robot-events" class="overflow-x-auto mb-8"></div>
+                <h2 class="text-xl font-bold mb-3">Ekzekutimet e fundit</h2><div id="robot-history" class="overflow-x-auto"></div>
+                <p class="text-xs text-gray-500 mt-6">Raporti përmban vetëm tituj, burime dhe arsye teknike pa sekrete. Ky është raport i përgatitjes së lajmeve; dështimet e publikimit kontrollohen edhe në GitHub Actions.</p>
+            </section>
             
             <!-- PËRMBLEDHJA -->
             <section id="sec-overview" class="content-section">
@@ -61,34 +76,6 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Sondazhe</p><h3 id="stat-polls" class="text-4xl font-black">0</h3></div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Abonentë</p><h3 id="stat-subs" class="text-4xl font-black">0</h3></div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"><p class="text-gray-500 text-sm font-bold uppercase mb-2">Banera</p><h3 id="stat-banners" class="text-4xl font-black">0</h3></div>
-                </div>
-            </section>
-
-            <!-- BAZA E AI-SE -->
-            <section id="sec-ai" class="content-section hidden">
-                <div class="flex justify-between items-center mb-8">
-                    <h1 class="text-3xl font-black uppercase text-blue-700">Truri i Zani AI</h1>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 mb-8 border-l-4 border-l-blue-500">
-                    <h2 class="text-xl font-bold mb-4">Shto Person të Rëndësishëm</h2>
-                    <form id="ai-person-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Emri i Plotë (p.sh. Albin Kurti)</label><input type="text" id="ai-full-name" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Pozita Aktuale (p.sh. Kryeministër i Kosovës)</label><input type="text" id="ai-current-pos" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Institucioni (p.sh. Qeveria e Kosovës)</label><input type="text" id="ai-institution" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Partia</label><input type="text" id="ai-party" class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div class="md:col-span-2"><label class="block text-sm font-bold text-gray-700 mb-1">Aliaset me presje (p.sh. Albin, Kurti, Albini)</label><input type="text" id="ai-aliases" class="w-full px-4 py-2 rounded-xl border border-gray-300" placeholder='Shenoji brenda kllapave, psh: ["Kurti", "Albin"]'></div>
-                        <div class="md:col-span-2 flex justify-end mt-2"><button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700">Ruaj në Databazën e AI-së</button></div>
-                    </form>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
-                    <h2 class="text-xl font-bold mb-4">Shto Alias / Nofkë për Kërkim</h2>
-                    <form id="ai-alias-form" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Fjala që përdor qytetari (p.sh. Presidentja)</label><input type="text" id="ai-alias-word" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div><label class="block text-sm font-bold text-gray-700 mb-1">Për kë e ka fjalën (p.sh. Vjosa Osmani)</label><input type="text" id="ai-canonical" required class="w-full px-4 py-2 rounded-xl border border-gray-300"></div>
-                        <div class="flex items-end"><button type="submit" class="w-full bg-black text-white px-6 py-2 rounded-xl font-bold">Lidhe Fjalën me Personin</button></div>
-                    </form>
                 </div>
             </section>
 
@@ -117,7 +104,7 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-1">Fotoja e Lajmit (Nga Kompjuteri)</label>
-                                <input type="file" id="news-image" accept="image/*" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
+                                <input type="file" id="news-image" accept="image/jpeg,image/png,image/webp" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
                             </div>
                         </div>
                         <div>
@@ -164,7 +151,7 @@
                     <form id="poll-form" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div><label class="block text-sm font-bold text-gray-700 mb-1">Pyetja</label><input type="text" id="poll-question" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
-                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Data & Ora (Lëre bosh për Menjëherë)</label><input type="datetime-local" id="poll-date" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Data & Ora e Kosovës (Lëre bosh për Menjëherë)</label><input type="datetime-local" id="poll-date" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Lloji i Sondazhit</label>
@@ -191,7 +178,7 @@
                 <div id="banner-form-container" class="hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
                     <form id="banner-form" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Ngarko Foton e Banerit</label><input type="file" id="banner-file" accept="image/*" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
+                            <div><label class="block text-sm font-bold text-gray-700 mb-1">Ngarko Foton e Banerit</label><input type="file" id="banner-file" accept="image/jpeg,image/png,image/webp" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"></div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-1">Pozicioni në Faqe</label>
                                 <select id="banner-pos" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black">
@@ -238,9 +225,19 @@
         async function checkSession() { const { data: { session } } = await sb.auth.getSession(); if (session) showDashboard(session.user.email); }
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
+            const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
+            const originalLabels = submitButtons.map(button => button.textContent);
+            try {
+
             e.preventDefault(); const email = document.getElementById('email').value, password = document.getElementById('password').value;
             const { data, error } = await sb.auth.signInWithPassword({ email, password }); if (!error) showDashboard(data.user.email);
             else { document.getElementById('login-error').innerText = "Kredencialet janë të gabuara!"; document.getElementById('login-error').classList.remove('hidden'); }
+            } catch (error) {
+                console.error('Ruajtja dështoi:', error);
+                alert('Veprimi nuk u ruajt. ' + error.message);
+            } finally {
+                submitButtons.forEach((button, index) => { button.disabled = false; button.textContent = originalLabels[index]; });
+            }
         });
 
         async function logOut() { await sb.auth.signOut(); window.location.reload(); }
@@ -270,75 +267,72 @@
 
         function toggleForm(id) { document.getElementById(id).classList.toggle('hidden'); }
 
-        // --- AI LOGIC ---
-        document.getElementById('ai-person-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const full_name = document.getElementById('ai-full-name').value;
-            const current_position = document.getElementById('ai-current-pos').value;
-            const current_institution = document.getElementById('ai-institution').value;
-            const political_party = document.getElementById('ai-party').value;
-            
-            // Formatimi i stringut ne JSON te vlefshme ne momentin e ruajtjes
-            let rawAliases = document.getElementById('ai-aliases').value;
-            let aliases = '[]';
-            try { if (rawAliases) aliases = JSON.parse(rawAliases); } catch(err) { aliases = rawAliases; }
-
-            await sb.from('ai_persons').insert([{ full_name, current_position, current_institution, political_party, aliases }]);
-            alert("Personi u ruajt me sukses për AI!");
-            document.getElementById('ai-person-form').reset();
-        });
-
-        document.getElementById('ai-alias-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const alias = document.getElementById('ai-alias-word').value;
-            const canonical_name = document.getElementById('ai-canonical').value;
-            
-            await sb.from('ai_aliases').insert([{ alias, canonical_name }]);
-            alert("Aliasi u lidh me sukses për AI!");
-            document.getElementById('ai-alias-form').reset();
-        });
-
         // --- LAJMET MANUALE ---
         async function fetchNews() {
-            const { data } = await sb.from('manual_news').select('*').order('created_at', { ascending: false });
+            let { data, error } = await sb.from('manual_news').select('*').order('created_at', { ascending: false });
+            if (error) { alert('Të dhënat nuk u ngarkuan. Provo përsëri.'); return; }
             if (data) {
+                data = data.map(adminDisplayRecord);
                 document.getElementById('stat-news').innerText = data.length; let html = '';
                 data.forEach(n => {
-                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${n.image_url}" class="h-10 w-10 object-cover rounded border"></td><td class="p-4"><p class="font-bold text-black">${n.title}</p><p class="text-xs font-semibold text-gray-500">${n.category}</p></td><td class="p-4 text-sm text-gray-600">${new Date(n.created_at).toLocaleDateString('sq-AL')}</td><td class="p-4"><button onclick="deleteRow('manual_news', '${n.id}', fetchNews)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><img src="${n.image_url}" class="h-10 w-10 object-cover rounded border"></td><td class="p-4"><p class="font-bold text-black">${n.title}</p><p class="text-xs font-semibold text-gray-500">${n.category}</p></td><td class="p-4 text-sm text-gray-600">${new Date(n.created_at).toLocaleDateString('sq-AL', {timeZone:'Europe/Belgrade'})}</td><td class="p-4"><button onclick="deleteRow('manual_news', '${n.id}', fetchNews)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
                 });
                 document.getElementById('news-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk keni shkruar ende asnjë lajm.</td></tr>';
             }
         }
         
         document.getElementById('news-form').addEventListener('submit', async (e) => {
+            const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
+            const originalLabels = submitButtons.map(button => button.textContent);
+            try {
+
             e.preventDefault();
             const btn = document.getElementById('news-submit-btn'); btn.innerText = "Po publikohet..."; btn.disabled = true;
             const title = document.getElementById('news-title').value, category = document.getElementById('news-cat').value, content = document.getElementById('news-content').value, file = document.getElementById('news-image').files[0];
             
+            if (!file || !['image/jpeg','image/png','image/webp'].includes(file.type) || file.size > 8 * 1024 * 1024) throw new Error('Zgjedh foto JPG, PNG ose WebP deri në 8 MB.');
             const fileExt = file.name.split('.').pop(); const fileName = `news/${Date.now()}.${fileExt}`;
             const { error: uploadError } = await sb.storage.from('media').upload(fileName, file);
             if (uploadError) { alert('Gabim në ngarkimin e fotos!'); btn.innerText = "Publiko Lajmin"; btn.disabled = false; return; }
             
             const { data: pubData } = sb.storage.from('media').getPublicUrl(fileName);
-            await sb.from('manual_news').insert([{ title, category, content, image_url: pubData.publicUrl }]);
+            await adminRequest(sb.from('manual_news').insert([{ title, category, content, image_url: pubData.publicUrl }]));
             
             document.getElementById('news-form').reset(); btn.innerText = "Publiko Lajmin"; btn.disabled = false; toggleForm('news-form-container'); fetchNews();
+            } catch (error) {
+                console.error('Ruajtja dështoi:', error);
+                alert('Veprimi nuk u ruajt. ' + error.message);
+            } finally {
+                submitButtons.forEach((button, index) => { button.disabled = false; button.textContent = originalLabels[index]; });
+            }
         });
 
         // --- PUNËT ---
         async function fetchJobs() {
-            const { data } = await sb.from('jobs').select('*').order('created_at', { ascending: false });
+            let { data, error } = await sb.from('jobs').select('*').order('created_at', { ascending: false });
+            if (error) { alert('Të dhënat nuk u ngarkuan. Provo përsëri.'); return; }
             if (data) {
+                data = data.map(adminDisplayRecord);
                 document.getElementById('stat-jobs').innerText = data.length; let html = '';
                 data.forEach(job => html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${job.position}</p><p class="text-xs font-semibold text-gray-500">${job.company}</p></td><td class="p-4 text-sm font-medium text-gray-600">${job.location || '-'}</td><td class="p-4"><button onclick="deleteRow('jobs', '${job.id}', fetchJobs)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`);
                 document.getElementById('jobs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center text-gray-500">Nuk ka punë.</td></tr>';
             }
         }
         document.getElementById('job-form').addEventListener('submit', async (e) => {
+            const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
+            const originalLabels = submitButtons.map(button => button.textContent);
+            try {
+
             e.preventDefault();
             const position = document.getElementById('job-position').value, company = document.getElementById('job-company').value, location = document.getElementById('job-location').value, apply_link = document.getElementById('job-link').value;
-            await sb.from('jobs').insert([{ position, company, location, apply_link, status: 'published' }]);
+            await adminRequest(sb.from('jobs').insert([{ position, company, location, apply_link, status: 'published' }]));
             document.getElementById('job-form').reset(); toggleForm('job-form-container'); fetchJobs();
+            } catch (error) {
+                console.error('Ruajtja dështoi:', error);
+                alert('Veprimi nuk u ruajt. ' + error.message);
+            } finally {
+                submitButtons.forEach((button, index) => { button.disabled = false; button.textContent = originalLabels[index]; });
+            }
         });
 
         // --- SONDAZHET ---
@@ -347,37 +341,51 @@
             else document.getElementById('poll-options-inputs').classList.remove('hidden');
         }
         async function fetchPolls() {
-            const { data } = await sb.from('polls').select('*').order('start_date', { ascending: false });
+            let { data, error } = await sb.from('polls').select('*').order('start_date', { ascending: false });
+            if (error) { alert('Të dhënat nuk u ngarkuan. Provo përsëri.'); return; }
             if (data) {
+                data = data.map(adminDisplayRecord);
                 document.getElementById('stat-polls').innerText = data.length; let html = ''; const now = new Date();
                 data.forEach((poll, i) => {
                     const pollDate = new Date(poll.start_date);
                     let badge = poll.status !== 'active' ? '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">MBYLLUR</span>' : (pollDate > now ? '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">PLANIFIKUAR</span>' : (i === data.findIndex(p => new Date(p.start_date) <= now && p.status === 'active') ? '<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold animate-pulse">AKTIV</span>' : '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">I KALUAR</span>'));
-                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${poll.question}</p><p class="text-xs text-gray-500 mt-1">Data: ${pollDate.toLocaleDateString('sq-AL', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</p></td><td class="p-4">${badge}</td><td class="p-4 font-bold text-gray-600">${poll.total_votes || 0}</td><td class="p-4"><button onclick="deleteRow('polls', '${poll.id}', fetchPolls)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
+                    html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4"><p class="font-bold text-black">${poll.question}</p><p class="text-xs text-gray-500 mt-1">Data: ${pollDate.toLocaleDateString('sq-AL', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Belgrade'})}</p></td><td class="p-4">${badge}</td><td class="p-4 font-bold text-gray-600">${poll.total_votes || 0}</td><td class="p-4"><button onclick="deleteRow('polls', '${poll.id}', fetchPolls)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`;
                 });
                 document.getElementById('polls-table-body').innerHTML = html || '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nuk ka sondazhe.</td></tr>';
             }
         }
         document.getElementById('poll-form').addEventListener('submit', async (e) => {
+            const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
+            const originalLabels = submitButtons.map(button => button.textContent);
+            try {
+
             e.preventDefault();
             const question = document.getElementById('poll-question').value, type = document.getElementById('poll-type').value, dateInput = document.getElementById('poll-date').value;
-            const startDate = dateInput ? new Date(dateInput).toISOString() : new Date().toISOString();
+            const startDate = kosovoInputToISO(dateInput);
             const opt1 = document.getElementById('poll-opt1').value, opt2 = document.getElementById('poll-opt2').value, opt3 = document.getElementById('poll-opt3').value;
             
-            const { data: pollData } = await sb.from('polls').insert([{ question, status: 'active', start_date: startDate }]).select();
+            const { data: pollData } = await adminRequest(sb.from('polls').insert([{ question, status: 'active', start_date: startDate }]).select());
             if (pollData && pollData.length > 0) {
                 const pollId = pollData[0].id; let ops = [];
                 if (type === 'slider') ops.push({ poll_id: pollId, option_text: 'SLIDER_SUM', votes: 0 });
                 else { if (opt1) ops.push({ poll_id: pollId, option_text: opt1, votes: 0 }); if (opt2) ops.push({ poll_id: pollId, option_text: opt2, votes: 0 }); if (opt3) ops.push({ poll_id: pollId, option_text: opt3, votes: 0 }); }
-                await sb.from('poll_options').insert(ops);
+                await adminRequest(sb.from('poll_options').insert(ops));
             }
             document.getElementById('poll-form').reset(); toggleForm('poll-form-container'); fetchPolls();
+            } catch (error) {
+                console.error('Ruajtja dështoi:', error);
+                alert('Veprimi nuk u ruajt. ' + error.message);
+            } finally {
+                submitButtons.forEach((button, index) => { button.disabled = false; button.textContent = originalLabels[index]; });
+            }
         });
 
         // --- BANERAT ---
         async function fetchBanners() {
-            const { data } = await sb.from('banners').select('*').order('created_at', { ascending: false });
+            let { data, error } = await sb.from('banners').select('*').order('created_at', { ascending: false });
+            if (error) { alert('Të dhënat nuk u ngarkuan. Provo përsëri.'); return; }
             if (data) {
+                data = data.map(adminDisplayRecord);
                 document.getElementById('stat-banners').innerText = data.length; let html = '';
                 data.forEach(ban => {
                     const posLabels = {
@@ -392,33 +400,50 @@
             }
         }
         document.getElementById('banner-form').addEventListener('submit', async (e) => {
+            const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
+            const originalLabels = submitButtons.map(button => button.textContent);
+            try {
+
             e.preventDefault();
             const btn = document.getElementById('banner-submit-btn'); btn.innerText = "Po ngarkohet..."; btn.disabled = true;
             const file = document.getElementById('banner-file').files[0], linkUrl = document.getElementById('banner-link').value, pos = document.getElementById('banner-pos').value;
             
+            if (!file || !['image/jpeg','image/png','image/webp'].includes(file.type) || file.size > 8 * 1024 * 1024) throw new Error('Zgjedh foto JPG, PNG ose WebP deri në 8 MB.');
             const fileExt = file.name.split('.').pop(); const fileName = `banners/${Date.now()}.${fileExt}`;
             const { data: uploadData, error: uploadError } = await sb.storage.from('media').upload(fileName, file);
             
             if (uploadError) { alert('Gabim në ngarkimin e fotos!'); btn.innerText = "Ngarko Banerin"; btn.disabled = false; return; }
             
             const { data } = sb.storage.from('media').getPublicUrl(fileName);
-            await sb.from('banners').insert([{ image_url: data.publicUrl, link_url: linkUrl, position: pos, status: 'active' }]);
+            await adminRequest(sb.from('banners').insert([{ image_url: data.publicUrl, link_url: linkUrl, position: pos, status: 'active' }]));
             
             document.getElementById('banner-form').reset(); btn.innerText = "Ngarko Banerin"; btn.disabled = false; toggleForm('banner-form-container'); fetchBanners();
+            } catch (error) {
+                console.error('Ruajtja dështoi:', error);
+                alert('Veprimi nuk u ruajt. ' + error.message);
+            } finally {
+                submitButtons.forEach((button, index) => { button.disabled = false; button.textContent = originalLabels[index]; });
+            }
         });
 
         // --- NEWSLETTER ---
         async function fetchSubs() {
-            const { data } = await sb.from('newsletter_subscribers').select('*').order('created_at', { ascending: false });
+            let { data, error } = await sb.from('newsletter_subscribers').select('*').order('created_at', { ascending: false });
+            if (error) { alert('Të dhënat nuk u ngarkuan. Provo përsëri.'); return; }
             if (data) {
+                data = data.map(adminDisplayRecord);
                 document.getElementById('stat-subs').innerText = data.length; let html = '';
-                data.forEach(sub => html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4 font-bold text-black">${sub.email}</td><td class="p-4 text-sm text-gray-600">${new Date(sub.created_at).toLocaleDateString('sq-AL')}</td><td class="p-4"><button onclick="deleteRow('newsletter_subscribers', '${sub.id}', fetchSubs)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`);
+                data.forEach(sub => html += `<tr class="border-b border-gray-50 hover:bg-gray-50"><td class="p-4 font-bold text-black">${sub.email}</td><td class="p-4 text-sm text-gray-600">${new Date(sub.created_at).toLocaleDateString('sq-AL', {timeZone:'Europe/Belgrade'})}</td><td class="p-4"><button onclick="deleteRow('newsletter_subscribers', '${sub.id}', fetchSubs)" class="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 rounded-lg text-sm font-bold">Fshi</button></td></tr>`);
                 document.getElementById('subs-table-body').innerHTML = html || '<tr><td colspan="3" class="p-4 text-center text-gray-500">Nuk ka abonentë.</td></tr>';
             }
         }
 
         // Funksion Fshirës Universal
-        async function deleteRow(table, id, callback) { if(confirm('A jeni i sigurt?')) { await sb.from(table).delete().eq('id', id); callback(); } }
+        async function deleteRow(table, id, callback) {
+            if (!confirm('A jeni i sigurt?')) return;
+            try { await adminRequest(sb.from(table).delete().eq('id', id)); await callback(); }
+            catch (error) { alert('Fshirja dështoi. ' + error.message); }
+        }
 
         checkSession();
     </script>

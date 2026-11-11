@@ -1,0 +1,58 @@
+/* Shared by the homepage and generated articles. */
+html { scroll-padding-top: 110px; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 200; padding: 12px 16px; background: white; color: #111827; border: 2px solid #2563eb; transform: translateY(-150%); }
+.skip-link:focus { transform: none; }
+#sidebar-left-container:empty, #sidebar-right-container:empty { display: none; }
+@media (min-width: 1280px) and (max-width: 1599px) {
+    #sidebar-left-container, #sidebar-right-container { display: none; }
+}
+header nav { scrollbar-width: thin !important; scrollbar-color: #cbd5e1 transparent; }
+header nav a { padding-top: 8px; padding-bottom: 8px; }
+.news-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.news-search { display: flex; align-items: center; gap: 8px; width: min(100%, 380px); }
+.news-search input { width: 100%; min-width: 0; border: 1px solid #cbd5e1; border-radius: 12px; padding: 11px 14px; background: white; font-size: 16px; }
+.news-search button { min-height: 46px; padding: 10px 14px; background: #111827; color: white; border-radius: 12px; font-weight: 700; }
+.news-status { color: #475569; font-size: 14px; margin-bottom: 16px; }
+.municipality-filter { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:18px; font-size:14px; }
+.municipality-filter label { font-weight:700; }
+.municipality-filter select { padding:10px 12px; border:1px solid #cbd5e1; background:white; border-radius:10px; max-width:100%; }
+.municipality-filter span { color:#64748b; font-size:12px; }
+.news-card img { aspect-ratio: 16 / 10; background: #e2e8f0; }
+.news-card h3 { overflow-wrap: anywhere; }
+.featured-small h3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.featured-main h3 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.marquee-container:focus-within .marquee-content { animation-play-state: paused; }
+.ticker-pause { min-width: 44px; min-height: 44px; padding: 8px; color: #475569; background: white; font-size: 12px; font-weight: 700; }
+.article-source { border-top: 1px solid #e5e7eb; padding-top: 20px; margin-top: 28px; font-size: 14px; line-height: 1.7; color: #475569; }
+.article-source a { text-decoration: underline; font-weight: 600; }
+.permbajtja { max-width: 72ch; margin-inline: auto; overflow-wrap: anywhere; }
+.permbajtja p { line-height: 1.85; }
+.vote-error { color: #b91c1c; font-size: 14px; margin-top: 12px; }
+@media (max-width: 767px) {
+    header .overflow-x-auto::-webkit-scrollbar { display: block !important; height: 3px; }
+    header .overflow-x-auto { scrollbar-width: thin !important; }
+    header > div { padding-top: 10px !important; padding-bottom: 8px !important; }
+    header a.flex-shrink-0 { margin-bottom: 6px !important; }
+    header a.flex-shrink-0 img { height: 40px !important; }
+    #bento-grid { gap: 12px; }
+    .featured-main { min-height: 280px; }
+    .featured-small { display: grid; grid-template-columns: 112px minmax(0, 1fr); min-height: 112px; height: auto !important; border: 1px solid #e5e7eb; }
+    .featured-small > img { width: 112px !important; height: 100% !important; min-height: 112px; }
+    .featured-small > .absolute.inset-0 { display: none; }
+    .featured-small > .absolute.bottom-0 { position: static; padding: 12px; }
+    .featured-small h3 { color: #111827 !important; font-size: 14px; line-height: 1.4; margin-top: 8px; }
+    .featured-small .source-count { color: #475569 !important; }
+    #te-fundit-grid { gap: 16px; }
+    .news-card { display: grid !important; grid-template-columns: 112px minmax(0, 1fr); }
+    .news-card > img { width: 112px; height: 100%; min-height: 132px; object-fit: cover; }
+    .news-card > div { padding: 12px; }
+    .news-card h3 { font-size: 15px; line-height: 1.4; }
+    .news-card p { margin-top: 10px; }
+    main { padding-top: 24px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .marquee-content { padding-left: 0 !important; }
+    .marquee-container { overflow-x: auto; }
+}

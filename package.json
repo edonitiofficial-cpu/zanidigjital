@@ -1,0 +1,12 @@
+{
+  "name": "zani-digjital-checks",
+  "private": true,
+  "scripts": {
+    "test:ui": "node tools/check_site.cjs",
+    "test:sql": "node tools/check_votes.cjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.16",
+    "playwright": "1.65.0"
+  }
+}
