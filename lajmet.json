@@ -1,5 +1,92 @@
 [
   {
+    "titulli": "Britania dhe BE-ja drejt një marrëveshjeje, Burnham: Fitore për të dyja palët",
+    "permbajtja": "Kryeministri britanik, Andy Burnham, është shprehur optimist se Mbretëria e Bashkuar dhe Bashkimi Evropian mund të arrijnë një marrëveshje të favorshme për të dyja palët gjatë samitit që do të mbahet në Bruksel më 20 nëntor.\nPas takimit me udhëheqësit evropianë në Irlandë, Burnham deklaroi se një marrëveshje e tillë mund të ndihmojë në uljen e çmimeve dhe stimulimin e ekonomisë britanike.\n“Besoj se ekziston mundësia për një marrëveshje të mirë, që do të ishte fitore për të dyja palët, si për Britaninë ashtu edhe për Evropën”, tha ai.\nBurnham shtoi se marrëveshja mund të afrohet me atë që qytetarët britanikë mendonin se po votonin në referendumin e vitit 2016 për Brexit-in.\nNë prag të samitit, Londra dhe Brukseli kanë rënë dakord për një projekt-marrëveshje që parasheh heqjen e kontrolleve pas Brexit-it për eksportet e produkteve ushqimore dhe bujqësore.\nKjo çështje ka nxitur debate në politikën britanike.\nUdhëheqësja e Partisë Konservatore, Kemi Badenoch, ka kundërshtuar afrimin me rregullat e BE-së, duke argumentuar se një hap i tillë do ta kthente vendin prapa.\nNga ana tjetër, Partia e Gjelbër dhe Partia Laburiste Skoceze kanë kërkuar që Mbretëria e Bashkuar të ribashkohet me unionin doganor të BE-së.\nNë referendumin e vitit 2016, shumica e votuesve britanikë mbështetën largimin nga Bashkimi Evropian. Marrëveshja e tërheqjes u nënshkrua më 24 janar 2020, ndërsa largimi zyrtar i Mbretërisë së Bashkuar nga blloku u bë më 31 janar të po atij viti. /Telegrafi/",
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68676151&width=980",
+    "koha": "13/11/2026 19:02",
+    "published_at": "2026-11-13T19:02:08.805708+01:00",
+    "source_published_at": "2026-11-13T17:52:23Z",
+    "link_origjinal": "https://telegrafi.com/britania-dhe-be-ja-drejt-nje-marreveshjeje-burnham-fitore-per-te-dyja-palet/",
+    "slug": "britania-dhe-be-ja-drejt-nje-marreveshjeje-burnham-fitore-per-te-dyja-palet",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/britania-dhe-be-ja-drejt-nje-marreveshjeje-burnham-fitore-per-te-dyja-palet/",
+        "titulli": "Britania dhe BE-ja drejt një marrëveshjeje, Burnham: Fitore për të dyja palët"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "A e bën një presje paswordin tuaj më të sigurt? Ekspertët zbulojnë si qëndron e vërteta",
+    "permbajtja": "Një postim viral në X ka nxitur debat rreth sigurisë së fjalëkalimeve, pasi pretendohet se vendosja e një presjeje (,) në fjalëkalim mund t'i mbrojë përdoruesit në rast të rrjedhjes së të dhënave.\nPostimi u publikua më 12 nëntor 2026 nga William Alves, i njohur në X si @lavemowill, i cili shkroi: “Vendosni gjithmonë një presje (,) në fjalëkalimet tuaja. Nëse ato përfundojnë ndonjëherë në një rrjedhje të dhënash, presja do ta prishë skedarin CSV”.\nIdeja bazohet në mënyrën se si funksionojnë skedarët CSV (Comma-Separated Values), të cilët përdorin presje për të ndarë informacione si emrat e përdoruesve, adresat elektronike dhe fjalëkalimet.\nA viral post claiming a comma in your password will break hackers' CSV files just got 5.7M views on X. Here's what you need to know.William Alves (@lavemowill) posted it in Portuguese on Nov 12, 2026. It reads: \"Always put a comma (,) in your passwords. If they ever end up in a data leak, it'll break the CSV.\" He ended with \"Confirm @grok?\" The post drew about 19K likes, 8.5K quotes and 1.9K reposts.Grok replied that it works if the CSV doesn't use quotes around fields. Then the comma shifts the columns and messes up the file. It called it a classic trick to mess with anyone trying to parse the leak.That's only half the story. CSV files use commas as delimiters, so a badly made export could split a password with a comma into extra columns. But properly formatted CSV wraps such fields in quotes, and most programming languages have built-in libraries that parse them correctly. Security researchers and developers replying say you can't rely on it. One called it an internet myth that doesn't work in real breaches.There's a bigger point too. Decent systems store hashed passwords, not plain text, so the comma doesn't change anything except that your password contains a comma. Also, some sites may not even allow commas in passwords.The post spawned copycats. Many people pasted the same text and tagged Grok. Others joked about passwords like pass,word and 1,2345. One user suggested a semicolon instead. Posts in Spanish, Japanese, Korean and Chinese spread it further.Key numbers:- 5.7M views on the original post- About 19K likes- 8.5K quote posts- 1.9K reposts- Posted 3:06 AM, Nov 12, 2026Bottom line: a comma won't protect your password in a breach. Long, unique passwords and a password manager still do.\n— AGTP (@AGTPinsights) November 12, 2026\nSipas këtij pretendimi, nëse një skedar me të dhëna të vjedhura nuk është formatuar siç duhet, presja brenda fjalëkalimit mund të ngatërrojë renditjen e informacioneve.\nPostimi u bë viral, duke grumbulluar rreth 15 milionë shikime dhe 60 mijë pëlqime.\nEdhe Grok, asistenti i Al në X, shpjegoi se kjo metodë mund të funksionojë në raste të caktuara, kur skedarët CSV nuk përdorin thonjëza për të dalluar fushat që përmbajnë presje.\nMegjithatë, ekspertët e sigurisë kibernetike paralajmërojnë se kjo nuk është një metodë e besueshme mbrojtjeje.\nSkedarët CSV të formatuar siç duhet mund të përmbajnë presje brenda fjalëkalimeve pa shkaktuar probleme, ndërsa shumica e sistemeve moderne i përpunojnë këto të dhëna pa vështirësi.\nPër më tepër, platformat që zbatojnë praktika të sigurta nuk i ruajnë fjalëkalimet si tekst të zakonshëm, por përdorin metoda kriptografike të njohura si hashing.\nEkspertët rekomandojnë përdorimin e fjalëkalimeve të gjata dhe unike për secilën llogari, aktivizimin e autentifikimit me dy faktorë dhe përdorimin e aplikacioneve për menaxhimin e fjalëkalimeve.\nPra, një presje mund të jetë pjesë e një fjalëkalimi të fortë, por vetëm prania e saj nuk garanton mbrojtje nga hakerët. /Telegrafi/",
+    "kategoria": "Teknologji",
+    "imazhi": "https://telegrafi.com/media-library/image.png?id=68675292&width=980",
+    "koha": "13/11/2026 19:02",
+    "published_at": "2026-11-13T19:02:24.220479+01:00",
+    "source_published_at": "2026-11-13T17:47:04Z",
+    "link_origjinal": "https://telegrafi.com/a-e-ben-nje-presje-paswordin-tuaj-me-te-sigurt-ekspertet-zbulojne-si-qendron-e-verteta/",
+    "slug": "a-e-ben-nje-presje-paswordin-tuaj-me-te-sigurt-ekspertet-zbulojne-si-qendron-e-verteta",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/a-e-ben-nje-presje-paswordin-tuaj-me-te-sigurt-ekspertet-zbulojne-si-qendron-e-verteta/",
+        "titulli": "A e bën një presje paswordin tuaj më të sigurt? Ekspertët zbulojnë si qëndron e vërteta"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "​Përplasje në Kuvend për energjinë: PDK kërkon përgjegjësi, Rizvanolli mbron tarifat",
+    "permbajtja": "Deputeti i PDK-së Arben Mustafa, gjatë debatit në Kuvend për sektorin e energjetikës, kritikoi Qeverinë për mungesë përgatitjesh për dimër dhe vonesa në projektet energjetike, teksa ministrja e Ekonomisë Artane Rizvanolli tha se BE-ja është përgjegjës për kontraktimin e kompanisë mbikëqyrëse.\nNë vazhdim të seancës plenare, deputeti i PDK-së ka shprehur shqetësim për kthimin në operim të bllokut B1, pas paralajmërimeve se do të ketë vonesa në këtë drejtim.\nVonesa e kthimit në operim të B1, Mustafa: Kërkojmë përgjigje konkrete nga Qeveria\n“Pas gjithë kësaj kohe zgjidhja jonë kryesore vazhdon të jetë krijimi i një taskforce tjetër, atëherë pyetja është: çfarë kemi bërë gjatë gjithë këtyre viteve për ta bërë Kosovën më të përgatitur për dimra të vështirë? Po hyjmë në periudhën e dimrit me rrezikun që një nga njësitë kryesore prodhuese të jetë jashtë funksionit. Sipas planifikimit, kthimi i B1-shit në operim ishte paraparë për datën 9 dhjetor 2026, dhe pyetja për ju, ministre, është: a do të kthehet B1-shi në funksion në këtë datë? Tashmë është paralajmëruar se nuk do të kthehet. Pas gati gjashtë vjetësh qeverisje, qeveria nuk mund më të vazhdojë të arsyetohet me trashëgiminë e së kaluarës, me tregjet ndërkombëtare apo me faktorë të jashtëm. Qeveria duhet sot të përgjigjet për rezultatet e veta. Prandaj sot nuk po kërkojmë arsyetime të tjera, por po kërkojmë përgjegjësi dhe përgjigje konkrete”, ka deklaruar Mustafa.\nMinistrja e Ekonomisë, Artane Rizvanolli, ka sqaruar procesin e financimit dhe mbikëqyrjes së projektit, duke theksuar se Bashkimi Evropian është përgjegjës për kontraktimin e kompanisë mbikëqyrëse.\nRizvanolli: Tarifat e energjisë në Kosovë mbeten më të lirat në rajon\n“Tarifat që i cilësoni të papërballueshme vazhdojnë të mbesin më të lira në rajon, dukshëm më të lira sesa edhe vendet e rajonit. Prandaj, kur bëni cilësime të tilla, është mirë që të flasim edhe në terma objektivë. Ky projekt financohet nga Bashkimi Evropian në bazë të një marrëveshjeje ndërkombëtare të nënshkruar në mes të Qeverisë së Kosovës dhe Bashkimit Evropian në vitin 2018, ndërsa kontraktimi nga BE-ja është bërë në vitin 2019. BE, gjithashtu, është kontraktues i kompanisë mbikëqyrëse, e cila është zyrtarisht e thirrur dhe ka kompetencat për të mbikëqyrur në njërën anë cilësinë e punimeve, për të përcjellë punimet, dhe gjithashtu edhe për të bërë vlerësimet në rastin e atribuimit të vonesave dhe të problemeve në projekt”, ka deklaruar Rizvanolli./KP",
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68676130&width=980",
+    "koha": "13/11/2026 19:02",
+    "published_at": "2026-11-13T19:02:32.403040+01:00",
+    "source_published_at": "2026-11-13T17:43:36Z",
+    "link_origjinal": "https://telegrafi.com/perplasje-ne-kuvend-per-energjine-pdk-kerkon-pergjegjesi-rizvanolli-mbron-tarifat/",
+    "slug": "perplasje-ne-kuvend-per-energjine-pdk-kerkon-pergjegjesi-rizvanolli-mbron-tarifat",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/perplasje-ne-kuvend-per-energjine-pdk-kerkon-pergjegjesi-rizvanolli-mbron-tarifat/",
+        "titulli": "​Përplasje në Kuvend për energjinë: PDK kërkon përgjegjësi, Rizvanolli mbron tarifat"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [],
+    "featured_rank": 1,
+    "selection_reasons": [
+      "Freskia: 39.47/40",
+      "Në ballinën e burimit: +12",
+      "Temë me interes publik: +10",
+      "Larmi burimesh dhe temash"
+    ]
+  },
+  {
+    "titulli": "Lisian Thaçi, talenti i Bayern Munichut që ëndërron fanellën e Kosovës: Kombëtarja është në rend të parë",
+    "permbajtja": "Futbollisti i ri kosovar, Lisian Thaçi, po e ndërton rrugëtimin e tij në një prej klubeve më të mëdha të futbollit evropian, Bayern Munich. Talenti 17-vjeçar ka rrëfyer në një intervistë për Telegrafin se si nisi rrugëtimi i tij drejt gjigantit gjerman, përvojën në programin special “Bayern World Squad”, përzgjedhjen në Bayern Global Academy, si dhe synimin e tij për ta veshur fanellën e Kosovës në një të ardhme të afërt.\nGjithçka nisi në vitin 2025, kur Thaçi u përzgjodh në programin “Bayern World Squad”, ku aplikojnë mijëra futbollistë nga e gjithë bota, por pranohen vetëm 23 prej tyre. Në atë edicion, ai ishte lojtari më i ri që kishte marrë pjesë ndonjëherë, në moshën vetëm 15-vjeçare, pa i mbushur ende 16 vjet.\n“Fillimisht, në vitin 2025 isha pranuar në programin special të Bayernit, World Squad, ku aplikojnë mijëra lojtarë nga e gjithë bota e ku pranohen vetëm 23. Në Bayern World Squad kam qenë lojtari më i ri që ka marrë pjesë ndonjëherë, vetëm 15 vjeç, ende pa i mbushur 16. Gjithë procesin e kanë udhëhequr agjentët e mi”, ka treguar Thaçi.\nPërvoja në këtë program zgjati rreth një muaj, gjatë së cilës futbollistët patën mundësi të zhvillonin stërvitje të veçanta dhe disa ndeshje kundër klubeve të ndryshme. Nën drejtimin e ish-sulmuesit të njohur të Bayernit, Roy Makaay, Thaçi beson se krijoi raportin e parë të mirë me klubin gjerman.\n“‘World Squad’ i vitit 2025 ka zgjatur rreth një muaj. Aty kemi pasur stërvitje të veçanta dhe disa ndeshje me klube të ndryshme. Trajner kryesor ka qenë Roy Makaay, nga i cili kam mësuar shumë. Besoj se aty ka lindur raporti i mirë me Bayernin. Pastaj, në fillim të këtij viti, më kanë njoftuar se jam përzgjedhur të jem pjesë e Bayern Global Academy”, ka deklaruar ai.\nPërzgjedhja në akademinë e klubit gjerman erdhi pas një periudhe ku, sipas tij, vendimtare ishin konsistenca, përkushtimi dhe dëshira për t'u përmirësuar vazhdimisht. Thaçi beson se edhe stili i tij i lojës ka ndikuar në vlerësimin e bërë nga Bayerni.\n“Mendoj se kam qenë konsistent, duke dhënë 100 për qind nga vetja në çdo stërvitje, dhe kam pasur dëshirë të madhe për t'u përmirësuar çdo herë. Ndoshta edhe mënyra e lojës, pasi më pëlqen të luaj thjesht dhe futboll të shpejtë”, është shprehur futbollisti kosovar.\nPërvoja në Bayern Munich, sipas Thaçit, dallon në shumë aspekte nga ajo që kishte përjetuar më parë. Ai thekson se në akademinë e klubit gjerman gjithçka merret me seriozitet maksimal, ndërsa respektimi i rregullave dhe intensiteti i lartë i stërvitjeve janë pjesë e përditshmërisë.\n“Të them të drejtën, ndryshon në shumë aspekte. Së pari, gjithçka merret shumë seriozisht, rregullat brenda akademisë duhet të respektohen në maksimum dhe stërvitjet janë çdo herë me intensitet të lartë. Të japësh më të mirën nga vetja është standard këtu”, ka thënë Thaçi.\nSa i përket objektivave të tij aktualë, talenti kosovar nuk dëshiron të nxitojë, por synon të përfitojë sa më shumë nga kjo mundësi, duke mësuar nga trajnerët dhe ambienti profesional ku po zhvillohet.\n“Objektivi kryesor është që unë të mësoj sa më shumë nga trajnerët, stërvitjet e përditshme dhe gjithçka që më rrethon këtu. Jam duke u rritur në çdo aspekt si lojtar. Kjo është gjëja më e madhe që po ndodh tani për tani”, ka deklaruar ai.\nDëshira e madhe e Thaçit është që rrugëtimi i tij në Munich të vazhdojë edhe në të ardhmen. Ai shpreson të qëndrojë te Bayerni, klub për të cilin ka krijuar një lidhje të veçantë dhe nga i cili, siç thotë, po merr përkrahje në çdo aspekt.\n“Natyrisht që dëshira ime e madhe është të vazhdoj të qëndroj në Bayern. E dua këtë klub dhe më pëlqen gjithçka në Munich. Mirëpo, të shohim çfarë do të ndodhë në të ardhmen. Klubi po më përkrah në çdo aspekt”, ka theksuar Thaçi.\nPërtej karrierës në nivel klubesh, futbollisti i ri e ka të qartë edhe ëndrrën e tij në aspektin ndërkombëtar. Për të, përfaqësimi i Kosovës është synimi kryesor dhe shpreson që një ditë të ketë mundësinë të kontribuojë për kombëtaren dardane.\n“Për mua, Kosova është në rend të parë. Çdo lojtar i rritur në Kosovë e ka ëndërr fanellën dardane. Shpresoj që do të mund ta ndihmoj kombëtaren tonë. E pres atë ditë”, ka përfunduar ai.\nNë fund të intervistës për Telegrafin, Thaçi ka shprehur mirënjohjen për mbështetjen dhe përcjelljen e vazhdueshme të rrugëtimit të tij drejt Bayern Munichut.\n“Për fund dëshiroj ta falënderoj Telegrafin për mbështetjen dhe që e ka përcjellë zhvillimin dhe rrugëtimin tim deri te Bayerni”, ka thënë ai./Telegrafi/",
+    "kategoria": "Sport",
+    "imazhi": "https://telegrafi.com/media-library/image.png?id=68676097&width=980",
+    "koha": "13/11/2026 19:02",
+    "published_at": "2026-11-13T19:02:36.380009+01:00",
+    "source_published_at": "2026-11-13T17:27:49Z",
+    "link_origjinal": "https://telegrafi.com/lisian-thaci-talenti-i-bayern-munichut-qe-enderron-fanellen-e-kosoves-kombetarja-eshte-ne-rend-te-pare/",
+    "slug": "lisian-thaci-talenti-i-bayern-munichut-qe-enderron-fanellen-e-kosoves-kombetarja-eshte-ne-rend-te-pare",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/lisian-thaci-talenti-i-bayern-munichut-qe-enderron-fanellen-e-kosoves-kombetarja-eshte-ne-rend-te-pare/",
+        "titulli": "Lisian Thaçi, talenti i Bayern Munichut që ëndërron fanellën e Kosovës: Kombëtarja është në rend të parë"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
     "titulli": "Një gjel deti me ngjyra të pazakonta kapet në kamera - ekspertët shpjegojnë fenomenin",
     "permbajtja": "Një gjel deti i egër me ngjyrë të pazakontë është fotografuar nga një kamerë e vendosur në natyrë në qarkun Richland, në shtetin amerikan të Wisconsin.\nDepartamenti i Burimeve Natyrore i Wisconsin (DNR) publikoi fotografinë në rrjetet sociale, duke shpjeguar se ngjyra e pazakontë e shpendit është rezultat i një variacioni gjenetik natyror.\nGjeldeti, i cili ka pupla kryesisht të bardha, me njolla të zeza dhe të hirta në pjesën e poshtme të trupit, është shembull i një fenomeni të njohur si “smoke phase”, që ndikon në pigmentimin e puplave.\nSipas ekspertëve, kjo ndodh kur puplat e shpendit kanë më pak pigmente kafe dhe të kuqe sesa zakonisht, duke bërë që ai të duket kryesisht i bardhë ose i hirtë i çelët.\nAutoritetet shpjeguan se ekzistojnë edhe variacione të tjera të ngjyrave te gjelat e egër të detit, përfshirë atë me pupla kryesisht të kuqërremta, si pasojë e tepricës së pigmentit feomelaninë, dhe atë me pupla pothuajse tërësisht të zeza, për shkak të sasisë së lartë të eumelaninës. /Telegrafi/",
     "kategoria": "Lajme",
@@ -80,9 +167,9 @@
     ],
     "source_count": 1,
     "komunat": [],
-    "featured_rank": 1,
+    "featured_rank": 2,
     "selection_reasons": [
-      "Freskia: 39.7/40",
+      "Freskia: 39.26/40",
       "Në ballinën e burimit: +12",
       "Temë me interes publik: +10",
       "Larmi burimesh dhe temash"
@@ -107,12 +194,12 @@
     ],
     "source_count": 1,
     "komunat": [],
-    "featured_rank": 2,
+    "featured_rank": 5,
     "selection_reasons": [
-      "Freskia: 39.58/40",
+      "Freskia: 39.14/40",
       "Në ballinën e burimit: +12",
       "Temë me interes publik: +10",
-      "Larmi burimesh dhe temash"
+      "Plotësim me kandidatët e mbetur"
     ]
   },
   {
@@ -407,7 +494,7 @@
     "last_seen_at": "2026-11-13T18:16:58.506799+01:00",
     "featured_rank": 3,
     "selection_reasons": [
-      "Freskia: 38.35/40",
+      "Freskia: 37.91/40",
       "Në ballinën e burimit: +12",
       "Burime të ndryshme: +8",
       "Larmi burimesh dhe temash"
@@ -531,14 +618,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 5,
-    "selection_reasons": [
-      "Freskia: 37.98/40",
-      "Në ballinën e burimit: +12",
-      "Temë me interes publik: +10",
-      "Plotësim me kandidatët e mbetur"
-    ]
+    "komunat": []
   },
   {
     "titulli": "'Mitrovica International Jazz Days' rikthehet për edicionin e katërt, në fokus gratë në muzikën jazz",
@@ -1533,7 +1613,7 @@
     "komunat": [],
     "featured_rank": 4,
     "selection_reasons": [
-      "Freskia: 33.82/40",
+      "Freskia: 33.38/40",
       "Në ballinën e burimit: +12",
       "Temë me interes publik: +10",
       "Larmi burimesh dhe temash"
@@ -129832,82 +129912,6 @@
       {
         "url": "https://telegrafi.com/rreth-pese-kilometra-rruge-po-asfaltohen-ne-terstene-te-mitrovices/",
         "titulli": "Rreth pesë kilometra rrugë po asfaltohen në Tërstenë të Mitrovicës"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Solidaritet me të rinjtë në Tiranë, studentët në Elbasan bojkotojnë mësimin: Është e turpshme të vijojmë si normalisht",
-    "permbajtja": "Bojkoti i mësimit është shtrirë edhe në Universitetin e Elbasanit. Edhe pse një pjesë e studentëve janë paraqitur në auditorë, mësimi nuk është zhvilluar.\nJashtë kamerave të Euronews Albania, studentët janë shprehur se e konsiderojnë të turpshme të vijojnë mësimin, ndërkohë që bashkëmoshatarët e tyre po vriten në kryeqytet.\nDeri në këto momente, nuk ka një njoftim zyrtar për organizimin e një mbledhjeje apo marshimi nga studentët në Elbasan. /Euronews.al/",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68496553&width=980",
-    "koha": "21/10/2026 10:46",
-    "link_origjinal": "https://telegrafi.com/solidaritet-me-te-rinjte-ne-tirane-studentet-ne-elbasan-bojkotojne-mesimin-eshte-e-turpshme-te-vijojme-si-normalisht/",
-    "slug": "solidaritet-me-te-rinjte-ne-tirane-studentet-ne-elbasan-bojkotojne-mesimin-eshte-e-turpshme-te-vijojme-si-normalisht",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/solidaritet-me-te-rinjte-ne-tirane-studentet-ne-elbasan-bojkotojne-mesimin-eshte-e-turpshme-te-vijojme-si-normalisht/",
-        "titulli": "Solidaritet me të rinjtë në Tiranë, studentët në Elbasan bojkotojnë mësimin: Është e turpshme të vijojmë si normalisht"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Largohet një deponi tjetër ilegale e mbeturinave në Pejë",
-    "permbajtja": "Ministrja e Mjedisit dhe Planifikimit Hapësinor, Fitore Pacolli-Dalipi, ka njoftuar se është larguar edhe një deponi ilegale e mbeturinave në lagjen Dardania 3 në Pejë.\nPërmes një postimi në Facebook, Pacolli-Dalipi ka bërë të ditur se aksioni për largimin e deponive ilegale po vazhdon.\n“Aksioni po vazhdon, sepse Kosovën tonë e duam të pastër e të gjelbër”, ka shkruar ajo.",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68496467&width=980",
-    "koha": "21/10/2026 10:46",
-    "link_origjinal": "https://telegrafi.com/largohet-nje-deponi-tjeter-ilegale-te-mbeturinave-ne-peje/",
-    "slug": "largohet-nje-deponi-tjeter-ilegale-e-mbeturinave-ne-peje",
-    "eshte_balline": true,
-    "komunat": [
-      "Pejë"
-    ],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/largohet-nje-deponi-tjeter-ilegale-te-mbeturinave-ne-peje/",
-        "titulli": "Largohet një deponi tjetër ilegale e mbeturinave në Pejë"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Pësoi lëndime trupore, vdes një person në vendin e punës",
-    "permbajtja": "Policia e Kosovës ka njoftuar se një person ka vdekur si pasojë e lëndimit në vendin e punës në Korroticë të Epërme të Drenasit.\nRasti ka ndodhur të martën, në ora 16:01.\n“Është raportuar se viktima mashkull kosovar, ka pësuar lëndime trupore në vendin e tij të punës në një kompani private. Viktima është dërguar për trajtim mjekësor, ku nga mjeku kujdestar është konstatuar se viktima është pa shenja jete”, thuhet në raport.\nNë vendin e ngjarjes përveç njësive policore kanë dalë edhe inspektorët e punës.\nMe vendim të prokurorit është iniciuar rasti dhe trupi i pajetë është dërguar në IML për obduksion.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/foto-arkiv.jpg?id=68496453&width=980",
-    "koha": "21/10/2026 10:46",
-    "link_origjinal": "https://telegrafi.com/vdes-nje-person-ne-vendin-e-punes/",
-    "slug": "pesoi-lendime-trupore-vdes-nje-person-ne-vendin-e-punes",
-    "eshte_balline": true,
-    "komunat": [
-      "Drenas"
-    ],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/vdes-nje-person-ne-vendin-e-punes/",
-        "titulli": "Pësoi lëndime trupore, vdes një person në vendin e punës"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "AGSH: Të paktën 37 incidente ndaj gazetarëve brenda një jave, sulmohen gazetarët e Reuters dhe ekipi i A2 CNN",
-    "permbajtja": "Asociacioni i Gazetarëve të Shqipërisë (AGSH) ka ngritur shqetësimin për dhunën dhe intimidimin ndaj gazetarëve gjatë protestave në Shqipëri, duke bërë të ditur se bilanci paraprak për periudhën 13–19 tetor 2026 ka arritur në të paktën 37 incidente ndaj gazetarëve dhe punonjësve të medias. Në rastet e raportuara përfshihet edhe sulmi ndaj ekipit të televizionit A2 CNN në Tiranë.\nSipas njoftimit të AGSH-së, dy gazetarë të agjencisë ndërkombëtare të lajmeve Reuters janë goditur nga fishekë gome gjatë mbulimit të përleshjeve në Tiranë më 17 tetor.\nOrganizata i ka cilësuar këto raste si shqetësuese, duke theksuar rrezikun që paraqesin fishekët e gomës për sigurinë fizike të gazetarëve që raportojnë nga protestat.\nNjë tjetër incident është raportuar në Durrës, ku fotoreporteri i pavarur zviceran Raimond Lueppken ka deklaruar se dy persona me veshje civile i janë afruar dhe i kanë kërkuar të fshijë pamjet filmike që po regjistronte.\nSipas AGSH-së, fotoreporteri po filmonte disa burra të veshur me të zeza, të cilët, sipas informacioneve të organizatës Reporterët pa Kufij (RSF), mbanin jelekë me shenja identifikuese të policisë.\nLueppken ka shprehur dyshimin se personat që i kërkuan fshirjen e pamjeve mund të kishin lidhje me grupin që po filmonte. Megjithatë, identiteti i tyre dhe përkatësia e mundshme në strukturat policore nuk janë konfirmuar.\nNë një deklaratë tjetër, Asociacioni i Gazetarëve të Shqipërisë ka dënuar sulmin e raportuar ndaj ekipit të xhirimit të televizionit A2 CNN gjatë mbulimit të protestës së zhvilluar një ditë më parë në Tiranë.\nSipas informacioneve të siguruara nga AGSH, ekipi i xhirimit, përfshirë kameramanin Fation Nurçellari, është goditur nga dy protestues, ndërsa po dokumentonte zhvillimet në terren.\nAGSH e ka cilësuar incidentin të papranueshëm, duke theksuar se dhuna ndaj gazetarëve dhe punonjësve të medias cenon sigurinë e tyre dhe lirinë e medias.\n“Asnjë pjesëmarrës në protestë nuk ka të drejtë të sulmojë apo të pengojë punonjësit e medias, pavarësisht qëndrimeve ndaj raportimit apo politikave editoriale të një televizioni”, thuhet në deklaratë.\nOrganizata u ka bërë thirrje Policisë së Shtetit dhe Prokurorisë që t’i identifikojnë menjëherë dy autorët e dyshuar të sulmit ndaj ekipit të A2 CNN, të sigurojnë pamjet filmike dhe dëshmitë e personave të pranishëm, si dhe të ndërmarrin veprimet e nevojshme ligjore.\nAGSH ka kërkuar nga institucionet përgjegjëse që t’i verifikojnë incidentet e raportuara, përfshirë rrethanat e goditjes së dy gazetarëve të Reuters dhe rastin e fotoreporterit zviceran, të cilit iu kërkua fshirja e pamjeve filmike.\nOrganizata ka dënuar çdo formë dhune, kërcënimi dhe presioni ndaj gazetarëve, duke kërkuar që ata të jenë të lirë të dokumentojnë zhvillimet me interes publik pa u përballur me intimidim.\nSipas AGSH-së, bilanci prej të paktën 37 incidentesh për periudhën 13–19 tetor 2026 përfshin rastet e raportuara ndaj gazetarëve dhe punonjësve të medias, mes tyre edhe dy gazetarët e Reuters dhe incidentin ndaj fotoreporterit Raimond Lueppken.\nAGSH ka ritheksuar se siguria e gazetarëve është detyrim i autoriteteve shtetërore dhe nuk duhet të varet nga rrethanat në të cilat zhvillohen protestat.",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68496546&width=980",
-    "koha": "21/10/2026 10:31",
-    "link_origjinal": "https://telegrafi.com/agsh-te-pakten-37-incidente-ndaj-gazetareve-brenda-nje-jave-sulmohen-gazetaret-e-reuters-dhe-ekipi-i-a2-cnn/",
-    "slug": "agsh-te-pakten-37-incidente-ndaj-gazetareve-brenda-nje-jave-sulmohen-gazetaret-e-reuters-dhe-ekipi-i-a2-cnn",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/agsh-te-pakten-37-incidente-ndaj-gazetareve-brenda-nje-jave-sulmohen-gazetaret-e-reuters-dhe-ekipi-i-a2-cnn/",
-        "titulli": "AGSH: Të paktën 37 incidente ndaj gazetarëve brenda një jave, sulmohen gazetarët e Reuters dhe ekipi i A2 CNN"
       }
     ],
     "source_count": 1
