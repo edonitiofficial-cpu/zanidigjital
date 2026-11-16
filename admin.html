@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Zani Digjital</title>
     <link rel="icon" type="image/png" href="zanidigjitalfavicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/utilities.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style> body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; } .hidden { display: none !important; } </style>
 <link rel="stylesheet" href="/site.css">
 <script src="/site.js"></script>
 <script src="/admin-tools.js"></script>
 <script src="/admin-robot.js" defer></script>
+<link rel="preload" as="font" href="/fonts/inter-latin.woff2" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css">
 </head>
 <body class="text-gray-900 antialiased h-screen overflow-hidden">
 
@@ -222,15 +224,39 @@
 
         const loginScreen = document.getElementById('login-screen'), dashboardScreen = document.getElementById('admin-dashboard');
         
-        async function checkSession() { const { data: { session } } = await sb.auth.getSession(); if (session) showDashboard(session.user.email); }
+        let sessionCheck = 0;
+        function hideDashboard(message = '') {
+            dashboardScreen.classList.add('hidden'); loginScreen.classList.remove('hidden');
+            document.getElementById('admin-email').textContent = '';
+            const error = document.getElementById('login-error');
+            error.textContent = message; error.classList.toggle('hidden', !message);
+        }
+        async function checkSession() {
+            const revision = ++sessionCheck;
+            try {
+                const {data, error} = await sb.auth.getUser();
+                if (revision !== sessionCheck) return;
+                if (error || !data.user) { hideDashboard(); return; }
+                const permission = await sb.rpc('is_portal_admin');
+                if (revision !== sessionCheck) return;
+                if (permission.error) { hideDashboard('Lejet e administratorit nuk u verifikuan. Kontrollo konfigurimin e sigurisë ose provo përsëri.'); return; }
+                if (permission.data !== true) { hideDashboard('Kjo llogari nuk ka leje administratori.'); return; }
+                showDashboard(data.user.email);
+            } catch { if (revision === sessionCheck) hideDashboard('Verifikimi i qasjes dështoi. Provo përsëri.'); }
+        }
+        sb.auth.onAuthStateChange((event) => {
+            if (event === 'SIGNED_OUT') { sessionCheck++; hideDashboard(); }
+            if (event === 'TOKEN_REFRESHED') setTimeout(checkSession, 0);
+        });
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             const submitButtons = [...e.currentTarget.querySelectorAll('button[type="submit"]')];
             const originalLabels = submitButtons.map(button => button.textContent);
+            submitButtons.forEach(button => { button.disabled = true; button.textContent = 'Duke verifikuar…'; });
             try {
 
             e.preventDefault(); const email = document.getElementById('email').value, password = document.getElementById('password').value;
-            const { data, error } = await sb.auth.signInWithPassword({ email, password }); if (!error) showDashboard(data.user.email);
+            const { data, error } = await sb.auth.signInWithPassword({ email, password }); if (!error) { document.getElementById('password').value = ''; await checkSession(); }
             else { document.getElementById('login-error').innerText = "Kredencialet janë të gabuara!"; document.getElementById('login-error').classList.remove('hidden'); }
             } catch (error) {
                 console.error('Ruajtja dështoi:', error);
@@ -240,7 +266,11 @@
             }
         });
 
-        async function logOut() { await sb.auth.signOut(); window.location.reload(); }
+        async function logOut() {
+            const {error} = await sb.auth.signOut();
+            if (error) { alert('Dalja dështoi. Provo përsëri.'); return; }
+            sessionCheck++; hideDashboard(); window.location.reload();
+        }
 
         function showDashboard(email) {
             loginScreen.classList.add('hidden'); dashboardScreen.classList.remove('hidden'); document.getElementById('admin-email').innerText = email;
