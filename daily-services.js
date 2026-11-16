@@ -6,6 +6,10 @@
         return `${p.year}-${p.month}-${p.day}`;
     };
     const months = ['janar','shkurt','mars','prill','maj','qershor','korrik','gusht','shtator','tetor','nëntor','dhjetor'];
+    const regions=['Prishtinë','Pejë','Prizren','Ferizaj','Mitrovicë','Gjakovë','Gjilan'];
+    let selectMunicipality=null;
+    let userSelectedRegion=false;
+    window.addEventListener('municipality-changed',event=>selectMunicipality?.(event.detail));
     const dateLabel = value => { const [year, month, day] = value.split('-'); return `${Number(day)} ${months[Number(month)-1]} ${year}`; };
     function node(tag, text, cls) {
         const el = document.createElement(tag);
@@ -48,47 +52,73 @@
         const date = document.getElementById('keds-date');
         const filters = document.querySelector('#daily-services .service-filters');
         const futureDates = source.dates?.filter(value => value >= today()) || [];
-        if (!source.notices?.length || !source.regions?.length || !futureDates.length) {
-            filters.hidden = true;
-            content.textContent = 'Shiko njoftimet për vendbanimin tënd dhe oraret e punimeve te KEDS.'; return;
-        }
+        const availableDates=futureDates.length?futureDates:Array.from({length:5},(_,offset)=>{
+            const day=new Date(today()+'T12:00:00Z');day.setUTCDate(day.getUTCDate()+offset);return day.toISOString().slice(0,10);
+        });
+        const availableRegions=source.regions?.length?source.regions:regions;
         filters.hidden = false;
-        region.replaceChildren(...source.regions.map(value => new Option(value, value)));
+        const previousRegion=region.value,previousDate=date.value;
+        region.replaceChildren(...availableRegions.map(value => new Option(value, value)));
+        if(availableRegions.includes(previousRegion))region.value=previousRegion;
         // Only identical region names are selected automatically; no village mapping is guessed.
         const municipality = document.getElementById('municipality-select')?.value;
-        if (source.regions.includes(municipality)) region.value = municipality;
-        date.replaceChildren(...futureDates.map(value => new Option(dateLabel(value), value)));
+        if (!userSelectedRegion && availableRegions.includes(municipality)) region.value = municipality;
+        date.replaceChildren(...availableDates.map(value => new Option(dateLabel(value), value)));
+        if(availableDates.includes(previousDate))date.value=previousDate;
         region.disabled = date.disabled = false;
         function showNotice() {
             content.replaceChildren();
-            const notice = source.notices.find(item => item.region === region.value && item.date === date.value);
-            if (!notice) { content.append(node('p', 'Shiko njoftimin për këtë rajon dhe datë te KEDS.')); return; }
-            if (notice.status === 'none') {
-                content.append(node('p', 'Nuk ka njoftim të publikuar për këtë rajon dhe datë në të dhënat e marra nga KEDS.', 'service-empty'));
+            const notice = source.notices?.find(item => item.region === region.value && item.date === date.value);
+            if (!notice) {
+                content.append(node('p','Zgjidh rajonin dhe ditën. Njoftimin për këtë përzgjedhje mund ta kontrollosh edhe te KEDS.','service-empty'));
                 return;
             }
+            if (notice.status === 'none') {
+                content.append(node('span','S’ka njoftim për punime','keds-state keds-state-clear'));
+                content.append(node('p',`Për ${region.value}, më ${dateLabel(date.value)}, nuk ka njoftim të publikuar për punime të planifikuara në të dhënat e KEDS-it.`, 'service-empty'));
+                return;
+            }
+            content.append(node('span','Ka ndërprerje të planifikuara','keds-state'));
+            const outages=Array.isArray(notice.outages)?notice.outages:[];
+            if(outages.length){
+                const list=node('div','','keds-outages');
+                outages.forEach(outage=>{
+                    const card=node('div','','keds-outage');
+                    card.append(node('p',`${outage.start} – ${outage.end}`,'outage-time'));
+                    card.append(node('p',outage.locations?`Vendbanimet: ${outage.locations}`:'Vendbanimet janë në njoftimin e plotë.','outage-places'));
+                    if(outage.reason)card.append(node('p',`Arsyeja: ${outage.reason}`,'outage-reason'));
+                    list.append(card);
+                });
+                content.append(list);
+            }
             const details = node('details', '', 'keds-details');
-            details.append(node('summary', `Shiko vendbanimet dhe oraret · ${region.value}`));
+            details.open=!outages.length;
+            details.append(node('summary', `Njoftimi i plotë · ${region.value}`));
             details.append(node('div', notice.text, 'keds-notice'));
             content.append(details);
+            content.append(node('p','Njoftime për punime të planifikuara; defektet e papritura nuk përfshihen.','service-note'));
             if (source.status === 'error' || !source.updated_at || Date.now() - Date.parse(source.updated_at) > 30 * 3600000) {
                 content.append(node('p', 'Konfirmo njoftimin për këtë datë te KEDS.', 'service-note'));
             }
         }
-        region.addEventListener('change', showNotice); date.addEventListener('change', showNotice); showNotice();
-        window.addEventListener('municipality-changed', event => {
-            if (source.regions.includes(event.detail)) { region.value = event.detail; showNotice(); }
-        });
+        region.onchange=()=>{userSelectedRegion=true;showNotice();};date.onchange=showNotice;showNotice();
+        selectMunicipality=value=>{if(availableRegions.includes(value)){region.value=value;showNotice();}};
     }
     document.addEventListener('DOMContentLoaded', async () => {
         if (!document.getElementById('daily-services')) return;
-        try {
-            const response = await fetch('/daily-services.json', {cache:'no-store', signal:AbortSignal.timeout(12000)});
-            if (!response.ok) throw new Error('Snapshot unavailable');
-            const data = await response.json();
-            renderWeather(data.weather || {}); renderKeds(data.keds || {});
-        } catch {
-            renderWeather({}); renderKeds({});
+        renderWeather({});renderKeds({});
+        async function load(attempt=0){
+            try {
+                const response=await fetch('/daily-services.json',{cache:'no-store',signal:AbortSignal.timeout(12000)});
+                if(!response.ok)throw new Error('Snapshot unavailable');
+                const data=await response.json();
+                try{renderWeather(data.weather||{});}catch{renderWeather({});}
+                try{renderKeds(data.keds||{});}catch{renderKeds({});}
+                if((!data.weather?.forecasts?.length||!data.keds?.notices?.length)&&attempt<4)setTimeout(()=>load(attempt+1),15000*Math.min(attempt+1,2));
+            }catch{
+                if(attempt<4)setTimeout(()=>load(attempt+1),15000*Math.min(attempt+1,2));
+            }
         }
+        await load();
     });
 })();

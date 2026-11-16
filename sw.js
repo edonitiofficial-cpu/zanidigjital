@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zani-digjital-v7';
+const CACHE_NAME = 'zani-digjital-v8';
 const OFFLINE_PAGE = '/offline.html';
 const CORE = [OFFLINE_PAGE, '/fonts.css', '/fonts/inter-latin.woff2', '/utilities.css', '/site.css', '/site.js', '/news-feed.js', '/site-widgets.js', '/daily-services.js', '/article.css', '/article.js', '/zanidigjitalfavicon.png'];
 

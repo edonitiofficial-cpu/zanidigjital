@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const article=document.querySelector('.article-body');
     if(!article)return;
+    // Existing published HTML can be cleaned without replacing it with a local archive.
+    const bodyParagraphs=[...document.querySelectorAll('.permbajtja>p')];
+    const text=el=>el.textContent.replace(/\u200b/g,'').trim().toLocaleLowerCase('sq');
+    const nav=new Set(['top lajme','jobs','real estate','të fundit','te fundit']);
+    const relative=value=>/^\d+\s+(sekond(?:a|[eë])?|minut(?:a|[eë])?|or[eë]|dit[eë]|jav[eë]|muaj|vit(?:e|esh)?)\s+m[eë]\s+par[eë]$/i.test(value);
+    for(let index=Math.max(0,bodyParagraphs.length-18);index<bodyParagraphs.length;index++){
+        const marker=bodyParagraphs.slice(index).some(el=>text(el)==='top lajme')||bodyParagraphs.slice(Math.max(0,index-3),index).some(el=>relative(text(el)));
+        if(marker&&nav.has(text(bodyParagraphs[index]))&&bodyParagraphs.slice(index).filter(el=>nav.has(text(el))).length>=2){
+            let start=index;
+            while(start>0&&(['nga','telegrafi'].includes(text(bodyParagraphs[start-1]))||relative(text(bodyParagraphs[start-1]))))start--;
+            bodyParagraphs.slice(start).forEach(el=>el.remove());break;
+        }
+    }
     const canonical=document.querySelector('link[rel="canonical"]')?.href||location.href;
     const status=document.getElementById('article-share-status');
     const copy=document.getElementById('copy-article-link');

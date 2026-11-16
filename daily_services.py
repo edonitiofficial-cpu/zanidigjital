@@ -13,6 +13,7 @@ import xml.etree.ElementTree as ET
 
 from news_time import NEWS_TIMEZONE, news_now
 from news_utils import write_json_atomic
+from keds_notice import parse_outages
 
 KEDS_URL = 'https://www.keds-energy.com/shq/punime-ne-rrjet/njoftime-per-punime-ne-rrjet/'
 METEO_URL = 'https://www.meteokosova.com/'
@@ -43,7 +44,7 @@ def collect_keds(now, fetch=request):
     if len(regions) != 7 or 'GetNetworkWorksByFilters' not in page:
         raise ValueError('KEDS page structure changed')
     regions = [(region_id, plain_text(name)) for region_id, name in regions]
-    dates = [(now.date() + timedelta(days=offset)).isoformat() for offset in range(1, 5)]
+    dates = [(now.date() + timedelta(days=offset)).isoformat() for offset in range(5)]
 
     def collect_pair(pair):
         (region_id, region), date = pair
@@ -62,7 +63,7 @@ def collect_keds(now, fetch=request):
             match = re.search(r'/Date\((\d+)', result.get('Date', ''))
             if not match or datetime.fromtimestamp(int(match[1]) / 1000, NEWS_TIMEZONE).date() != day.date():
                 raise ValueError('Unexpected KEDS notice date')
-        return dict(region=region, date=date, text=text, status='notice' if text else 'none')
+        return dict(region=region, date=date, text=text, outages=parse_outages(text), status='notice' if text else 'none')
 
     with ThreadPoolExecutor(max_workers=4) as pool:
         notices = list(pool.map(collect_pair, [(region, date) for date in dates for region in regions]))
@@ -86,10 +87,12 @@ def collect_weather(now, fetch=request):
         if parsed.scheme != 'https' or parsed.hostname not in ('www.meteokosova.com', 'meteokosova.com'):
             raise ValueError('Unexpected weather link')
         published = parsedate_to_datetime(item.findtext('pubDate', '')).isoformat()
-        description = plain_text(item.findtext('description', '')).split('The post ')[0].strip()
-        excerpt = description[:240].rsplit(' ', 1)[0] if len(description) > 240 else description
+        description = plain_text(item.findtext('{http://purl.org/rss/1.0/modules/content/}encoded') or item.findtext('description', '')).split('The post ')[0].strip()
+        sentences=re.split(r'(?<=[.!?])\s+(?=[A-ZÇË])',description)
+        excerpt=' '.join(sentences[:2])
+        if len(excerpt)>360:excerpt=excerpt[:360].rsplit(' ',1)[0].rstrip(' .…')+'…'
         forecasts.append(dict(title=title, date=date.isoformat(), url=link,
-                              published_at=published, excerpt=excerpt.rstrip(' .…') + '…'))
+                              published_at=published, excerpt=excerpt))
     if not forecasts:
         raise ValueError('No dated forecasts in feed')
     forecasts.sort(key=lambda item: item['date'], reverse=True)

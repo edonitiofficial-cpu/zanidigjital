@@ -88,7 +88,7 @@ const server = http.createServer((request, response) => {
                 excerpt:'Mot me shi.',url:'https://www.meteokosova.com/parashikimi/'
             }]},
             keds: {status:'error',updated_at:new Date().toISOString(),regions:['Prishtinë','Pejë'],dates:['2099-01-01','2099-01-02'],notices:[
-                {region:'Prishtinë',date:'2099-01-01',status:'notice',text:'Vendet: <img src=x onerror="window.serviceXSS=1">\nOra 09:00–12:00'},
+                {region:'Prishtinë',date:'2099-01-01',status:'notice',text:'Vendet: <img src=x onerror="window.serviceXSS=1">\nOra 09:00–12:00',outages:[{start:'09:00',end:'12:00',locations:'Qendra, Lagjja A',reason:'Mirëmbajtje'}]},
                 {region:'Pejë',date:'2099-01-01',status:'none',text:''},
                 {region:'Pejë',date:'2099-01-02',status:'notice',text:'Vendet: Qendra\nOra 10:00–13:00'}
             ]}
@@ -109,24 +109,36 @@ const server = http.createServer((request, response) => {
         await page.waitForFunction(()=>!!document.querySelector('#weather-content time'));
         assert.match(await page.locator('#weather-content h4').textContent(),/<img/);
         assert.equal(await page.locator('#weather-source').getAttribute('href'),'https://www.meteokosova.com/parashikimi/');
+        assert.match(await page.locator('.outage-time').textContent(),/09:00.*12:00/);
+        assert.match(await page.locator('.outage-places').textContent(),/Qendra, Lagjja A/);
         await page.locator('.keds-details summary').click();
         assert.match(await page.locator('.keds-notice').textContent(),/09:00–12:00/);
         assert.equal(await page.locator('#daily-services img').count(),0);
         assert.equal(await page.evaluate(()=>window.serviceXSS || 0),0);
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
         await page.locator('#keds-region').selectOption('Pejë');
-        assert.match(await page.locator('#keds-content').textContent(),/Nuk ka njoftim/);
+        assert.match(await page.locator('#keds-content').textContent(),/nuk ka njoftim/);
         await page.locator('#keds-date').selectOption('2099-01-02');
         assert.match(await page.locator('.keds-notice').textContent(),/10:00–13:00/);
         await page.screenshot({path:path.join(root,'preview-services.png'),fullPage:true});
         await page.unroute('**/daily-services.json');
         await page.route('**/daily-services.json',route=>route.fulfill({status:503,body:'Unavailable'}));
         await page.goto(base,{waitUntil:'networkidle'});
-        await page.waitForFunction(()=>document.querySelector('.service-filters').hidden);
+        await page.waitForFunction(()=>document.getElementById('keds-region').options.length===7);
+        assert.equal(await page.locator('.service-filters').isVisible(),true);
+        assert.equal(await page.locator('#keds-region').isEnabled(),true);
+        assert.equal(await page.locator('.keds-state-clear').count(),0);
         assert.equal(await page.locator('#weather-status').isVisible(),false);
         assert.match(await page.locator('#weather-content').textContent(),/Çfarë moti na pret/);
         assert.equal(await page.locator('#weather-source').getAttribute('href'),'https://www.meteokosova.com/');
         await page.unroute('**/daily-services.json');
+        const imported=await context.newPage();
+        await imported.setContent('<article class="article-body"><div class="permbajtja"><p>Teksti i lajmit për Steve Jobs mbetet.</p><p>Nga</p><p>Telegrafi</p><p>5 sekonda më parë</p><p>Top Lajme</p><p>Jobs</p><p>Real Estate</p></div><div class="article-source">Burimi dhe shpjegimi mbeten.</div></article>');
+        await imported.addScriptTag({content:fs.readFileSync(path.join(root,'article.js'),'utf8')});
+        await imported.evaluate(()=>document.dispatchEvent(new Event('DOMContentLoaded')));
+        assert.equal(await imported.locator('.permbajtja').textContent(),'Teksti i lajmit për Steve Jobs mbetet.');
+        assert.equal(await imported.locator('.article-source').textContent(),'Burimi dhe shpjegimi mbeten.');
+        await imported.close();
         const first = JSON.parse(fs.readFileSync(path.join(root, 'ballina.json'), 'utf8'))[0];
         await page.goto(base + '/lajme/' + first.slug + '/', { waitUntil: 'networkidle' });
         assert.equal(await page.locator('h1').textContent(), first.titulli);

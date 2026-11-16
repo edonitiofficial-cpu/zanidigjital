@@ -61,7 +61,7 @@ class DailyServiceTests(unittest.TestCase):
             date = datetime(2026, int(query['month'][0]), int(query['day'][0]), tzinfo=NEWS_TIMEZONE)
             return json.dumps({'Date': f'/Date({int(date.timestamp()*1000)})/', 'Description': {'Description': '<p>Ora 09:00–12:00</p><p>Vendet: A &amp; B</p>'}})
         data = daily.collect_keds(local(), fetch)
-        self.assertEqual(len(calls), 28)
+        self.assertEqual(len(calls), 35)
         self.assertEqual(data['notices'][0]['text'], 'Ora 09:00–12:00\nVendet: A & B')
         # Endpoint responses from the wrong year must not be published.
         with self.assertRaises(ValueError):
@@ -70,8 +70,8 @@ class DailyServiceTests(unittest.TestCase):
     def test_keds_null_is_no_notice_but_invalid_json_is_failure(self):
         page = ''.join(f'<li data-districtid="{i}">Rajoni {i}</li>' for i in range(1, 8)) + 'GetNetworkWorksByFilters'
         data = daily.collect_keds(local(), lambda url, body=None: page if body is None else 'null')
-        self.assertEqual(len(data['notices']), 28)
-        self.assertEqual(data['dates'], ['2026-11-15','2026-11-16','2026-11-17','2026-11-18'])
+        self.assertEqual(len(data['notices']), 35)
+        self.assertEqual(data['dates'], ['2026-11-14','2026-11-15','2026-11-16','2026-11-17','2026-11-18'])
         self.assertTrue(all(item['status'] == 'none' for item in data['notices']))
         empty = daily.collect_keds(local(), lambda url, body=None: page if body is None else '')
         self.assertTrue(all(item['status'] == 'none' for item in empty['notices']))
@@ -86,7 +86,7 @@ class DailyServiceTests(unittest.TestCase):
         result = daily.collect_weather(local(), lambda url: feed)
         self.assertEqual(len(result['forecasts']), 1)
         self.assertEqual(result['forecasts'][0]['date'], '2026-11-15')
-        self.assertEqual(result['forecasts'][0]['excerpt'], 'Mot me shi…')
+        self.assertEqual(result['forecasts'][0]['excerpt'], 'Mot me shi.')
         with self.assertRaises(ValueError):
             daily.collect_weather(local(), lambda url: feed.replace('www.meteokosova.com/forecast', 'evil.example/forecast'))
 

@@ -10,6 +10,39 @@ from news_utils import safe_url
 from news_policy import tokens, same_event, publication_date
 from featured_image import cached_photo
 from photo_utils import photo_variant
+from article_content import clean_article_text
+
+
+def editorial_content(article,esc):
+    blocks=article.get('content_blocks')
+    if not isinstance(blocks,list) or not blocks:return None
+    pieces=[]
+    text_blocks=[block for block in blocks if block.get('type') in ('paragraph','heading')]
+    clean=clean_article_text('\n'.join(str(b.get('text','')) for b in text_blocks))
+    remaining=len(clean.splitlines())
+    lead_used=False
+    for block in blocks:
+        kind=block.get('type')
+        if kind in ('paragraph','heading'):
+            if remaining<=0:break
+            remaining-=1
+            text=str(block.get('text','')).strip()
+            if not text:continue
+            tag='h2' if kind=='heading' else 'p'
+            lead=not lead_used and kind=='paragraph' and len(text.split())>=25
+            if lead:lead_used=True
+            pieces.append(f'<{tag} class="{"article-lead" if lead else "article-paragraph"}">{esc(text)}</{tag}>')
+        elif kind=='image':
+            original=safe_url(block.get('url'))
+            if not original or original==safe_url(article.get('imazhi')):continue
+            _,src,srcset=responsive_image(original,True)
+            caption=f'<figcaption>{esc(block.get("caption"))}</figcaption>' if block.get('caption') else ''
+            pieces.append(f'<figure class="article-inline-media"><a href="{esc(original)}" target="_blank" rel="noopener noreferrer" aria-label="Hape fotografinë e plotë"><img src="{esc(src)}" srcset="{esc(srcset)}" sizes="(max-width: 767px) calc(100vw - 68px), 680px" data-original="{esc(original)}" alt="{esc(block.get("alt"))}" loading="lazy" decoding="async" onerror="this.removeAttribute(\'srcset\');imageFallback(this)"></a>{caption}</figure>')
+        elif kind=='embed':
+            source=safe_url(block.get('url'));host=(urlsplit(source).hostname or '').removeprefix('www.')
+            if host not in ('x.com','twitter.com','youtube.com','youtu.be','facebook.com','instagram.com'):continue
+            pieces.append(f'<p class="article-embed"><a href="{esc(source)}" target="_blank" rel="noopener noreferrer">{esc(block.get("label") or "Shiko postimin origjinal")} ↗ <span>{esc(host)}</span></a></p>')
+    return ''.join(pieces) or None
 
 
 def related_articles(article, suggestions):
@@ -57,12 +90,14 @@ def render_article(article, suggestions):
     category = esc(article.get('kategoria', 'Lajme'))
     image = esc(safe_url(article.get('imazhi')) or 'https://zanidigjital.com/zanidigjitalfavicon.png')
     _, hero_src, hero_srcset = responsive_image(article.get('imazhi'), True, cached_photo(article))
-    reading_minutes = max(1, (len(re.findall(r'\w+',article.get('permbajtja',''))) + 199)//200)
+    clean_text=clean_article_text(article.get('permbajtja',''))
+    reading_minutes = max(1, (len(re.findall(r'\w+',clean_text)) + 199)//200)
     url = f"https://zanidigjital.com/lajme/{article.get('duplicate_of') or slug}/"
-    paragraphs=[p.strip() for p in article.get('permbajtja','').splitlines() if p.strip()]
+    paragraphs=[p.strip() for p in clean_text.splitlines() if p.strip()]
     credit=lambda p: bool(re.match(r'^(?:nga|perkthimi|përkthimi|burimi|foto)\s*:',p,re.I))
     lead=next((i for i,p in enumerate(paragraphs) if len(p.split())>=25 and not credit(p)),None)
     content=''.join(f'<p class="{"article-credit" if credit(p) else "article-lead" if i==lead else "article-paragraph"}">{esc(p)}</p>' for i,p in enumerate(paragraphs))
+    content=editorial_content(article,esc) or content
     description = esc(article.get('permbajtja', '')[:160])
     source = safe_url(article.get('link_origjinal'))
     source_html = ''

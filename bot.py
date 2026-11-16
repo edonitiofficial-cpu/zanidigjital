@@ -19,6 +19,7 @@ from archive_output import create_archive
 from homepage_output import render_homepage
 from news_utils import homepage_metadata
 from featured_image import cache_lead_photo
+from article_content import extract_article, clean_article_text
 
 api_keys = [
     os.environ.get("GROQ_API_KEY"),
@@ -106,12 +107,19 @@ def save_news(news_list):
     write_json_atomic('ballina.json', homepage_metadata(news_list))
     write_json_atomic('news-index.json', news_metadata(news_list[:7000]))
 
+ARTICLE_BLOCKS = {}
+
 def fetch_full_text(url):
+    ARTICLE_BLOCKS.pop(url,None)
     try:
         downloaded = trafilatura.fetch_url(url)
         if downloaded:
+            extracted=extract_article(downloaded,url)
+            if extracted:
+                ARTICLE_BLOCKS[url]=extracted['blocks']
+                return extracted['text']
             text = trafilatura.extract(downloaded, include_comments=False, include_tables=False, fast=True)
-            if text: return text
+            if text: return clean_article_text(text)
         return ""
     except: return ""
 
@@ -243,7 +251,7 @@ def main():
                 paragraphs.pop(0)
             while paragraphs and paragraphs[-1].lower().startswith(('lexo edhe', 'lexo më shumë', 'na ndiqni', 'reklamo', 'top lajme')):
                 paragraphs.pop()
-            content = '\n'.join(paragraphs)
+            content = clean_article_text('\n'.join(paragraphs))
             slug = krijo_slug(title)
             if not slug or len(content) < 200:
                 report.event(title, link, 'rejected', 'insufficient_clean_text'); continue
@@ -253,7 +261,7 @@ def main():
                 slug += '-' + hashlib.sha256(link.encode()).hexdigest()[:8]
             now = news_now()
             article = enrich_municipalities({
-                'titulli': title, 'permbajtja': content, 'kategoria': category, 'imazhi': image,
+                'titulli': title, 'permbajtja': content, 'content_blocks': ARTICLE_BLOCKS.get(link,[]), 'kategoria': category, 'imazhi': image,
                 'koha': now.strftime('%d/%m/%Y %H:%M'), 'published_at': now.isoformat(),
                 'source_published_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', parsed_time) if parsed_time else None,
                 'link_origjinal': link, 'slug': slug, 'eshte_balline': kontrollo_ballinen_e_burimit(link),
