@@ -48,8 +48,18 @@ def load_news_file(path):
 
 
 def news_metadata(items):
-    keys = ('titulli', 'kategoria', 'imazhi', 'koha', 'published_at', 'slug', 'eshte_balline', 'komunat', 'featured_rank', 'selection_reasons', 'source_count')
+    keys = ('titulli', 'kategoria', 'imazhi', 'hero_image', 'koha', 'published_at', 'slug', 'eshte_balline', 'komunat', 'featured_rank', 'selection_reasons', 'source_count')
     return [{key: n[key] for key in keys if key in n} for n in items if n.get('slug') and n.get('titulli') and not n.get('duplicate_of')]
+
+
+def homepage_metadata(items, limit=150):
+    """Include ranked stories even when selection reaches beyond the first page."""
+    public = [n for n in items if n.get('slug') and n.get('titulli') and not n.get('duplicate_of')]
+    ranked = {n['slug'] for n in public if isinstance(n.get('featured_rank'),int)}
+    featured = [n for n in public if n['slug'] in ranked][:limit]
+    ordinary = [n for n in public if n['slug'] not in ranked][:max(0,limit-len(featured))]
+    chosen = {n['slug'] for n in featured+ordinary}
+    return news_metadata([n for n in public if n['slug'] in chosen][:limit])
 
 
 def interleave_feeds(feeds):

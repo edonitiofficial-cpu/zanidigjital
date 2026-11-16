@@ -126,6 +126,32 @@ def source_host(article):
     return urlsplit(article.get('link_origjinal', '')).netloc.removeprefix('www.') or 'manual'
 
 
+PUBLIC_TOPICS = [
+    ('Shërbime publike',18,r'\b(?:nderprer\w*|rryme\w*|energj\w*|ujesjell\w*|uji\w*|furnizim\w*|rruge\w*|trafik\w*)\b'),
+    ('Siguri dhe emergjenca',16,r'\b(?:termet\w*|evaku\w*|permbyt\w*|zjarr\w*|aksident\w*|viktim\w*|stuhi\w*)\b'),
+    ('Shëndetësi',14,r'\b(?:shendet\w*|spital\w*|vaksin\w*|mjek\w*|pacient\w*|ikshpk\w*)\b'),
+    ('Arsim',14,r'\b(?:shkoll\w*|arsim\w*|mesim\w*|nxenes\w*|student\w*|universitet\w*)\b'),
+    ('Ekonomia familjare',14,r'\b(?:buxhet\w*|pension\w*|paga\w*|pagese\w*|cmim\w*|tatim\w*|punesim\w*)\b'),
+    ('Vendime publike',10,r'\b(?:zgjedhj\w*|ligj\w*|votim\w*|kuvend\w*|vendim\w*)\b'),
+]
+
+
+def article_topic(article):
+    title = normalize(article.get('titulli'))
+    # Sports mentions of injuries/medical staff are still sports stories.
+    if article.get('kategoria') == 'Sport':
+        return 'Sport', 0
+    for topic, points, pattern in PUBLIC_TOPICS:
+        if re.search(pattern, title):
+            return topic, points
+    return article.get('kategoria') or 'Lajme', 0
+
+
+def topic_echo(left, right):
+    a, b = tokens(left.get('titulli','')), tokens(right.get('titulli',''))
+    return len(a & b) >= 3 and len(a & b) / max(1,len(a | b)) >= .32
+
+
 def rank_article(article, now):
     date = publication_date({'published_at': article.get('source_published_at')}) or publication_date(article)
     age = max(0, (now-date).total_seconds()/3600) if date else 9999
@@ -138,9 +164,16 @@ def rank_article(article, now):
     coverage = min(24, max(0, len(hosts)-1)*8)
     if coverage:
         score += coverage; reasons.append(f'Burime të ndryshme: +{coverage}')
-    public_interest = re.search(r'\b(?:termet|evaku\w*|viktim\w*|aksident\w*|uji\w*|rryme\w*|energj\w*|shendet\w*|shkoll\w*|buxhet\w*|zgjedhj\w*|ligj\w*|pension\w*|paga\w*)\b', normalize(article.get('titulli')))
-    if public_interest:
-        score += 10; reasons.append('Temë me interes publik: +10')
+    topic, impact = article_topic(article)
+    if impact:
+        score += impact; reasons.append(f'Ndikim te qytetarët — {topic}: +{impact}')
+        if article.get('komunat') or detect_municipalities(article.get('titulli','')) or re.search(r'\bkosov\w*\b',normalize(article.get('titulli'))):
+            score += 6; reasons.append('Referencë e qartë në Kosovë/komunë: +6')
+    title = normalize(article.get('titulli'))
+    if re.search(r'\b(?:nuk do ta besoni|e pabesueshme|shokuese|sensacionale)\b',title):
+        score -= 8; reasons.append('Titull sensacional: −8')
+    if article.get('kategoria') == 'Sport' and re.search(r'\bgo+l\w*|\b\d{1,2}\s*[-:]\s*\d{1,2}\b',title):
+        score -= 15; reasons.append('Përditësim rezultati sportiv: −15')
     return score, reasons, age
 
 
@@ -149,23 +182,33 @@ def select_featured(articles, now=None):
     for article in articles:
         article.pop('featured_rank', None)
         article.pop('selection_reasons', None)
-    ranked = [(n, *rank_article(n, now)) for n in articles[:150] if n.get('slug') and n.get('titulli') and not n.get('duplicate_of')]
+    ranked = [(n, *rank_article(n, now)) for n in articles[:300] if n.get('slug') and n.get('titulli') and not n.get('duplicate_of')]
     recent = [row for row in ranked if row[3] <= 24]
     pool = sorted(recent if len(recent) >= 5 else ranked, key=lambda row: (row[1], -row[3]), reverse=True)
-    chosen, hosts, categories = [], {}, {}
-    for strict in (True, False):
-        for article, score, reasons, age in pool:
-            if article in chosen:
-                continue
-            host, category = source_host(article), article.get('kategoria')
-            if strict and (hosts.get(host, 0) >= 2 or categories.get(category, 0) >= 2):
-                continue
-            if any(same_event(article, existing) for existing in chosen):
-                continue
+    chosen, hosts, categories, topics = [], {}, {}, {}
+    for limit in (2,3,None):
+        while len(chosen) < 5:
+            candidates = []
+            for article, score, reasons, age in pool:
+                if article in chosen:
+                    continue
+                host, category = source_host(article), article.get('kategoria')
+                topic = article_topic(article)[0]
+                echo = any(topic_echo(article, existing) for existing in chosen)
+                if limit and (hosts.get(host,0) >= limit or categories.get(category,0) >= limit or topics.get(topic,0) >= limit or echo):
+                    continue
+                if any(same_event(article, existing) for existing in chosen):
+                    continue
+                adjusted = score - 14*topics.get(topic,0) - 8*hosts.get(host,0) - 6*categories.get(category,0) - (26 if echo else 0)
+                candidates.append((adjusted,-age,article,reasons,topic,host,category))
+            if not candidates:
+                break
+            _, _, article, reasons, topic, host, category = max(candidates,key=lambda row:(row[0],row[1]))
             article['featured_rank'] = len(chosen)+1
-            article['selection_reasons'] = reasons + ['Larmi burimesh dhe temash' if strict else 'Plotësim me kandidatët e mbetur']
+            article['selection_reasons'] = reasons + [f'Tema: {topic}', 'Larmi burimesh dhe temash' if limit else 'Plotësim me kandidatët e mbetur']
             chosen.append(article)
             hosts[host] = hosts.get(host, 0)+1; categories[category] = categories.get(category, 0)+1
+            topics[topic] = topics.get(topic,0)+1
             if len(chosen) == 5:
                 return chosen
     return chosen

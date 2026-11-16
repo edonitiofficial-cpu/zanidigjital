@@ -28,11 +28,10 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/utilities.css">
     <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onload="window.dispatchEvent(new Event('supabase-ready'))" onerror="window.dispatchEvent(new Event('supabase-failed'))"></script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+    <style>500;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; overflow-x: clip; }
         .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
         @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
@@ -50,6 +49,10 @@
     <script src="/site.js"></script>
     <script src="/news-feed.js" defer></script>
     <script src="/site-widgets.js" defer></script>
+    <script src="/daily-services.js" defer></script>
+<link rel="preload" as="font" href="/fonts/inter-latin.woff2" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css">
+<link rel="preconnect" href="https://wsrv.nl">
 </head>
 <body class="text-gray-900 antialiased bg-[#F8F9FA]">
   <a class="skip-link" href="#main-content">Kalo te lajmet</a>
@@ -95,18 +98,46 @@
                     <label for="municipality-select">Lajmet e komunës</label>
                     <select id="municipality-select"><option value="">Të gjitha komunat</option></select>
                     <span id="municipality-note">Sipas vendeve të përmendura në titull ose hyrje.</span>
+                    <label class="remember-municipality"><input id="municipality-remember" type="checkbox"> Mbaje mend komunën në këtë pajisje</label>
                 </div>
                 <p id="news-status" class="news-status" role="status" aria-live="polite"></p>
-                <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
-                    <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shimmer h-64 md:h-full w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-48 md:h-auto w-full"></div>
+                <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]"><!-- featured:start --><!-- featured:end -->
                 </div>
             </section>
 
             <div id="banner-top-container" class="w-full"></div>
+
+            <section id="daily-services" aria-labelledby="daily-services-title">
+                <div class="services-heading">
+                    <h2 id="daily-services-title">Në shërbim të qytetarëve</h2>
+                    <p>Moti në Kosovë dhe njoftimet për energjinë.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card weather-card" aria-labelledby="weather-title">
+                        <div class="service-card-head">
+                            <div><span class="service-label">Meteo Kosova</span><h3 id="weather-title">Moti në Kosovë</h3></div>
+                            <span class="service-icon weather-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 6.5 19 5M5 19l1.5-1.5M17 25h9a4 4 0 0 0 0-8 6 6 0 0 0-11-1 4.5 4.5 0 0 0 2 9Z"/></svg></span>
+                        </div>
+                        <p id="weather-status" class="service-status" role="status">Duke ngarkuar parashikimin…</p>
+                        <div id="weather-content"></div>
+                        <a id="weather-source" href="https://www.meteokosova.com/" target="_blank" rel="noopener noreferrer" class="service-source">Shiko parashikimin te Meteo Kosova ↗</a>
+                    </article>
+                    <article class="service-card energy-card" aria-labelledby="keds-title">
+                        <div class="service-card-head">
+                            <div><span class="service-label">KEDS · njoftime zyrtare</span><h3 id="keds-title">Punime në rrjet</h3></div>
+                            <span class="service-icon energy-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m18 3-12 15h9l-1 11 12-16h-9l1-10Z"/></svg></span>
+                        </div>
+                        <p class="service-intro">Kontrollo vendbanimet dhe oraret e ndërprerjeve të planifikuara.</p>
+                        <div class="service-filters">
+                            <label for="keds-region">Rajoni<select id="keds-region" disabled><option>Zgjedh rajonin</option></select></label>
+                            <label for="keds-date">Dita<select id="keds-date" disabled><option>Zgjedh ditën</option></select></label>
+                        </div>
+                        <p id="keds-status" class="service-status" role="status">Duke ngarkuar njoftimet…</p>
+                        <div id="keds-content" aria-live="polite"></div>
+                        <a href="https://www.keds-energy.com/shq/punime-ne-rrjet/njoftime-per-punime-ne-rrjet/" target="_blank" rel="noopener noreferrer" class="service-source">Shiko njoftimet te KEDS ↗</a>
+                    </article>
+                </div>
+            </section>
 
             <!-- Seksioni FLASH i zhvendosur lart, në mes të Në Vëmendje dhe Të Fundit -->
             <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
@@ -120,11 +151,7 @@
                 <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
                     <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
                 </h2>
-                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
-                    <div class="rounded-xl overflow-hidden shimmer h-64 w-full"></div>
+                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><!-- latest:start --><!-- latest:end -->
                 </div>
                 <div class="mt-10 flex justify-center">
                     <button id="news-more" type="button" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">Lexo më shumë</button>

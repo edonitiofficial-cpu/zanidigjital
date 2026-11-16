@@ -15,6 +15,10 @@ from news_utils import slugify, safe_url, write_json_atomic, load_news_file, new
 from news_policy import find_duplicate, merge_source, select_featured, same_event
 from municipalities import enrich_municipalities
 from robot_report import RunReport
+from archive_output import create_archive
+from homepage_output import render_homepage
+from news_utils import homepage_metadata
+from featured_image import cache_lead_photo
 
 api_keys = [
     os.environ.get("GROQ_API_KEY"),
@@ -99,7 +103,7 @@ def load_news():
 
 def save_news(news_list):
     write_json_atomic(DB_FILE, news_list[:7000], indent=2)
-    write_json_atomic('ballina.json', news_metadata(news_list[:150]))
+    write_json_atomic('ballina.json', homepage_metadata(news_list))
     write_json_atomic('news-index.json', news_metadata(news_list[:7000]))
 
 def fetch_full_text(url):
@@ -271,12 +275,21 @@ def main():
         combined.sort(key=lambda n: publication_date(n).timestamp() if publication_date(n) else 0, reverse=True)
         public_news = [n for n in combined if not n.get('duplicate_of')]
         featured = select_featured(public_news)
-        if new_entries or changed:
+        previous_lead_image = featured[0].get('hero_image') if featured else None
+        lead_cached = bool(featured and cache_lead_photo(featured[0]))
+        lead_image_changed = bool(lead_cached and previous_lead_image != featured[0].get('hero_image'))
+        if new_entries or changed or lead_image_changed:
             save_news(updated)
-        for article in new_entries + list(changed.values()):
+        render_entries = new_entries + list(changed.values())
+        if lead_cached and featured[0] not in render_entries:
+            render_entries.append(featured[0])
+        for article in render_entries:
             gjenero_artikullin_html(article, combined)
-        write_json_atomic('ballina.json', news_metadata(public_news[:150]))
+        write_json_atomic('ballina.json', homepage_metadata(public_news))
         write_json_atomic('news-index.json', news_metadata(public_news[:7000]))
+        create_archive(public_news[:7000])
+        if os.path.exists('index.html'):
+            render_homepage(public_news)
         if new_entries or changed or manual:
             krijo_rss(combined); krijo_sitemap(combined)
         fb_posts_queue.sort(key=lambda n: n['eshte_balline'], reverse=True)

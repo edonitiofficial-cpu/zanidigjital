@@ -17,6 +17,7 @@ class BotFlowTests(unittest.TestCase):
         with patch.dict(sys.modules,modules),patch.dict(os.environ,{'GROQ_API_KEY':'offline-test'}):
             spec=importlib.util.spec_from_file_location('offline_bot',Path(__file__).with_name('bot.py'))
             bot=importlib.util.module_from_spec(spec);spec.loader.exec_module(bot)
+        bot.cache_lead_photo=lambda article:False
         return bot
 
     def test_duplicate_is_merged_and_reported_without_model_call(self):
@@ -76,6 +77,7 @@ class BotFlowTests(unittest.TestCase):
                      patch.object(bot.time, 'sleep'), \
                      patch.object(bot.time, 'time', return_value=0), \
                      patch.object(bot, 'save_news') as save, \
+                     patch.object(bot, 'cache_lead_photo', return_value=False), \
                      patch.object(bot, 'krijo_rss'), patch.object(bot, 'krijo_sitemap'), \
                      patch.object(bot, 'gjenero_artikullin_html') as render, \
                      patch.object(bot, 'gjenero_lajmet_manuale', return_value=[]), \

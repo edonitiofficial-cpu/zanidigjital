@@ -2,11 +2,14 @@
   "name": "zani-digjital-checks",
   "private": true,
   "scripts": {
+    "measure:performance": "node tools/measure_performance.cjs after",
+    "build:css": "tailwindcss -c tailwind.config.cjs -i tools/tailwind.css -o utilities.css --minify",
     "test:ui": "node tools/check_site.cjs",
-    "test:sql": "node tools/check_votes.cjs"
+    "test:sql": "node tools/check_votes.cjs && node tools/check_admin_access.cjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.16",
-    "playwright": "1.65.0"
+    "playwright": "1.65.0",
+    "tailwindcss": "3.4.17"
   }
 }

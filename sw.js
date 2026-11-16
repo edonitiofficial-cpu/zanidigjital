@@ -1,6 +1,6 @@
-const CACHE_NAME = 'zani-digjital-v3';
+const CACHE_NAME = 'zani-digjital-v7';
 const OFFLINE_PAGE = '/offline.html';
-const CORE = [OFFLINE_PAGE, '/site.css', '/site.js', '/news-feed.js', '/site-widgets.js', '/zanidigjitalfavicon.png'];
+const CORE = [OFFLINE_PAGE, '/fonts.css', '/fonts/inter-latin.woff2', '/utilities.css', '/site.css', '/site.js', '/news-feed.js', '/site-widgets.js', '/daily-services.js', '/article.css', '/article.js', '/zanidigjitalfavicon.png'];
 
 self.addEventListener('install', event => {
     event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));
