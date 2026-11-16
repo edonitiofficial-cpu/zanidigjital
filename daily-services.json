@@ -338,9 +338,9 @@
       }
     ],
     "status": "ok",
-    "collected_on": null,
-    "updated_at": "2026-11-16T18:01:05.157614+01:00",
-    "checked_at": "2026-11-16T18:01:05.157614+01:00"
+    "collected_on": "2026-11-16",
+    "updated_at": "2026-11-16T21:32:40.327301+01:00",
+    "checked_at": "2026-11-16T21:32:40.327301+01:00"
   },
   "weather": {
     "source_url": "https://www.meteokosova.com/",
@@ -382,8 +382,8 @@
       }
     ],
     "status": "ok",
-    "collected_on": null,
-    "updated_at": "2026-11-16T18:01:05.157614+01:00",
-    "checked_at": "2026-11-16T18:01:05.157614+01:00"
+    "collected_on": "2026-11-16",
+    "updated_at": "2026-11-16T21:32:40.327301+01:00",
+    "checked_at": "2026-11-16T21:32:40.327301+01:00"
   }
 }
