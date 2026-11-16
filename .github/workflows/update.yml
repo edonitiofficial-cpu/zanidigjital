@@ -6,8 +6,7 @@ on:
   repository_dispatch:
     types: [ndiz_motorin]
 
-  schedule:
-    - cron: '17,47 * * * *'
+  # Nisjet periodike kontrollohen nga cron-job i jashtëm.
 
 permissions:
   contents: write
@@ -35,7 +34,7 @@ jobs:
       - name: Instalo modulet
         run: |
           python -m pip install --upgrade pip
-          pip install feedparser groq trafilatura
+          pip install -r requirements.txt
 
       - name: Kontrollo Python dhe modulet
         run: |
@@ -45,21 +44,33 @@ jobs:
           python -c "import groq; print('groq OK')"
           python -c "import trafilatura; print('trafilatura OK')"
 
-      - name: Ekzekuto rishkrimin e lajmeve
+      - name: Kontrollo logjikën e orës dhe përmbajtjes
+        run: python -m unittest discover -p 'test_*.py'
+
+      - name: Mblidh dhe përgatit lajmet
+        id: collect
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
           GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
-          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
         run: |
           python bot.py
 
       - name: Ruaj dhe publiko online
+        if: ${{ always() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure') }}
+        env:
+          COLLECT_OUTCOME: ${{ steps.collect.outcome }}
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Actions"
 
-          git add .
+          if [ "$COLLECT_OUTCOME" = "success" ]; then
+            git add .
+          elif [ -f bot-status.json ]; then
+            git add bot-status.json
+          else
+            exit 0
+          fi
 
           if git diff --cached --quiet; then
             echo "S'ka ndryshime të reja."
@@ -68,6 +79,12 @@ jobs:
 
           git commit -m "U shtuan lajme te reja automatikisht"
 
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
 
           git push origin HEAD:main
+
+      - name: Publiko në Facebook pas ruajtjes së lajmeve
+        if: ${{ success() && steps.collect.outcome == 'success' }}
+        env:
+          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+        run: python publish_facebook.py
