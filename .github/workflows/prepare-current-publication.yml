@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  pages: write
 concurrency:
   group: zani-digjital-news
   cancel-in-progress: false
@@ -22,6 +23,7 @@ jobs:
       - name: Gjenero vetëm pamjen dhe katalogun
         run: python tools/prepare_current_publication.py
       - name: Ruaj vetëm skedarët e gjeneruar të pamjes
+        id: save
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Actions"
@@ -30,3 +32,9 @@ jobs:
           git commit -m "Përgatit pamjen nga arkivi aktual pa zëvendësuar lajmet"
           git pull --rebase --autostash origin main
           git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Nise publikimin e pamjes
+        if: ${{ steps.save.outputs.changed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python request_pages_build.py

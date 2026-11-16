@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: zani-digjital-news
@@ -47,6 +48,11 @@ jobs:
       - name: Kontrollo logjikën e orës dhe përmbajtjes
         run: python -m unittest discover -p 'test_*.py'
 
+      - name: Kontrollo KEDS dhe motin pas orës 21:30
+        id: services
+        continue-on-error: true
+        run: python daily_services.py
+
       - name: Mblidh dhe përgatit lajmet
         id: collect
         env:
@@ -57,19 +63,20 @@ jobs:
           python bot.py
 
       - name: Ruaj dhe publiko online
-        if: ${{ always() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure') }}
+        id: save
+        if: ${{ always() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure' || steps.services.outcome == 'success') }}
         env:
           COLLECT_OUTCOME: ${{ steps.collect.outcome }}
+          SERVICES_OUTCOME: ${{ steps.services.outcome }}
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Actions"
 
           if [ "$COLLECT_OUTCOME" = "success" ]; then
             git add .
-          elif [ -f bot-status.json ]; then
-            git add bot-status.json
           else
-            exit 0
+            if [ -f bot-status.json ]; then git add bot-status.json; fi
+            if [ "$SERVICES_OUTCOME" = "success" ] && [ -f daily-services.json ]; then git add daily-services.json; fi
           fi
 
           if git diff --cached --quiet; then
@@ -82,6 +89,13 @@ jobs:
           git pull --rebase --autostash origin main
 
           git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Nise GitHub Pages pas push-it
+        if: ${{ always() && steps.save.outcome == 'success' && steps.save.outputs.changed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python request_pages_build.py
 
       - name: Publiko në Facebook pas ruajtjes së lajmeve
         if: ${{ success() && steps.collect.outcome == 'success' }}

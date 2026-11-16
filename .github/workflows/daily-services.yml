@@ -9,12 +9,11 @@ on:
         default: false
   repository_dispatch:
     types: [perditeso_sherbimet]
-  schedule:
-    # UTC: 21:30 in Kosovo in summer / winter. Python checks local time and date.
-    - cron: '30 19,20 * * *'
+  # Nisja periodike vjen nga cron-job i jashtëm, jo nga GitHub schedule.
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: zani-digjital-news
@@ -43,6 +42,7 @@ jobs:
             python daily_services.py
           fi
       - name: Ruaj përditësimin
+        id: save
         run: |
           if [ ! -f daily-services.json ]; then exit 0; fi
           git config user.email "action@github.com"
@@ -52,6 +52,12 @@ jobs:
           git commit -m "Përditëso KEDS dhe motin"
           git pull --rebase --autostash origin main
           git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Nise publikimin e faqes pas ruajtjes
+        if: ${{ steps.save.outputs.changed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python request_pages_build.py
       - name: Kontrollo burimet pas ruajtjes së raportit
         run: |
           python -c "import json, pathlib; p=pathlib.Path('daily-services.json'); d=json.loads(p.read_text()) if p.exists() else {}; assert all(d.get(k,{}).get('status') != 'error' for k in ('keds','weather')), 'Burimi deshtoi; shiko daily-services.json'"
