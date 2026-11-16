@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "keds": {
+    "source_url": "https://www.keds-energy.com/shq/punime-ne-rrjet/njoftime-per-punime-ne-rrjet/",
+    "regions": [
+      "Prishtinë",
+      "Pejë",
+      "Prizren",
+      "Ferizaj",
+      "Mitrovicë",
+      "Gjakovë",
+      "Gjilan"
+    ],
+    "dates": [
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20"
+    ],
+    "notices": [
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-17",
+        "text": "Punime ne projekte intensive\n1. Nga TS TS 35/10 kV Gjakova I do të ndërprehet:\nDalja 10 kV Cermjani me Kod 80080012\nnga ora 10:00 deri 16:00\nVendet: Zhdrell, Zhabel Plak, Zhabel, Wesley Clark, Shqiponje, Raskoc, Rashkoc, Qerim, Meqe, Krelan, KDoblibar., Gergoc, Doblibare, Cermjan, Bordosanë, Bordosan, Bec, Bare Emadhe, Bardhaniq, Vraniq\nArsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
+        "status": "notice"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-17",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-18",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-18",
+        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV J10 Asllan Qesma (kodi: 50051002) nga ora 10:00 deri në orën 11:00 Vendet: Tabije, Shpëtim Bojku, Ramiz Xhema Kom. Ban., Mbreti Bardhyl C-5, Asllan Çeshma, Agim Radoniqi 15 Arsyeja:\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV J06 Rezervë (3 TS) (kodet: 50051007004, 50051007008 dhe 50051007009) nga ora 11:00 deri në orën 12:00 Vendet: Restorant Era si dhe disa konsumatorë në afërsi (pjesërisht në Majën e Zezë) Arsyeja: Testimi i mbrojtjes rele\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV J01 Puhovci (kodi: 50051009) nga ora 12:00 deri në orën 13:00 Vendet: Xhevat Begolli, Nëna Terezë 84, Nëna Terezë 221, Nëna Terezë, Maria Shllaku Kom. Ban. H-A Nr. 21, Maria Shllaku, Lekë Dukagjini Kom. Ban. H-B Nr. 11, Lekë Dukagjini Kom. Ban. K1 B27, Lekë Dukagjini, Çuf Nikqi Kom. Ban., Ali Pashë Tepelena Kom. Ban. H/B Nr. 16 Arsyeja: Testimi i mbrojtjes rele\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV J05 Rugova (kodi: 50051006) nga ora 13:00 deri në orën 14:00 Vendet: Stankaj, Shtupeqi i Madh, Shtupeqi i Vogël, Shtupeqi i Madh, Shkrel, Reka e Allagës, Pepiç-Rugovë, Maja e Zezë, Llaz, Leqinat, Kuqishtë, Koshutan, Haxhaj, Dugaivë, Drelaj, Bogë, Bogë Arsyeja: Testimi i mbrojtjes rele\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV J04 Maja e Zezë (kodi: 50051007) nga ora 14:00 deri në orën 15:00 Vendet: Maria Shllaku, Levoshë, Françesko Gjyzepe Bider Arsyeja: Testimi i mbrojtjes rele\nNga TS 35/10kV Peja II do të ndërpritet: Dalja 10 kV Spitali (kodi: 50051008) nga ora 15:00 deri në orën 16:00 Vendet: Pejë, Lekë Dukagjini Arsyeja: Testimi i mbrojtjes rele",
+        "status": "notice"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-18",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-18",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-18",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-18",
+        "text": "Punime në projekte investive\nNga NS 35/10[kV] Gjakova I do të ndërprehet:\nDalja 10[kV] Dalja Erenikut (kodi: 80080011) prej ores 10:00 deri në ora 16:00\nVendet: Fehmi Agani, Lugbunari (1konsumatorë), Nënë Tereza (1 konsumatorë), Uçk-së, Sadik Pozhegu dhe Wesley Clark.\nArsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
+        "status": "notice"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-18",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-19",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-20",
+        "text": "",
+        "status": "none"
+      }
+    ],
+    "status": "ok",
+    "collected_on": null,
+    "updated_at": "2026-11-16T15:26:28.819816+01:00",
+    "checked_at": "2026-11-16T15:26:28.819816+01:00"
+  },
+  "weather": {
+    "source_url": "https://www.meteokosova.com/",
+    "forecasts": [
+      {
+        "title": "Parashikimi i motit për të hënën, 16.11.2026",
+        "date": "2026-11-16",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-henen-16-11-2026/",
+        "published_at": "2026-11-15T23:23:55+00:00",
+        "excerpt": "Të hënën parashikohet të mbajë mot kryesisht i vranët dhe herë pas here me rrebeshe lokale shiu, të shoqëruara me shkarkesa rrufesh. Në zona të caktuara reshjet do të jenë intensive, me mundësi që të shkaktojnë vërshime të shpejta. Era do…"
+      },
+      {
+        "title": "Parashikimi i motit për të dielën, 15.11.2026",
+        "date": "2026-11-15",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-dielen-15-11-2026/",
+        "published_at": "2026-11-14T20:26:59+00:00",
+        "excerpt": "Të dielën parashikohet të mbajë mot kryesisht me diell gjatë orëve të mëngjesit por i ftohtë. Gradualisht gjatë ditës pritet të arrijë një tjetër sistem i paqëndrueshëm, i cili do të sjellë shtim të vranësirave. Më vonë, sidomos gjatë…"
+      },
+      {
+        "title": "Parashikimi i motit për të shtunën, 14.11.2026",
+        "date": "2026-11-14",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-shtunen-14-11-2026/",
+        "published_at": "2026-11-13T22:24:47+00:00",
+        "excerpt": "Të shtunën parashikohet që gjatë orëve të para të 24-orëshit të fillojë depërtimi i frontit të ftohtë, ndërsa reshjet parafrontale, të përqendruara kryesisht në gjysmën e epërme të Kosovës, gradualisht do të shtrihen në drejtim të jugut,…"
+      },
+      {
+        "title": "Parashikimi i motit për të premten, 13.11.2026",
+        "date": "2026-11-13",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-premten-13-11-2026/",
+        "published_at": "2026-11-13T20:29:32+00:00",
+        "excerpt": "Të premten parashikohet që gjatë orëve të para të 24-orëshit dhe mëngjesit, të ketë rrebeshe të izoluara shiu në lokalitete, kryesisht në Rrafshin e Dukagjinit. Përndryshe, pjesa më e madhe e vendit do të karakterizohet me diell dhe…"
+      },
+      {
+        "title": "Parashikimi i motit për të enjten, 12.11.2026",
+        "date": "2026-11-12",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-enjten-12-11-2026/",
+        "published_at": "2026-11-11T22:03:08+00:00",
+        "excerpt": "Të enjten parashikohet mot me vranësira të shpeshta dhe intervale me diell, ndërsa në disa lokalitete priten reshje afatshkurtër shiu. Era do të fryjë jugu dhe jugperëndimi, e cila herë pas here të jetë shumë e fortë, me shpejtësi prej…"
+      }
+    ],
+    "status": "ok",
+    "collected_on": null,
+    "updated_at": "2026-11-16T15:26:28.819816+01:00",
+    "checked_at": "2026-11-16T15:26:28.819816+01:00"
+  }
+}
