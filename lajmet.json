@@ -1,5 +1,379 @@
 [
   {
+    "titulli": "Pse IA-ja dhe vetëdija mund të mos takohen kurrë",
+    "permbajtja": "Çetboti [chatbot] mund të jetë në gjendje të arsyetojë, të kujtojë dhe të ndryshojë mendje. Por, ai nuk rrezikon asgjë, sepse nuk ka trup për të humbur.\nNga: David Weinberger, autor librash bestseller, studiues në Harvard dhe ish-profesor filozofie (fragment nga libri i tij Beautiful Particulars/ Të veçantat e bukura) / The MIT Press Reader Përktheu: Agron Shala\nQëndrimi filozofik i quajtur funksionalizëm thotë se vetëdija ka të bëjë me atë që bën diçka, jo me atë prej së cilës është bërë. Pra, nëse IA-ja [inteligjenca artificiale] arrin në pikën ku mund të zhvillojë një bisedë, të arsyetojë, të kujtojë, të ndryshojë mendje, të shfaqë kureshtje dhe emocione e kështu me radhë, atëherë nuk ka rëndësi nëse është bërë prej mishi, silici apo prej tullave LEGO. Në fakt, disa kanë sugjeruar se do të ishte një lloj i ri paragjykimi mendjengushtë po t’ia mohosh vetëdijen një krijese të tillë.\nJam i gatshëm të rrezikoj dhe të them se, pavarësisht nga ajo që kanë sugjeruar drejtuesit e disa kompanive të IA-së, e di se LLM-të [modelet e mëdha gjuhësore] me të cilët bisedoj nuk janë të vetëdijshëm ... jo për arsye empirike, por sepse nuk mendoj se ky koncept ka kuptim.\nMendimi im nis me një eksperiment të famshëm mendor të quajtur Dhoma Kineze, propozuar nga filozofi John Searle (1932–2025) i cili, në vitin 1980, na kërkoi të përfytyronim veten në një dhomë me një të çarë dhe pa asnjë hapje tjetër. Në dhomë ka udhëzime të sakta në anglisht për lidhjen e “shkarravinave” me - në dukje - shkarravina të tjera, duke përdorur një libër gjigant me korrelacione të tilla. Pastaj, një shënim në gjuhën kineze futet në dhomë. Nuk flasim kinezisht dhe madje as nuk i njohim karakteret kineze si gjuhë, por i kërkojmë shenjat, shkruajmë shenjat që libri na thotë të shkruajmë dhe i kalojmë rezultatet përsëri përmes të çarës.\nKëto korrelacione ua mundësojnë folësve të kinezishtes jashtë dhomës të jenë të sigurt se po zhvillojnë një bisedë me kuptim me dikë që e kupton gjuhën kineze. Por, gjithçka që ne po bëjmë është manipulimi i shenjave të çuditshme në letër, të cilat për ne janë krejtësisht pa kuptim.\nSearle pohon se pikërisht këtë e bëjnë kompjuterët, përfshirë edhe ata që duken të vetëdijshëm: manipulojnë simbole pa pasur asnjë vetëdije për atë që nënkuptojnë simbolet, apo madje nëse ato janë simbole. Dhoma Kineze na tregon se manipulimi i simboleve nuk mjafton për të përbërë vetëdijen, sepse kuptimi i një simboli vjen nga një vetëdije e ndarë dhe e veçuar prej tij. Me fjalët e Searleit, kjo bën që kuptimi i një simboli të jetë i jashtëm për të: ai duhet t’i atribuohet nga një vetëdije e veçuar nga simboli.\nNga ana tjetër, vetëdija si e jona është ndryshe. Kur digjni dorën te bishti i nxehtë i një tenxhereje, kafshoni një banane ose vendosni këmbën e majtë përpara së djathtës teksa shëtisni, nuk keni nevojë t’i përktheni këto në dhimbje, në shijen e bananes ose në ecje. Truri juaj është pjesë e një trupi të gjallë që e ndien drejtpërdrejt dhimbjen, e shijon ushqimin dhe di si të ecë pa shikuar poshtë. Nuk ka nevojë për simbole, nuk ka nevojë për përkthime. Në terminologjinë e Searleit, kjo do të thotë se vetëdija është e brendshme: nuk ka nevojë për një vetëdije tjetër që t’ia caktojë kuptimin.\nPor, prej nga vjen natyra e brendshme e vetëdijes? Searlei këtë nuk na e thotë.\nGjysmë shekulli para Searleit, Martin Heideggeri (1889–1976) veçse e kishte bërë këtë. Në kryeveprën e tij të vitit 1927, Being and Time [Qenia dhe koha], ai e sheh botën jo ashtu siç ne e shpjegojmë, por ashtu siç e përjetojmë në rrethana të zakonshme të përditshme. Ai zbuloi se, me një rregullsi befasuese, të kuptuarit tonë nuk përputhet me përvojën tonë.\nPërkundrazi, vuri në dukje ai, në përvojën e përditshme të jetuar, gjërat pothuajse gjithmonë na shfaqen në dritën e projektit ose synimeve tona aktuale: Për shembull, nëse nuk keni gotë për të pirë, kavanozi bosh i reçelit mund të duket si filxhan. Me një projekt tjetër, ai mund të shfaqet si një vazo e mundshme e përkohshme për lule. Kështu, ne e përjetojmë botën njëkohësisht në dy drita: projektin tonë dhe mundësitë e sendit përkitazi me atë projekt. Të dyja këto na e tregojnë botën sipas asaj që ka rëndësi për ne në atë kohë dhe në ato rrethana.\nPor, pse gjërat kanë rëndësi?\nHeideggeri thotë se kjo ndodh meqë ne e dimë se jemi në rrezik. Por, as kjo nuk do të shpjegonte asgjë, pos nëse kujdesemi për faktin se jemi në rrezik. Dhe, kjo na fut në një rreth: Kujdesemi sepse e dimë se projektet tona dhe vetë jeta jonë janë gjithmonë në rrezik. Por, kujdesi është arsyeja pse ai rrezik ka rëndësi për ne. Dhe, kështu vazhdojmë rreth e rrotull.\nHeideggeri e sjell këtë rreth te dijenia jonë se një ditë do të vdesim - mbase edhe sot. Dhe, ne kujdesemi për këtë. Por, përsëri, pse? Edhe pse Heideggeri nuk flet drejtpërdrejt për këtë, mendoj se mund ta zgjerojmë mendimin e tij për të thënë se kjo përfundon te fakti se jemi të trupëzuar. Rrethi ndalet aty, sepse kujdesi është i brendshëm për trupat - pikërisht lloji i pikës së ndalimit të cilin Searlei e kërkonte. Kujdesi duhet të jetë i brendshëm për ne, sepse trupat duhet t’i shmangen dhimbjes, të hanë dhe të flenë dhe të udhëhiqen me kujdes nga kënaqësitë. Përgjumja, uria, dhimbja dhe kënaqësia janë të brendshme në kuptimin se nuk janë simbole që kanë nevojë për interpretim, pa përmendur faktin se edhe trupi juaj është në mënyrë të brendshme ju dhe ju jeni në mënyrë të brendshme trupi juaj.\nKujdesi dhe trupëzimi janë thellë të ndërthurur.\nKur një fetë keku me mollë ka shije të mirë, shija e saj e këndshme nuk është akt interpretimi. As dhimbja që ndieni kur goditni gishtin e këmbës. Dhe, kur fëmija juaj zvarritet në prehrin tuaj për t’u përqafuar, mund ta merrni këtë si shenjë dashurie, por kjo ndodh sepse trupi juaj tashmë e ka ndier atë dashuri; në asnjë çast ajo nuk ishte si një shenjë ngjyre në një gjuhë të cilën nuk e kuptoni. Trupat tanë janë burimi ynë i parë dhe kryesor i përvojës së brendshme. Dhe, ajo përvojë formësohet nga mënyrat e shumta se si mund të kujdesemi për gjërat.\nTani, kujdesi mund të tingëllojë si përgjithësimi përfundimtar për vetëdijen njerëzore - si në “Gjithçka përfundon te kujdesi”. Megjithatë, në përvojën tonë të përditshme, kujdesi është gjithmonë specifik në të paktën tri mënyra.\nSë pari, kujdesi gjithmonë ka një objekt për të cilin kujdeset dhe një mënyrë specifike se si kujdeset për të. Ky mund të jetë partneri ose fëmija, por po aq mirë mund të jenë çorapet në tharëse, ai vend që të kruhet në shpinë ose peshku yt i artë që duhet ushqyer.\nSë dyti, edhe konteksti i kujdesit është gjithmonë specifik: Kujdesesh për çorapet sepse jashtë është ftohtë, për kruarjen sepse kërkon të kruhet, për peshkun e artë sepse fëmijët e tu do të trishtohen nëse e gjejnë duke pluskuar përmbys (pa e përmendur se edhe ti je lidhur me të).\nSë treti, kujdesi është gjithashtu i ndjeshëm ndaj detajeve. Një çast kujdesi intensiv për një person tjetër mund të jetë përgjigje ndaj mënyrës se si ai të shikon, ndaj një gjesti që mishëron një ndjenjë të cilën nuk arrin ta përcaktosh mirë, ose ndaj mënyrës se si ai përkulet përpara teksa dëgjon me vëmendje. Kujdesi shpesh e gjen të vërtetën te detajet.\nSpecifika e kujdesit formësohet nga bota në të cilën kemi lindur. Për të theksuar karakterin brutal të këtij fakti, Heideggeri e quan atë hedhshmëri: Pa pëlqimin tonë, secili prej nesh lind në një kulturë, një gjuhë, një vend, një familje e kështu me radhë. Kjo është ajo që do të thotë të jesh i ndodhur - gjë që u ndodh qenieve të cilat, duke qenë të trupëzuara, nuk mund të jenë njëkohësisht në shumë vende ose kohë\nHedhshmëria i formëson trupat tanë po aq sa edhe mendjet tona. Filozofja dhe feministja Iris Marion Young (1949–2006) e shqyrton shkëlqyeshëm këtë në esenë e saj të vitit 1980, Throwing Like a Girl [Të hedhësh si vajzë]. Ajo ofron një analizë përshkruese të mënyrës se si situata tipike e një vajze të rritur, në një vend si Amerika, ndikon madje edhe në veprimet e saj më të zakonshme trupore - si i mbajnë vajzat librat ose si ecin mbi gurë përmes një përroi - dhe imponon një “nuk mundem” mbi shumë prej projekteve që ato mendojnë.\nKjo mund të ndodhë vetëm sepse, në përvojë, nuk jemi të ngujuar brenda një dhome duke marrë simbole të koduara që duhet t’i interpretojmë. Ne, qeniet e trupëzuara, jemi jashtë në botë, ku lagështia e trupave tanë në një stuhi të papritur nuk është simbol. Trupëzimi ynë është kjo hapje e brendshme dhe e drejtpërdrejtë ndaj botës. Pikërisht kjo është ajo që i mungon IA-së. /Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Çetboti [chatbot] mund të jetë në gjendje të arsyetojë, të kujtojë dhe të ndryshojë mendje. Por, ai nuk rrezikon asgjë, sepse nuk ka trup për të humbur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nga: David Weinberger, autor librash bestseller, studiues në Harvard dhe ish-profesor filozofie (fragment nga libri i tij Beautiful Particulars/ Të veçantat e bukura) / The MIT Press Reader Përktheu: Agron Shala"
+      },
+      {
+        "type": "paragraph",
+        "text": "Qëndrimi filozofik i quajtur funksionalizëm thotë se vetëdija ka të bëjë me atë që bën diçka, jo me atë prej së cilës është bërë. Pra, nëse IA-ja [inteligjenca artificiale] arrin në pikën ku mund të zhvillojë një bisedë, të arsyetojë, të kujtojë, të ndryshojë mendje, të shfaqë kureshtje dhe emocione e kështu me radhë, atëherë nuk ka rëndësi nëse është bërë prej mishi, silici apo prej tullave LEGO. Në fakt, disa kanë sugjeruar se do të ishte një lloj i ri paragjykimi mendjengushtë po t’ia mohosh vetëdijen një krijese të tillë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Jam i gatshëm të rrezikoj dhe të them se, pavarësisht nga ajo që kanë sugjeruar drejtuesit e disa kompanive të IA-së, e di se LLM-të [modelet e mëdha gjuhësore] me të cilët bisedoj nuk janë të vetëdijshëm ... jo për arsye empirike, por sepse nuk mendoj se ky koncept ka kuptim."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mendimi im nis me një eksperiment të famshëm mendor të quajtur Dhoma Kineze, propozuar nga filozofi John Searle (1932–2025) i cili, në vitin 1980, na kërkoi të përfytyronim veten në një dhomë me një të çarë dhe pa asnjë hapje tjetër. Në dhomë ka udhëzime të sakta në anglisht për lidhjen e “shkarravinave” me - në dukje - shkarravina të tjera, duke përdorur një libër gjigant me korrelacione të tilla. Pastaj, një shënim në gjuhën kineze futet në dhomë. Nuk flasim kinezisht dhe madje as nuk i njohim karakteret kineze si gjuhë, por i kërkojmë shenjat, shkruajmë shenjat që libri na thotë të shkruajmë dhe i kalojmë rezultatet përsëri përmes të çarës."
+      },
+      {
+        "type": "paragraph",
+        "text": "Këto korrelacione ua mundësojnë folësve të kinezishtes jashtë dhomës të jenë të sigurt se po zhvillojnë një bisedë me kuptim me dikë që e kupton gjuhën kineze. Por, gjithçka që ne po bëjmë është manipulimi i shenjave të çuditshme në letër, të cilat për ne janë krejtësisht pa kuptim."
+      },
+      {
+        "type": "paragraph",
+        "text": "Searle pohon se pikërisht këtë e bëjnë kompjuterët, përfshirë edhe ata që duken të vetëdijshëm: manipulojnë simbole pa pasur asnjë vetëdije për atë që nënkuptojnë simbolet, apo madje nëse ato janë simbole. Dhoma Kineze na tregon se manipulimi i simboleve nuk mjafton për të përbërë vetëdijen, sepse kuptimi i një simboli vjen nga një vetëdije e ndarë dhe e veçuar prej tij. Me fjalët e Searleit, kjo bën që kuptimi i një simboli të jetë i jashtëm për të: ai duhet t’i atribuohet nga një vetëdije e veçuar nga simboli."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nga ana tjetër, vetëdija si e jona është ndryshe. Kur digjni dorën te bishti i nxehtë i një tenxhereje, kafshoni një banane ose vendosni këmbën e majtë përpara së djathtës teksa shëtisni, nuk keni nevojë t’i përktheni këto në dhimbje, në shijen e bananes ose në ecje. Truri juaj është pjesë e një trupi të gjallë që e ndien drejtpërdrejt dhimbjen, e shijon ushqimin dhe di si të ecë pa shikuar poshtë. Nuk ka nevojë për simbole, nuk ka nevojë për përkthime. Në terminologjinë e Searleit, kjo do të thotë se vetëdija është e brendshme: nuk ka nevojë për një vetëdije tjetër që t’ia caktojë kuptimin."
+      },
+      {
+        "type": "paragraph",
+        "text": "Por, prej nga vjen natyra e brendshme e vetëdijes? Searlei këtë nuk na e thotë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Gjysmë shekulli para Searleit, Martin Heideggeri (1889–1976) veçse e kishte bërë këtë. Në kryeveprën e tij të vitit 1927, Being and Time [Qenia dhe koha], ai e sheh botën jo ashtu siç ne e shpjegojmë, por ashtu siç e përjetojmë në rrethana të zakonshme të përditshme. Ai zbuloi se, me një rregullsi befasuese, të kuptuarit tonë nuk përputhet me përvojën tonë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Përkundrazi, vuri në dukje ai, në përvojën e përditshme të jetuar, gjërat pothuajse gjithmonë na shfaqen në dritën e projektit ose synimeve tona aktuale: Për shembull, nëse nuk keni gotë për të pirë, kavanozi bosh i reçelit mund të duket si filxhan. Me një projekt tjetër, ai mund të shfaqet si një vazo e mundshme e përkohshme për lule. Kështu, ne e përjetojmë botën njëkohësisht në dy drita: projektin tonë dhe mundësitë e sendit përkitazi me atë projekt. Të dyja këto na e tregojnë botën sipas asaj që ka rëndësi për ne në atë kohë dhe në ato rrethana."
+      },
+      {
+        "type": "paragraph",
+        "text": "Por, pse gjërat kanë rëndësi?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Heideggeri thotë se kjo ndodh meqë ne e dimë se jemi në rrezik. Por, as kjo nuk do të shpjegonte asgjë, pos nëse kujdesemi për faktin se jemi në rrezik. Dhe, kjo na fut në një rreth: Kujdesemi sepse e dimë se projektet tona dhe vetë jeta jonë janë gjithmonë në rrezik. Por, kujdesi është arsyeja pse ai rrezik ka rëndësi për ne. Dhe, kështu vazhdojmë rreth e rrotull."
+      },
+      {
+        "type": "paragraph",
+        "text": "Heideggeri e sjell këtë rreth te dijenia jonë se një ditë do të vdesim - mbase edhe sot. Dhe, ne kujdesemi për këtë. Por, përsëri, pse? Edhe pse Heideggeri nuk flet drejtpërdrejt për këtë, mendoj se mund ta zgjerojmë mendimin e tij për të thënë se kjo përfundon te fakti se jemi të trupëzuar. Rrethi ndalet aty, sepse kujdesi është i brendshëm për trupat - pikërisht lloji i pikës së ndalimit të cilin Searlei e kërkonte. Kujdesi duhet të jetë i brendshëm për ne, sepse trupat duhet t’i shmangen dhimbjes, të hanë dhe të flenë dhe të udhëhiqen me kujdes nga kënaqësitë. Përgjumja, uria, dhimbja dhe kënaqësia janë të brendshme në kuptimin se nuk janë simbole që kanë nevojë për interpretim, pa përmendur faktin se edhe trupi juaj është në mënyrë të brendshme ju dhe ju jeni në mënyrë të brendshme trupi juaj."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kujdesi dhe trupëzimi janë thellë të ndërthurur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kur një fetë keku me mollë ka shije të mirë, shija e saj e këndshme nuk është akt interpretimi. As dhimbja që ndieni kur goditni gishtin e këmbës. Dhe, kur fëmija juaj zvarritet në prehrin tuaj për t’u përqafuar, mund ta merrni këtë si shenjë dashurie, por kjo ndodh sepse trupi juaj tashmë e ka ndier atë dashuri; në asnjë çast ajo nuk ishte si një shenjë ngjyre në një gjuhë të cilën nuk e kuptoni. Trupat tanë janë burimi ynë i parë dhe kryesor i përvojës së brendshme. Dhe, ajo përvojë formësohet nga mënyrat e shumta se si mund të kujdesemi për gjërat."
+      },
+      {
+        "type": "paragraph",
+        "text": "Tani, kujdesi mund të tingëllojë si përgjithësimi përfundimtar për vetëdijen njerëzore - si në “Gjithçka përfundon te kujdesi”. Megjithatë, në përvojën tonë të përditshme, kujdesi është gjithmonë specifik në të paktën tri mënyra."
+      },
+      {
+        "type": "paragraph",
+        "text": "Së pari, kujdesi gjithmonë ka një objekt për të cilin kujdeset dhe një mënyrë specifike se si kujdeset për të. Ky mund të jetë partneri ose fëmija, por po aq mirë mund të jenë çorapet në tharëse, ai vend që të kruhet në shpinë ose peshku yt i artë që duhet ushqyer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Së dyti, edhe konteksti i kujdesit është gjithmonë specifik: Kujdesesh për çorapet sepse jashtë është ftohtë, për kruarjen sepse kërkon të kruhet, për peshkun e artë sepse fëmijët e tu do të trishtohen nëse e gjejnë duke pluskuar përmbys (pa e përmendur se edhe ti je lidhur me të)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Së treti, kujdesi është gjithashtu i ndjeshëm ndaj detajeve. Një çast kujdesi intensiv për një person tjetër mund të jetë përgjigje ndaj mënyrës se si ai të shikon, ndaj një gjesti që mishëron një ndjenjë të cilën nuk arrin ta përcaktosh mirë, ose ndaj mënyrës se si ai përkulet përpara teksa dëgjon me vëmendje. Kujdesi shpesh e gjen të vërtetën te detajet."
+      },
+      {
+        "type": "paragraph",
+        "text": "Specifika e kujdesit formësohet nga bota në të cilën kemi lindur. Për të theksuar karakterin brutal të këtij fakti, Heideggeri e quan atë hedhshmëri: Pa pëlqimin tonë, secili prej nesh lind në një kulturë, një gjuhë, një vend, një familje e kështu me radhë. Kjo është ajo që do të thotë të jesh i ndodhur - gjë që u ndodh qenieve të cilat, duke qenë të trupëzuara, nuk mund të jenë njëkohësisht në shumë vende ose kohë"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hedhshmëria i formëson trupat tanë po aq sa edhe mendjet tona. Filozofja dhe feministja Iris Marion Young (1949–2006) e shqyrton shkëlqyeshëm këtë në esenë e saj të vitit 1980, Throwing Like a Girl [Të hedhësh si vajzë]. Ajo ofron një analizë përshkruese të mënyrës se si situata tipike e një vajze të rritur, në një vend si Amerika, ndikon madje edhe në veprimet e saj më të zakonshme trupore - si i mbajnë vajzat librat ose si ecin mbi gurë përmes një përroi - dhe imponon një “nuk mundem” mbi shumë prej projekteve që ato mendojnë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kjo mund të ndodhë vetëm sepse, në përvojë, nuk jemi të ngujuar brenda një dhome duke marrë simbole të koduara që duhet t’i interpretojmë. Ne, qeniet e trupëzuara, jemi jashtë në botë, ku lagështia e trupave tanë në një stuhi të papritur nuk është simbol. Trupëzimi ynë është kjo hapje e brendshme dhe e drejtpërdrejtë ndaj botës. Pikërisht kjo është ajo që i mungon IA-së. /Telegrafi/"
+      }
+    ],
+    "kategoria": "Teknologji",
+    "imazhi": "https://telegrafi.com/media-library/ilustrim.jpg?id=68698874&width=980",
+    "koha": "17/11/2026 14:16",
+    "published_at": "2026-11-17T14:16:51.095348+01:00",
+    "source_published_at": "2026-11-17T13:02:19Z",
+    "link_origjinal": "https://telegrafi.com/pse-ia-ja-dhe-vetedija-mund-te-mos-takohen-kurre/",
+    "slug": "pse-ia-ja-dhe-vetedija-mund-te-mos-takohen-kurre",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/pse-ia-ja-dhe-vetedija-mund-te-mos-takohen-kurre/",
+        "titulli": "Pse IA-ja dhe vetëdija mund të mos takohen kurrë"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [],
+    "featured_rank": 5,
+    "selection_reasons": [
+      "Freskia: 39.59/40",
+      "Në ballinën e burimit: +12",
+      "Tema: Teknologji",
+      "Larmi burimesh dhe temash"
+    ]
+  },
+  {
+    "titulli": "AL TRADE vazhdon traditën e dhurimit vullnetar të gjakut- aktiviteti organizohet në Drenas dhe Fushë Kosovë",
+    "permbajtja": "AL TRADE vazhdon traditën e përvitshme të dhurimit vullnetar të gjakut, duke organizuar edhe këtë vit një aktivitet humanitar në mbështetje të personave që kanë nevojë për gjak.\nNën moton “Bëhu hero, dhuro gjak!”, kompania fton qytetarët dhe punonjësit e saj që t'i bashkohen kësaj nisme, e cila synon të promovojë solidaritetin dhe rëndësinë e dhurimit të gjakut për shpëtimin e jetëve.\nAktiviteti do të zhvillohet në dy lokacione, më 18 dhe 19 nëntor 2026, sipas këtij orari:\n18 nëntor (e mërkurë) – AL TRADE Market, Drenas, Rruga e Jasharajve.\n19 nëntor (e enjte) – AL TRADE Market, Fushë Kosovë, Rruga Nënë Tereza, magjistralja Fushë Kosovë – Prishtinë.\nNë kuadër të kësaj nisme, përfaqësues të AL TRADE kanë takuar edhe nënkryetarin e Komunës së Drenasit, i cili ndodhej në ambientet e Transfuzionit të Gjakut për të dhuruar gjak vullnetarisht. Ai ka shprehur mbështetjen për aktivitetin dhe rëndësinë e vazhdimit të iniciativave të tilla humanitare.\nPërmes këtij organizimi, AL TRADE vazhdon angazhimin e saj në aktivitete me karakter humanitar, duke inkurajuar pjesëmarrjen e qytetarëve në një veprim që mund të bëjë dallimin për jetën e dikujt.\nTë gjithë ata që dëshirojnë të kontribuojnë mund t'i bashkohen aktivitetit në njërin nga dy lokacionet e përcaktuara.",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "AL TRADE vazhdon traditën e përvitshme të dhurimit vullnetar të gjakut, duke organizuar edhe këtë vit një aktivitet humanitar në mbështetje të personave që kanë nevojë për gjak."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nën moton “Bëhu hero, dhuro gjak!”, kompania fton qytetarët dhe punonjësit e saj që t'i bashkohen kësaj nisme, e cila synon të promovojë solidaritetin dhe rëndësinë e dhurimit të gjakut për shpëtimin e jetëve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Aktiviteti do të zhvillohet në dy lokacione, më 18 dhe 19 nëntor 2026, sipas këtij orari:"
+      },
+      {
+        "type": "paragraph",
+        "text": "18 nëntor (e mërkurë) – AL TRADE Market, Drenas, Rruga e Jasharajve."
+      },
+      {
+        "type": "paragraph",
+        "text": "19 nëntor (e enjte) – AL TRADE Market, Fushë Kosovë, Rruga Nënë Tereza, magjistralja Fushë Kosovë – Prishtinë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në kuadër të kësaj nisme, përfaqësues të AL TRADE kanë takuar edhe nënkryetarin e Komunës së Drenasit, i cili ndodhej në ambientet e Transfuzionit të Gjakut për të dhuruar gjak vullnetarisht. Ai ka shprehur mbështetjen për aktivitetin dhe rëndësinë e vazhdimit të iniciativave të tilla humanitare."
+      },
+      {
+        "type": "paragraph",
+        "text": "Përmes këtij organizimi, AL TRADE vazhdon angazhimin e saj në aktivitete me karakter humanitar, duke inkurajuar pjesëmarrjen e qytetarëve në një veprim që mund të bëjë dallimin për jetën e dikujt."
+      },
+      {
+        "type": "paragraph",
+        "text": "Të gjithë ata që dëshirojnë të kontribuojnë mund t'i bashkohen aktivitetit në njërin nga dy lokacionet e përcaktuara."
+      }
+    ],
+    "kategoria": "Lajme",
+    "imazhi": "https://telegrafi.com/media-library/image.png?id=68698878&width=980",
+    "koha": "17/11/2026 14:16",
+    "published_at": "2026-11-17T14:16:55.533781+01:00",
+    "source_published_at": "2026-11-17T13:01:46Z",
+    "link_origjinal": "https://telegrafi.com/al-trade-vazhdon-traditen-e-dhurimit-vullnetar-te-gjakut-aktiviteti-organizohet-ne-drenas-dhe-fushe-kosove/",
+    "slug": "al-trade-vazhdon-traditen-e-dhurimit-vullnetar-te-gjakut-aktiviteti-organizohet-ne-drenas-dhe-fushe-kosove",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/al-trade-vazhdon-traditen-e-dhurimit-vullnetar-te-gjakut-aktiviteti-organizohet-ne-drenas-dhe-fushe-kosove/",
+        "titulli": "AL TRADE vazhdon traditën e dhurimit vullnetar të gjakut- aktiviteti organizohet në Drenas dhe Fushë Kosovë"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [
+      "Drenas",
+      "Fushë Kosovë"
+    ]
+  },
+  {
+    "titulli": "Alarmi për Zhegrovën zgjat pak, në Itali raportojnë se nuk bëhet fjalë për lëndim serioz",
+    "permbajtja": "Edon Zhegrova mund të rikthehet shumë shpejt në fushën e gjelbër, pasi raportimet e fundit nga Italia kanë sjellë lajme pozitive për gjendjen e tij fizike.\nSulmuesi i Kosovës u detyrua të largohej nga grumbullimi i Kombëtares për shkak të një lëndimi, duke humbur kështu ndeshjen e rëndësishme ndaj Irlandës.\nMegjithatë, sipas raportimit të mediumit italian Gazzetta dello Sport, gjendja e futbollistit të Juventusit nuk është shqetësuese dhe nuk bëhet fjalë për një dëmtim serioz.\nZhegrova pritet të rikthehet në stërvitje që të mërkurën, fillimisht duke punuar i ndarë nga pjesa tjetër e skuadrës. Më pas, në varësi të gjendjes së tij fizike, ai mund t'u bashkohet plotësisht bashkëlojtarëve.\nLarg më i mirë: Edon Zhegrova, më së shumti driblime të suksesshme në Ligën e Kombeve\nFutbollisti kosovar do t'u nënshtrohet edhe ekzaminimeve mjekësore për të vlerësuar më saktë gjendjen e tij, por në Itali mbizotëron optimizmi për rikuperimin e shpejtë.\nMadje, nuk përjashtohet mundësia që Zhegrova të jetë në dispozicion të Juventusit për ndeshjen e radhës ndaj Venezias./Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Edon Zhegrova mund të rikthehet shumë shpejt në fushën e gjelbër, pasi raportimet e fundit nga Italia kanë sjellë lajme pozitive për gjendjen e tij fizike."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sulmuesi i Kosovës u detyrua të largohej nga grumbullimi i Kombëtares për shkak të një lëndimi, duke humbur kështu ndeshjen e rëndësishme ndaj Irlandës."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, sipas raportimit të mediumit italian Gazzetta dello Sport, gjendja e futbollistit të Juventusit nuk është shqetësuese dhe nuk bëhet fjalë për një dëmtim serioz."
+      },
+      {
+        "type": "paragraph",
+        "text": "Zhegrova pritet të rikthehet në stërvitje që të mërkurën, fillimisht duke punuar i ndarë nga pjesa tjetër e skuadrës. Më pas, në varësi të gjendjes së tij fizike, ai mund t'u bashkohet plotësisht bashkëlojtarëve."
+      },
+      {
+        "type": "heading",
+        "text": "Larg më i mirë: Edon Zhegrova, më së shumti driblime të suksesshme në Ligën e Kombeve"
+      },
+      {
+        "type": "image",
+        "url": "https://telegrafi.com/media-library/image.jpg?id=68691748&width=300",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "type": "paragraph",
+        "text": "Futbollisti kosovar do t'u nënshtrohet edhe ekzaminimeve mjekësore për të vlerësuar më saktë gjendjen e tij, por në Itali mbizotëron optimizmi për rikuperimin e shpejtë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Madje, nuk përjashtohet mundësia që Zhegrova të jetë në dispozicion të Juventusit për ndeshjen e radhës ndaj Venezias./Telegrafi/"
+      }
+    ],
+    "kategoria": "Sport",
+    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68698359&width=980",
+    "koha": "17/11/2026 14:16",
+    "published_at": "2026-11-17T14:16:59.349828+01:00",
+    "source_published_at": "2026-11-17T12:57:00Z",
+    "link_origjinal": "https://telegrafi.com/alarmi-per-zhegroven-zgjat-pak-ne-itali-raportojne-se-nuk-behet-fjale-per-lendim-serioz/",
+    "slug": "alarmi-per-zhegroven-zgjat-pak-ne-itali-raportojne-se-nuk-behet-fjale-per-lendim-serioz",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/alarmi-per-zhegroven-zgjat-pak-ne-itali-raportojne-se-nuk-behet-fjale-per-lendim-serioz/",
+        "titulli": "Alarmi për Zhegrovën zgjat pak, në Itali raportojnë se nuk bëhet fjalë për lëndim serioz"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Siljanovska-Davkova: Gazetaria duhet të vërë në pikëpyetje çdo formë pushteti, jo të jetë aleati i tij",
+    "permbajtja": "Pa media të lira dhe të përgjegjshme, nuk ka qytetarë të informuar, dhe pa to, demokracia humbet thelbin e saj. Këtë e deklaroi Presidentja e RMV-së, Gordana Siljanovska-Davkova në hapjen e Forumit të 20-të të Medias së Evropës Juglindore (SEEMF) 2026, i cili po zhvillohet sot në Shkup.\nNë fjalimin e saj, ajo theksoi se roli i gazetarisë nuk është të jetë një zgjatim i qeverisë, as kundërshtar i saj i paracaktuar, por të kontrollojë dhe vërë në dyshim në mënyrë të pavarur çdo formë pushteti.\n“Gazetaria kërkon një angazhim ndaj të vërtetës dhe një ndjenjë të interesit publik. Për mua, politika ka qenë gjithmonë një dialog, kurrë një monolog. Mosmarrëveshja dhe komunikimi janë në thelbin e saj”, tha Siljanovska-Davkova.\nAjo vlerësoi se media luan një rol kyç në proceset demokratike - jo vetëm përmes informimit, por edhe përmes hapjes së debatit publik, duke mundësuar pikëpamje të ndryshme dhe duke zbuluar abuzime.\nMegjithatë, ajo paralajmëroi se përmbajtja mediatike nuk ofron gjithmonë pikëpamje të balancuara politike dhe se marrëdhëniet midis profesionistëve të medias dhe elitave politike ndonjëherë mund të vënë në pikëpyetje pavarësinë e gazetarisë./Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Pa media të lira dhe të përgjegjshme, nuk ka qytetarë të informuar, dhe pa to, demokracia humbet thelbin e saj. Këtë e deklaroi Presidentja e RMV-së, Gordana Siljanovska-Davkova në hapjen e Forumit të 20-të të Medias së Evropës Juglindore (SEEMF) 2026, i cili po zhvillohet sot në Shkup."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në fjalimin e saj, ajo theksoi se roli i gazetarisë nuk është të jetë një zgjatim i qeverisë, as kundërshtar i saj i paracaktuar, por të kontrollojë dhe vërë në dyshim në mënyrë të pavarur çdo formë pushteti."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Gazetaria kërkon një angazhim ndaj të vërtetës dhe një ndjenjë të interesit publik. Për mua, politika ka qenë gjithmonë një dialog, kurrë një monolog. Mosmarrëveshja dhe komunikimi janë në thelbin e saj”, tha Siljanovska-Davkova."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ajo vlerësoi se media luan një rol kyç në proceset demokratike - jo vetëm përmes informimit, por edhe përmes hapjes së debatit publik, duke mundësuar pikëpamje të ndryshme dhe duke zbuluar abuzime."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, ajo paralajmëroi se përmbajtja mediatike nuk ofron gjithmonë pikëpamje të balancuara politike dhe se marrëdhëniet midis profesionistëve të medias dhe elitave politike ndonjëherë mund të vënë në pikëpyetje pavarësinë e gazetarisë./Telegrafi/"
+      }
+    ],
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/gordana-siljanovska-davkova.jpg?id=66654285&width=980",
+    "koha": "17/11/2026 14:17",
+    "published_at": "2026-11-17T14:17:03.426583+01:00",
+    "source_published_at": "2026-11-17T12:56:58Z",
+    "link_origjinal": "https://telegrafi.com/siljanovska-davkova-gazetaria-duhet-te-vere-ne-pikepyetje-cdo-forme-pushteti-jo-te-jete-aleati-i-tij/",
+    "slug": "siljanovska-davkova-gazetaria-duhet-te-vere-ne-pikepyetje-cdo-forme-pushteti-jo-te-jete-aleati-i-tij",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/siljanovska-davkova-gazetaria-duhet-te-vere-ne-pikepyetje-cdo-forme-pushteti-jo-te-jete-aleati-i-tij/",
+        "titulli": "Siljanovska-Davkova: Gazetaria duhet të vërë në pikëpyetje çdo formë pushteti, jo të jetë aleati i tij"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Dy të tretat e zviceranëve duan ta shfuqizojnë “Black Friday”",
+    "permbajtja": "Dy të tretat e qytetarëve në Zvicër janë në favor të shfuqizimit të të Premtes së Zezë (Black Friday), ndërsa vetëm 21 për qind dëshirojnë që kjo ditë e blerjeve të vazhdojë të mbahet.\nSipas një sondazhi përfaqësues të realizuar nga instituti Demoscope, me porosi të platformës blackfridaydeals.ch, 67 për qind e të anketuarve janë shprehur kundër vazhdimit të kësaj dite të blerjeve, raporton Watson.\nKjo përqindje është dukshëm më e lartë krahasuar me vitin 2020, kur pak më pak se gjysma e të anketuarve ishin në favor të shfuqizimit të saj, transemton Telegrafi.\nGratë janë më kritike ndaj të Premtes së Zezë\nSipas njoftimit për shtyp, qëndrimi kritik ndaj kësaj dite është rritur si te të rinjtë, ashtu edhe te të moshuarit në të gjithë Zvicrën.\nNë Zvicrën gjermanishtfolëse, përqindja e atyre që janë kundër saj është rritur nga 51 në 69 për qind, ndërsa në pjesën frëngjishtfolëse nga 44 në 60 për qind.\nRritja më e madhe e kundërshtimit është regjistruar te personat e moshës 35 deri në 54 vjeç, ku kjo përqindje është rritur nga 47 në 69 për qind.\nGratë janë më kritike se burrat, me 70 për qind të tyre që janë në favor të shfuqizimit të të Premtes së Zezë, krahasuar me 64 për qind të burrave.\n“E Premtja e Zezë ka një problem me imazhin”, ka thënë eksperti i shitjes me pakicë, Julian Zrotz.\nSipas tij, shumë konsumatorë shqetësohen nga zbritjet e rreme dhe presioni për të konsumuar, i krijuar nga lufta e çmimeve që zgjat disa javë, transmeton Telegrafi.\nZrotz vlerëson se shitësit me pakicë mund ta rifitojnë besimin e humbur vetëm përmes “ofertave të vërteta dhe të verifikueshme”.\nPavarësisht kundërshtimeve, shumë të rinj planifikojnë të blejnë\nPër një pjesë të konsumatorëve, E Premtja e Zezë vazhdon të jetë një datë e rëndësishme në kalendarin e blerjeve.\nPothuajse tre në dhjetë të anketuar planifikojnë të bëjnë blerje gjatë kësaj dite. Te të rinjtë e moshës 15 deri në 34 vjeç, kjo përqindje është edhe më e lartë, pasi më shumë se gjysma e tyre planifikojnë të blejnë.\nMegjithatë, edhe në këtë grupmoshë, që është më e prirur për të bërë blerje, pothuajse gjysma do të dëshironte që kjo ditë të shfuqizohej.\nSi u realizua sondazhi\nSondazhi u realizua nga instituti Demoscope, me porosi të blackfridaydeals.ch, ku u anketuan 1,013 persona të moshës 15 vjeç e lart në pjesët gjermanishtfolëse dhe frëngjishtfolëse të Zvicrës.\nAnketimi u zhvillua nga 16 deri më 28 shtator 2026, ndërsa marzhi maksimal i gabimit statistikor është ±3.1 pikë përqindjeje, me nivel besimi prej 95 për qind.\nPyetja për shfuqizimin e të Premtes së Zezë ishte bërë edhe në vitin 2020, por në një formë paksa të ndryshuar./Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Dy të tretat e qytetarëve në Zvicër janë në favor të shfuqizimit të të Premtes së Zezë (Black Friday), ndërsa vetëm 21 për qind dëshirojnë që kjo ditë e blerjeve të vazhdojë të mbahet."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas një sondazhi përfaqësues të realizuar nga instituti Demoscope, me porosi të platformës blackfridaydeals.ch, 67 për qind e të anketuarve janë shprehur kundër vazhdimit të kësaj dite të blerjeve, raporton Watson."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kjo përqindje është dukshëm më e lartë krahasuar me vitin 2020, kur pak më pak se gjysma e të anketuarve ishin në favor të shfuqizimit të saj, transemton Telegrafi."
+      },
+      {
+        "type": "paragraph",
+        "text": "Gratë janë më kritike ndaj të Premtes së Zezë"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas njoftimit për shtyp, qëndrimi kritik ndaj kësaj dite është rritur si te të rinjtë, ashtu edhe te të moshuarit në të gjithë Zvicrën."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në Zvicrën gjermanishtfolëse, përqindja e atyre që janë kundër saj është rritur nga 51 në 69 për qind, ndërsa në pjesën frëngjishtfolëse nga 44 në 60 për qind."
+      },
+      {
+        "type": "paragraph",
+        "text": "Rritja më e madhe e kundërshtimit është regjistruar te personat e moshës 35 deri në 54 vjeç, ku kjo përqindje është rritur nga 47 në 69 për qind."
+      },
+      {
+        "type": "paragraph",
+        "text": "Gratë janë më kritike se burrat, me 70 për qind të tyre që janë në favor të shfuqizimit të të Premtes së Zezë, krahasuar me 64 për qind të burrave."
+      },
+      {
+        "type": "paragraph",
+        "text": "“E Premtja e Zezë ka një problem me imazhin”, ka thënë eksperti i shitjes me pakicë, Julian Zrotz."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas tij, shumë konsumatorë shqetësohen nga zbritjet e rreme dhe presioni për të konsumuar, i krijuar nga lufta e çmimeve që zgjat disa javë, transmeton Telegrafi."
+      },
+      {
+        "type": "paragraph",
+        "text": "Zrotz vlerëson se shitësit me pakicë mund ta rifitojnë besimin e humbur vetëm përmes “ofertave të vërteta dhe të verifikueshme”."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pavarësisht kundërshtimeve, shumë të rinj planifikojnë të blejnë"
+      },
+      {
+        "type": "paragraph",
+        "text": "Për një pjesë të konsumatorëve, E Premtja e Zezë vazhdon të jetë një datë e rëndësishme në kalendarin e blerjeve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pothuajse tre në dhjetë të anketuar planifikojnë të bëjnë blerje gjatë kësaj dite. Te të rinjtë e moshës 15 deri në 34 vjeç, kjo përqindje është edhe më e lartë, pasi më shumë se gjysma e tyre planifikojnë të blejnë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, edhe në këtë grupmoshë, që është më e prirur për të bërë blerje, pothuajse gjysma do të dëshironte që kjo ditë të shfuqizohej."
+      },
+      {
+        "type": "paragraph",
+        "text": "Si u realizua sondazhi"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sondazhi u realizua nga instituti Demoscope, me porosi të blackfridaydeals.ch, ku u anketuan 1,013 persona të moshës 15 vjeç e lart në pjesët gjermanishtfolëse dhe frëngjishtfolëse të Zvicrës."
+      },
+      {
+        "type": "paragraph",
+        "text": "Anketimi u zhvillua nga 16 deri më 28 shtator 2026, ndërsa marzhi maksimal i gabimit statistikor është ±3.1 pikë përqindjeje, me nivel besimi prej 95 për qind."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pyetja për shfuqizimin e të Premtes së Zezë ishte bërë edhe në vitin 2020, por në një formë paksa të ndryshuar./Telegrafi/"
+      }
+    ],
+    "kategoria": "Ekonomi",
+    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68698475&width=980",
+    "koha": "17/11/2026 14:17",
+    "published_at": "2026-11-17T14:17:11.372471+01:00",
+    "source_published_at": "2026-11-17T11:59:21Z",
+    "link_origjinal": "https://telegrafi.com/dy-te-tretat-e-zviceraneve-duan-ta-shfuqizojne-black-friday/",
+    "slug": "dy-te-tretat-e-zviceraneve-duan-ta-shfuqizojne-black-friday",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/dy-te-tretat-e-zviceraneve-duan-ta-shfuqizojne-black-friday/",
+        "titulli": "Dy të tretat e zviceranëve duan ta shfuqizojnë “Black Friday”"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
     "titulli": "Aleatët e NATO-s dhe Pentagoni diskutojnë tërheqjen e mundshme të trupave amerikane nga Evropa",
     "permbajtja": "Aleatët e NATO-s do të diskutojnë shqyrtimin e Uashingtonit të niveleve të trupave amerikane në Evropë.\nKëtë, sipas mediave të huaja, përcjell Telegrafi, ata do ta bëjnë me shefin e politikave të Pentagonit, Elbridge Colby të martën.\nKjo është bërë e ditur nga ministri gjerman i Mbrojtjes, Boris Pistorius, me më shumë qartësi mbi fushëveprimin e çdo tërheqjeje që pritet brenda disa javësh.\nSekretari i Mbrojtjes i SHBA-së, Pete Hegseth, zbuloi shqyrtimin gjashtëmujor në qershor dhe kërcënoi të mbajë disa detyrime të SHBA-së ndaj NATO-s nëse aleatët nuk do të përmbushnin angazhimet e shpenzimeve të mbrojtjes.\nAi nuk tha në mënyrë të qartë se shqyrtimi mund të çonte në shkurtime të 80,000 trupave amerikane të vendosura në Evropë, por theksoi qëllimin e nxitjes së kontinentit të bëjë më shumë, duke i mundësuar ushtrisë amerikane të përmbushë angazhimet globale.\n\"Ne presim ndryshime në nivelet e trupave, por nuk dimë asgjë konkrete ende\", tha Pistorius përpara një takimi me homologët e tij të BE-së në Bruksel, me të cilin Colby do të bashkohet për një drekë pune.\n\"Por përsëri, një ndryshim në balancën e forcave konvencionale do të kishte ndodhur nën çdo president tjetër të SHBA-së, për shkak të rritjes së angazhimit në Indo-Paqësor\".\nGjermania strehon rreth 35,000 trupa amerikane, prania më e madhe ushtarake amerikane në Evropë.\nDhe siç bëhet e ditur më tej, rezultati i shqyrtimit pritet të paraqitet para Krishtlindjeve.\nBurime ushtarake evropiane kanë spekuluar se Uashingtoni mund të zhvendosë një brigadë ose rreth 5,000 trupa nga Gjermania ose në Azi ose më afër krahut lindor të NATO-s në Poloni.\nPistorius tha se bisedimet aktuale synojnë koordinimin me Uashingtonin për të parandaluar boshllëqet e rrezikshme në mbrojtjen evropiane të NATO-s të shkaktuara nga çdo tërheqje e SHBA-së.\nMë vonë, Colby do të bashkohet me një takim të të ashtuquajturit Grupi Ramstein i mbështetësve ushtarakë të Ukrainës në selinë e NATO-s për të diskutuar se si të furnizojë më shumë armë Kievin përpara një dimri të ashpër, ndërsa Rusia rrit sulmet ajrore mbi infrastrukturën civile.\nPistorius bëri të ditur se Gjermania dhe Norvegjia do të financojnë një paketë tjetër armatimesh amerikane në kuadër të programit PURL, duke u përqendruar në dërgimin e më shumë raketave PAC-2 (RTX.N) dhe PAC-3 (LMT.N) për sistemin e mbrojtjes ajrore Patriot në Ukrainë.\n\"Kjo është paketa e pestë në të cilën merr pjesë Gjermania. Këtë herë, ne po kontribuojmë me 300 milionë dollarë\", citohet të ketë thënë Pistorius.\nGjermania po punon për të integruar raketat e saj IRIS-T me sistemet norvegjeze të mbrojtjes ajrore NASAMS (KOG.OL) dhe do t'i dërgojë Kievit radarë shtesë, municione kundër dronëve dhe avionë luftarakë, tha ai.\n\"Ne do t'u bëjmë sërish thirrje të gjithëve që të tregojnë përgjegjësi\", u shpreh Pistorius, duke iu referuar aleatëve si Greqia, të cilët zotërojnë ende rezerva të mëdha raketash Patriot.\nMbështetja për Ukrainën nuk është një akt bamirësie; ajo shkon përtej solidaritetit dhe ndihmës për një vend që ndodhet nën sulm, tha ai, duke shtuar: \"Bëhet fjalë për sigurinë e Evropës, për ndalimin e Vladimir Putinit dhe për ta vënë atë në vendin që i takon\". /Telegrafi/",
     "content_blocks": [
@@ -1002,14 +1376,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 5,
-    "selection_reasons": [
-      "Freskia: 39.51/40",
-      "Në ballinën e burimit: +12",
-      "Tema: Sport",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Gjykata në Mbretërinë e Bashkuar jep vendim lirues ndaj pjesëtarit të FSK-së",
@@ -1060,7 +1427,7 @@
     "komunat": [],
     "featured_rank": 2,
     "selection_reasons": [
-      "Freskia: 39.32/40",
+      "Freskia: 38.91/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Vendime publike: +10",
       "Tema: Vendime publike",
@@ -1244,7 +1611,7 @@
     "komunat": [],
     "featured_rank": 3,
     "selection_reasons": [
-      "Freskia: 38.79/40",
+      "Freskia: 38.37/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Arsim: +14",
       "Tema: Arsim",
@@ -4778,7 +5145,7 @@
     "komunat": [],
     "featured_rank": 4,
     "selection_reasons": [
-      "Freskia: 33.54/40",
+      "Freskia: 33.13/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Shërbime publike: +18",
       "Tema: Shërbime publike",
@@ -6431,7 +6798,7 @@
     ],
     "featured_rank": 1,
     "selection_reasons": [
-      "Freskia: 31.01/40",
+      "Freskia: 30.59/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Siguri dhe emergjenca: +16",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -141178,96 +141545,6 @@
       {
         "url": "https://telegrafi.com/protestuesit-i-vene-flaken-shportes-se-mbeturinave-prane-hyrjes-se-ministrise-se-arsimit/",
         "titulli": "Protestuesit i vënë flakën shportës së mbeturinave pranë hyrjes së Ministrisë së Arsimit"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Robotët e vegjël Microduck bëhen sensacion pas prezantimit nga kreu i Nvidia-s, mbi 20 mijë porosi brenda një dite",
-    "permbajtja": "Robotët e vegjël në formë rosash, të quajtur Microduck, janë shndërruar në një fenomen në internet pasi drejtori ekzekutiv i Nvidia-s, Jensen Huang, i prezantoi gjatë një konference teknologjike në Berlin. Vetëm një ditë pas publikimit të videos, porositë paraprake kaluan shifrën prej 20 mijë njësish, duke i kthyer këta robotë në kandidatë për t’u bërë ndër lodrat më të kërkuara të festave të fundvitit.\nNjë grup robotësh të vegjël, që ecin si rosa, reagojnë ndaj komandave zanore dhe kryejnë lëvizje argëtuese, ka tërhequr vëmendjen e publikut në mbarë botën.\nGjatë konferencës GTC Berlin të kompanisë Nvidia, drejtori ekzekutiv Jensen Huang u shfaq duke luajtur me robotët Microduck, në një demonstrim që shumë shpejt u bë viral në rrjetet sociale.\nRobotët e vegjël lëviznin me hapa karakteristikë, lëshonin tinguj elektronikë që të kujtonin personazhin R2-D2 nga saga “Star Wars” dhe u përgjigjeshin komandave të thjeshta zanore.\nAta mund të uleshin, të ngriheshin, të ecnin dhe madje të rrëzoheshin sikur po flinin, përpara se të kryenin rrotullime akrobatike.\nPamjet e demonstrimit tërhoqën menjëherë interesim të madh, jo vetëm nga adhuruesit e teknologjisë, por edhe nga njerëzit që i panë robotët si lodra argëtuese.\nMbi 20 mijë porosi pas videos virale\nSipas Clem Delangue, përfaqësues i kompanisë Hugging Face, porositë paraprake për Microduck tejkaluan 20 mijë njësi vetëm një ditë pas përhapjes së videos.\nDelangue e bëri të ditur këtë zhvillim përmes një postimi në rrjetet sociale.\nWhen @jensenhuang asks for a somersault, you deliver. 🦆 See how AI agents on NVIDIA RTX Spark help bring @huggingface’s Microduck from simulation to the real world. https://t.co/W6qidApR2O\n— NVIDIA RTX Spark (@NVIDIARTXSpark) October 21, 2026\nInteresimi i menjëhershëm ka nxitur parashikimet se Microduck mund të bëhet një nga produktet më të kërkuara teknologjike gjatë sezonit të Krishtlindjes.\nDërgesat e para pritet të realizohen në kohë për festat e fundvitit.\nDelangue madje ka sugjeruar se Microduck mund të shndërrohet në robotin më të shitur të vitit.\nMegjithatë, kjo mbetet një pritshmëri dhe jo një rezultat i konfirmuar i shitjeve.\nJo vetëm për fëmijët\nMegjithëse në pamje të parë Microduck ngjan me një lodër për fëmijë, prodhuesit duket se synojnë një publik më të gjerë.\nNë videot promovuese shfaqen edhe të rritur duke ndërvepruar me robotët, duke u dhënë komanda dhe duke i vëzhguar teksa kryejnë veprime të ndryshme.\nKombinimi i pamjes simpatike, lëvizjeve argëtuese dhe teknologjisë robotike mund t’i bëjë këto pajisje tërheqëse për familjet, koleksionistët dhe entuziastët e inteligjencës artificiale.\nMicroduck nuk është thjesht një figurë elektronike që përsërit disa lëvizje të programuara. Ai është konceptuar edhe si një platformë që përdoruesit mund ta eksperimentojnë dhe zhvillojnë më tej.\nRobotë që mund të mësojnë veprime të reja\nMicroduck është një pajisje me kod të hapur, e zhvilluar nga Pollen Robotics.\nKjo do të thotë se teknologjia e tij është menduar të jetë e qasshme për zhvilluesit dhe përdoruesit që dëshirojnë ta përshtatin funksionimin e robotit.\nSipas kompanisë, robotët janë trajnuar duke përdorur teknologjitë e Nvidia-s.\nPërmes simulimeve kompjuterike, ata kanë mësuar veprime bazë, si ecja, qëndrimi në këmbë dhe ulja.\nKëto aftësi përfshihen në robotët që u dërgohen blerësve.\nPor një nga veçoritë më interesante është mundësia që pronarët t’u mësojnë robotëve veprime të reja.\nPollen Robotics thotë se përdoruesit mund të zhvillojnë lëvizje dhe komanda shtesë, të cilat më pas mund t’i ndajnë me komunitetin.\nKjo mundëson që aftësitë e Microduck të zgjerohen edhe pas blerjes.\nLidhja me Nvidia-n dhe Hugging Face\nMicroduck është zhvilluar nga Pollen Robotics, një kompani që u ble nga Hugging Face në vitin 2025.\nSipas artikullit, Nvidia bleu më pas Hugging Face në shtator, duke e përfshirë edhe Pollen Robotics në strukturën e saj.\nHugging Face është e njohur për platformat dhe mjetet e saj të inteligjencës artificiale, ndërsa Pollen Robotics është përqendruar në zhvillimin e robotëve që mund të përdoren për kërkime dhe eksperimente teknologjike.\nMicroduck është roboti i dytë i përmendur në këtë linjë produktesh, pas Reachy Mini, një tjetër pajisjeje të vogël robotike me pamje miqësore.\nPërdorimi i teknologjive të Nvidia-s për trajnimin e robotëve tregon mënyrën se si inteligjenca artificiale po përdoret gjithnjë e më shumë për të lidhur botën digjitale me pajisjet fizike.\nInteligjenca artificiale mund të jetë edhe argëtuese\nPrezantimi i Microduck vjen në një periudhë kur inteligjenca artificiale po përballet me shqetësime të shumta lidhur me sigurinë dhe përdorimin e saj.\nGjatë javës, sipas artikullit, përfshirja e teknologjive të inteligjencës artificiale është përmendur në raportimet për disa sulme kibernetike.\nMegjithatë, suksesi i videos së Microduck ka treguar një anë më të lehtë dhe argëtuese të kësaj teknologjie.\nNë vend të demonstrimeve të ndërlikuara teknike, Nvidia ka tërhequr vëmendjen përmes disa robotëve të vegjël që ecin, bëjnë tinguj dhe reagojnë ndaj komandave.\nKy kontrast ka ndihmuar që demonstrimi të përhapet me shpejtësi në internet.\nA do të bëhet Microduck dhurata më e kërkuar e Krishtlindjes?\nMe mbi 20 mijë porosi paraprake të raportuara, Microduck ka nisur të tërheqë interesim komercial përpara sezonit të festave.\nPamja e tij simpatike, komandat zanore dhe mundësia për t’i shtuar aftësi të reja janë disa nga karakteristikat që e dallojnë nga lodrat tradicionale elektronike.\nMegjithatë, suksesi përfundimtar do të varet nga prodhimi, dorëzimi i porosive dhe përvoja reale e përdoruesve.\nPër momentin, Microduck është kthyer në një shembull të mënyrës se si robotika dhe inteligjenca artificiale mund të krijojnë produkte që janë njëkohësisht teknologjike dhe argëtuese.\nNëse interesimi vazhdon me të njëjtin ritëm, robotët e vegjël që Jensen Huang i prezantoi në Berlin mund të bëhen një nga surprizat më të mëdha të tregut të lodrave teknologjike këtë fundvit. Nga një demonstrim në skenë te dhjetëra mijëra porosi, Microduck ka treguar se ndonjëherë mjaftojnë disa hapa të vegjël robotikë për të tërhequr vëmendjen e gjithë botës.",
-    "kategoria": "Teknologji",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/10/lodra.webp",
-    "koha": "24/10/2026 14:46",
-    "link_origjinal": "https://www.gazetaexpress.com/robotet-e-vegjel-microduck-behen-sensacion-pas-prezantimit-nga-kreu-i-nvidia-s-mbi-20-mije-porosi-brenda-nje-dite/",
-    "slug": "robotet-e-vegjel-microduck-behen-sensacion-pas-prezantimit-nga-kreu-i-nvidia-s-mbi-20-mije-porosi-brenda-nje-dite",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/robotet-e-vegjel-microduck-behen-sensacion-pas-prezantimit-nga-kreu-i-nvidia-s-mbi-20-mije-porosi-brenda-nje-dite/",
-        "titulli": "Robotët e vegjël Microduck bëhen sensacion pas prezantimit nga kreu i Nvidia-s, mbi 20 mijë porosi brenda një dite"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Shoferët duhet të kenë kujdes në autostradat sllovene, janë vendosur radarë të rinj, gjobat deri në 1200 euro",
-    "permbajtja": "Sistemi i ri i kamerave është vendosur në katër segmente të autostradave dhe llogarit shpejtësinë mesatare të automjeteve, duke mos lejuar shmangien e kontrollit përmes ngadalësimit vetëm pranë radarëve.\nSllovenia ka vendosur një sistem të ri të kontrollit të shpejtësisë në katër segmente të autostradave. Kamerat e reja nuk matin vetëm shpejtësinë në një pikë të caktuar, por llogarisin shpejtësinë mesatare të automjeteve gjatë gjithë distancës së monitoruar, transmeton albinfo.ch.\nSipas medias kroate “Index”, sistemi synon të rrisë sigurinë rrugore dhe të parandalojë praktikën e shoferëve që ngadalësojnë para radarëve, për të përshpejtuar sërish pasi i kalojnë ata.\nNdryshe nga radarët tradicionalë, kamerat e reja regjistrojnë kohën kur automjeti hyn në segmentin e kontrolluar dhe kohën kur del prej tij. Duke u bazuar në distancën e përshkuar dhe kohën e udhëtimit, sistemi llogarit shpejtësinë mesatare.\nPër shembull, nëse një automjet përshkon një segment prej 10 kilometrash për katër minuta, shpejtësia mesatare është 150 kilometra në orë. Në një segment ku kufizimi është 130 km/h, kjo përbën tejkalim të shpejtësisë së lejuar.\nSipas të dhënave të Zyrës Sllovene të Metrologjisë, sistemi është vendosur në këto katër lokacione:\nGjobat për tejkalim të shpejtësisë në autostradat e Sllovenisë variojnë nga 40 deri në 1.200 euro, në varësi të shkallës së shkeljes.\nSipas të dhënave të publikuara, gjobat për tejkalim të shpejtësisë janë:\nPër tejkalime më të mëdha parashihen gjoba më të rënda. Shoferët që tejkalojnë kufirin e lejuar me më shumë se 60 km/h mund të gjobiten me deri në 1.200 euro. Për shkeljet më të rënda parashihen edhe pikë ndëshkuese.",
-    "kategoria": "Lajme",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/10/sllovenia-autostrada-3b29d7e9.jpg",
-    "koha": "24/10/2026 14:46",
-    "link_origjinal": "https://www.gazetaexpress.com/shoferet-duhet-te-kene-kujdes-ne-autostradat-sllovene-jane-vendosur-radare-te-rinj-gjobat-deri-ne-1200-euro/",
-    "slug": "shoferet-duhet-te-kene-kujdes-ne-autostradat-sllovene-jane-vendosur-radare-te-rinj-gjobat-deri-ne-1200-euro",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/shoferet-duhet-te-kene-kujdes-ne-autostradat-sllovene-jane-vendosur-radare-te-rinj-gjobat-deri-ne-1200-euro/",
-        "titulli": "Shoferët duhet të kenë kujdes në autostradat sllovene, janë vendosur radarë të rinj, gjobat deri në 1200 euro"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Lamine Yamal kërkon të shkëlqejë në El Clasico, përballja me Mourinhon mund të jetë vendimtare",
-    "permbajtja": "Pas deklaratave që shkaktuan polemika dhe vëmendjes së madhe ndaj jetës së tij jashtë fushës, Lamine Yamal po përgatitet për një tjetër përballje të rëndësishme me Real Madridin. Talenti i Barcelonës synon të jetë protagonist në El Clasicon e së dielës, në një ndeshje që mund të ndikojë ndjeshëm në garën për titull dhe në ambiciet e tij individuale.\nLamine Yamal është gati për një nga sfidat më të rëndësishme të sezonit. Sulmuesi anësor i Barcelonës do të përballet me Real Madridin në një El Clasico që ka rëndësi të veçantë për të, si në aspektin sportiv ashtu edhe në atë personal.\nSipas gazetës spanjolle “Mundo Deportivo”, 19-vjeçari është jashtëzakonisht i motivuar për të luajtur për herë të parë kundër rivalit historik në stadiumin “Spotify Camp Nou”.\nYamal dëshiron të udhëheqë Barcelonën drejt një fitoreje që do të ndikonte në garën për titull, ndërsa një paraqitje e mirë mund të forconte më tej reputacionin e tij si një nga futbollistët më të talentuar në botë.\nReal Madridi, kundërshtari që e motivon më së shumti\nLamine Yamal nuk e ka fshehur asnjëherë rëndësinë që kanë për të përballjet me Real Madridin.\nNë një intervistë me ish-futbollistin dhe analistin Jorge Valdano, talenti spanjoll kishte folur për emocionet që i shkakton rivaliteti mes dy klubeve.\nPër Yamalin, El Clasico përfaqëson një mundësi për të treguar personalitetin dhe cilësitë e tij në skenën më të madhe të futbollit spanjoll.\nMegjithatë, përballja e ardhshme pritet të jetë veçanërisht e vështirë.\nPër herë të parë, ai do të përballet me një Real Madrid të drejtuar nga José Mourinho, trajner i njohur për disiplinën taktike dhe strategjitë që përdor për të kufizuar ndikimin e lojtarëve më të rrezikshëm kundërshtarë.\nKjo e bën ndeshjen një provë të rëndësishme për aftësinë e Yamalit për të krijuar raste dhe për të marrë përgjegjësi përballë një kundërshtari të organizuar.\nNjë El Clasico me rëndësi të madhe për titullin\nPërballja vjen në një moment kur diferenca e pikëve mes dy rivalëve mund të luajë rol të rëndësishëm në vazhdimësinë e kampionatit.\nSipas raportimit të “Mundo Deportivo”, Real Madridi ka një epërsi prej gjashtë pikësh ndaj Barcelonës.\nPër këtë arsye, katalanasit kërkojnë një fitore që do t’i afronte në renditje dhe do t’u jepte një shtysë të rëndësishme për vazhdimin e sezonit.\nYamal pritet të jetë një nga lojtarët kryesorë në përpjekjen e Barcelonës për të krijuar epërsi sulmuese dhe për të rrezikuar portën madrilene.\nKujtimet e një titulli të festuar nga tribuna\nPër talentin spanjoll, përballjet me Real Madridin lidhen edhe me disa nga momentet më të rëndësishme të karrierës së tij.\nNë maj të sezonit të kaluar, Yamal nuk arriti të ishte në fushë gjatë festimeve të titullit të Barcelonës në La Liga, për shkak të një dëmtimi muskulor që kishte pësuar në ndeshjen kundër Celta Vigos.\nAi e ndoqi festën nga tribuna, duke përjetuar emocionet e triumfit së bashku me tifozët.\nGjatë asaj ndeshjeje, festoi golin e Ferran Torresit dhe goditjen e lirë të realizuar nga Marcus Rashford, përpara se të shihte bashkëlojtarët duke ngritur trofeun.\nSipas raportimit, ai ishte titulli i tretë në La Liga për Yamalin, një arritje e jashtëzakonshme për një futbollist që atëherë ishte vetëm 18 vjeç.\nNjë karrierë me trofe që në moshë të re\nPavarësisht moshës së re, Lamine Yamal ka krijuar tashmë një koleksion të rëndësishëm suksesesh.\nPërveç titujve në kampionatin spanjoll, ai ka qenë pjesë e triumfeve në Kupën e Mbretit dhe Superkupën e Spanjës.\nNë artikull përmenden gjithashtu sukseset e tij në nivel ndërkombëtar, përfshirë një titull evropian dhe Kupën e Botës.\nKëto arritje e kanë vendosur Yamalin në mesin e futbollistëve më të përfolur të gjeneratës së re.\nMegjithatë, ai synon të vazhdojë të përmirësohet dhe ta forcojë pozitën mes emrave më të mëdhenj të futbollit botëror.\nPesë fitore, tre gola dhe dy asistime kundër Real Madridit\nStatistikat e Yamalit në El Clasico tregojnë se ai ka qenë protagonist në disa prej përballjeve më të rëndësishme të Barcelonës.\nSipas të dhënave të paraqitura nga gazeta spanjolle, talenti katalanas ka regjistruar pesë fitore dhe katër humbje kundër Real Madridit.\nNë këto ndeshje, ai ka realizuar tre gola dhe ka dhënë dy asistime.\nNjë nga paraqitjet e tij më të spikatura ishte në finalen e Kupës së Mbretit në vitin 2025, kur Barcelona arriti një tjetër sukses ndaj rivalit historik.\nGjatë asaj periudhe, katalanasit fituan tri nga katër përballjet kundër Real Madridit, ndërsa Yamali luajti rol të rëndësishëm në rezultatet pozitive të skuadrës.\nNga zhgënjimi në Superkupë te fitorja historike 4-0\nRrugëtimi i Lamine Yamalit në El Clasico nuk ka qenë gjithmonë i lehtë.\nNë finalen e Superkupës së Spanjës në vitin 2024, ai u aktivizua vetëm për 24 minuta, duke pasur mundësi të kufizuara për të ndikuar në rezultat.\nNë një tjetër përballje në Santiago Bernabéu, një goditje e tij nuk u pranua si gol, duke ia mohuar mundësinë e një realizimi të rëndësishëm ndaj Real Madridit.\nMegjithatë, disa muaj më vonë, në tetor të vitit 2024, ai mori revanshin në mënyrë spektakolare.\nBarcelona triumfoi 4-0 në Santiago Bernabéu, ndërsa Yamal realizoi një gol të bukur që mbeti ndër momentet më të komentuara të ndeshjes.\nFesta e tij u shoqërua edhe me incidente të pakëndshme, pasi nga tribunat u raportuan reagime raciste ndaj futbollistit.\nPavarësisht kësaj, paraqitja e tij në atë ndeshje e forcoi reputacionin si një talent i aftë të shkëlqejë edhe nën presionin më të madh.\nDeklaratat që shkaktuan polemika para një El Clasicoje\nMarrëdhënia sportive e Yamalit me Real Madridin ka pasur edhe momente tensioni jashtë fushës.\nPërpara një përballjeje në Santiago Bernabéu, talenti i Barcelonës kishte bërë deklarata që u interpretuan si kritika ndaj rivalit madrilen.\n“Ata vjedhin, ata ankohen”, ishte shprehja që shkaktoi reagime dhe diskutime të shumta.\nDeklarata u komentua gjerësisht në mediat spanjolle, ndërsa Real Madridi arriti ta fitonte atë përballje.\nKjo përvojë duket se ka ndikuar në mënyrën se si Yamali po përgatitet për ndeshjen e radhës.\nYamal zgjedh heshtjen para përballjes\nPërpara El Clasicos të së dielës, Lamine Yamal ka vendosur të mos jetë në qendër të vëmendjes mediatike.\nSipas “Mundo Deportivo”, ai nuk mori pjesë në ditën e posaçme të komunikimit me mediat dhe transmetuesit televizivë të Barcelonës.\nNë vend të deklaratave publike, sulmuesi ka zgjedhur të përqendrohet te përgatitjet për ndeshjen.\nKy vendim interpretohet si një përpjekje për ta shmangur zhurmën jashtë fushës dhe për ta orientuar vëmendjen te paraqitja sportive.\nPas kritikave dhe polemikave të mëparshme, talenti spanjoll synon që këtë herë të flasë përmes lojës së tij.\nNjë tjetër mundësi për të dëshmuar madhështinë\nPër Lamine Yamalin, El Clasico nuk është vetëm një ndeshje në kampionatin spanjoll.\nËshtë një mundësi për të ndihmuar Barcelonën në garën për titull, për të vazhduar traditën e paraqitjeve të mira kundër Real Madridit dhe për të forcuar kandidaturën për çmimet më të rëndësishme individuale.\nVëmendja është edhe më e madhe për shkak të ceremonisë së Topit të Artë që pritet të zhvillohet në Londër.\nNjë paraqitje vendimtare kundër Real Madridit do të ishte një tjetër dëshmi e rëndësisë që Yamali ka fituar në futbollin botëror.\nPas një periudhe të mbushur me suksese, polemika dhe pritshmëri të mëdha, Lamine Yamal kërkon ta vendosë sërish futbollin në plan të parë. Përballja me Real Madridin e José Mourinhos mund të jetë një tjetër kapitull i rëndësishëm në karrierën e tij, ndërsa talenti i Barcelonës synon të tregojë se është i gatshëm të marrë përgjegjësi në ndeshjet më të mëdha.",
-    "kategoria": "Sport",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/10/lamine-1.webp",
-    "koha": "24/10/2026 14:47",
-    "link_origjinal": "https://www.gazetaexpress.com/lamine-yamal-kerkon-te-shkelqeje-ne-el-clasico-perballja-me-mourinhon-mund-te-jete-vendimtare/",
-    "slug": "lamine-yamal-kerkon-te-shkelqeje-ne-el-clasico-perballja-me-mourinhon-mund-te-jete-vendimtare",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/lamine-yamal-kerkon-te-shkelqeje-ne-el-clasico-perballja-me-mourinhon-mund-te-jete-vendimtare/",
-        "titulli": "Lamine Yamal kërkon të shkëlqejë në El Clasico, përballja me Mourinhon mund të jetë vendimtare"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Lee Chang-dong rikthehet me një dramë tronditëse për pabarazinë shoqërore dhe dinjitetin njerëzor",
-    "permbajtja": "Regjisori i njohur koreanojugor Lee Chang-dong rikthehet në kinematografi me filmin “Possible Love”, një dramë të fuqishme që trajton marrëdhënien mes kapitalit dhe punës, humbjen e vendeve të punës dhe pasojat njerëzore të pabarazisë ekonomike. Filmi, fitues i Çmimit të Madh të Jurisë në Festivalin e Venecias dhe kandidat i Koresë së Jugut për Oscar, rikthen në qendër të vëmendjes një nga shqetësimet kryesore të krijimtarisë së regjisorit: përpjekjen e njerëzve të zakonshëm për ta ruajtur dinjitetin në një botë gjithnjë e më të pabarabartë.\nÇfarë ndodh kur një kompani e madhe investimesh vendos të marrë kontrollin e ndërmarrjes ku punoni dhe, brenda pak kohësh, jeta juaj ndryshon rrënjësisht?\nKjo është pyetja që qëndron në themel të filmit të ri të regjisorit Lee Chang-dong, i cili përmes një historie personale trajton disa nga problemet më të mprehta të shoqërisë bashkëkohore.\nNë qendër të rrëfimit janë pasojat e largimeve masive nga puna, pasiguria ekonomike, dallimet mes shtresave shoqërore dhe ndikimi i kapitalit mbi jetën e individit.\nMegjithatë, “Possible Love” nuk është vetëm një film për konfliktin mes punëtorëve dhe kompanive të mëdha. Ai është gjithashtu një reflektim mbi përgjegjësinë morale të artistëve dhe mënyrën se si kinemaja e paraqet vuajtjen njerëzore.\nNë një intervistë për gazetën britanike “The Guardian”, regjisori 72-vjeçar rrëfen historinë e gjatë të realizimit të filmit, dilemat që e kanë shoqëruar dhe arsyet pse vazhdon të tregojë histori njerëzish që përballen me padrejtësi.\nNjë histori e frymëzuar nga protesta që tronditi Korenë e Jugut\nIdeja për filmin lindi më shumë se një dekadë më parë, pas një prej konflikteve më të rëndësishme të punës në historinë moderne të Koresë së Jugut.\nNë vitin 2009, punëtorët e kompanisë automobilistike Ssangyong Motors organizuan protesta kundër planeve për largimin nga puna të rreth 37 deri në 43 për qind të fuqisë punëtore.\nProtestat u shndërruan në një grevë dhe okupim të fabrikës që zgjati 77 ditë.\nKonflikti përfundoi me ndërhyrjen e forcave speciale të policisë, ndërsa pasojat e tij vazhduan të ndiheshin për vite.\nPas shtypjes së protestës u raportuan disa raste vetëvrasjesh dhe probleme afatgjata të shëndetit mendor mes personave të prekur nga ngjarjet.\nSipas Lee Chang-dong, kjo periudhë shënoi një ndryshim rrënjësor në mënyrën se si shoqëria koreanojugore i perceptonte të drejtat e punëtorëve.\n“Deri në atë kohë, të drejtat e punëtorëve pranoheshin gjerësisht në Kore. Por më pas gjërat ndryshuan. Për publikun, këto të drejta nuk shiheshin më si më të rëndësishme sesa përfitimi i tregut apo konkurrueshmëria e kompanive”, shpjegon regjisori.\nKëto zhvillime e shtynë të mendonte për realizimin e një filmi që do të pasqyronte jo vetëm konfliktin ekonomik, por edhe pasojat e tij të thella njerëzore.\nDilema morale që e vonoi filmin për më shumë se dhjetë vjet\nMegjithëse historia e protestës e kishte prekur thellësisht, Lee nuk ishte i sigurt nëse kishte të drejtën morale ta shndërronte vuajtjen e punëtorëve në një vepër artistike.\nPër këtë arsye, ai vendosi ta pezullonte projektin.\n“Sa më shumë e studioja dhimbjen e këtyre njerëzve, aq më shumë pyesja veten nëse isha i denjë për ta treguar këtë histori”, rrëfen ai.\nRegjisori kishte dilema edhe për mënyrën e trajtimit të ngjarjeve.\n“A duhej të qëndroja pranë punëtorëve apo të mbaja distancë? Si mund ta tregoja historinë pa e shfrytëzuar vuajtjen e tyre?”, ishte pyetja që e shoqëronte.\nGjatë viteve, Lee dhe bashkëskenaristja Oh Jung-mi shkruan disa versione të skenarit.\nNjëri prej tyre përmbante madje elemente postapokaliptike.\nMegjithatë, asnjëra prej qasjeve nuk i dukej plotësisht e përshtatshme.\nZgjidhja erdhi kur Oh Jung-mi sugjeroi që në histori të përfshihej një personazh që realizonte filma dokumentarë.\nKjo i mundësoi regjisorit t’i përfshinte brenda rrëfimit edhe dilemat e veta mbi etikën e përfaqësimit të vuajtjes njerëzore.\nDy çifte nga shtresa të ndryshme shoqërore\n“Possible Love” ndërtohet rreth marrëdhënies mes dy çifteve që jetojnë në kushte krejtësisht të ndryshme ekonomike.\nHo-seok është një ish-punëtor i një fabrike metali, i cili ka humbur vendin e punës dhe po përballet me depresionin dhe pasigurinë për të ardhmen.\nBashkëshortja e tij, Mi-ok, ka një natyrë më të lirshme dhe përpiqet ta ruajë njëfarë normaliteti në jetën e përditshme.\nNë fillim të filmit, Ho-seok e qorton gruan për interesimin ndaj veshjeve, ndërsa të dy përgatiten të marrin pjesë në funeralin e një ish-kolegu që ka kryer vetëvrasje pasi ishte larguar nga puna.\nGjatë kësaj ngjarjeje, ata takojnë Lee Ye-ji, një regjisore ambicioze dokumentarësh, dhe bashkëshortin e saj të pasur, Sang-woo.\nYe-ji është duke përgatitur një film mbi gjendjen e punëtorëve në Korenë e Jugut.\nIdeja për dokumentarin i kishte lindur gjatë një qëndrimi në një resort luksoz në Katar, ku kishte filluar të mendonte për punën e padukshme që qëndron pas komoditetit të njerëzve të pasur.\nAjo beson se Ho-seok dhe Mi-ok mund të bëhen personazhet idealë të dokumentarit të saj.\nPor Ho-seok, i cili refuzon edhe terapinë psikologjike, nuk dëshiron të flasë për përvojën e tij përpara kamerës.\nNga ky konflikt lind një histori që trajton jo vetëm pabarazinë ekonomike, por edhe kufijtë moralë të atyre që synojnë ta dokumentojnë atë.\nKapitali si një formë pushteti pothuajse e padukshme\nNë filmin e tij, Lee Chang-dong nuk dëshiron t’i ndajë personazhet thjesht në të pasur dhe të varfër.\nSipas tij, termi “klasë shoqërore” është bërë tepër i gjerë për ta shpjeguar plotësisht realitetin e sotëm ekonomik.\nNë veçanti, personazhi Sang-woo nuk përfaqëson vetëm një njeri që zotëron shumë para.\nAi simbolizon pushtetin që buron nga aftësia për të kontrolluar kapitalin.\n“Nuk është thjesht fakti që Sang-woo është i pasur. Çështja është se ai mund të lëvizë dhe të kontrollojë sasi jashtëzakonisht të mëdha kapitali”, shpjegon regjisori.\nSipas Lee, ky kapital krijon vazhdimisht pasuri të re, në përmasa që njerëzit e zakonshëm vështirë se mund t’i kuptojnë.\nMegjithatë, ai nuk dëshiron t’i paraqesë dy çiftet sikur jetojnë në botë të ndara.\n“Unë nuk doja të tregoja se ata i përkasin dy botëve krejtësisht të ndryshme, sepse në të vërtetë jetojnë në të njëjtën botë”, thekson ai.\nPikërisht vendimet financiare të njerëzve si Sang-woo mund ta ndryshojnë rrënjësisht jetën e njerëzve si Ho-seok.\nPërmes takimeve në restorante, vizitave në shtëpi dhe një pushimi veror të mbushur me tensione, filmi nxjerr në pah dallimet e pushtetit mes personazheve.\nSipas regjisorit, mes tyre ekziston një hendek që nuk mund të kapërcehet lehtësisht.\nKush e ka të drejtën ta filmojë vuajtjen e të tjerëve?\nNjë nga temat më interesante të “Possible Love” është marrëdhënia mes kamerës dhe njerëzve që gjenden përpara saj.\nFilmi përdor forma të ndryshme të paraqitjes vizuale, përfshirë pamjet e dokumentarit të Ye-jit, regjistrimet e kamerave të sigurisë dhe materiale që ngjajnë me kronika lajmesh.\nPërmes tyre shfaqen edhe skena të ndërhyrjes së dhunshme të policisë kundër punëtorëve protestues.\nLee shpjegon se dëshironte të analizonte etikën e vëzhgimit dhe të regjistrimit të jetës së njerëzve të tjerë.\nPersonazhi Ye-ji shpesh e përdor kamerën edhe në momente të papërshtatshme, duke shkaktuar shqetësim te familja e Ho-seokut, veçanërisht te djali i tij i vogël, Cheol.\nPor a mund të ekzistojë ndonjëherë barazi e plotë mes një dokumentaristi dhe personit që ai filmon?\nSipas regjisorit, kjo është pothuajse e pamundur.\n“Është shumë e vështirë të ekzistojë barazi, sepse personi që mban kamerën fiton pushtet edhe pa e kuptuar. Është një marrëdhënie e njëanshme”, thotë Lee.\nAi pranon se ndien afërsi me Ye-jin, pasi e kupton dëshirën e saj për ta realizuar filmin.\nMegjithatë, kjo nuk e përjashton përgjegjësinë morale që shoqëron një proces të tillë.\nNga letërsia te kinemaja\nLee Chang-dong nuk e kishte planifikuar fillimisht një karrierë si regjisor.\nGjatë viteve 1980, ai ishte shkrimtar në Korenë e Jugut, në një periudhë kur vendi qeverisej nga një regjim ushtarak.\nNë atë kohë, sipas tij, letërsia kishte një përgjegjësi të qartë morale: të fliste për vuajtjen njerëzore dhe padrejtësitë shoqërore.\n“Kjo ishte përgjegjësia jonë morale”, kujton ai.\nPor me kalimin e vendit drejt demokracisë dhe hyrjen në shekullin XXI, Lee ndjeu se kjo ndjenjë përgjegjësie po zbehej.\nSipas tij, letërsia që trajtonte dhimbjet e realitetit filloi të shihej si diçka e vjetruar.\nI zhgënjyer nga ky ndryshim, ai iu drejtua skenaristikës.\nMë vonë filloi të punonte si asistent regjisor, duke zgjedhur qëllimisht një rrugë profesionale të vështirë.\n“Pothuajse doja ta ndëshkoja veten, ta detyroja të kaloja nëpër diçka shumë të vështirë”, rrëfen ai.\nPërkushtimi i tij ishte aq i madh, sa bashkëpunëtorët nisën ta inkurajonin të bëhej regjisor.\nFilmin e parë artistik e realizoi në vitin 1997.\nNjë kineast që u jep zë njerëzve të margjinalizuar\nGjatë karrierës së tij, Lee Chang-dong ka ndërtuar një filmografi të veçantë, të përqendruar te njerëzit që përballen me rrethana të vështira ekonomike, politike dhe shoqërore.\nPersonazhet e tij shpesh janë punëtorë, ish-të burgosur, persona me aftësi të kufizuara ose individë që jetojnë në periferi të shoqërisë.\nNë filmat “Peppermint Candy”, “Oasis” dhe “Secret Sunshine”, regjisori ka trajtuar në mënyrë të drejtpërdrejtë dhimbjen, përjashtimin dhe pasojat e traumave personale.\nNdërkohë, filmi “Burning”, i bazuar në një tregim të shkrimtarit japonez Haruki Murakami, trajtonte rivalitetin mes një shkrimtari të varfër dhe një burri të pasur për dashurinë e së njëjtës grua.\nEdhe aty, tensionet klasore ishin një element qendror i rrëfimit.\nNë “Possible Love”, Lee ribashkon dy aktorë të njohur nga veprat e tij të mëparshme: Jeon Do-yeon, protagonisten e “Secret Sunshine”, dhe Sul Kyung-gu, i cili ka luajtur në “Peppermint Candy” dhe “Oasis”.\nNdryshe nga “Parasite”, personazhet nuk kërkojnë fitore me çdo kusht\nKinemaja koreanojugore është bërë e njohur ndërkombëtarisht për trajtimin kritik të kapitalizmit dhe pabarazisë ekonomike.\nNjë nga shembujt më të suksesshëm është “Parasite” i Bong Joon-ho, fitues i çmimit Oscar për filmin më të mirë.\nEdhe “No Other Choice” i Park Chan-wook trajton pasojat e largimeve nga puna dhe pasigurisë ekonomike.\nMegjithatë, Lee Chang-dong ndjek një qasje tjetër.\nPersonazhet e tij nuk janë domosdoshmërisht njerëz që krijojnë plane të ndërlikuara për ta mposhtur sistemin.\nAta shpesh mbeten të pafuqishëm përballë mekanizmave ekonomikë dhe shoqërorë që nuk mund t’i kontrollojnë.\nFilmat e tij përqendrohen te zhgënjimet e vogla, padrejtësitë e përditshme dhe përpjekjet e njerëzve për ta ruajtur shpresën.\nPor krahas dhimbjes, Lee gjen edhe momente solidariteti, bukurie dhe dinjiteti.\n“Edhe lufta e pamundur ka kuptim”\nNjë nga idetë më të rëndësishme të krijimtarisë së Lee Chang-dong është se njerëzit mund të ruajnë dinjitetin edhe kur përballen me beteja që nuk kanë gjasa t’i fitojnë.\nSipas tij, rezistenca nuk e humb domethënien vetëm sepse rezultati duket i paracaktuar.\n“Unë mendoj se vetë lufta ka kuptim”, deklaron regjisori.\nAi thekson se përballja me padrejtësitë mund të jetë mënyra e vetme për një individ që ta rikthejë ndjenjën e dinjitetit.\n“Mendoj se betejat që individët zhvillojnë kundër botës janë ndoshta mënyra e vetme për ta rifituar dinjitetin e tyre”, shpjegon ai.\nSipas Lee, rëndësia e një përpjekjeje nuk matet vetëm me mundësinë e fitores.\n“Pavarësisht gjasave për të fituar, vetë lufta është e rëndësishme dhe kuptimplotë”, shton regjisori.\nKjo filozofi përshkon edhe “Possible Love”, ku personazhet përpiqen të ruajnë një pjesë të identitetit dhe dinjitetit të tyre në një realitet që shpesh i vendos në pozita të pafavorshme.\nKriza e kinemasë koreane e vështirësoi realizimin e filmit\nEdhe vetë realizimi i “Possible Love” ishte një proces i vështirë.\nLee Chang-dong pati probleme në sigurimin e financimit brenda Koresë së Jugut.\nSipas tij, industria koreane e filmit po përballet me një krizë strukturore, të shkaktuar pjesërisht nga humbjet ekonomike gjatë pandemisë COVID-19 dhe rritja e platformave të transmetimit.\nNë këtë situatë, Netflix vendosi ta financonte projektin.\nMarrëveshja i mundësoi filmit të shfaqej edhe në kinema në disa vende të botës.\nMegjithatë, ky zhvillim e shtyu regjisorin të reflektonte mbi marrëdhënien mes pavarësisë artistike dhe kapitalit.\nNë film, Ye-ji është një regjisore dokumentarësh që përpiqet të ruajë pavarësinë krijuese, megjithëse jeton me një bashkëshort jashtëzakonisht të pasur.\nLee thotë se e sheh veten në një situatë të ngjashme.\n“Edhe unë jam i varur nga kapitali për t’i realizuar filmat e mi”, pranon ai.\nRegjisori e përshkruan këtë marrëdhënie me një krahasim ironik.\n“Mund të thuhet se edhe unë jam i martuar me kapitalin, por po përpiqem ta mbroj zërin tim”, shpjegon Lee.\nSipas tij, ky është një nga paradokset themelore të profesionit të kineastit: për të krijuar vepra të pavarura artistike, shpesh duhet të mbështetesh te burime financiare që mund të ndikojnë në vetë procesin krijues.\nFitues në Venecia dhe kandidat për Oscar\n“Possible Love” është pritur me vlerësime të larta nga kritika ndërkombëtare.\nFilmi fitoi Çmimin e Madh të Jurisë në Festivalin e Filmit në Venecia, ndërsa disa kritikë e kanë cilësuar si një nga realizimet më të rëndësishme kinematografike të vitit.\nPas suksesit në Venecia, kanë nisur edhe diskutimet për mundësitë e tij në garën për çmimet Oscar.\nKoreja e Jugut e ka përzgjedhur filmin si kandidatin e saj për kategorinë e filmit më të mirë ndërkombëtar.\nMegjithatë, për Lee Chang-dong, suksesi nuk matet vetëm me çmime dhe vlerësime.\nKur pyetet se çfarë do të thotë suksesi për të, regjisori jep një përgjigje të lidhur ngushtë me filozofinë e tij artistike.\n“Gjithmonë kam bërë filma me dëshirën për t’u lidhur me publikun”, thotë ai.\nSipas Lee, rëndësi të veçantë ka momenti kur shikuesit i pranojnë pyetjet që filmi ngre dhe përpiqen t’i gjejnë vetë përgjigjet.\n“Për mua është gjithmonë domethënëse kur publiku i pranon pyetjet që shtroj përmes filmave dhe përpiqet t’i gjejë përgjigjet e veta”, shpjegon regjisori.\nAi shpreson që kjo përvojë të sjellë qoftë edhe një ndryshim të vogël në jetën e shikuesve.\nKinemaja si përgjegjësi morale\nPër më shumë se tri dekada, Lee Chang-dong ka ndërtuar një krijimtari që nuk shmang temat e vështira.\nFilmat e tij trajtojnë dhunën, humbjen, diskriminimin, pabarazinë dhe pasojat e pushtetit ekonomik mbi individin.\nPor, pavarësisht errësirës që karakterizon shumë prej historive, regjisori vazhdon të besojë në mundësinë e ndryshimit.\nPër të, shpresa nuk gjendet domosdoshmërisht në fitore të mëdha, por në gjeste të vogla njerëzore, në solidaritet dhe në përpjekjen për të mos iu nënshtruar padrejtësisë.\n“Possible Love” është një vazhdimësi e kësaj filozofie.\nDuke ndërthurur historinë e një punëtori të papunë me jetën e një çifti të pasur dhe dilemat e një regjisoreje dokumentarësh, filmi ngre pyetje mbi pushtetin, përgjegjësinë dhe kufijtë e artit.\nNë fund, mesazhi i Lee Chang-dong mbetet se dinjiteti njerëzor nuk varet vetëm nga aftësia për të fituar kundër një sistemi të padrejtë. Ndonjëherë, vetë vendimi për të mos u dorëzuar përbën një formë fitoreje morale.\nFilmi “Possible Love” po shfaqet në kinema dhe, sipas kalendarit të publikuar, pritet të jetë i disponueshëm në Netflix nga 6 nëntori.",
-    "kategoria": "Ekonomi",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/10/lee.jpg",
-    "koha": "24/10/2026 14:47",
-    "link_origjinal": "https://www.gazetaexpress.com/lee-chang-dong-rikthehet-me-nje-drame-tronditese-per-pabarazine-shoqerore-dhe-dinjitetin-njerezor/",
-    "slug": "lee-chang-dong-rikthehet-me-nje-drame-tronditese-per-pabarazine-shoqerore-dhe-dinjitetin-njerezor",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/lee-chang-dong-rikthehet-me-nje-drame-tronditese-per-pabarazine-shoqerore-dhe-dinjitetin-njerezor/",
-        "titulli": "Lee Chang-dong rikthehet me një dramë tronditëse për pabarazinë shoqërore dhe dinjitetin njerëzor"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Studentët nisin marshimin drejt Ministrisë së Arsimit",
-    "permbajtja": "Studentët kanë nisur marshimin drejt Ministrisë së Arsimit në Tiranë, në ditën e 12-të të protestave kundër qeverisë.\nTubimi para Ministrisë së Arsimit ishte paralajmëruar për orën 14:00, ndërsa studentët vijojnë mobilizimin për të bërë të dëgjueshme kërkesat e tyre.\nMarshimi vjen pas protestës së opozitës para Kryeministrisë, ku mbështetës të Partisë Demokratike zhvilluan tubimin e tyre në shenjë kundërshtimi ndaj qeverisë dhe në mbështetje të studentëve. /a2cnn/",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68521678&width=980",
-    "koha": "24/10/2026 14:31",
-    "link_origjinal": "https://telegrafi.com/studentet-nisin-marshimin-drejt-ministrise-se-arsimit/",
-    "slug": "studentet-nisin-marshimin-drejt-ministrise-se-arsimit",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/studentet-nisin-marshimin-drejt-ministrise-se-arsimit/",
-        "titulli": "Studentët nisin marshimin drejt Ministrisë së Arsimit"
       }
     ],
     "source_count": 1
