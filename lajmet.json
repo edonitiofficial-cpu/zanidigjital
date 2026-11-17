@@ -1,5 +1,437 @@
 [
   {
+    "titulli": "Sulmi kibernetik prek 178 organizata të njohura, mes tyre BBC, CNN, Zoom dhe HSBC",
+    "permbajtja": "Një sulm kibernetik mund të ketë prekur faqet e internetit të 178 organizatave në mbarë botën, duke rrezikuar ekspozimin e të dhënave personale dhe financiare të vizitorëve. Mes organizatave të përfshira në listë janë Zoom, CNN, HSBC, BBC, IKEA, Salesforce, Equifax, Fox News, Alaska Airlines dhe GitLab.\nSulmi u identifikua të hënën nga studiuesit e kompanisë së sigurisë kibernetike Report URI, të cilët zbuluan se hakerët kishin futur kod keqdashës JavaScript në skriptet e ofruara nga Optimizely, një kompani që ofron programe për testimin e versioneve të ndryshme të faqeve të internetit.\nSipas studiuesve, kodi ishte krijuar për të vjedhur të dhënat e kartave bankare, për të ridrejtuar pagesat me kriptovaluta dhe për të shënjestruar disa modele të iPhone dhe iPad.\nReport URI bëri të ditur se kuletat e lidhura me sulmin kishin pranuar rreth 7 mijë e 40 dollarë në kriptovaluta, brenda afërsisht nëntë orësh, transmeton Telegrafi.\nOptimizely konfirmoi të martën se një palë e paautorizuar kishte shfrytëzuar një dobësi në platformën e saj Experimentation. Kompania tha se e kishte rregulluar problemin dhe kishte hequr kodin keqdashës nga projektet e prekura.\nMegjithatë, zbulimi i skripteve të infektuara nuk nënkupton se hakerët kanë depërtuar drejtpërdrejt në sistemet e të 178 organizatave apo se kanë arritur të vjedhin të dhënat e përdoruesve.\nEquifax, kompani e raportimit të historikut kreditor, tha për Newsweek se e kishte hetuar menjëherë çështjen dhe kishte ndërprerë përdorimin e shërbimit Optimizely.\n“Ne nuk kemi identifikuar prova për ndonjë komprometim të sistemeve tona apo ndikim në të dhënat tona”, deklaroi kompania.\nEdhe IKEA konfirmoi se ishte në dijeni të raportimeve dhe se po hetonte për të kuptuar ndikimin e mundshëm në shërbimet digjitale dhe klientët e saj.\nSi ndodhi sulmi?\nSipas Report URI, hakerët nuk i sulmuan veçmas 178 organizatat, por shfrytëzuan një dobësi në shërbimin e testimit të faqeve të internetit të Optimizely, i cili përdoret nga shumë kompani dhe institucione.\nDuke ndërhyrë në këtë program, sulmuesit arritën të vendosnin kod keqdashës në faqet e organizatave që e përdornin atë. Kjo do të thotë se vizitorët mund të ekspozoheshin ndaj kodit vetëm duke hapur një faqe të prekur.\nKodi kishte disa funksione të dëmshme. Ai mund të ndryshonte adresat e kuletave të kriptovalutave të kopjuara nga përdoruesit, duke i ridrejtuar pagesat drejt llogarive të hakerëve.\nGjithashtu, mund të tentonte të vidhte të dhënat e kartave bankare, të merrte informacione të ruajtura në shfletues dhe të regjistronte pamje të ekranit.\nDisa pjesë të kodit ishin krijuar për të shënjestruar iPhone dhe iPad, duke tentuar të shfrytëzonin dobësi në versionet më të vjetra të sistemeve operative të Apple.\nGjatë hetimit, studiuesit identifikuan 188 skripte të prekura në faqet e 178 organizatave. Ata gjurmuan gjithashtu rreth 7 mijë e 40 dollarë në pagesa me kriptovaluta drejt kuletave të lidhura me sulmin, më 16 nëntor. Megjithatë, ndikimi i përgjithshëm financiar mbetet i panjohur.\nÇfarë duhet të bëjnë përdoruesit?\nPersonat që kanë vizituar faqet e prekura më 16 nëntor duhet të tregojnë kujdes, veçanërisht nëse kanë vendosur të dhëna të kartave bankare apo kanë kryer pagesa me kriptovaluta.\nMegjithatë, vetëm hapja e një faqeje nuk do të thotë se të dhënat e përdoruesit janë vjedhur.\nEkspertët rekomandojnë që përdoruesit të:\n- Përditësojnë pajisjet: Të instalojnë përditësimet më të fundit të sigurisë në iPhone, iPad dhe pajisjet e tjera.\n- Kontrollojnë llogaritë bankare: Të verifikojnë nëse ka pagesa të panjohura, veçanërisht nëse kanë vendosur të dhënat e kartës në ndonjë faqe të prekur.\n- Rishikojnë transfertat me kriptovaluta: Të kontrollojnë nëse pagesat janë dërguar në adresat e sakta të kuletave.\n- Monitorojnë aktivitetin e llogarive: Të jenë të vëmendshëm ndaj njoftimeve të papritura për hyrje apo ndryshimeve të paautorizuara.\n- Kontaktojnë bankën: Në rast të ndonjë pagese të dyshimtë, ta raportojnë menjëherë atë.\nOptimizely ka bërë të ditur se e ka rregulluar dobësinë dhe ka hequr kodin keqdashës, por hetuesit ende nuk kanë përcaktuar se sa persona mund të jenë prekur nga incidenti.\nLista e plotë e organizatave të prekura\nReport URI identifikoi faqet e mëposhtme gjatë hetimit. Disa emra u referohen faqeve të veçanta ose shërbimeve rajonale dhe jo domosdoshmërisht të gjitha sistemeve të kompanive përkatëse.\nBankat dhe financat (32): Paychex; HSBC US; Equifax; SmartAsset; HSBC Hong Kong; ABN AMRO; TaxAct; HSBC Mexico; HSBC Singapore; NetCredit; Associated Bank; S-Pankki; Equifax Canada; Equifax UK; The Work Number; Funding Circle; HSBC Australia; CashNetUSA; OnDeck; ICS Cards; HSBC UAE; HSBC Malaysia; Rest Super; HSBC Taiwan; HSBC Vietnam; HSBC Egypt; HSBC Philippines; SmartAdvisor Match; Compare Club; ABN AMRO Lease; Energy Scout; Hang Seng Investment.\nTeknologjia dhe programet kompjuterike (23): Zoom; Bitly; Salesforce; GitLab; Optimizely; Mixpanel; Typeform; InMotion Hosting; Wasabi; Perforce/Zend/Puppet; Tableau; Hootsuite; Smartsheet; MuleSoft; Thales/Imperva; Tricentis; Web Hosting Hub; QR Code Generator; ServiceChannel; Brandfolder; Intelex; Enverus; Accruent.\nShitja me pakicë dhe moda (20): IKEA; ASOS; Mattel; American Eagle; Scheels; Ariat; American Girl; StackSocial; Crocs India; Levi's Japan; Todd Snyder; Levi's Indonesia; Just Russel; Loloi Rugs; Levi's Australia; Levi's Malaysia; Levi's Philippines; Levi's Singapore; Levi's Korea; Levi's New Zealand.\nTransmetimet dhe argëtimi (12): Peacock; D&D Beyond; Wizards of the Coast; NOW TV; Zattoo; Crave; Starz; SkyShowtime; Bravo; SeaWorld; WOW (Sky Deutschland); NOW Italia.\nLajmet dhe mediat (10): CNN; BBC; Fox News; NPR; CTV News; Fox Sports; BNN Bloomberg/CP24; TSN; Top Gear; BBC Earth.\nLinjat ajrore dhe udhëtimet (9): Alaska Airlines/Hawaiian Airlines; Transavia; Air France-KLM; KLM Netherlands; Trafalgar; Contiki; Insight Vacations; The Travel Corporation; Costsaver.\nShëndetësia dhe industria farmaceutike (8): Invisalign; Takeda; Covetrus; iTero; Covetrus Pharmacy; myCovetrus; RaySafe; Takeda Oncology.\nIndustria dhe prodhimi (8): Fluke; eMaint; Fluke Networks; Vaillant Germany; Fluke Process Instruments; Fluke Biomedical; Landauer; Vaillant Spain.\nTelekomunikacioni (7): Virgin Media; Virgin Media O2; Vodafone Australia; O2; TPG Telecom; Mint Mobile; TalkTalk.\nKriptovalutat dhe tregtimi (6): Ledger; IG; OANDA/Coinpass; Interactive Investor; TMS Brokers; Betashares.\nSigurimet (6): Asurion/uBreakiFix; Mutual of Omaha; Admiral; Securian Financial; eRenterPlan; AKA.\nPronat dhe pasuritë e paluajtshme (6): Buildium (managebuilding.com); Loft Living apartments; Buildium; HireAHelper; Flytte.no dhe faqet e ngjashme të krahasimit; MovingPlace.\nUshqimi dhe hoteleria (5): Faqet e porosive të restoranteve (order.online); Heineken; Home Chef; Starbucks Canada; Cinnabon.\nShtëpia dhe pajisjet inteligjente (5): Resideo; Honeywell Home; myQ; Chamberlain; First Alert.\nOrganizatat jofitimprurëse dhe qytetare (4): Change.org; ASPCA; UNICEF USA; DonorsChoose.\nBixhozi (4): Betsson; PokerStars; Tombola; Betfred.\nShërbimet profesionale (4): Freshfields; CohnReznick; Baringa; Cro Metrics.\nLogjistika dhe transporti (3): ShipStation/ShipEngine; Stamps.com; ShipEngine.\nAutomobilizmi (3): Lucid Motors; O'Brien Glass; rrjeti i shitësve të Chevrolet, përfshirë Bill Rapp.\nArsimi (3): Walden University; Perlego; Chamberlain University. /Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Një sulm kibernetik mund të ketë prekur faqet e internetit të 178 organizatave në mbarë botën, duke rrezikuar ekspozimin e të dhënave personale dhe financiare të vizitorëve. Mes organizatave të përfshira në listë janë Zoom, CNN, HSBC, BBC, IKEA, Salesforce, Equifax, Fox News, Alaska Airlines dhe GitLab."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sulmi u identifikua të hënën nga studiuesit e kompanisë së sigurisë kibernetike Report URI, të cilët zbuluan se hakerët kishin futur kod keqdashës JavaScript në skriptet e ofruara nga Optimizely, një kompani që ofron programe për testimin e versioneve të ndryshme të faqeve të internetit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas studiuesve, kodi ishte krijuar për të vjedhur të dhënat e kartave bankare, për të ridrejtuar pagesat me kriptovaluta dhe për të shënjestruar disa modele të iPhone dhe iPad."
+      },
+      {
+        "type": "paragraph",
+        "text": "Report URI bëri të ditur se kuletat e lidhura me sulmin kishin pranuar rreth 7 mijë e 40 dollarë në kriptovaluta, brenda afërsisht nëntë orësh, transmeton Telegrafi."
+      },
+      {
+        "type": "paragraph",
+        "text": "Optimizely konfirmoi të martën se një palë e paautorizuar kishte shfrytëzuar një dobësi në platformën e saj Experimentation. Kompania tha se e kishte rregulluar problemin dhe kishte hequr kodin keqdashës nga projektet e prekura."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, zbulimi i skripteve të infektuara nuk nënkupton se hakerët kanë depërtuar drejtpërdrejt në sistemet e të 178 organizatave apo se kanë arritur të vjedhin të dhënat e përdoruesve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Equifax, kompani e raportimit të historikut kreditor, tha për Newsweek se e kishte hetuar menjëherë çështjen dhe kishte ndërprerë përdorimin e shërbimit Optimizely."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Ne nuk kemi identifikuar prova për ndonjë komprometim të sistemeve tona apo ndikim në të dhënat tona”, deklaroi kompania."
+      },
+      {
+        "type": "paragraph",
+        "text": "Edhe IKEA konfirmoi se ishte në dijeni të raportimeve dhe se po hetonte për të kuptuar ndikimin e mundshëm në shërbimet digjitale dhe klientët e saj."
+      },
+      {
+        "type": "paragraph",
+        "text": "Si ndodhi sulmi?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas Report URI, hakerët nuk i sulmuan veçmas 178 organizatat, por shfrytëzuan një dobësi në shërbimin e testimit të faqeve të internetit të Optimizely, i cili përdoret nga shumë kompani dhe institucione."
+      },
+      {
+        "type": "paragraph",
+        "text": "Duke ndërhyrë në këtë program, sulmuesit arritën të vendosnin kod keqdashës në faqet e organizatave që e përdornin atë. Kjo do të thotë se vizitorët mund të ekspozoheshin ndaj kodit vetëm duke hapur një faqe të prekur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kodi kishte disa funksione të dëmshme. Ai mund të ndryshonte adresat e kuletave të kriptovalutave të kopjuara nga përdoruesit, duke i ridrejtuar pagesat drejt llogarive të hakerëve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Gjithashtu, mund të tentonte të vidhte të dhënat e kartave bankare, të merrte informacione të ruajtura në shfletues dhe të regjistronte pamje të ekranit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Disa pjesë të kodit ishin krijuar për të shënjestruar iPhone dhe iPad, duke tentuar të shfrytëzonin dobësi në versionet më të vjetra të sistemeve operative të Apple."
+      },
+      {
+        "type": "paragraph",
+        "text": "Gjatë hetimit, studiuesit identifikuan 188 skripte të prekura në faqet e 178 organizatave. Ata gjurmuan gjithashtu rreth 7 mijë e 40 dollarë në pagesa me kriptovaluta drejt kuletave të lidhura me sulmin, më 16 nëntor. Megjithatë, ndikimi i përgjithshëm financiar mbetet i panjohur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Çfarë duhet të bëjnë përdoruesit?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Personat që kanë vizituar faqet e prekura më 16 nëntor duhet të tregojnë kujdes, veçanërisht nëse kanë vendosur të dhëna të kartave bankare apo kanë kryer pagesa me kriptovaluta."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, vetëm hapja e një faqeje nuk do të thotë se të dhënat e përdoruesit janë vjedhur."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ekspertët rekomandojnë që përdoruesit të:"
+      },
+      {
+        "type": "paragraph",
+        "text": "- Përditësojnë pajisjet: Të instalojnë përditësimet më të fundit të sigurisë në iPhone, iPad dhe pajisjet e tjera."
+      },
+      {
+        "type": "paragraph",
+        "text": "- Kontrollojnë llogaritë bankare: Të verifikojnë nëse ka pagesa të panjohura, veçanërisht nëse kanë vendosur të dhënat e kartës në ndonjë faqe të prekur."
+      },
+      {
+        "type": "paragraph",
+        "text": "- Rishikojnë transfertat me kriptovaluta: Të kontrollojnë nëse pagesat janë dërguar në adresat e sakta të kuletave."
+      },
+      {
+        "type": "paragraph",
+        "text": "- Monitorojnë aktivitetin e llogarive: Të jenë të vëmendshëm ndaj njoftimeve të papritura për hyrje apo ndryshimeve të paautorizuara."
+      },
+      {
+        "type": "paragraph",
+        "text": "- Kontaktojnë bankën: Në rast të ndonjë pagese të dyshimtë, ta raportojnë menjëherë atë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Optimizely ka bërë të ditur se e ka rregulluar dobësinë dhe ka hequr kodin keqdashës, por hetuesit ende nuk kanë përcaktuar se sa persona mund të jenë prekur nga incidenti."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lista e plotë e organizatave të prekura"
+      },
+      {
+        "type": "paragraph",
+        "text": "Report URI identifikoi faqet e mëposhtme gjatë hetimit. Disa emra u referohen faqeve të veçanta ose shërbimeve rajonale dhe jo domosdoshmërisht të gjitha sistemeve të kompanive përkatëse."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bankat dhe financat (32): Paychex; HSBC US; Equifax; SmartAsset; HSBC Hong Kong; ABN AMRO; TaxAct; HSBC Mexico; HSBC Singapore; NetCredit; Associated Bank; S-Pankki; Equifax Canada; Equifax UK; The Work Number; Funding Circle; HSBC Australia; CashNetUSA; OnDeck; ICS Cards; HSBC UAE; HSBC Malaysia; Rest Super; HSBC Taiwan; HSBC Vietnam; HSBC Egypt; HSBC Philippines; SmartAdvisor Match; Compare Club; ABN AMRO Lease; Energy Scout; Hang Seng Investment."
+      },
+      {
+        "type": "paragraph",
+        "text": "Teknologjia dhe programet kompjuterike (23): Zoom; Bitly; Salesforce; GitLab; Optimizely; Mixpanel; Typeform; InMotion Hosting; Wasabi; Perforce/Zend/Puppet; Tableau; Hootsuite; Smartsheet; MuleSoft; Thales/Imperva; Tricentis; Web Hosting Hub; QR Code Generator; ServiceChannel; Brandfolder; Intelex; Enverus; Accruent."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shitja me pakicë dhe moda (20): IKEA; ASOS; Mattel; American Eagle; Scheels; Ariat; American Girl; StackSocial; Crocs India; Levi's Japan; Todd Snyder; Levi's Indonesia; Just Russel; Loloi Rugs; Levi's Australia; Levi's Malaysia; Levi's Philippines; Levi's Singapore; Levi's Korea; Levi's New Zealand."
+      },
+      {
+        "type": "paragraph",
+        "text": "Transmetimet dhe argëtimi (12): Peacock; D&D Beyond; Wizards of the Coast; NOW TV; Zattoo; Crave; Starz; SkyShowtime; Bravo; SeaWorld; WOW (Sky Deutschland); NOW Italia."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lajmet dhe mediat (10): CNN; BBC; Fox News; NPR; CTV News; Fox Sports; BNN Bloomberg/CP24; TSN; Top Gear; BBC Earth."
+      },
+      {
+        "type": "paragraph",
+        "text": "Linjat ajrore dhe udhëtimet (9): Alaska Airlines/Hawaiian Airlines; Transavia; Air France-KLM; KLM Netherlands; Trafalgar; Contiki; Insight Vacations; The Travel Corporation; Costsaver."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shëndetësia dhe industria farmaceutike (8): Invisalign; Takeda; Covetrus; iTero; Covetrus Pharmacy; myCovetrus; RaySafe; Takeda Oncology."
+      },
+      {
+        "type": "paragraph",
+        "text": "Industria dhe prodhimi (8): Fluke; eMaint; Fluke Networks; Vaillant Germany; Fluke Process Instruments; Fluke Biomedical; Landauer; Vaillant Spain."
+      },
+      {
+        "type": "paragraph",
+        "text": "Telekomunikacioni (7): Virgin Media; Virgin Media O2; Vodafone Australia; O2; TPG Telecom; Mint Mobile; TalkTalk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kriptovalutat dhe tregtimi (6): Ledger; IG; OANDA/Coinpass; Interactive Investor; TMS Brokers; Betashares."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sigurimet (6): Asurion/uBreakiFix; Mutual of Omaha; Admiral; Securian Financial; eRenterPlan; AKA."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pronat dhe pasuritë e paluajtshme (6): Buildium (managebuilding.com); Loft Living apartments; Buildium; HireAHelper; Flytte.no dhe faqet e ngjashme të krahasimit; MovingPlace."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ushqimi dhe hoteleria (5): Faqet e porosive të restoranteve (order.online); Heineken; Home Chef; Starbucks Canada; Cinnabon."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shtëpia dhe pajisjet inteligjente (5): Resideo; Honeywell Home; myQ; Chamberlain; First Alert."
+      },
+      {
+        "type": "paragraph",
+        "text": "Organizatat jofitimprurëse dhe qytetare (4): Change.org; ASPCA; UNICEF USA; DonorsChoose."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bixhozi (4): Betsson; PokerStars; Tombola; Betfred."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shërbimet profesionale (4): Freshfields; CohnReznick; Baringa; Cro Metrics."
+      },
+      {
+        "type": "paragraph",
+        "text": "Logjistika dhe transporti (3): ShipStation/ShipEngine; Stamps.com; ShipEngine."
+      },
+      {
+        "type": "paragraph",
+        "text": "Automobilizmi (3): Lucid Motors; O'Brien Glass; rrjeti i shitësve të Chevrolet, përfshirë Bill Rapp."
+      },
+      {
+        "type": "paragraph",
+        "text": "Arsimi (3): Walden University; Perlego; Chamberlain University. /Telegrafi/"
+      }
+    ],
+    "kategoria": "Teknologji",
+    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68700453&width=980",
+    "koha": "17/11/2026 19:01",
+    "published_at": "2026-11-17T19:01:51.069184+01:00",
+    "source_published_at": "2026-11-17T17:50:43Z",
+    "link_origjinal": "https://telegrafi.com/sulmi-kibernetik-prek-178-organizata-te-njohura-mes-tyre-bbc-cnn-zoom-dhe-hsbc/",
+    "slug": "sulmi-kibernetik-prek-178-organizata-te-njohura-mes-tyre-bbc-cnn-zoom-dhe-hsbc",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/sulmi-kibernetik-prek-178-organizata-te-njohura-mes-tyre-bbc-cnn-zoom-dhe-hsbc/",
+        "titulli": "Sulmi kibernetik prek 178 organizata të njohura, mes tyre BBC, CNN, Zoom dhe HSBC"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [],
+    "featured_rank": 5,
+    "selection_reasons": [
+      "Freskia: 39.68/40",
+      "Në ballinën e burimit: +12",
+      "Tema: Teknologji",
+      "Larmi burimesh dhe temash"
+    ]
+  },
+  {
+    "titulli": "Zahner: Kosova ka shënuar përparim të jashtëzakonshëm, por njohja ndërkombëtare mbetet sfida kryesore",
+    "permbajtja": "Ish zyrtari i Departamentit Amerikan të Shtetit (DASH) Luke Zahner ka vlerësuar se Kosova ka shënuar përparim të jashtëzakonshëm që nga periudha e pasluftës, por ka theksuar se njohja e plotë ndërkombëtare dhe normalizimi i marrëdhënieve me Serbinë vazhdojnë të jenë pengesat kryesore për integrimin e saj euroatlantik.\nNë një intervistë për Telegrafin, Zahner ka kujtuar gjendjen e Kosovës në vitet 1998 dhe 1999, duke thënë se transformimi i vendit gjatë 27 viteve të fundit është i pamohueshëm.\n\"Kur i kujtojmë kushtet në terren në vitet 1998 dhe 1999 dhe më pas shohim Prishtinën apo qytetet e tjera të Kosovës sot, transformimi është i pamohueshëm\", ka deklaruar ai.\nSipas Zahnerit, Kosova ka ndërtuar institucione demokratike dhe është zhvilluar në një sistem demokratik evropian, të cilin vazhdon ta konsolidojë.\nMegjithatë, ai ka thënë se statusi i papërfunduar ndërkombëtar i Kosovës mbetet një pengesë e rëndësishme.\n\"Mungesa e normalizimit të marrëdhënieve me Serbinë përbën një pengesë të jashtëzakonshme për arritjen e synimit përfundimtar të Kosovës: integrimin e plotë në komunitetin euroatlantik\", ka thënë Zahner.\nAi ka kërkuar që normalizimi të mbetet në krye të agjendës së udhëheqësve të Kosovës, pavarësisht vështirësive të procesit.\nNdër sfidat e tjera, Zahner ka përmendur mirëqenien ekonomike, veçanërisht mundësitë për të rinjtë, luftën kundër korrupsionit, energjinë dhe mbrojtjen e mjedisit.\nIntervistën e plotë mund ta lexoni KËTU.",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Ish zyrtari i Departamentit Amerikan të Shtetit (DASH) Luke Zahner ka vlerësuar se Kosova ka shënuar përparim të jashtëzakonshëm që nga periudha e pasluftës, por ka theksuar se njohja e plotë ndërkombëtare dhe normalizimi i marrëdhënieve me Serbinë vazhdojnë të jenë pengesat kryesore për integrimin e saj euroatlantik."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në një intervistë për Telegrafin, Zahner ka kujtuar gjendjen e Kosovës në vitet 1998 dhe 1999, duke thënë se transformimi i vendit gjatë 27 viteve të fundit është i pamohueshëm."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Kur i kujtojmë kushtet në terren në vitet 1998 dhe 1999 dhe më pas shohim Prishtinën apo qytetet e tjera të Kosovës sot, transformimi është i pamohueshëm\", ka deklaruar ai."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas Zahnerit, Kosova ka ndërtuar institucione demokratike dhe është zhvilluar në një sistem demokratik evropian, të cilin vazhdon ta konsolidojë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Megjithatë, ai ka thënë se statusi i papërfunduar ndërkombëtar i Kosovës mbetet një pengesë e rëndësishme."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Mungesa e normalizimit të marrëdhënieve me Serbinë përbën një pengesë të jashtëzakonshme për arritjen e synimit përfundimtar të Kosovës: integrimin e plotë në komunitetin euroatlantik\", ka thënë Zahner."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ai ka kërkuar që normalizimi të mbetet në krye të agjendës së udhëheqësve të Kosovës, pavarësisht vështirësive të procesit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ndër sfidat e tjera, Zahner ka përmendur mirëqenien ekonomike, veçanërisht mundësitë për të rinjtë, luftën kundër korrupsionit, energjinë dhe mbrojtjen e mjedisit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intervistën e plotë mund ta lexoni KËTU."
+      }
+    ],
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68659982&width=980",
+    "koha": "17/11/2026 19:02",
+    "published_at": "2026-11-17T19:02:00.026335+01:00",
+    "source_published_at": "2026-11-17T17:49:20Z",
+    "link_origjinal": "https://telegrafi.com/zahner-kosova-ka-shenuar-perparim-te-jashtezakonshem-por-njohja-nderkombetare-mbetet-sfida-kryesore/",
+    "slug": "zahner-kosova-ka-shenuar-perparim-te-jashtezakonshem-por-njohja-nderkombetare-mbetet-sfida-kryesore",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/zahner-kosova-ka-shenuar-perparim-te-jashtezakonshem-por-njohja-nderkombetare-mbetet-sfida-kryesore/",
+        "titulli": "Zahner: Kosova ka shënuar përparim të jashtëzakonshëm, por njohja ndërkombëtare mbetet sfida kryesore"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Profesori Loku: Nuk kam kërëcnuar me mbylljen e USHAF-it",
+    "permbajtja": "Prof. Asoc. Dr. Afrim Loku, ushtrues i detyrës së rektorit të USHAF-it, ka reaguar publikisht lidhur me zhvillimet dhe polemikat e fundit në Universitet.\nLoku ka mohuar kategorikisht pretendimet se ka kërcënuar me mbylljen e Universitetit, duke i cilësuar si të pavërteta dhe duke kundërshtuar atribuimin e deklaratave që, sipas tij, nuk i ka bërë.\nAi theksoi se për më shumë se 15 vjet ka kontribuar në themelimin dhe zhvillimin e USHAF-it, duke nënvizuar se angazhimi i tij ka qenë dhe mbetet në shërbim të institucionit dhe studentëve.\nNë reagimin e tij, Loku bëri thirrje për qetësi, dialog dhe respektim të procedurave institucionale, ndërsa kërkoi që pretendimet e pavërteta ndaj tij të tërhiqen publikisht.\nAi paralajmëroi gjithashtu se për deklaratat shpifëse dhe keqpërdorimet e dokumentuara do t’u drejtohet organeve kompetente dhe rrugëve ligjore.\n“USHAF-i është shtëpia jonë e përbashkët. Askush prej nesh nuk është mbi Universitetin”, përfundoi Loku.",
+    "content_blocks": [],
+    "kategoria": "Lajme",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/cover-1-4-scaled.png",
+    "koha": "17/11/2026 19:02",
+    "published_at": "2026-11-17T19:02:07.055680+01:00",
+    "source_published_at": "2026-11-17T17:52:45Z",
+    "link_origjinal": "https://indeksonline.net/profesori-loku-nuk-kam-kerecnuar-me-mbylljen-e-ushaf-it/",
+    "slug": "profesori-loku-nuk-kam-kerecnuar-me-mbylljen-e-ushaf-it",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/profesori-loku-nuk-kam-kerecnuar-me-mbylljen-e-ushaf-it/",
+        "titulli": "Profesori Loku: Nuk kam kërëcnuar me mbylljen e USHAF-it"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "A mund të na përgjojnë përmes telefonit dhe laptopit? Drenusha tregon sa real është rreziku",
+    "permbajtja": "A mund të përdoret telefoni apo laptopi ynë për të na përgjuar pa e kuptuar? Kjo ishte një nga temat e diskutuara në episodin e dhjetë të podcastit “Rrugëtimi”, ku mysafire ishte Drenusha Salihu, CEO e Women for Cyber.\nE pyetur nëse ekziston rreziku real që dikush të na përgjojë përmes kamerës së laptopit apo telefonit, Salihu tha se një mundësi e tillë ekziston.\n“Po, ekziston rreziku real”, tha ajo gjatë podcastit.\nSipas saj, përveç metodave tradicionale, sot ekzistojnë teknika më të avancuara që mund të funksionojnë brenda kompjuterit apo telefonit.\n“Ekzistojnë teknika të avancuara të cilat mund të jenë brenda kompjuterit dhe telefonit tonë dhe mund të na përgjojnë vazhdimisht”, tha Salihu.\nAjo shpjegoi se një person nuk duhet domosdoshmërisht të jetë objektiv i drejtpërdrejtë i një sulmi që të dhënat e tij të mblidhen.\nSipas saj, të dhënat e mbledhura mund të përpunohen apo të përfundojnë edhe te palë të treta.\nSalihu foli edhe për mënyrat se si përdoruesit mund të vërejnë sjellje të pazakonta në pajisjet e tyre.\nDrenusha Salihu, CEO Women for Cyber gjatë podcastit \"Rrugëtimi\"Foto: Ridvan Slivova\nNjë nga treguesit tradicionalë ka qenë ndezja e dritës së kamerës, por ajo theksoi se sot ekzistojnë teknika që mund ta çaktivizojnë edhe këtë sinjal.\n“Një nga metodat më të vjetra ka qenë nëse drita e kamerës qëndron ndezur, mirëpo tash ka edhe metoda tjera më të avancuara që përmes skripteve të ndryshme munden me e zbeh komplet dritën”, shpjegoi ajo.\nNjë tjetër tregues mund të jetë ngadalësimi i kompjuterit, ndërsa përdoruesit mund të kontrollojnë edhe se cilat aplikacione kanë qasje në kamerë.\nSalihu tërhoqi vëmendjen veçanërisht te shkarkimi i aplikacioneve dhe programeve nga burime jozyrtare.\nSa të sigurt jemi në internet? Drenusha Salihu në “Rrugëtimi” flet për rreziqet digjitale\nSipas saj, rreziku mund të rritet kur merret një program nga palë të treta ose kur një aplikacion që zakonisht ofrohet me pagesë shkarkohet falas nga burime të pasigurta.\n“Në momentin që ti merr një aplikacion apo një softuer nga një palë e tretë që nuk duket që është mjaft e sigurt, ose nëse është aplikacion që normal ofrohet me pagesë, ndërsa ti e merr falas, atëherë nuk mundesh me garantu se çka vjen bashkë”, tha ajo.\nDiskutimin e plotë për sigurinë e pajisjeve, hakimet dhe mënyrat e mbrojtjes mund ta ndiqni më poshtë. /Telegrafi/\n- YouTube www.youtube.com",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "A mund të përdoret telefoni apo laptopi ynë për të na përgjuar pa e kuptuar? Kjo ishte një nga temat e diskutuara në episodin e dhjetë të podcastit “Rrugëtimi”, ku mysafire ishte Drenusha Salihu, CEO e Women for Cyber."
+      },
+      {
+        "type": "paragraph",
+        "text": "E pyetur nëse ekziston rreziku real që dikush të na përgjojë përmes kamerës së laptopit apo telefonit, Salihu tha se një mundësi e tillë ekziston."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Po, ekziston rreziku real”, tha ajo gjatë podcastit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas saj, përveç metodave tradicionale, sot ekzistojnë teknika më të avancuara që mund të funksionojnë brenda kompjuterit apo telefonit."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Ekzistojnë teknika të avancuara të cilat mund të jenë brenda kompjuterit dhe telefonit tonë dhe mund të na përgjojnë vazhdimisht”, tha Salihu."
+      },
+      {
+        "type": "embed",
+        "url": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2164140487531885%2F&show_text=false&width=267&t=0",
+        "label": "Shiko videon te burimi"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ajo shpjegoi se një person nuk duhet domosdoshmërisht të jetë objektiv i drejtpërdrejtë i një sulmi që të dhënat e tij të mblidhen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas saj, të dhënat e mbledhura mund të përpunohen apo të përfundojnë edhe te palë të treta."
+      },
+      {
+        "type": "paragraph",
+        "text": "Salihu foli edhe për mënyrat se si përdoruesit mund të vërejnë sjellje të pazakonta në pajisjet e tyre."
+      },
+      {
+        "type": "paragraph",
+        "text": "Drenusha Salihu, CEO Women for Cyber gjatë podcastit \"Rrugëtimi\"Foto: Ridvan Slivova"
+      },
+      {
+        "type": "image",
+        "url": "https://telegrafi.com/media-library/drenusha-salihu-ceo-women-for-cyber-gjat-u00eb-podcastit-rrug-u00ebtimi.jpg?id=68692559&width=980",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "type": "paragraph",
+        "text": "Një nga treguesit tradicionalë ka qenë ndezja e dritës së kamerës, por ajo theksoi se sot ekzistojnë teknika që mund ta çaktivizojnë edhe këtë sinjal."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Një nga metodat më të vjetra ka qenë nëse drita e kamerës qëndron ndezur, mirëpo tash ka edhe metoda tjera më të avancuara që përmes skripteve të ndryshme munden me e zbeh komplet dritën”, shpjegoi ajo."
+      },
+      {
+        "type": "paragraph",
+        "text": "Një tjetër tregues mund të jetë ngadalësimi i kompjuterit, ndërsa përdoruesit mund të kontrollojnë edhe se cilat aplikacione kanë qasje në kamerë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Salihu tërhoqi vëmendjen veçanërisht te shkarkimi i aplikacioneve dhe programeve nga burime jozyrtare."
+      },
+      {
+        "type": "heading",
+        "text": "Sa të sigurt jemi në internet? Drenusha Salihu në “Rrugëtimi” flet për rreziqet digjitale"
+      },
+      {
+        "type": "image",
+        "url": "https://telegrafi.com/media-library/image.jpg?id=68689280&width=300",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas saj, rreziku mund të rritet kur merret një program nga palë të treta ose kur një aplikacion që zakonisht ofrohet me pagesë shkarkohet falas nga burime të pasigurta."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Në momentin që ti merr një aplikacion apo një softuer nga një palë e tretë që nuk duket që është mjaft e sigurt, ose nëse është aplikacion që normal ofrohet me pagesë, ndërsa ti e merr falas, atëherë nuk mundesh me garantu se çka vjen bashkë”, tha ajo."
+      },
+      {
+        "type": "paragraph",
+        "text": "Diskutimin e plotë për sigurinë e pajisjeve, hakimet dhe mënyrat e mbrojtjes mund ta ndiqni më poshtë. /Telegrafi/"
+      },
+      {
+        "type": "paragraph",
+        "text": "- YouTube www.youtube.com"
+      }
+    ],
+    "kategoria": "Teknologji",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68692567&width=980",
+    "koha": "17/11/2026 19:02",
+    "published_at": "2026-11-17T19:02:11.884230+01:00",
+    "source_published_at": "2026-11-17T17:45:57Z",
+    "link_origjinal": "https://telegrafi.com/a-mund-te-na-pergjojne-permes-telefonit-dhe-laptopit-drenusha-tregon-sa-real-eshte-rreziku/",
+    "slug": "a-mund-te-na-pergjojne-permes-telefonit-dhe-laptopit-drenusha-tregon-sa-real-eshte-rreziku",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/a-mund-te-na-pergjojne-permes-telefonit-dhe-laptopit-drenusha-tregon-sa-real-eshte-rreziku/",
+        "titulli": "A mund të na përgjojnë përmes telefonit dhe laptopit? Drenusha tregon sa real është rreziku"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Kosovën e pret situatë e rënduar energjetike? Gjini fajëson Qeverinë",
+    "permbajtja": "Kryetari i Aleancës, Ardian Gjini, përmes një konference për media, ka deklaruar se subjekti të cilin ai e udhëheq, sipas tij, ka paralajmëruar për muaj të tërë për situatën me rrymën në Kosovë.\nSipas tij, fajet për gjendjen me energjinë elektrike e ka Qeveria e vendit, raporton IndeksOnline.\n“Prej kësaj foltoreje, ka disa muaj që kolegët e mi të Aleancës kemi paralajmëruar popullin e Kosovës që kemi me ardh në një situatë tepër të rëndë energjetike, gati në kolaps. Fajet janë krejt në Prishtinë, fajet janë krejt te Qeveria e Kosovës, për shkak të neglizhencës, për shkak të moskompetencës, e sipas të gjitha gjasave edhe për shkak të korrupsionit në këtë sektor”, u shpreh Gjini.\nShqetësime, Gjini, shfaqi edhe për buxhetin e vendit.",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/09/ardian-gjini.png",
+    "koha": "17/11/2026 19:02",
+    "published_at": "2026-11-17T19:02:16.938426+01:00",
+    "source_published_at": "2026-11-17T17:52:41Z",
+    "link_origjinal": "https://indeksonline.net/kosoven-e-pret-situate-e-renduar-energjetike-gjini-kritikon-qeverine/",
+    "slug": "kosoven-e-pret-situate-e-renduar-energjetike-gjini-fajeson-qeverine",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/kosoven-e-pret-situate-e-renduar-energjetike-gjini-kritikon-qeverine/",
+        "titulli": "Kosovën e pret situatë e rënduar energjetike? Gjini fajëson Qeverinë"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
     "titulli": "Ford Mustang GTD i vitit 2028 prezantohet me edicion special për 125-vjetorin e një makine historike",
     "permbajtja": "Ford Mustang GTD do të marrë disa përditësime për vitin model 2028, përfshirë një edicion të veçantë që shënon 125-vjetorin e modelit “Sweepstakes”, makinës që Henry Ford ndërtoi dhe garoi me të në vitin 1901, në përpjekje për të tërhequr investitorë.\nFitorja në atë garë ndihmoi Fordin të siguronte mbështetjen e nevojshme për zhvillimin e kompanisë. Tash, 125 vjet më vonë, prodhuesi amerikan po e nderon atë automjet me një pamje të veçantë për Mustang GTD-në, transmeton Telegrafi.\nEdicioni i ri, i quajtur “1901”, vjen me ngjyrë të kuqe Royal Red dhe detaje të zeza. Pjesa e përparme, difuzori, pragjet anësore dhe spoileri i pasmë janë të punuara me fibër karboni të ekspozuar. Ky paketim zëvendëson atë “Spirit of America”, të ofruar vitin e kaluar.\nNë kabinë, modeli i ri përmban ulëse të veshura me lëkurë në ngjyrë të kuqe mahogany dhe qepje sportive Race Red. Paketa Performance, e cila përfshin përmirësime aerodinamike dhe reduktim të peshës, do të jetë pjesë standarde e pajisjeve.\nPërditësimet e vitit 2028 përfshijnë gjithashtu ndërrues të marsheve pas timonit, të prodhuar me teknologjinë e printimit 3D nga titani, si dhe një unazë të re për ndërrimin e marsheve. Lëkura me cilësi të lartë do të mbulojë tashmë edhe konzollën qendrore, panelet e dyerve dhe panelin e instrumenteve.\nFord do të ofrojë gjithashtu si opsion fellne prej magnezi. Ato ishin prezantuar që në lansimin e modelit, por problemet me furnizuesit kishin penguar disponueshmërinë e tyre. Kompania thotë se këto vështirësi tashmë janë zgjidhur.\nNdryshime ka edhe në pamjen e jashtme, ku do të ofrohen mundësi të reja për vijat dekorative me ngjyra. Paketa Liquid Carbon është përditësuar me detaje dhe vija ngjyrë bruz, ndërsa në gamën e ngjyrave janë shtuar Incognito Green dhe Teal Tonic, të cilat zëvendësojnë Sage Green dhe Blue Metallic.\nSa i përket motorit, Ford nuk ka bërë ndryshime. Mustang GTD vazhdon të përdorë motorin V8 5.2-litërsh me kompresor mekanik dhe sistem lubrifikimi me karter të thatë. Ai zhvillon 815 kuajfuqi, ndërsa fuqia transmetohet përmes një sistemi transaksial me tetë shpejtësi dhe dy friksione, të vendosur në pjesën e pasme.\nShpejtësia maksimale mbetet 202 milje në orë, ndërsa frenimi sigurohet nga sistemi qeramikë i frenave Brembo.\nFord pritet të publikojë çmimet më afër datës së daljes në shitje. Porositë për Mustang GTD 2028 do të hapen në dhjetor, ndërsa dërgesat e para pritet të nisin në tremujorin e dytë të vitit 2027. /Telegrafi/",
     "content_blocks": [
@@ -89,14 +521,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 5,
-    "selection_reasons": [
-      "Freskia: 39.8/40",
-      "Në ballinën e burimit: +12",
-      "Tema: Teknologji",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Skandal në Gjermani, autoritetet e NRW-së “harruan” 34 shqiptarë në një fluturim dëbimi drejt Tiranës",
@@ -424,7 +849,7 @@
     "komunat": [],
     "featured_rank": 2,
     "selection_reasons": [
-      "Freskia: 39.4/40",
+      "Freskia: 38.98/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Siguri dhe emergjenca: +16",
       "Tema: Siguri dhe emergjenca",
@@ -960,7 +1385,7 @@
     "komunat": [],
     "featured_rank": 4,
     "selection_reasons": [
-      "Freskia: 38.26/40",
+      "Freskia: 37.84/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Vendime publike: +10",
       "Tema: Vendime publike",
@@ -1460,7 +1885,7 @@
     ],
     "featured_rank": 3,
     "selection_reasons": [
-      "Freskia: 37.1/40",
+      "Freskia: 36.68/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Shëndetësi: +14",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -1752,7 +2177,7 @@
     },
     "featured_rank": 1,
     "selection_reasons": [
-      "Freskia: 35.11/40",
+      "Freskia: 34.69/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Shërbime publike: +18",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -144802,99 +145227,6 @@
       {
         "url": "https://www.gazetaexpress.com/ish-lojtari-i-unitedit-zbulon-se-cfare-trajtimi-i-beri-ruben-amorimi-lojtareve-te-padeshiruar/",
         "titulli": "Ish-lojtari i Unitedit zbulon se çfarë trajtimi i bëri Ruben Amorimi “lojtarëve të padëshiruar”"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Kush janë befasitë më të mëdha deri tani në Ligën e Kampionëve sipas gazetarit Bardh Maxhuni",
-    "permbajtja": "Në episodin e radhës të podcastit “Arena e Yjeve”, gazetarët e Telegrafit, Shkumbin Pireva, Bardh Maxhuni dhe Lavdim Pireva, diskutojnë për zhvillimet më të rëndësishme në futbollin evropian, me fokus te Liga e Kampionëve, gara për çmimet individuale, Superliga e Kosovës dhe derbit e mëdhenj të fundjavës. Episodi realizohet me mbështetjen e sponsorit zyrtar Exfis.\nGazetari Bardh Maxhuni ka përmendur dy ekipe – Real Betisin dhe Comon si dy befasitë e këtij edicioni të Ligës së Kampionëve, falë lojës qw po shfaqin të dyjat.\n“Po, e pamë që pas tri xhirovo të para, tash i kemi pesë ekipe, të cilat e kanë arritë bilancin perfekt, pra, i kanë tri fitore, pra nëntë pikë maksimumin e kanë arritë”.\nEkipi që ka shkaktu befasi të madhe për mua është Real Betisi edhe Como. Betisi për faktin se pe shohim që po udhëhiqet nga një Isoc, i cili ndonëse është në perëndim të karrierës, po e shohim që atë përvojën që e ka pas që e ka ndërtu ndër vite, e ka sjellë te Betisi edhe nën drejtimin e Manuel Pellegrinit, po kanë rezultate të mira si në kampionat ashtu edhe në Ligën e Kampionëve”.\n“Como një tjetër befasi, ndoshta jo befasi për neve që e përcjellim edhe në kampionat,pothuajse vazhdimisht, Como prej se është Fabregasi trajner ka bo një futboll atraktiv, tash në Ligën e Kampionëve ka marrë vëmendje më të madhe, për shkak se dihet që është gara më prestigjioze dhe e përcjellin krejt”, ka thënë mes tjerash Maxhuni.\nEpisodin e plotë të podcastit “Arena e Yjeve” me Shkumbin Pirevën, Bardh Maxhunin dhe Lavdim Pirevën mund ta ndiqni në kanalin zyrtar të Telegrafit në YouTube.",
-    "kategoria": "Sport",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68522700&width=980",
-    "koha": "24/10/2026 19:16",
-    "link_origjinal": "https://telegrafi.com/kush-jane-befasite-me-te-medha-deri-tani-ne-ligen-e-kampioneve-sipas-gazetarit-bardh-maxhuni/",
-    "slug": "kush-jane-befasite-me-te-medha-deri-tani-ne-ligen-e-kampioneve-sipas-gazetarit-bardh-maxhuni",
-    "eshte_balline": false,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/kush-jane-befasite-me-te-medha-deri-tani-ne-ligen-e-kampioneve-sipas-gazetarit-bardh-maxhuni/",
-        "titulli": "Kush janë befasitë më të mëdha deri tani në Ligën e Kampionëve sipas gazetarit Bardh Maxhuni"
-      }
-    ],
-    "last_seen_at": "2026-11-10T13:53:01.438904+01:00",
-    "source_count": 1
-  },
-  {
-    "titulli": "Protestat e dhunshme në Tiranë, Edi Rama ironizon me një video",
-    "permbajtja": "Kryeministri Edi Rama ka publikuar një video lidhur me protestat masive dhe të dhunshme që po zhvillohen sot.\nNë video shfaqen protestues, të cilët Rama i specifikon si studentë, të mbledhur në selinë e Partisë Demokratike.\nKryeministri e ka shoqëruar videon me përshkrimin: “Studentët” në Universitetin e Dhunës.\nProtestat e ditëve të fundit në Tiranë janë shoqëruar me tensione të larta, përplasje mes protestuesve dhe Policisë, si dhe dëmtime të institucioneve.\nProtestuesit kanë kërkuar dorëheqjen e kryeministrit Edi Rama.\nNga ana tjetër, Rama ka dënuar aktet e dhunës dhe ka bërë thirrje për dialog.",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.png?id=68522702&width=980",
-    "koha": "24/10/2026 19:16",
-    "link_origjinal": "https://telegrafi.com/protestat-e-dhunshme-ne-tirane-edi-rama-ironizon-me-nje-video/",
-    "slug": "protestat-e-dhunshme-ne-tirane-edi-rama-ironizon-me-nje-video",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/protestat-e-dhunshme-ne-tirane-edi-rama-ironizon-me-nje-video/",
-        "titulli": "Protestat e dhunshme në Tiranë, Edi Rama ironizon me një video"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Napoli lë në gjumë mbrojtjen romake, shënon dhe të dytin",
-    "permbajtja": "Napoli ka shënuar dhe golin e dytë ndaj Romës.\nËshtë skocezi Scott McTominay, ai që realizoi që në fillim të pjesës së dytë duke e vendosur turmën vendase në festë.\nRezultati tashmë është 2-0.",
-    "kategoria": "Sport",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/10/naplo.jpg",
-    "koha": "24/10/2026 19:16",
-    "link_origjinal": "https://indeksonline.net/napoli-le-ne-gjume-mbrojtjen-romake-shenon-dhe-te-dytin/",
-    "slug": "napoli-le-ne-gjume-mbrojtjen-romake-shenon-dhe-te-dytin",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/napoli-le-ne-gjume-mbrojtjen-romake-shenon-dhe-te-dytin/",
-        "titulli": "Napoli lë në gjumë mbrojtjen romake, shënon dhe të dytin"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Mbyllet pjesa e parë/ Malisheva po prin ndaj Drenicës",
-    "permbajtja": "Ka përfunduar pjesa e parë në “Bajram Aliu”.\nJanë liderët e Superligës, Malisheva ata të cilët po udhëheqin ndaj Drenicës me rezultat minimal 0-1.\nGolin për mysafirët e realizoi Dren Kryeziu, në minutën e 35-të.\nMbetet të shihet se çka do të ndodhë në pjesë të dytë.",
-    "kategoria": "Sport",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/10/dre.jpg",
-    "koha": "24/10/2026 19:16",
-    "link_origjinal": "https://indeksonline.net/mbyllet-pjesa-e-pare-malisheva-po-prin-ndaj-drenices/",
-    "slug": "mbyllet-pjesa-e-pare-malisheva-po-prin-ndaj-drenices",
-    "eshte_balline": true,
-    "komunat": [
-      "Malishevë"
-    ],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/mbyllet-pjesa-e-pare-malisheva-po-prin-ndaj-drenices/",
-        "titulli": "Mbyllet pjesa e parë/ Malisheva po prin ndaj Drenicës"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Çfarë “rakete” nga Zambo-Anguissa, shënon një “roveshatë” ndaj Romës",
-    "permbajtja": "Napoli ka shënuar një gol spektakolar në derbi ndaj Romës.\nËshtë Andre-Frank Zambo Anguissa, ai që shënoi një “roveshatë” në minutën e 27-të.\nRezultati është 1-0.\n🚨 Frank Anguissa scores for home side. 🇮🇹 Napoli 1-0 Roma pic.twitter.com/m9b9zn3pZ1 — Goals Xtra (@GoalsXtra) October 24, 2026\nNapoli lë në gjumë mbrojtjen romake, shënon dhe të dytin\nKosova avancon në raundin e fundit të kualifikimeve për Botërorin e hendbollit\nMbyllet pjesa e parë/ Malisheva po prin ndaj Drenicës\nNapoli po e shqyrton Igli Taren për pozitën e drejtorit sportiv\nArsenali barazohet me pikë me Cityn, mposht Evertonin\nNjë tjetër fitore për Arbeloan te Fulhami, e mposhtin Coventryn e Lampardit",
-    "kategoria": "Sport",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/10/napli.jpg",
-    "koha": "24/10/2026 19:16",
-    "link_origjinal": "https://indeksonline.net/cfare-rakete-nga-zambo-anguissa-shenon-nje-roveshate-ndaj-romes/",
-    "slug": "cfare-rakete-nga-zambo-anguissa-shenon-nje-roveshate-ndaj-romes",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/cfare-rakete-nga-zambo-anguissa-shenon-nje-roveshate-ndaj-romes/",
-        "titulli": "Çfarë “rakete” nga Zambo-Anguissa, shënon një “roveshatë” ndaj Romës"
       }
     ],
     "source_count": 1
