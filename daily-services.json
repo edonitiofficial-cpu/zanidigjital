@@ -337,14 +337,22 @@
         "status": "none"
       }
     ],
-    "status": "ok",
+    "status": "error",
     "collected_on": "2026-11-16",
     "updated_at": "2026-11-16T21:32:40.327301+01:00",
-    "checked_at": "2026-11-16T21:32:40.327301+01:00"
+    "checked_at": "2026-11-17T21:31:47.601923+01:00",
+    "error_type": "TimeoutError"
   },
   "weather": {
     "source_url": "https://www.meteokosova.com/",
     "forecasts": [
+      {
+        "title": "Parashikimi i motit për të martën, 17.11.2026",
+        "date": "2026-11-17",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-marten-17-11-2026/",
+        "published_at": "2026-11-17T01:21:27+00:00",
+        "excerpt": "Të martën parashikohet të mbajë mot me diell dhe vranësira të pjesshme, me përjashtim për në orët e mëngjesit ku pritet të ketë mjegull dhe vranësira të ulëta nëpër lugina dhe ultësira. Në orët e vona të mbrëmjes, mund të ketë ndonjë reshje të izoluar në skajet e zonës jugperëndimore dhe perëndimore."
+      },
       {
         "title": "Parashikimi i motit për të hënën, 16.11.2026",
         "date": "2026-11-16",
@@ -372,18 +380,11 @@
         "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-premten-13-11-2026/",
         "published_at": "2026-11-13T20:29:32+00:00",
         "excerpt": "Të premten parashikohet që gjatë orëve të para të 24-orëshit dhe mëngjesit, të ketë rrebeshe të izoluara shiu në lokalitete, kryesisht në Rrafshin e Dukagjinit. Përndryshe, pjesa më e madhe e vendit do të karakterizohet me diell dhe vranësira të pakta."
-      },
-      {
-        "title": "Parashikimi i motit për të enjten, 12.11.2026",
-        "date": "2026-11-12",
-        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-enjten-12-11-2026/",
-        "published_at": "2026-11-11T22:03:08+00:00",
-        "excerpt": "Të enjten parashikohet mot me vranësira të shpeshta dhe intervale me diell, ndërsa në disa lokalitete priten reshje afatshkurtër shiu. Era do të fryjë jugu dhe jugperëndimi, e cila herë pas here të jetë shumë e fortë, me shpejtësi prej 10-58 km/h."
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-16",
-    "updated_at": "2026-11-16T21:32:40.327301+01:00",
-    "checked_at": "2026-11-16T21:32:40.327301+01:00"
+    "collected_on": "2026-11-17",
+    "updated_at": "2026-11-17T21:31:47.601923+01:00",
+    "checked_at": "2026-11-17T21:31:47.601923+01:00"
   }
 }
