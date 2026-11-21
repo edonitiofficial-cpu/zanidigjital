@@ -1,5 +1,286 @@
 [
   {
+    "titulli": "Inteligjenca artificiale mund të ketë zgjidhur një nga problemet më të mëdha matematikore të të gjitha kohërave",
+    "permbajtja": "Matematikani Levent Alpoge, i punësuar në kompaninë amerikane të inteligjencës artificiale Anthropic, pretendon se ka arritur të zgjidhë hipotezën e Riemannit, një nga problemet më të njohura dhe më të vështira të pazgjidhura në matematikë, me ndihmën e sistemit të inteligjencës artificiale Claude.\nNëse zbulimi i tij konfirmohet, kjo do të përbënte një përparim të jashtëzakonshëm në matematikë, por edhe një dëshmi të rëndësishme për aftësinë e inteligjencës artificiale për të ndihmuar në zgjidhjen e problemeve që për më shumë se një shekull e gjysmë kanë sfiduar shkencëtarët më të mirë në botë, shkruajnë mediat.\nAlpoge publikoi të premten një dokument prej katër faqesh, në të cilin shpjegon se si arriti te zgjidhja e mundshme me ndihmën e Claude. Megjithatë, pretendimi i tij ende nuk i është nënshtruar një verifikimi të plotë dhe të pavarur nga komuniteti matematikor.\nProblemi matematikor që askush nuk e zgjidhi për 167 vjet\nHipoteza e Riemannit u formulua në vitin 1859 nga matematikani gjerman Bernhard Riemann. Ajo lidhet me shpërndarjen e numrave të thjeshtë, pra numrave që pjesëtohen vetëm me numrin një dhe me vetveten.\nShembuj të numrave të thjeshtë janë 2, 3, 5, 7 dhe 11. Edhe pse shfaqen sipas disa rregullave matematikore, mënyra se si shpërndahen në mesin e numrave gjithnjë e më të mëdhenj ende nuk është shpjeguar plotësisht.\nHipoteza e Riemann-t parashikon një rregull të caktuar matematikor që lidhet me këtë shpërndarje. Gjatë dekadave, shkencëtarët kanë mbledhur shumë dëshmi që e mbështesin atë, por askush deri më tani nuk ka arritur të provojë se është gjithmonë e vërtetë.\n\"Claude më kaloi shumë përpara në fazën përfundimtare\"\nAlpoge ka treguar se prej disa muajsh po bashkëpunon me Claude në zgjidhjen e problemeve të ndryshme matematikore. Sipas tij, inteligjenca artificiale luajti një rol veçanërisht të rëndësishëm në fazën përfundimtare të punës për hipotezën e Riemann-it.\n\"Claude dhe unë kemi kaluar muajt e fundit duke u argëtuar jashtëzakonisht shumë duke punuar në një gamë të gjerë problemesh, por këtë herë Claude më kaloi shumë përpara në fazën përfundimtare\", shkroi Alpoge në dokumentin e publikuar në faqen e tij.\nAi shtoi se Claude \"fluturonte, vallëzonte dhe shkëlqente\" në momentet e fundit të punës, duke përshkruar kështu rolin e inteligjencës artificiale në kërkimin e zgjidhjes së një problemi që matematikanët po përpiqen ta zgjidhin prej më shumë se një shekulli e gjysmë.\nProva përmban 17 milionë rreshta kodi\n- YouTube youtu.be\nAlpoge publikoi provën e pretenduar në formën e rreth 17 milionë rreshtave të kodit, të shkruar në gjuhën programuese Lean. Ky sistem mundëson që kompjuteri të verifikojë provat matematikore hap pas hapi.\nNdryshe nga punimet e zakonshme shkencore, ku matematikanët i shpjegojnë përfundimet përmes formulave dhe tekstit, në këtë rast pjesa më e madhe e provës është shkruar në mënyrë që të mund të kontrollohet nga një program kompjuterik.\nSipas Alpoge, bashkëpunimi me inteligjencën artificiale ka prodhuar më shumë se 250 mijë faqe material matematikor. Ai pranoi gjithashtu se ende nuk i ka studiuar plotësisht të gjitha pjesët e provës së publikuar.\nKompjuteri e pranon provën, por ekspertët kërkojnë verifikim\nAlex Kontorovich, profesor i matematikës në Universitetin Rutgers, shpjegoi se matematikanët zakonisht duhet të lexojnë dhe verifikojnë çdo pjesë të një prove për t'u siguruar që të gjitha përfundimet janë të sakta.\nNë këtë rast, një pjesë të madhe të kësaj pune e kryen kompjuteri.\nKontorovich tha se sistemi kompjuterik e pranon provën e paraqitur, por kjo nuk do të thotë se ai vetë e ka kuptuar plotësisht atë.\n\"A do të thotë kjo se e kuptoj? Ende jo. Por kompjuteri është jashtëzakonisht kërkues, shumë më kërkues se unë. Prandaj, nëse arrini ta bindni kompjuterin, ka shumë gjasa që ta bindni edhe mua\", deklaroi ai.\nPër zgjidhjen ofrohet një milion dollarë\nHipoteza e Riemann-it është një nga shtatë problemet e mëdha matematikore për të cilat Instituti Clay për Matematikë ofroi në vitin 2000 një shpërblim prej një milion dollarësh për secilin problem që arrin të zgjidhet përmes një prove të pranuar shkencërisht.\nDisa orë pas publikimit të Alpoge, instituti ende e klasifikonte hipotezën e Riemann-it si problem të pazgjidhur në faqen e tij zyrtare. Për pranimin e provës nevojitet një shqyrtim i hollësishëm nga ekspertët.\nPresidenti i institutit, Martin Bridson, deklaroi se publikimi mund të ketë rëndësi historike dhe të ndryshojë mënyrën se si kuptohen mundësitë e inteligjencës artificiale. Megjithatë, ai paralajmëroi se shkencëtarët kanë ende shumë punë përpara.\n\"Por rruga nga publikimi i sotëm deri te kuptimi i vërtetë do të jetë e gjatë dhe e vështirë\", tha Bridson.\nNjë tjetër problem i madh matematikor që pretendohet se u zgjidh me AI\nKy është rasti i dytë gjatë muajve të fundit kur një kompani e inteligjencës artificiale ose një bashkëpunëtor i saj publikon një zgjidhje të mundshme për një nga problemet më të mëdha matematikore të pazgjidhura.\nNë shtator, OpenAI njoftoi se teknologjia e saj kishte luajtur rol kyç në zgjidhjen e mundshme të problemit të ekuacioneve Navier-Stokes, të cilat përshkruajnë lëvizjen e lëngjeve dhe gazeve. Edhe ky rezultat është në pritje të verifikimit nga ekspertët.\n\"Navier-Stokes u zgjidh, e tani edhe hipoteza e Riemann-it\", tha Kontorovich, duke përshkruar vështirësinë për të besuar se dy probleme kaq të njohura matematikore mund të kenë marrë zgjidhje brenda vetëm disa muajsh.\nPretendimi vjen pas daljes së Anthropic në bursë\nPublikimi i Alpoge vjen menjëherë pas daljes së kompanisë Anthropic në bursën amerikane. Kompania mblodhi 81 miliardë dollarë përmes ofertës së saj fillestare publike të aksioneve, duke arritur një vlerësim prej 1.5 trilion dollarësh.\nMatematikani pretendon se arriti te zgjidhja e mundshme të dielën në mbrëmje dhe se para publikimit u konsultua me drejtorin ekzekutiv të Anthropic, Dario Amodei, për të marrë konfirmimin nëse mund t'i bënte publike rezultatet.\nAnthropic nuk iu përgjigj pyetjeve të Associated Press lidhur me pretendimet e Alpoge.\nTani mbetet që komuniteti matematikor të përcaktojë nëse Claude ka ndihmuar vërtet në zgjidhjen e një prej problemeve më të mëdha shkencore, i cili ka mbetur i pazgjidhur që nga viti 1859. /Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Matematikani Levent Alpoge, i punësuar në kompaninë amerikane të inteligjencës artificiale Anthropic, pretendon se ka arritur të zgjidhë hipotezën e Riemannit, një nga problemet më të njohura dhe më të vështira të pazgjidhura në matematikë, me ndihmën e sistemit të inteligjencës artificiale Claude."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nëse zbulimi i tij konfirmohet, kjo do të përbënte një përparim të jashtëzakonshëm në matematikë, por edhe një dëshmi të rëndësishme për aftësinë e inteligjencës artificiale për të ndihmuar në zgjidhjen e problemeve që për më shumë se një shekull e gjysmë kanë sfiduar shkencëtarët më të mirë në botë, shkruajnë mediat."
+      },
+      {
+        "type": "paragraph",
+        "text": "Alpoge publikoi të premten një dokument prej katër faqesh, në të cilin shpjegon se si arriti te zgjidhja e mundshme me ndihmën e Claude. Megjithatë, pretendimi i tij ende nuk i është nënshtruar një verifikimi të plotë dhe të pavarur nga komuniteti matematikor."
+      },
+      {
+        "type": "paragraph",
+        "text": "Problemi matematikor që askush nuk e zgjidhi për 167 vjet"
+      },
+      {
+        "type": "image",
+        "url": "https://telegrafi.com/media-library/image.webp?id=68736286&width=980",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "type": "paragraph",
+        "text": "Hipoteza e Riemannit u formulua në vitin 1859 nga matematikani gjerman Bernhard Riemann. Ajo lidhet me shpërndarjen e numrave të thjeshtë, pra numrave që pjesëtohen vetëm me numrin një dhe me vetveten."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shembuj të numrave të thjeshtë janë 2, 3, 5, 7 dhe 11. Edhe pse shfaqen sipas disa rregullave matematikore, mënyra se si shpërndahen në mesin e numrave gjithnjë e më të mëdhenj ende nuk është shpjeguar plotësisht."
+      },
+      {
+        "type": "paragraph",
+        "text": "Hipoteza e Riemann-t parashikon një rregull të caktuar matematikor që lidhet me këtë shpërndarje. Gjatë dekadave, shkencëtarët kanë mbledhur shumë dëshmi që e mbështesin atë, por askush deri më tani nuk ka arritur të provojë se është gjithmonë e vërtetë."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Claude më kaloi shumë përpara në fazën përfundimtare\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Alpoge ka treguar se prej disa muajsh po bashkëpunon me Claude në zgjidhjen e problemeve të ndryshme matematikore. Sipas tij, inteligjenca artificiale luajti një rol veçanërisht të rëndësishëm në fazën përfundimtare të punës për hipotezën e Riemann-it."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Claude dhe unë kemi kaluar muajt e fundit duke u argëtuar jashtëzakonisht shumë duke punuar në një gamë të gjerë problemesh, por këtë herë Claude më kaloi shumë përpara në fazën përfundimtare\", shkroi Alpoge në dokumentin e publikuar në faqen e tij."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ai shtoi se Claude \"fluturonte, vallëzonte dhe shkëlqente\" në momentet e fundit të punës, duke përshkruar kështu rolin e inteligjencës artificiale në kërkimin e zgjidhjes së një problemi që matematikanët po përpiqen ta zgjidhin prej më shumë se një shekulli e gjysmë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Prova përmban 17 milionë rreshta kodi"
+      },
+      {
+        "type": "paragraph",
+        "text": "- YouTube youtu.be"
+      },
+      {
+        "type": "paragraph",
+        "text": "Alpoge publikoi provën e pretenduar në formën e rreth 17 milionë rreshtave të kodit, të shkruar në gjuhën programuese Lean. Ky sistem mundëson që kompjuteri të verifikojë provat matematikore hap pas hapi."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ndryshe nga punimet e zakonshme shkencore, ku matematikanët i shpjegojnë përfundimet përmes formulave dhe tekstit, në këtë rast pjesa më e madhe e provës është shkruar në mënyrë që të mund të kontrollohet nga një program kompjuterik."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas Alpoge, bashkëpunimi me inteligjencën artificiale ka prodhuar më shumë se 250 mijë faqe material matematikor. Ai pranoi gjithashtu se ende nuk i ka studiuar plotësisht të gjitha pjesët e provës së publikuar."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kompjuteri e pranon provën, por ekspertët kërkojnë verifikim"
+      },
+      {
+        "type": "paragraph",
+        "text": "Alex Kontorovich, profesor i matematikës në Universitetin Rutgers, shpjegoi se matematikanët zakonisht duhet të lexojnë dhe verifikojnë çdo pjesë të një prove për t'u siguruar që të gjitha përfundimet janë të sakta."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në këtë rast, një pjesë të madhe të kësaj pune e kryen kompjuteri."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kontorovich tha se sistemi kompjuterik e pranon provën e paraqitur, por kjo nuk do të thotë se ai vetë e ka kuptuar plotësisht atë."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"A do të thotë kjo se e kuptoj? Ende jo. Por kompjuteri është jashtëzakonisht kërkues, shumë më kërkues se unë. Prandaj, nëse arrini ta bindni kompjuterin, ka shumë gjasa që ta bindni edhe mua\", deklaroi ai."
+      },
+      {
+        "type": "paragraph",
+        "text": "Për zgjidhjen ofrohet një milion dollarë"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hipoteza e Riemann-it është një nga shtatë problemet e mëdha matematikore për të cilat Instituti Clay për Matematikë ofroi në vitin 2000 një shpërblim prej një milion dollarësh për secilin problem që arrin të zgjidhet përmes një prove të pranuar shkencërisht."
+      },
+      {
+        "type": "paragraph",
+        "text": "Disa orë pas publikimit të Alpoge, instituti ende e klasifikonte hipotezën e Riemann-it si problem të pazgjidhur në faqen e tij zyrtare. Për pranimin e provës nevojitet një shqyrtim i hollësishëm nga ekspertët."
+      },
+      {
+        "type": "paragraph",
+        "text": "Presidenti i institutit, Martin Bridson, deklaroi se publikimi mund të ketë rëndësi historike dhe të ndryshojë mënyrën se si kuptohen mundësitë e inteligjencës artificiale. Megjithatë, ai paralajmëroi se shkencëtarët kanë ende shumë punë përpara."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Por rruga nga publikimi i sotëm deri te kuptimi i vërtetë do të jetë e gjatë dhe e vështirë\", tha Bridson."
+      },
+      {
+        "type": "paragraph",
+        "text": "Një tjetër problem i madh matematikor që pretendohet se u zgjidh me AI"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ky është rasti i dytë gjatë muajve të fundit kur një kompani e inteligjencës artificiale ose një bashkëpunëtor i saj publikon një zgjidhje të mundshme për një nga problemet më të mëdha matematikore të pazgjidhura."
+      },
+      {
+        "type": "paragraph",
+        "text": "Në shtator, OpenAI njoftoi se teknologjia e saj kishte luajtur rol kyç në zgjidhjen e mundshme të problemit të ekuacioneve Navier-Stokes, të cilat përshkruajnë lëvizjen e lëngjeve dhe gazeve. Edhe ky rezultat është në pritje të verifikimit nga ekspertët."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Navier-Stokes u zgjidh, e tani edhe hipoteza e Riemann-it\", tha Kontorovich, duke përshkruar vështirësinë për të besuar se dy probleme kaq të njohura matematikore mund të kenë marrë zgjidhje brenda vetëm disa muajsh."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pretendimi vjen pas daljes së Anthropic në bursë"
+      },
+      {
+        "type": "paragraph",
+        "text": "Publikimi i Alpoge vjen menjëherë pas daljes së kompanisë Anthropic në bursën amerikane. Kompania mblodhi 81 miliardë dollarë përmes ofertës së saj fillestare publike të aksioneve, duke arritur një vlerësim prej 1.5 trilion dollarësh."
+      },
+      {
+        "type": "paragraph",
+        "text": "Matematikani pretendon se arriti te zgjidhja e mundshme të dielën në mbrëmje dhe se para publikimit u konsultua me drejtorin ekzekutiv të Anthropic, Dario Amodei, për të marrë konfirmimin nëse mund t'i bënte publike rezultatet."
+      },
+      {
+        "type": "paragraph",
+        "text": "Anthropic nuk iu përgjigj pyetjeve të Associated Press lidhur me pretendimet e Alpoge."
+      },
+      {
+        "type": "paragraph",
+        "text": "Tani mbetet që komuniteti matematikor të përcaktojë nëse Claude ka ndihmuar vërtet në zgjidhjen e një prej problemeve më të mëdha shkencore, i cili ka mbetur i pazgjidhur që nga viti 1859. /Telegrafi/"
+      }
+    ],
+    "kategoria": "Teknologji",
+    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68736294&width=980",
+    "koha": "21/11/2026 12:02",
+    "published_at": "2026-11-21T12:02:18.324270+01:00",
+    "source_published_at": "2026-11-21T10:56:25Z",
+    "link_origjinal": "https://telegrafi.com/inteligjenca-artificiale-mund-te-kete-zgjidhur-nje-nga-problemet-me-te-medha-matematikore-te-te-gjitha-koherave/",
+    "slug": "inteligjenca-artificiale-mund-te-kete-zgjidhur-nje-nga-problemet-me-te-medha-matematikore-te-te-gjitha-koherave",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/inteligjenca-artificiale-mund-te-kete-zgjidhur-nje-nga-problemet-me-te-medha-matematikore-te-te-gjitha-koherave/",
+        "titulli": "Inteligjenca artificiale mund të ketë zgjidhur një nga problemet më të mëdha matematikore të të gjitha kohërave"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Trump e cilësoi liderin rus si mikun e tij, Zelensky: Putini është “vrasës”",
+    "permbajtja": "Presidenti ukrainas, Volodymyr Zelensky, ka reaguar ndaj deklaratave të presidentit amerikan Donald Trump, i cili gjatë vizitës në Kinë e cilësoi liderin rus Vladimir Putin si mikun e tij.\nNë një intervistë për CNN, Zelensky theksoi se është në dorën e presidentit amerikan se si dëshiron ta quajë Putinin, por për Ukrainën ai mbetet armik dhe vrasës, transmeton IndeksOnline.\n“Për ne, ai është armik. Për ne, ai është vrasës”, deklaroi Zelensky.\nDeklarata e presidentit ukrainas vjen pasi Trump, përpara takimit historik trepalësh me presidentin kinez Xi Jinping dhe Vladimir Putinin, u shpreh se ka një marrëdhënie të shkëlqyer me liderin rus, të cilin e cilësoi si mik të tij prej shumë vitesh.\nNdërkohë, sulmet ruse ndaj Ukrainës kanë vijuar edhe gjatë natës, duke shkaktuar viktima dhe dëme të shumta.\nSipas autoriteteve ukrainase, dy persona, mes tyre një djalë i mitur, janë vrarë dhe 52 të tjerë janë plagosur nga sulmet me raketa dhe dronë në qytetin Kryvyi Rih, në rajonin qendror të Dnipropetrovskut, vendlindja e Zelenskyt.\nShërbimi Shtetëror i Emergjencave të Ukrainës (DSNS) njoftoi gjithashtu se 11 persona janë plagosur në rajonin verilindor të Kharkivit, ndërsa një tjetër në Rivne, në veriperëndim të vendit.\nKëto sulme vijnë vetëm pak ditë pas një vale tjetër goditjesh ruse, ku të paktën nëntë persona u vranë nga sulmet ndaj urave në kryeqytetin Kiev dhe stacioneve hekurudhore në pjesën perëndimore të Ukrainës.",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/EPA-Zelensky.webp",
+    "koha": "21/11/2026 12:02",
+    "published_at": "2026-11-21T12:02:22.696043+01:00",
+    "source_published_at": "2026-11-21T10:59:46Z",
+    "link_origjinal": "https://indeksonline.net/trump-e-cilesoi-liderin-rus-si-mikun-e-tij-zelensky-putini-eshte-vrases/",
+    "slug": "trump-e-cilesoi-liderin-rus-si-mikun-e-tij-zelensky-putini-eshte-vrases",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/trump-e-cilesoi-liderin-rus-si-mikun-e-tij-zelensky-putini-eshte-vrases/",
+        "titulli": "Trump e cilësoi liderin rus si mikun e tij, Zelensky: Putini është “vrasës”"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Parashtresa e 16 nëntorit e Kryeprokurores së Hagës, Hashim Thaçi përshkruhet shumë më i rrezikshëm pas dënimit me 25 vjet burg",
+    "permbajtja": "Zyra e Prokurorit të Specializuar (ZPS) më 16 nëntor kishte kërkuar që ish-presidenti i Kosovës, Hashim Thaçi, të vazhdojë të mbahet në paraburgim në Hagë, në kuadër të rastit të dytë ndaj tij për pengim të administrimit të drejtësisë, shkruan Gazeta Express.\nParashtresa e Prokurorisë, e dorëzuar më 16 nëntor 2026, ishte paraqitur vetëm një ditë para shpalljes së aktgjykimit në këtë rast, të caktuar për 17 nëntor. Në të, prokurorja Kimberly P. West argumenton se vazhdojnë të ekzistojnë të gjitha arsyet ligjore për mbajtjen e Thaçit në paraburgim.\nProkuroria pretendon se Thaçi paraqet rrezik për arratisje, për pengimin e procedurave gjyqësore dhe për kryerjen e veprave të tjera penale, ndërsa vlerëson se këto rreziqe janë shtuar pas dënimit të tij me 25 vjet burgim në rastin tjetër, atë për krime lufte.\nSipas ZPS-së, vendimet e mëparshme të gjyqtarëve kanë identifikuar vazhdimisht arsye konkrete për të besuar se Thaçi mund të pengojë zhvillimin e procedurave gjyqësore. Prokuroria thotë se këto konstatime mbeten të vlefshme dhe se dënimi i fundit vetëm sa i ka përforcuar ato.\nNë parashtresë theksohet se nuk ka kontestime lidhur me ekzistimin e dyshimit të bazuar se Thaçi ka kryer vepra penale që hyjnë në juridiksionin e Dhomave të Specializuara. Sipas Prokurorisë, në shqyrtimin e radhës së paraburgimit duhet të vlerësohet nëse ka ndryshuar diçka nga vendimi paraprak, ndërsa ndryshimi kryesor është shtimi i rreziqeve pas dënimit të tij në rastin për krime lufte.\nZPS-ja vlerëson se gjyqtari nuk ka nevojë t’i rishqyrtojë nga fillimi konstatimet e mëparshme, por vetëm të verifikojë nëse rrethanat mbi të cilat janë bazuar ato vazhdojnë të ekzistojnë.\nNë pjesën e parë të argumentimit, Prokuroria thotë se Thaçi vazhdon të paraqesë rrezik real të arratisjes, duke marrë parasysh rrethanat e tij individuale dhe dënimin e fundit prej 25 vjetësh burgim.\n“Për më tepër, THAÇI paraqet një mundësi mjaftueshëm reale për t’iu shmangur drejtësisë në rast se lirohet, pasi ai mund të ketë qasje në mjete të konsiderueshme financiare dhe mund të sigurojë lehtësisht mbështetje nga aleatët e tij, krahas mundësisë për t’u arratisur duke udhëtuar lirshëm drejt juridiksioneve që janë jashtë mundësive të kontrollit të Dhomave të Specializuara”, thuhet në shkresë.\nSipas ZPS-së, aktgjykimi në rastin aktual pritet të shpallet më 17 nëntor 2026, ndërsa Thaçi ende nuk e ka vuajtur një pjesë të konsiderueshme të dënimit maksimal me të cilin mund të përballet në këtë proces.\nProkuroria përmend disa faktorë që, sipas saj, e bëjnë të mundshme arratisjen e Thaçit në rast të lirimit.\nAjo thotë se Thaçi ka qasje në mjete të konsiderueshme financiare dhe mund të sigurojë lehtësisht mbështetjen e aleatëve të tij. Po ashtu, sipas Prokurorisë, ai ka mundësi të udhëtojë lirshëm drejt juridiksioneve që janë jashtë mundësive të kontrollit të Dhomave të Specializuara.\nNjë tjetër element që përmendet është rreziku i përsëritur i pengimit të procedurave dhe modeli i mosrespektimit të urdhrave të Gjykatës Speciale dhe rregullave të paraburgimit, përfshirë edhe shkeljet e fundit.\nSipas prokurores West, këto sjellje janë tregues të rëndësishëm të mundësisë që Thaçi të bëhet i arratisur nëse lirohet, ndërsa dënimi i fundit për krime lufte ia shton edhe më shumë motivin për t’iu shmangur drejtësisë.\nPër këto arsye, Prokuroria konsideron se rreziku i arratisjes është konkret dhe aktual.\nProkuroria thotë se ekziston rrezik jashtëzakonisht i lartë i pengimit të procedurave\nNjë pjesë e rëndësishme e parashtresës i kushtohet rrezikut që Thaçi të pengojë procedurat e Dhomave të Specializuara.\nProkuroria thotë se ky rrezik mbetet jashtëzakonisht i lartë dhe përmend pesë elemente kryesore që, sipas saj, e mbështesin këtë vlerësim.\nSë pari, ZPS-ja përmend dyshimin e bazuar se Thaçi ka bërë përpjekje të gjera për të penguar procesin gjyqësor në rastin e gjashtë, atë për krime lufte, i cili përbën bazën e akuzave në rastin aktual për pengim të administrimit të drejtësisë.\nSë dyti, Prokuroria pretendon se Thaçi kishte rol udhëheqës në këto përpjekje për pengimin e drejtësisë.\nSë treti, ajo thotë se këto përpjekje përfshinin kërkimin e bashkëpunimit dhe dhënien e udhëzimeve personave që vazhdojnë të jenë të lirë në Kosovë.\nSë katërti, Prokuroria thekson se përpjekjet e pretenduara përfshinin edhe dëshmitarë të mbrojtur, të cilët konsiderohen veçanërisht të ndjeshëm.\nSë pesti, ZPS-ja thotë se vazhdon të ekzistojë rreziku i hakmarrjes ndaj këtyre dëshmitarëve ose i përpjekjeve për të ndikuar në dëshmitë e tyre.\nProkuroria rikujton se në vendimet e mëparshme është konstatuar se asnjë kusht i lirimit nuk mund ta zvogëlojë në mënyrë të mjaftueshme rrezikun e pengimit të procedurave dhe as të zëvendësojë kufizimet që aktualisht vlejnë për komunikimet e Thaçit në paraburgim.\nSipas ZPS-së, edhe një zbulim i paqëllimshëm apo nga pakujdesia i informacioneve nga ana e Thaçit mund të krijojë rreziqe për procedurat dhe dëshmitarët.\nNë këtë kontekst, Prokuroria thotë se duhet të merret parasysh edhe klima e vazhdueshme e frikësimit të dëshmitarëve në Kosovë.\nAjo thekson se pas aktgjykimit në rastin e gjashtë janë organizuar protesta në Kosovë, ndërsa disa persona kanë publikuar në internet thirrje për dhunë dhe veprime të tjera të kundërligjshme.\nSipas Prokurorisë, vëmendja dhe tensionet pritet të shtohen sërish pas shpalljes së aktgjykimit në rastin aktual të Thaçit.\nDuke i vlerësuar të gjitha këto rrethana së bashku, ZPS-ja konsideron se ekziston një rrezik i konsiderueshëm dhe i pamohueshëm i pengimit të procedurave, i cili nuk mund të parandalohet në mënyrë të mjaftueshme jashtë qendrës së paraburgimit të Dhomave të Specializuara.\nProkuroria argumenton gjithashtu se ekziston rrezik real që Thaçi, në rast të lirimit, të kryejë vepra të tjera penale.\nSipas saj, arsyet që mbështesin vlerësimin për rrezikun e pengimit të procedurave vlejnë edhe për këtë kategori rreziku.\nNë veçanti, ZPS-ja përmend mosrespektimin e vazhdueshëm të ligjeve dhe rregullave të Dhomave të Specializuara, si dhe përpjekjet për t’i anashkaluar ato.\nProkuroria vlerëson se sjelljet e tilla dëshmojnë mundësinë e përsëritjes së veprave penale në rast se Thaçi lirohet.\nNë pjesën tjetër të parashtresës, ZPS-ja argumenton se nuk ekzistojnë kushte të zbatueshme të lirimit që do të mund t’i zvogëlonin në mënyrë të kënaqshme rreziqet që, sipas saj, paraqet Thaçi.\nAjo përmend veçanërisht mundësinë që ai të përdorë persona të tjerë për të komunikuar ose pajisje të komunikimit që u përkasin personave të tjerë.\nSipas Prokurorisë, një problem tjetër është pamundësia për të siguruar monitorimin efektiv të komunikimeve të tij në rast lirimi.\nZPS-ja thotë se këto rreziqe duhet të vlerësohen edhe në dritën e modelit të përsëritur të mosrespektimit të kushteve të zbatueshme të paraburgimit nga Thaçi dhe dënimit të fundit prej 25 vjetësh burgim.\nProkuroria thekson se për vazhdimin e paraburgimit mjafton edhe ekzistimi i vetëm njërit prej tri rreziqeve të përcaktuara në nenin 41(6)(b) të Ligjit për Dhomat e Specializuara.\nMegjithatë, sipas saj, në rastin e Thaçit janë të përmbushura të tria kriteret: rreziku i arratisjes, pengimi i procedurave dhe kryerja e veprave të tjera penale.\nAjo argumenton se kur këto rreziqe janë vërtetuar dhe nuk ekzistojnë masa më pak kufizuese sesa paraburgimi që mund t’i adresojnë në mënyrë të mjaftueshme, i akuzuari duhet të mbetet në paraburgim.\nPër rrjedhojë, ZPS-ja konsideron se vazhdimi i paraburgimit të Thaçit është i domosdoshëm, i arsyeshëm dhe proporcional.\nDënimi prej 25 vjetësh në rastin e krimeve të luftës, faktor shtesë për vazhdimin e paraburgimit\nNë fund të parashtresës, Prokuroria i është referuar posaçërisht ndryshimit të statusit të Thaçit pas shpalljes fajtor dhe dënimit në procesin tjetër gjyqësor, atë për krime lufte.\nSipas saj, ky zhvillim nuk e ndryshon nevojën për shqyrtimin periodik të paraburgimit në rastin aktual, por përbën një rrethanë që i shton rreziqet e përcaktuara në nenin 41(6)(b).\nZPS-ja vlerëson se dënimi i fundit e përforcon më tej rrezikun e arratisjes, të pengimit të procedurave dhe të kryerjes së veprave të tjera penale.\nAjo thekson gjithashtu se afrimi i shpalljes së aktgjykimit në rastin e dytë, atë për pengim të administrimit të drejtësisë, e bën edhe më të arsyeshëm dhe proporcional vazhdimin e paraburgimit.\nNë përfundim, prokurorja Kimberly P. West i ka kërkuar gjyqtarit të vetëm të çështjes, Christopher Gosnell, që të urdhërojë vazhdimin e paraburgimit të Hashim Thaçit.\nParashtresa është dorëzuar më 16 nëntor 2026 në Hagë dhe lidhet me shqyrtimin e dymbëdhjetë të masës së paraburgimit ndaj Thaçit në rastin e dytë për pengim të administrimit të drejtësisë./Express/",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/11/thaci-foto-a2.png",
+    "koha": "21/11/2026 12:02",
+    "published_at": "2026-11-21T12:02:26.960900+01:00",
+    "source_published_at": "2026-11-21T10:51:50Z",
+    "link_origjinal": "https://www.gazetaexpress.com/parashtresa-e-16-nentorit-e-kryeprokurores-se-hages-hashim-thaci-pershkruhet-shume-me-i-rrezikshem-pas-denimit-me-25-vjet-burg/",
+    "slug": "parashtresa-e-16-nentorit-e-kryeprokurores-se-hages-hashim-thaci-pershkruhet-shume-me-i-rrezikshem-pas-denimit-me-25-vjet-burg",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://www.gazetaexpress.com/parashtresa-e-16-nentorit-e-kryeprokurores-se-hages-hashim-thaci-pershkruhet-shume-me-i-rrezikshem-pas-denimit-me-25-vjet-burg/",
+        "titulli": "Parashtresa e 16 nëntorit e Kryeprokurores së Hagës, Hashim Thaçi përshkruhet shumë më i rrezikshëm pas dënimit me 25 vjet burg"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "OBRM-PDUKM: LSDM po vazhdon me akuza të rreme për Alta Bankën",
+    "permbajtja": "OBRM-PDUKM akuzoi LSDM-në se vazhdon të përhapë, siç thonë ata, akuza dhe manipulime të rreme dhe të pabaza në lidhje me Alta Bankën. Partia në pushtet reagon se pasi përpjekjet e mëparshme për të krijuar panik rreth bankës dështuan, opozita tani po hap një temë të re dhe po problematizon ankandin publik.\n\"Pasi të gjitha përpjekjet e mëparshme për të krijuar frikë dhe panik të përgjithshëm me rastin Alta Bankë dështuan, LSDM tani ka gjetur faj edhe me ankandin publik.\nLSDM dhe Filipçe po hapin një episod të ri të fushatës politike, duke u përpjekur të paraqesin një procedurë publike dhe transparente, siç është ankandi publik për Alta Bankën, si një marrëveshje sekrete\", thuhet në deklaratë.\nOBRM-PDUKM kujton se LSDM më parë bëri akuza për transferime të dyshuara prej milionash në Serbi dhe Rusi, dalje financiare, si dhe skenarë të falimentimit të bankës dhe rrezikimit të aseteve të qytetarëve. Sipas partisë në pushtet, këto njoftime dhe akuza nuk janë materializuar.\n\"Në vend që të zhvillojë një debat serioz të bazuar në fakte, SDS po përpiqet vetëm të krijojë mosbesim dhe ankth tek publiku përmes konstruksioneve të tilla politike. Nëse do të ishin kaq të përkushtuar ndaj konsolidimit të partisë, ndaj përgatitjes së një programi dhe një oferte për qytetarët, LSDM dhe Filipçe do ta kishin përmirësuar vlerësimin e tyre, i cili është në prag të gabimit statistikor\", thotë OBRM-PDUKM.\nPartia gjithashtu njofton se Kodi i ri Penal do të prezantojë një vepër të re penale, e cila do të parashikojë dënim me burg për paraqitjen e informacionit të pasaktë publikut nëse kjo rrezikon stabilitetin e sistemit bankar.\n\"Kodi i ri Penal do të prezantojë një vepër të re penale të dënueshme me burg për këdo që, me pozicionin dhe reputacionin e tij zyrtar ose shoqëror, me deklarata ose dokumente të rreme, paraqet informacion të pasaktë publikut, duke rrezikuar kështu stabilitetin e sistemit bankar\", shtohet në deklaratë.",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "OBRM-PDUKM akuzoi LSDM-në se vazhdon të përhapë, siç thonë ata, akuza dhe manipulime të rreme dhe të pabaza në lidhje me Alta Bankën. Partia në pushtet reagon se pasi përpjekjet e mëparshme për të krijuar panik rreth bankës dështuan, opozita tani po hap një temë të re dhe po problematizon ankandin publik."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Pasi të gjitha përpjekjet e mëparshme për të krijuar frikë dhe panik të përgjithshëm me rastin Alta Bankë dështuan, LSDM tani ka gjetur faj edhe me ankandin publik."
+      },
+      {
+        "type": "paragraph",
+        "text": "LSDM dhe Filipçe po hapin një episod të ri të fushatës politike, duke u përpjekur të paraqesin një procedurë publike dhe transparente, siç është ankandi publik për Alta Bankën, si një marrëveshje sekrete\", thuhet në deklaratë."
+      },
+      {
+        "type": "paragraph",
+        "text": "OBRM-PDUKM kujton se LSDM më parë bëri akuza për transferime të dyshuara prej milionash në Serbi dhe Rusi, dalje financiare, si dhe skenarë të falimentimit të bankës dhe rrezikimit të aseteve të qytetarëve. Sipas partisë në pushtet, këto njoftime dhe akuza nuk janë materializuar."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Në vend që të zhvillojë një debat serioz të bazuar në fakte, SDS po përpiqet vetëm të krijojë mosbesim dhe ankth tek publiku përmes konstruksioneve të tilla politike. Nëse do të ishin kaq të përkushtuar ndaj konsolidimit të partisë, ndaj përgatitjes së një programi dhe një oferte për qytetarët, LSDM dhe Filipçe do ta kishin përmirësuar vlerësimin e tyre, i cili është në prag të gabimit statistikor\", thotë OBRM-PDUKM."
+      },
+      {
+        "type": "paragraph",
+        "text": "Partia gjithashtu njofton se Kodi i ri Penal do të prezantojë një vepër të re penale, e cila do të parashikojë dënim me burg për paraqitjen e informacionit të pasaktë publikut nëse kjo rrezikon stabilitetin e sistemit bankar."
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Kodi i ri Penal do të prezantojë një vepër të re penale të dënueshme me burg për këdo që, me pozicionin dhe reputacionin e tij zyrtar ose shoqëror, me deklarata ose dokumente të rreme, paraqet informacion të pasaktë publikut, duke rrezikuar kështu stabilitetin e sistemit bankar\", shtohet në deklaratë."
+      }
+    ],
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/2024-05-obrm-vmro-llogo-png.png?id=58289650&width=980",
+    "koha": "21/11/2026 12:02",
+    "published_at": "2026-11-21T12:02:30.499379+01:00",
+    "source_published_at": "2026-11-21T10:50:15Z",
+    "link_origjinal": "https://telegrafi.com/obrm-pdukm-lsdm-po-vazhdon-me-akuza-te-rreme-per-alta-banken/",
+    "slug": "obrm-pdukm-lsdm-po-vazhdon-me-akuza-te-rreme-per-alta-banken",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/obrm-pdukm-lsdm-po-vazhdon-me-akuza-te-rreme-per-alta-banken/",
+        "titulli": "OBRM-PDUKM: LSDM po vazhdon me akuza të rreme për Alta Bankën"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Abdixhiku përkujton Xhavit Ahmetin në 30-vjetorin e vdekjes: Kontributi i tij mbetet i pashlyeshëm",
+    "permbajtja": "Kryetari i LDK-së, Lumir Abdixhiku, ka përkujtuar veprimtarin, atdhetarin dhe intelektualin e shquar, Xhavit Ahmeti, në 30-vjetorin e vdekjes së tij tragjike.\nPërmes një mesazhi përkujtimor, Abdixhiku ka vlerësuar lart kontributin e Ahmetit në rrugëtimin e Kosovës drejt lirisë, pavarësisë dhe demokracisë, duke theksuar angazhimin e tij politik, arsimor dhe kombëtar, raporton IndeksOnline.\nAhmeti ishte pjesë e Lidhjes Demokratike të Kosovës që nga themelimi i saj, fillimisht si anëtar i Këshillit të Përgjithshëm dhe më pas si këshilltar për arsim i presidentit historik, Ibrahim Rugova.\nKontribut të veçantë ai dha edhe në fushën e arsimit, duke qenë njëri ndër organizatorët e sistemit të pavarur arsimor në Kosovë. Ai ishte profesor i Kimisë në Fakultetin e Shkencave Matematiko-Natyrore të Universitetit të Prishtinës, ndërsa në zgjedhjet e para presidenciale dhe parlamentare u zgjodh deputet i Parlamentit të Republikës së Kosovës.\nXhavit Ahmeti ndërroi jetë më 21 nëntor 1996, në një aksident tragjik gjatë një udhëtimi zyrtar drejt Beogradit.\nNë mesazhin e tij, Abdixhiku ka theksuar se përkushtimi ndaj çështjes kombëtare, angazhimi politik dhe kontributi intelektual i Ahmetit kanë lënë gjurmë të pashlyeshme në historinë e Kosovës.\n“Vepra, ideali dhe kontributi i prof. Xhavit Ahmetit do të mbeten përherë pjesë e kujtesës sonë kolektive. I përjetshëm qoftë kujtimi për të!”, ka shkruar Abdixhiku.",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/Xhavit-Ahmeti.jpg",
+    "koha": "21/11/2026 12:02",
+    "published_at": "2026-11-21T12:02:34.543809+01:00",
+    "source_published_at": "2026-11-21T10:49:50Z",
+    "link_origjinal": "https://indeksonline.net/abdixhiku-perkujton-xhavit-ahmetin-ne-30-vjetorin-e-vdekjes-kontributi-i-tij-mbetet-i-pashlyeshem/",
+    "slug": "abdixhiku-perkujton-xhavit-ahmetin-ne-30-vjetorin-e-vdekjes-kontributi-i-tij-mbetet-i-pashlyeshem",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/abdixhiku-perkujton-xhavit-ahmetin-ne-30-vjetorin-e-vdekjes-kontributi-i-tij-mbetet-i-pashlyeshem/",
+        "titulli": "Abdixhiku përkujton Xhavit Ahmetin në 30-vjetorin e vdekjes: Kontributi i tij mbetet i pashlyeshëm"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
     "titulli": "Fundjavë me super-ndeshje në Superligën e basketbollit, kryedueli mes Trepçës dhe Bashkimit në Mitrovicë",
     "permbajtja": "Superliga e Kosovës në basketboll rikthehet këtë fundjavë me ndeshjet e javës së dhjetë, e cila sjell katër përballje mjaft interesante dhe me rivalitet të lartë në parket.\nProgrami i kësaj xhiroje hapet sot (e shtunë) nga ora 17:00, ku Golden Eagle Ylli pret Sigal Prishtinën, në një duel ku të dyja skuadrat kërkojnë fitoren për të vazhduar me ritëm pozitiv.\nMë pas, nga ora 19:30, Rahoveci 029 do të jetë nikoqir i Borës, me skuadrën prishtinase që vlerësohet favorite në letër, transmeton IndeksOnline.\nNdërkaq, vëmendja kryesore e kësaj jave do të jetë të dielën nga ora 17:00, kur në Mitrovicë përballen kampioni dhe nënkampioni, Trepça dhe Bashkimi. Skuadrat që përfaqësojnë basketbollin kosovar edhe në garat evropiane garantojnë spektakël, duke rikujtuar rivalitetin e zjarrtë nga finalet e edicionit të kaluar.\nMitrovicasit fituan titullin dhe Kupën e Kosovës, ndërsa prizrenasit triumfuan në Superkupë.\nJava e dhjetë do të mbyllet po të dielën, nga ora 19:30, me derbin mes Vëllaznimit dhe Pejës, një tjetër sfidë që premton emocione dhe luftë të fortë për pikë.\nOrari i javës së 10-të:\nE shtunë\n- 17:00 | Golden Eagle Ylli – Sigal Prishtina\n- 19:30 | Rahoveci 029 – Bora\nE diel\n- 17:00 | Trepça – Bashkimi\n- 19:30 | Vëllaznimi – Peja",
     "content_blocks": [],
@@ -44,7 +325,7 @@
     ],
     "featured_rank": 1,
     "selection_reasons": [
-      "Freskia: 39.66/40",
+      "Freskia: 39.23/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Siguri dhe emergjenca: +16",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -276,7 +557,7 @@
     ],
     "featured_rank": 5,
     "selection_reasons": [
-      "Freskia: 38.97/40",
+      "Freskia: 38.54/40",
       "Ndikim te qytetarët — Shëndetësi: +14",
       "Referencë e qartë në Kosovë/komunë: +6",
       "Tema: Shëndetësi",
@@ -946,7 +1227,7 @@
     "last_seen_at": "2026-11-21T11:32:53.563087+01:00",
     "featured_rank": 2,
     "selection_reasons": [
-      "Freskia: 38.12/40",
+      "Freskia: 37.69/40",
       "Burime të ndryshme: +8",
       "Ndikim te qytetarët — Shërbime publike: +18",
       "Tema: Shërbime publike",
@@ -1483,7 +1764,7 @@
     "komunat": [],
     "featured_rank": 3,
     "selection_reasons": [
-      "Freskia: 37.21/40",
+      "Freskia: 36.78/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Arsim: +14",
       "Tema: Arsim",
@@ -2474,7 +2755,7 @@
     "last_seen_at": "2026-11-21T09:32:26.225350+01:00",
     "featured_rank": 4,
     "selection_reasons": [
-      "Freskia: 35.31/40",
+      "Freskia: 34.88/40",
       "Në ballinën e burimit: +12",
       "Burime të ndryshme: +8",
       "Tema: Teknologji",
@@ -176631,98 +176912,6 @@
       {
         "url": "https://telegrafi.com/revolucioni-pa-udheheqes-ka-perfshire-serbine/",
         "titulli": "Revolucioni pa udhëheqës ka përfshirë Serbinë"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Detyrat e Decos në pritje për vitin 2027: Tri pozicione për t'u përforcuar",
-    "permbajtja": "Barcelona ka një plan të qartë për afatin kalimtar të verës. Drejtori sportiv i klubit, Deco, ka tri fusha kryesore për të adresuar në mënyrë që të forcojë ekipin e parë dhe të përmbushë dëshirat e trajnerit Hansi Flick: një qendërmbrojtës, një mbrojtës të djathtë dhe një qendërsulmues.\nTrajneri gjerman i informoi stafin teknik për nevojën për të nënshkruar një qendërmbrojtës me këmbë të majtë, një mbrojtës të krahut të djathtë dhe një qendërsulmues për të maksimizuar shanset e tyre konkurruese në Ligën e Kampionëve të UEFA-s. Këto janë tre pozicionet që ata duhet të forcojnë për t'u barazuar me nivelin e PSG-së së Luis Enriques.\nPozicioni i parë i theksuar në raportet e Decos është roli i qendërmbrojtësit, ku ata po kërkojnë një lojtar me këmbë të majtë për t'iu bashkuar Pau Cubarsit. Për këtë pozicion, drejtori sportiv i Barcelonës po shqyrton Jon Martin, Nico Schlotterbeck dhe Pau Torres, tre lojtarë me përvojë në shpërndarjen e topit që do t'u lejonin atyre të krijonin një linjë të lartë mbrojtëse.\nNë krahun e djathtë, departamenti sportiv synon të shtojë një lojtar me mendje ofensive për të krijuar çekuilibër në fazën sulmuese, në kontrast me mbështetjen mbrojtëse të ofruar nga Jules Kounde si mbrojtës i krahut.\nLojtarët që po monitorohen nga stafi teknik për atë pozicion janë Givairo Read, Tino Livramento, Pedro Porro dhe Wesley, të cilët vlerësohen për aftësinë e tyre për të arritur në vijën e dytë. Këta katër futbollistë mund të ofrojnë një nxitje të konsiderueshme në cilësinë sulmuese dhe të plotësojnë shumë më mirë Lamine Yamal.\nNë sulm, Barcelona po kërkon një lojtar të synuar për të kompletuar treshen sulmuese së bashku me Lamine Yamal në krahun e djathtë dhe Raphinha, të cilin Flick synon ta kthejë në krahun e majtë në vend që ta përdorë atë në qendër.\nPasi përjashtoi Julian Alvarez në afatin e kaluar të transferimeve të verës, klubi po mban nën vëzhgim Harry Kane, Erling Haaland dhe Nicolo Tresoldi.\nInvestimi në fazën sulmuese do të varet nga hapësira e liruar nga klubi katalunas nëpërmjet transferimeve gjatë afateve të ardhshme të transferimeve. Stafi teknik do të mbajë një orar monitorimi personal të lojtarëve të përzgjedhur gjatë nëntorit dhe dhjetorit 2026.",
-    "kategoria": "Sport",
-    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68540898&width=980",
-    "koha": "28/10/2026 09:31",
-    "link_origjinal": "https://telegrafi.com/detyrat-e-decos-ne-pritje-per-vitin-2027-tri-pozicione-per-t-u-perforcuar/",
-    "slug": "detyrat-e-decos-ne-pritje-per-vitin-2027-tri-pozicione-per-tu-perforcuar",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/detyrat-e-decos-ne-pritje-per-vitin-2027-tri-pozicione-per-t-u-perforcuar/",
-        "titulli": "Detyrat e Decos në pritje për vitin 2027: Tri pozicione për t'u përforcuar"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Kostot e luftës në Iran nga SHBA-të rriten në mbi 47 miliardë dollarë, sipas vlerësimit të Pentagonit",
-    "permbajtja": "Ushtria amerikane ka shpenzuar mbi 47 miliardë dollarë (rreth 42 miliardë euro) deri më tani për të zhvilluar luftën në Iran, më shumë se 25 për qind më e lartë se vlerësimi i Departamentit të Mbrojtjes në korrik, sipas të dhënave të Pentagonit të marra nga Reuters.\nPentagoni nuk iu përgjigj menjëherë një kërkese për koment mbi vlerësimin e tij, i cili nuk është ndarë publikisht.\nZbulimi në lidhje me koston në rritje të luftës në Iran vjen ndërsa republikanët përballen me pasojat politike të konfliktit përpara zgjedhjeve të 3 nëntorit që do të përcaktojnë kontrollin e Kongresit për dy vitet e ardhshme.\nNdikimi i luftës në kostot globale të energjisë ka ndikuar në mbështetjen për kandidatët republikanë dhe ka dëmtuar mbështetjen për presidentin Donald Trump.\nPartia Republikane e Trump mban një shumicë të ngushtë në të dy dhomat e Kongresit.\nVlerësimi i fundit i Pentagonit lidhej me kostot operative të luftës, me një kosto të parashikuar prej më shumë se 29 miliardë dollarësh për të zëvendësuar municionet e shpenzuara të përdorura në konflikt.\nMë shumë se 6 miliardë dollarë do të nevojiteshin për të zëvendësuar pajisjet ushtarake dhe të ashtuquajturat \"humbje të platformës\", të cilat përfshijnë humbjen e aeroplanëve, përfshirë shumë dronë të humbur gjatë luftës.\nTrump e nisi luftën kundër Iranit së bashku me Izraelin në shkurt, duke parashikuar se konflikti do të zgjaste një kohë të shkurtër.\nStrategjia fillestare e Trump në luftën kundër Iranit u përqendrua fillimisht në përdorimin e raketave të shtrenjta dhe me precizion të lartë për të bombarduar mbrojtjen e Iranit, në mënyrë që më vonë të mund të përdorte municione më pak të kushtueshme, duke përfshirë bomba gravitacionale si JDAM-et e lëshuara nga ajri, të cilat janë të shumta.\nPor një armëpushim në prill i dha kohë Iranit, duke rikthyer në funksion disa mbrojtje iraniane, si dhe raketa dhe dronë që kishin qenë të paarritshme.\nQë atëherë Trump ka vendosur një bllokadë detare ndaj Iranit për ta privuar atë nga të ardhurat nga eksporti i naftës dhe ka lënë të kuptohet mundësinë e rifillimit të operacioneve luftarake pas zgjedhjeve të mesit të mandatit.\nZyrtarët amerikanë, duke folur në kushte anonimiteti, thonë se Pentagoni ka planifikuar të rifillojë luftimet e ashpra nëse urdhërohet ta bëjë këtë.\nVlerësimi më i fundit i Pentagonit krahasohet me vlerësimin e Sekretarit të Mbrojtjes, Pete Hegseth, të bërë në korrik, sipas të cilit kostoja e luftës do të ishte 37,5 miliardë dollarë.\nNdonëse shifrat përfshijnë një sërë kostosh operacionale – nga operacionet ajrore e deri te mbështetja kibernetike – vlerësimet e ushtrisë amerikane për koston e një lufte me Iranin nuk e pasqyronin qartë shpenzimin e madh që pritet të nevojitet për riparimin e dëmeve në bazat amerikane, të shkaktuara nga sulmet iraniane me raketa dhe dronë.",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.png?id=68540896&width=980",
-    "koha": "28/10/2026 09:31",
-    "link_origjinal": "https://telegrafi.com/kostot-e-luftes-ne-iran-nga-shba-te-rriten-ne-mbi-47-miliarde-dollare-sipas-vleresimit-te-pentagonit/",
-    "slug": "kostot-e-luftes-ne-iran-nga-shba-te-rriten-ne-mbi-47-miliarde-dollare-sipas-vleresimit-te-pentagonit",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/kostot-e-luftes-ne-iran-nga-shba-te-rriten-ne-mbi-47-miliarde-dollare-sipas-vleresimit-te-pentagonit/",
-        "titulli": "Kostot e luftës në Iran nga SHBA-të rriten në mbi 47 miliardë dollarë, sipas vlerësimit të Pentagonit"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Brenda operacionit të jashtëzakonshëm të Ukrainës me tubacione nëntokësore kundër forcave ruse pranë Kupianskut",
-    "permbajtja": "Ushtria ukrainase ka realizuar një operacion të pazakontë pranë qytetit të Kupianskut, në rajonin e Harkivit, duke depërtuar përmes tubacioneve nëntokësore të gazit për të hyrë në pozicionet ruse. Operacioni, i koduar “Veles”, synoi të pengonte infiltrimin e forcave ruse dhe të forconte pozicionet mbrojtëse të Ukrainës në këtë zonë strategjike.\nSipas presidentit ukrainas, Volodymyr Zelensky, ushtarët ukrainas përshkuan më shumë se 15 kilometra nëpër rrjetin nëntokësor. Ai deklaroi të martën se mbi 100 ushtarë rusë janë vrarë dhe më shumë se 30 të tjerë janë kapur rob gjatë operacionit.\nMisioni u realizua nga Korpusi i Dytë “Khartiia” i Gardës Kombëtare, në bashkëpunim me njësi të tjera ukrainase. Përparimi nëpër tubacione u koordinua me sulme në sipërfaqe dhe goditje të njëkohshme me dronë, me synimin për të dobësuar pozicionet ruse dhe për të penguar lëvizjen e trupave të tyre drejt prapavijës ukrainase.\nOur important operation in the Kupiansk sector. Mykhailo Drapatyi, Ihor Obolenskyi, and Pavlo Palisa reported on the initial results and progress of Operation Veles, carried out by the Khartiia 2nd Corps of the National Guard of Ukraine. More than 100 Russian occupiers have already been eliminated, and more than 30 have been taken prisoner. The underground advance has exceeded 15 kilometers. The Russians had already tried to use underground gas pipelines to move through our positions and launch assault operations. Ukrainian warriors have successfully transformed this tactic, modernized it, and made it much more sophisticated and technologically advanced. We are protecting the lives of our people, inflicting losses on the occupiers, and achieving our objectives in the Kupiansk sector. Glory to Ukraine!\n— Volodymyr Zelenskyy / Володимир Зеленський (@ZelenskyyUa) October 27, 2026\nNjë pjesë e rrugës nëntokësore përfshinte një tubacion gazi me diametër vetëm 1.2 metra, duke i detyruar ushtarët të lëviznin në hapësira shumë të ngushta. Sipas një burimi nga Korpusi “Khartiia”, të cituar nga gazeta ukrainase Ukrainska Pravda, trupat përparuan disa kilometra brenda tubacionit, ku u përballën edhe me ushtarë rusë.\nOperacioni kërkoi përgatitje të gjera, përfshirë stërvitje për luftime në hapësira të kufizuara dhe zhvillimin e zgjidhjeve teknologjike për orientimin, komunikimin dhe mbështetjen jetësore të ushtarëve gjatë lëvizjes nëntokësore, transmeton\nVeçantia e operacionit “Veles” qëndron edhe te fakti se Ukraina përdori një taktikë që më parë ishte shfrytëzuar nga Rusia. Në shtator të vitit 2025, grupi ukrainas për monitorimin e fushëbetejës DeepState raportoi se trupat ruse kishin përdorur një tubacion gazi nën lumin Oskil për të depërtuar në pozicionet ukrainase pranë Kupianskut, duke anashkaluar linjat e zakonshme të mbrojtjes.\nOur important operation in the Kupiansk sector. Mykhailo Drapatyi, Ihor Obolenskyi, and Pavlo Palisa reported on the initial results and progress of Operation Veles, carried out by the Khartiia 2nd Corps of the National Guard of Ukraine. More than 100 Russian occupiers have already been eliminated, and more than 30 have been taken prisoner. The underground advance has exceeded 15 kilometers. The Russians had already tried to use underground gas pipelines to move through our positions and launch assault operations. Ukrainian warriors have successfully transformed this tactic, modernized it, and made it much more sophisticated and technologically advanced. We are protecting the lives of our people, inflicting losses on the occupiers, and achieving our objectives in the Kupiansk sector. Glory to Ukraine!\n— Volodymyr Zelenskyy / Володимир Зеленський (@ZelenskyyUa) October 27, 2026\nBoots under ground! Asymmetric breakthrough in the Kharkiv Region: Khartiia Corps conducts the subterranean counteroffensive Operation VELES, advancing 15 km underground.Corps Commander General Ihor Obolenskyi explains a unique operation. https://t.co/qRQ93kckpK\n— Khartiia Corps in English (@khartiia_eng) October 22, 2026\nSipas Zelenskyt, forcat ukrainase e kanë përshtatur dhe modernizuar këtë taktikë, duke e bërë më të sofistikuar dhe më të avancuar nga ana teknologjike.\nKorpusi “Khartiia” publikoi për herë të parë detaje për operacionin më 22 tetor, duke thënë se misioni kishte penguar përpjekjet ruse për të depërtuar në pozicionet ukrainase rreth Kupianskut. Kombinimi i lëvizjeve nëntokësore me sulmet në sipërfaqe synonte t’ua vështirësonte forcave ruse përdorimin e rrjetit të tubacioneve për të arritur në prapavijën e mbrojtjes ukrainase.\nKupiansku mbetet një pikë strategjike në verilindje të Ukrainës dhe një nga zonat ku Rusia ka vazhduar operacionet sulmuese. Zelenskyy e cilësoi “Veles” si operacionin e tretë të madh ushtarak ukrainas gjatë këtij viti.\nOur important operation in the Kupiansk sector. Mykhailo Drapatyi, Ihor Obolenskyi, and Pavlo Palisa reported on the initial results and progress of Operation Veles, carried out by the Khartiia 2nd Corps of the National Guard of Ukraine. More than 100 Russian occupiers have already been eliminated, and more than 30 have been taken prisoner. The underground advance has exceeded 15 kilometers. The Russians had already tried to use underground gas pipelines to move through our positions and launch assault operations. Ukrainian warriors have successfully transformed this tactic, modernized it, and made it much more sophisticated and technologically advanced. We are protecting the lives of our people, inflicting losses on the occupiers, and achieving our objectives in the Kupiansk sector. Glory to Ukraine!\n— Volodymyr Zelenskyy / Володимир Зеленський (@ZelenskyyUa) October 27, 2026\nBoots under ground! Asymmetric breakthrough in the Kharkiv Region: Khartiia Corps conducts the subterranean counteroffensive Operation VELES, advancing 15 km underground.Corps Commander General Ihor Obolenskyi explains a unique operation. https://t.co/qRQ93kckpK\n— Khartiia Corps in English (@khartiia_eng) October 22, 2026\nWhen the battlefield became transparent, the war went underground.Khartiia Corps, together with other Defense Forces units, is conducting the underground Operation VELES, and for the first time, we can show the work of our brothers-in-arms in this new dimension of warfare.“We have unique people. We are an undefeatable nation,” – commander of the Khartiia Corps, Brigadier General Ihor Obolenskyi.More to come. Stay tuned for VELES.\n— Khartiia Corps in English (@khartiia_eng) October 21, 2026\nSipas presidentit, operacioni i parë, i zhvilluar nga Forcat Sulmuese Ajrore të Ukrainës në sektorin e Oleksandrivkës, në pjesë të rajoneve të Dnipropetrovskut, Donjeckut dhe Zaporizhias, çliroi më shumë se 800 kilometra katrorë territor. Operacioni i dytë, i koduar “Vivaldi”, u zhvillua në rajonin e Donjeckut, ku, sipas tij, u rimorën mbi 200 kilometra katrorë në zona të përfshira nga sulme të përsëritura ruse.\nZelensky tha se operacioni “Veles” po forcon pozicionet ukrainase pranë Kupianskut dhe dëshmon se Rusia nuk i ka arritur objektivat e përcaktuara nga udhëheqja e saj politike.\n“Ne po mbrojmë jetën e njerëzve tanë, po u shkaktojmë humbje pushtuesve dhe po i përmbushim objektivat tona në sektorin e Kupianskut”, deklaroi presidenti ukrainas.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.webp?id=68540894&width=980",
-    "koha": "28/10/2026 09:31",
-    "link_origjinal": "https://telegrafi.com/brenda-operacionit-te-jashtezakonshem-te-ukraines-me-tubacione-nentokesore-kunder-forcave-ruse-prane-kupianskut/",
-    "slug": "brenda-operacionit-te-jashtezakonshem-te-ukraines-me-tubacione-nentokesore-kunder-forcave-ruse-prane-kupianskut",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/brenda-operacionit-te-jashtezakonshem-te-ukraines-me-tubacione-nentokesore-kunder-forcave-ruse-prane-kupianskut/",
-        "titulli": "Brenda operacionit të jashtëzakonshëm të Ukrainës me tubacione nëntokësore kundër forcave ruse pranë Kupianskut"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "KRU “Gjakova” përfundon vendosjen e rrjetave mbrojtëse në kaptazhat në Babaj të Bokës",
-    "permbajtja": "KRU “Gjakova” ka njoftuar se ka përfunduar mbulimin e kaptazhave me rrjetë mbrojtëse në Veprën Marrëse në Bjeshkët e Babaj të Bokës.\nSipas njoftimit të kompanisë, kjo ndërhyrje është realizuar me qëllim të parandalimit të bllokimit të shportave thithëse nga gjethet dhe mbeturinat e tjera, duke kontribuar në funksionimin më të mirë të sistemit të ujit.\nVendosja e rrjetave mbrojtëse pritet të lehtësojë procesin e mirëmbajtjes dhe të zvogëlojë nevojën për ndërhyrje të përditshme të ekipeve të Rekës për pastrimin e shportave thithëse.\nKjo masë synon të rrisë efikasitetin e mirëmbajtjes dhe të ndihmojë në funksionimin e qëndrueshëm të infrastrukturës së furnizimit me ujë.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68540892&width=980",
-    "koha": "28/10/2026 09:31",
-    "link_origjinal": "https://telegrafi.com/kru-gjakova-perfundon-vendosjen-e-rrjetave-mbrojtese-ne-kaptazhat-ne-babaj-te-bokes/",
-    "slug": "kru-gjakova-perfundon-vendosjen-e-rrjetave-mbrojtese-ne-kaptazhat-ne-babaj-te-bokes",
-    "eshte_balline": true,
-    "komunat": [
-      "Gjakovë"
-    ],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/kru-gjakova-perfundon-vendosjen-e-rrjetave-mbrojtese-ne-kaptazhat-ne-babaj-te-bokes/",
-        "titulli": "KRU “Gjakova” përfundon vendosjen e rrjetave mbrojtëse në kaptazhat në Babaj të Bokës"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Ramë Lahaj për vrasjen e Arlindës: Mund të ishte motra ime, turpi na mbuloftë për neglizhencën",
-    "permbajtja": "Tenori shqiptar, Ramë Lahaj, ka reaguar përmes një postimi në Instagram lidhur me rastin e fundit në Kosovë, duke shprehur dhimbjen dhe revoltën për atë që ka ndodhur me Arlindën.\nNë reagimin e tij, artisti ka zgjedhur fjalë të forta, duke e nisur mesazhin me një thirrje prekëse: “Arlinda, u bekoftë shpirti yt, e neve na mbuloftë turpi, siç po na mbulon përditë e ma shumë”.\nLahaj ka treguar se, pavarësisht ngjarjeve të shumta që e kanë prekur kohët e fundit, kishte vendosur të mos reagonte me gjuhë negative, përçarëse apo urrejtjeje.\nAi thotë se kishte zgjedhur artin dhe muzikën si mënyrë për të sjellë më shumë dashuri dhe pozitivitet te njerëzit.\nMadje, sipas tij, përmes një programi muzikor kishte synuar t’i afronte njerëzit përmes këngëve që i shoqërojnë që nga fëmijëria, me shpresën se muzika mund të ndihmojë në përballimin e ngjarjeve të rënda dhe traumave të së kaluarës.\nMegjithatë, tenori ka theksuar se kësaj radhe nuk ka mundur të heshtë, pasi, siç shprehet ai, Arlinda mund të ishte motra e tij apo e secilit prej nesh, përfshirë edhe personat që punojnë në drejtësi dhe polici.\n“Më dhemb shpirti me e thanë, por siç duket po dështojmë si shoqni”, ka shkruar ai.\nNë fund të reagimit, Lahaj ka shprehur dëshirën që rasti i Arlindës të jetë i fundit, duke e mbyllur mesazhin me një thirrje për reflektim mbi përgjegjësinë shoqërore dhe nevojën për të parandaluar përsëritjen e ngjarjeve të tilla.",
-    "kategoria": "Lajme",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/10/ghjg-1.jpg",
-    "koha": "28/10/2026 09:32",
-    "link_origjinal": "https://indeksonline.net/rame-lahaj-per-vrasjen-e-arlindes-mund-te-ishte-motra-ime-turpi-na-mbulofte-per-neglizhencen/",
-    "slug": "rame-lahaj-per-vrasjen-e-arlindes-mund-te-ishte-motra-ime-turpi-na-mbulofte-per-neglizhencen",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/rame-lahaj-per-vrasjen-e-arlindes-mund-te-ishte-motra-ime-turpi-na-mbulofte-per-neglizhencen/",
-        "titulli": "Ramë Lahaj për vrasjen e Arlindës: Mund të ishte motra ime, turpi na mbuloftë për neglizhencën"
       }
     ],
     "source_count": 1
