@@ -12,117 +12,13 @@
       "Gjilan"
     ],
     "dates": [
-      "2026-11-20",
       "2026-11-21",
       "2026-11-22",
       "2026-11-23",
-      "2026-11-24"
+      "2026-11-24",
+      "2026-11-25"
     ],
     "notices": [
-      {
-        "region": "Prishtinë",
-        "date": "2026-11-20",
-        "text": "Punime ne projekte investive\nNga TS TS 110/10(20)kV Prishtina 3\nNë Daljen 10 kV Kulla Rilindja do të ndërprehet:\nTS 10/0.4 kV 12000057052-J17 Kulla RilindjaTS 10/0.4 kV 12000036044-TS MAP\nnga ora 09:00 deri 18:00\nVendet: 29.Rr.Tirana ish tregu\nArsyeja: Konvertimi i daljes 12000036 Kulla Rilindja nga tensioni 10 kV ne 20 kV.\nNga TS TS 110/10kV Prishtina 6 (Dardania)\nNë Daljen 10 kV Dardania do të ndërprehet:\nTS 10/0.4 kV 19100012044-TS Pallati i Shtypit\nnga ora 09:00 deri 18:00\nVendet: 29.Rr.Tirana ish tregu\nArsyeja: Konvertimi i daljes 12000036 Kulla Rilindja nga tensioni 10 kV ne 20 kV.",
-        "outages": [
-          {
-            "start": "09:00",
-            "end": "18:00",
-            "locations": "29.Rr.Tirana ish tregu",
-            "reason": "Konvertimi i daljes 12000036 Kulla Rilindja nga tensioni 10 kV ne 20 kV."
-          },
-          {
-            "start": "09:00",
-            "end": "18:00",
-            "locations": "29.Rr.Tirana ish tregu",
-            "reason": "Konvertimi i daljes 12000036 Kulla Rilindja nga tensioni 10 kV ne 20 kV."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Pejë",
-        "date": "2026-11-20",
-        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 110/10kV Klina do të ndërprehet:\nDalja 10 kV J05 Zajmi me Kod 52000104nga ora 10:00 deri 11:00\nVendet: Zajm, Videjë, Videja, Poterq i ultë, Poterq i poshtëm, Potërq I Epërm, Poterq i eperm, Polcë 1, Grabanicë, Grabanica, Grabanic, Dugojevë, Drenocë, Drenoc, Dollovë, Deiq, Bokshiq\nArsyeja: Rikyqje e konsumatorit ne TM.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "11:00",
-            "locations": "Zajm, Videjë, Videja, Poterq i ultë, Poterq i poshtëm, Potërq I Epërm, Poterq i eperm, Polcë 1, Grabanicë, Grabanica, Grabanic, Dugojevë, Drenocë, Drenoc, Dollovë, Deiq, Bokshiq",
-            "reason": "Rikyqje e konsumatorit ne TM."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Prizren",
-        "date": "2026-11-20",
-        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 35/10 kV Zhuri do të ndërprehet:Dalja 10 kV Hoqa e Qytetit me Kod 30035005nga ora 10:00 deri 15:30Vendet: Zhur, Lubiqevë, Lez, Leskovec, Jeshkovë, Hoçë e Qytetit, BillushëArsyeja: Pastrim i trasese.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "15:30",
-            "locations": "Zhur, Lubiqevë, Lez, Leskovec, Jeshkovë, Hoçë e Qytetit, Billushë",
-            "reason": "Pastrim i trasese."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Ferizaj",
-        "date": "2026-11-20",
-        "text": "Punime nga pala e tretë\nNga TS TS 35/10kV Ferizaj II Në daljen 10 kV J15 Driton Islami do të ndërpritet: TS 10/0.4 kV 43000057200-TS Lapidari nga ora 09:00 deri në 15:00 Vendet: Driton Islami Arsyeja: Realizimi i punimeve konform PEE&ZT me nr. 17251, të datës 12.12.2026, dhe Leje Hyrjes me numër 16906, të datës 22.10.2026.",
-        "outages": [
-          {
-            "start": "09:00",
-            "end": "15:00",
-            "locations": "Driton Islami",
-            "reason": "Realizimi i punimeve konform PEE&ZT me nr. 17251, të datës 12.12.2026, dhe Leje Hyrjes me numër 16906, të datës 22.10.2026."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Mitrovicë",
-        "date": "2026-11-20",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS DS 10 kV Shupkovci I Në daljen 10 kV J06 Shala do të ndërpriten:\nTS 10/0.4 kV 70000101022-Bare Xhamia\nTS 10/0.4 kV 70000101023-Bare-Xhafiqet\nTS 10/0.4 kV 70000101024-Bare-Osmani\nTS 10/0.4 kV 70000101025-Bare-Ramizi\nTS 10/0.4 kV 70000101026-Bajgor-Beqiri-Fejzullahu\nTS 10/0.4 kV 70000101027-Bajgor te Shkolla\nTS 10/0.4 kV 70000101028-Bajgor-Istrefi\nTS 10/0.4 kV 70000101029-Bajgor-Uka\nTS 10/0.4 kV 70000101030-Bajgor-Musa\nTS 10/0.4 kV 70000101031-Kovaqic\nTS 10/0.4 kV 70000101032-Lupqe\nTS 10/0.4 kV 70000101033-Kaqanoll\nTS 10/0.4 kV 70000101034-TMK\nTS 10/0.4 kV 70000101064-Turistic Village Natyra\nTS 10/0.4 kV 70000101035-Bare Hajdari\nTS 10/0.4 kV 70000101054-Rafet Ibishi (Fabrikë e ujit)\nNga ora 10:00 deri në 15:30 Vendet: Bare, Bajgorë, Bajgorë, Bajgorë, Bajgorë, Bajgorë, Kovaqic, Lupqe, Kaqanoll, Bajgorë, Kovaqice, Bajgorë Arsyeja: Pastrimi i trasesë.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "15:30",
-            "locations": "Bare, Bajgorë, Bajgorë, Bajgorë, Bajgorë, Bajgorë, Kovaqic, Lupqe, Kaqanoll, Bajgorë, Kovaqice, Bajgorë",
-            "reason": "Pastrimi i trasesë."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Gjakovë",
-        "date": "2026-11-20",
-        "text": "Punime në projekte investive\nNga NS 35/10 [kV] Gjakova I do të ndërpritet: Dalja 10 [kV] J01 Cërmjani (kodi: 80080012) nga ora 10:00 deri në orën 18:00 Vendet: Bardhaniq, Bare e Madhe, Bec, Bërdosana, Cërmjan, Doblibarë, Gërgoc, Jabllanicë, Kodrali, Krlan, Meqe, Netiç, Rashkoc, Vraniq, Zhabel, Zhdrellë Arsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "18:00",
-            "locations": "Bardhaniq, Bare e Madhe, Bec, Bërdosana, Cërmjan, Doblibarë, Gërgoc, Jabllanicë, Kodrali, Krlan, Meqe, Netiç, Rashkoc, Vraniq, Zhabel, Zhdrellë",
-            "reason": "Realizimi i punimeve sipas projektit Feeder 2."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Gjilan",
-        "date": "2026-11-20",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga NS 110/35/10 [kV] Vitia do të ndërpritet: Dalja 10 [kV] Smira (kodi: 61067006) nga ora 10:00 deri në orën 15:30 Vendet: Fshatrat: Drobresh, Gërmovë (një pjesë), Kabash dhe Smirë. Arsyeja: Mirëmbajtje preventive – pastrimi i trasesë.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "15:30",
-            "locations": "Fshatrat: Drobresh, Gërmovë (një pjesë), Kabash dhe Smirë.",
-            "reason": "Mirëmbajtje preventive – pastrimi i trasesë."
-          }
-        ],
-        "status": "notice"
-      },
       {
         "region": "Prishtinë",
         "date": "2026-11-21",
@@ -386,12 +282,61 @@
         "text": "",
         "outages": [],
         "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-25",
+        "text": "",
+        "outages": [],
+        "status": "none"
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-20",
-    "updated_at": "2026-11-20T21:32:02.342944+01:00",
-    "checked_at": "2026-11-20T21:32:02.342944+01:00"
+    "collected_on": "2026-11-21",
+    "updated_at": "2026-11-21T21:32:30.689718+01:00",
+    "checked_at": "2026-11-21T21:32:30.689718+01:00"
   },
   "weather": {
     "source_url": "https://www.meteokosova.com/",
@@ -401,7 +346,7 @@
         "date": "2026-11-21",
         "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-shtunen-21-11-2026/",
         "published_at": "2026-11-20T20:31:29+00:00",
-        "excerpt": "Të shtunën parashikohet që gjatë orëve të para të 24-orëshit të arrijë një sistem i ri, i cili do të vijojë deri në orët e mëngjesit, ku lokalisht pritet të sjellë rrebeshe shiu, të cilat në momente të caktuara pritet të jenë intensive, të shoqëruara me shkarkesa rrufesh, sidomos në zonën jugore dhe jugperëndimore. Në zonat malore priten reshje bore."
+        "excerpt": "Të shtunën parashikohet që gjatë orëve të para të 24-orëshit të arrijë një sistem i ri, i cili do të jetë aktiv deri në orët e mëngjesit. Lokalisht priten rrebeshe shiu, të cilat në momente të caktuara mund të jenë intensive, të shoqëruara me shkarkesa rrufesh, sidomos në zonat jugore dhe jugperëndimore."
       },
       {
         "title": "Parashikimi i motit për të premten, 20.11.2026",
@@ -433,8 +378,8 @@
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-20",
-    "updated_at": "2026-11-20T21:32:02.342944+01:00",
-    "checked_at": "2026-11-20T21:32:02.342944+01:00"
+    "collected_on": "2026-11-21",
+    "updated_at": "2026-11-21T21:32:30.689718+01:00",
+    "checked_at": "2026-11-21T21:32:30.689718+01:00"
   }
 }
