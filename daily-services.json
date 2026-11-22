@@ -12,96 +12,13 @@
       "Gjilan"
     ],
     "dates": [
-      "2026-11-21",
       "2026-11-22",
       "2026-11-23",
       "2026-11-24",
-      "2026-11-25"
+      "2026-11-25",
+      "2026-11-26"
     ],
     "notices": [
-      {
-        "region": "Prishtinë",
-        "date": "2026-11-21",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Pejë",
-        "date": "2026-11-21",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Prizren",
-        "date": "2026-11-21",
-        "text": "Punime në projekte investive\nNga NS 35/10 [kV] Dragashi do të ndërpritet: Dalja 10 kV J02 Restelica (kodi: 30036002) nga ora 10:00 deri në orën 16:00 Vendet: Lubovishte, Kukjan, Vranishte, Restelica, Mlikë, Glloboqicë, Krushevë, Zlipotok, Orqushë. Arsyeja: Energjizimi i linjës së re, segmenti nga TS Krusheva deri te shtylla B13 dhe prej shtyllës N01 deri te TS Restelica 1, sipas projektit.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "16:00",
-            "locations": "Lubovishte, Kukjan, Vranishte, Restelica, Mlikë, Glloboqicë, Krushevë, Zlipotok, Orqushë.",
-            "reason": "Energjizimi i linjës së re, segmenti"
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Ferizaj",
-        "date": "2026-11-21",
-        "text": "Punime në projekte investive\nNga TS TS 35/10kV Ferizaj III do të ndërprehet:Dalja 10 kV J03 Jezerci me Kod 40042003 nga ora 08:30 deri 18:00Vendet: TS Gllavicët, Nerodime e Poshtme, Nerodime e Epërme, Naim Beka, Manastirc, Jezercë, Jezerc, Besim Rexhepi, Balaj, Arsim BegaArsyeja: Vendosja ne pune e trafos se re ne Projektin Balaj Ts i Ri.\nPunime nga pala e tretë\nNga TS TS 35/10 KV Shtime do të ndërprehet:Dalja 10 kV J12 Fitorja me Kod 41046007nga ora 09:30 deri 15:00Vendet: Komandant Kumanova, Imer Devetaku, E Tiranës, 14 Dhjetori, 12 QershoriArsyeja: Ndërrimi i Trafos,Kthines dhe i Ormanit te 0.4kV sipas PEE-se.",
-        "outages": [
-          {
-            "start": "08:30",
-            "end": "18:00",
-            "locations": "TS Gllavicët, Nerodime e Poshtme, Nerodime e Epërme, Naim Beka, Manastirc, Jezercë, Jezerc, Besim Rexhepi, Balaj, Arsim Bega",
-            "reason": "Vendosja ne pune e trafos se re ne Projektin Balaj Ts i Ri. Punime nga pala e tretë"
-          },
-          {
-            "start": "09:30",
-            "end": "15:00",
-            "locations": "Komandant Kumanova, Imer Devetaku, E Tiranës, 14 Dhjetori, 12 Qershori",
-            "reason": "Ndërrimi i Trafos,Kthines dhe i Ormanit te 0.4kV sipas PEE-se."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Mitrovicë",
-        "date": "2026-11-21",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Gjakovë",
-        "date": "2026-11-21",
-        "text": "Punime në projekte investive\nNga TS TS 35/10 kV Gjakova I do të ndërprehet:Dalja 10 kV Ereniku me Kod 80080011nga ora 10:00 deri 18:00Vendet: Qerim, Fehmi AganiArsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "18:00",
-            "locations": "Qerim, Fehmi Agani",
-            "reason": "Realizimi i punimeve sipas projektit Feeder 2."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Gjilan",
-        "date": "2026-11-21",
-        "text": "Punime të domosdoshme për siguri të sistemit\nNga NS 110/35/10[kV] Vitia do të ndërprehet:\nDalja 10[kV] J08 Binqa (kodi: 61067008) nga ora 11:30 deri në ora 15:00\nVendet: Fshatrat: Binçë, Buzovik, Debelldeh, Kabash, Kolishtë (një pjesë), Ramnishtë, Shushtë dhe një pjesë e rrugës Agim Ramadani.\nArsyeja: Ndërrimi i TMRR-ve.",
-        "outages": [
-          {
-            "start": "11:30",
-            "end": "15:00",
-            "locations": "Fshatrat: Binçë, Buzovik, Debelldeh, Kabash, Kolishtë (një pjesë), Ramnishtë, Shushtë dhe një pjesë e rrugës Agim Ramadani.",
-            "reason": "Ndërrimi i TMRR-ve."
-          }
-        ],
-        "status": "notice"
-      },
       {
         "region": "Prishtinë",
         "date": "2026-11-22",
@@ -331,16 +248,72 @@
         "text": "",
         "outages": [],
         "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-26",
+        "text": "",
+        "outages": [],
+        "status": "none"
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-21",
-    "updated_at": "2026-11-21T21:32:30.689718+01:00",
-    "checked_at": "2026-11-21T21:32:30.689718+01:00"
+    "collected_on": "2026-11-22",
+    "updated_at": "2026-11-22T21:32:31.870977+01:00",
+    "checked_at": "2026-11-22T21:32:31.870977+01:00"
   },
   "weather": {
     "source_url": "https://www.meteokosova.com/",
     "forecasts": [
+      {
+        "title": "Parashikimi i motit për të dielën, 22.11.2026",
+        "date": "2026-11-22",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-dielen-22-11-2026/",
+        "published_at": "2026-11-21T22:12:28+00:00",
+        "excerpt": "Të dielën parashikohet mot me diell dhe vranësira gjatë orëve të mëngjesit, ndërsa në vijim vranësirat pritet të dendësohen, duke sjellë reshje lokale shiu gjatë pasdites dhe mbrëmjes. Reshjet në momente të caktuara pritet të jenë në formë rrebeshesh, ndërsa më të përqendruara priten në Rrafshin e Dukagjinit, veçanërisht në pjesën jugperëndimore."
+      },
       {
         "title": "Parashikimi i motit për të shtunën, 21.11.2026",
         "date": "2026-11-21",
@@ -368,18 +341,11 @@
         "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-merkuren-18-11-2026/",
         "published_at": "2026-11-17T21:13:07+00:00",
         "excerpt": "Të mërkurën parashikohet që gjatë orëve të para të 24-orëshit dhe në orët e mëngjesit të ketë reshje lokale shiu, të cilat në momente të caktuara pritet të jenë në formë rrebeshesh. Dita do të vijojë me vranësira dhe intervale me diell, ndërsa reshjet lokale do të paraqiten herë pas here, sidomos në pjesë të Rrafshit të Dukagjinit."
-      },
-      {
-        "title": "Parashikimi i motit për të martën, 17.11.2026",
-        "date": "2026-11-17",
-        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-marten-17-11-2026/",
-        "published_at": "2026-11-17T01:21:27+00:00",
-        "excerpt": "Të martën parashikohet të mbajë mot me diell dhe vranësira të pjesshme, me përjashtim për në orët e mëngjesit ku pritet të ketë mjegull dhe vranësira të ulëta nëpër lugina dhe ultësira. Në orët e vona të mbrëmjes, mund të ketë ndonjë reshje të izoluar në skajet e zonës jugperëndimore dhe perëndimore."
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-21",
-    "updated_at": "2026-11-21T21:32:30.689718+01:00",
-    "checked_at": "2026-11-21T21:32:30.689718+01:00"
+    "collected_on": "2026-11-22",
+    "updated_at": "2026-11-22T21:32:31.870977+01:00",
+    "checked_at": "2026-11-22T21:32:31.870977+01:00"
   }
 }
