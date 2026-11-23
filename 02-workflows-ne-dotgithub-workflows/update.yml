@@ -1,0 +1,104 @@
+name: Motori i Zani Digjital
+
+on:
+  workflow_dispatch:
+
+  repository_dispatch:
+    types: [ndiz_motorin]
+
+  # Nisjet periodike kontrollohen nga cron-job i jashtëm.
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: zani-digjital-news
+  cancel-in-progress: false
+
+jobs:
+  update-news:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalo modulet
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Kontrollo Python dhe modulet
+        run: |
+          python --version
+          pip --version
+          python -c "import feedparser; print('feedparser OK')"
+          python -c "import groq; print('groq OK')"
+          python -c "import trafilatura; print('trafilatura OK')"
+
+      - name: Kontrollo logjikën e orës dhe përmbajtjes
+        run: python -m unittest discover -p 'test_*.py'
+
+      - name: Kontrollo KEDS dhe motin pas orës 21:30
+        id: services
+        continue-on-error: true
+        run: python daily_services.py
+
+      - name: Mblidh dhe përgatit lajmet
+        id: collect
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY_2: ${{ secrets.GROQ_API_KEY_2 }}
+          GROQ_API_KEY_3: ${{ secrets.GROQ_API_KEY_3 }}
+        run: |
+          python bot.py
+
+      - name: Ruaj dhe publiko online
+        id: save
+        if: ${{ always() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure' || steps.services.outcome == 'success') }}
+        env:
+          COLLECT_OUTCOME: ${{ steps.collect.outcome }}
+          SERVICES_OUTCOME: ${{ steps.services.outcome }}
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Actions"
+
+          if [ "$COLLECT_OUTCOME" = "success" ]; then
+            git add .
+          else
+            if [ -f bot-status.json ]; then git add bot-status.json; fi
+            if [ "$SERVICES_OUTCOME" = "success" ] && [ -f daily-services.json ]; then git add daily-services.json; fi
+          fi
+
+          if git diff --cached --quiet; then
+            echo "S'ka ndryshime të reja."
+            exit 0
+          fi
+
+          git commit -m "U shtuan lajme te reja automatikisht"
+
+          git pull --rebase --autostash origin main
+
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Nise GitHub Pages pas push-it
+        if: ${{ always() && steps.save.outcome == 'success' && steps.save.outputs.changed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python request_pages_build.py
+
+      - name: Publiko në Facebook pas ruajtjes së lajmeve
+        if: ${{ success() && steps.collect.outcome == 'success' }}
+        env:
+          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+        run: python publish_facebook.py

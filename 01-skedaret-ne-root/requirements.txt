@@ -1,0 +1,6 @@
+feedparser
+trafilatura
+groq
+tzdata
+lxml
+Pillow>=11.0,<13

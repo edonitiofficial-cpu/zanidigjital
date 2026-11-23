@@ -1,0 +1,382 @@
+[
+  {
+    "path": "01-skedaret-ne-root/index.html",
+    "bytes": 17375,
+    "sha256": "354bcb03c19efa12e0ca2baa4fe5cf2126117c5fd5e20805cc791bf20d53945c"
+  },
+  {
+    "path": "01-skedaret-ne-root/artikulli.html",
+    "bytes": 691,
+    "sha256": "9d1a798228eb6d7070d4eee27844f5067443d9719bede2e1f80fe3bad4107a5f"
+  },
+  {
+    "path": "01-skedaret-ne-root/legacy-article.js",
+    "bytes": 1328,
+    "sha256": "c2e9e446dbec207d8a2041b6211ad72380c8ab0e5e05ca34e364f0e879d6a844"
+  },
+  {
+    "path": "01-skedaret-ne-root/site.js",
+    "bytes": 3036,
+    "sha256": "d5d269a539e98f6305a273ac5e8689bd2cbbc96a76c8f8f5e80c7c816f82e260"
+  },
+  {
+    "path": "01-skedaret-ne-root/site.css",
+    "bytes": 9179,
+    "sha256": "8a50bf5caf56b0f6fefbbc793b513912c2d026a84874964dd8d7fd9dc4518fc6"
+  },
+  {
+    "path": "01-skedaret-ne-root/site-widgets.js",
+    "bytes": 11898,
+    "sha256": "4927e51772071b0b879024b88868049292b1ff3228ec6b4e35f136420c3edc6b"
+  },
+  {
+    "path": "01-skedaret-ne-root/news-feed.js",
+    "bytes": 16181,
+    "sha256": "395e3ed5f699ca7ed6504a8a716bd77cc40c0f284944c2afc64cb3343aa18264"
+  },
+  {
+    "path": "01-skedaret-ne-root/daily-services.js",
+    "bytes": 7572,
+    "sha256": "89937f6b490335d06d63ff3afa1016f067ba048747681d1b021e30a5f3c97540"
+  },
+  {
+    "path": "01-skedaret-ne-root/article.js",
+    "bytes": 2895,
+    "sha256": "5b411434bc686e8132075ae7a04dc84fdca5b7701ebf670b6c83de4ab0e9d42d"
+  },
+  {
+    "path": "01-skedaret-ne-root/article.css",
+    "bytes": 3460,
+    "sha256": "88a927e01d74a69fa37689781d6839cdce36417da55b09637e95e8d59f2d3233"
+  },
+  {
+    "path": "01-skedaret-ne-root/fonts.css",
+    "bytes": 407,
+    "sha256": "e2e481a1d1f75ae6fb54b015ee646b1b2d3e9b5beaaaa35444e83ca70d7e8f9e"
+  },
+  {
+    "path": "01-skedaret-ne-root/utilities.css",
+    "bytes": 25953,
+    "sha256": "ea25e305ff534d11f389491421d270421c13a785635ae41d1d2dea0cd083c42b"
+  },
+  {
+    "path": "01-skedaret-ne-root/sw.js",
+    "bytes": 2015,
+    "sha256": "966e597de0e5def494592f779a63cf729418b70c01b09eaa293696b1318f741e"
+  },
+  {
+    "path": "01-skedaret-ne-root/offline.html",
+    "bytes": 840,
+    "sha256": "f6a4d5553042473f27dc5129be5219e6768ec5719885349acfa627c1030c5f95"
+  },
+  {
+    "path": "01-skedaret-ne-root/manifest.json",
+    "bytes": 461,
+    "sha256": "ab66cabb9c1322064a506825c5e50d26f69af8e57c31989cca3d63f9d9fa91c2"
+  },
+  {
+    "path": "01-skedaret-ne-root/municipalities.json",
+    "bytes": 474,
+    "sha256": "6ff2a8461a726c2e3d9d72f23a0de3718598a95097029474d76b2ef7c54076cc"
+  },
+  {
+    "path": "01-skedaret-ne-root/zanidigjital.png",
+    "bytes": 47818,
+    "sha256": "bd4ada7b6d641070b7619ef1d90cc2592190f59bf3162be3f893b71be964db5d"
+  },
+  {
+    "path": "01-skedaret-ne-root/zanidigjitalfavicon.png",
+    "bytes": 132367,
+    "sha256": "94e393e99b9b00836eb85775a2d5ec520d63a5b0d541f7ad35bd280c3eb5c51a"
+  },
+  {
+    "path": "01-skedaret-ne-root/bot.py",
+    "bytes": 16509,
+    "sha256": "e938ab9abb8f76004535b78e8fdec72bc430a35c83f81487e1d5ede418b67b40"
+  },
+  {
+    "path": "01-skedaret-ne-root/article_renderer.py",
+    "bytes": 14842,
+    "sha256": "68b71acc568b7f4c3ff8afd217ede9d25cfccd76338714e0475250c002ef25fc"
+  },
+  {
+    "path": "01-skedaret-ne-root/archive_output.py",
+    "bytes": 1314,
+    "sha256": "47af7dc76a425780c96b6aadc3e4b96abde83881d389d4df624145b4f5b4779c"
+  },
+  {
+    "path": "01-skedaret-ne-root/homepage_output.py",
+    "bytes": 5042,
+    "sha256": "8edb3ff873c197a1e3f2fb6b88081b7acf575cbda5a138643063bd41920cd8f1"
+  },
+  {
+    "path": "01-skedaret-ne-root/featured_image.py",
+    "bytes": 2230,
+    "sha256": "92963396ba0f032de484304ef7729aeb7399b19f5134bbb2d9b770b2a918cfa5"
+  },
+  {
+    "path": "01-skedaret-ne-root/photo_utils.py",
+    "bytes": 787,
+    "sha256": "c0dd16a0d86d30b9dd996d99ed14164c9837e81937391fe8a1d7ee95d69d8c8e"
+  },
+  {
+    "path": "01-skedaret-ne-root/news_policy.py",
+    "bytes": 12684,
+    "sha256": "e82f9de34beeaa8d4980b385c5c6ec43a4378b179d631c49b66907cc629ce8ac"
+  },
+  {
+    "path": "01-skedaret-ne-root/news_utils.py",
+    "bytes": 3027,
+    "sha256": "c9dc8ebd6a04435ebdd1dbb89aff64a1d058c3fd890f64f021270f2fed900b97"
+  },
+  {
+    "path": "01-skedaret-ne-root/news_time.py",
+    "bytes": 602,
+    "sha256": "f2a1e6ef7f036a7aeb46613c52ef7bd04267a8d921bea5d923b2205a55f6cb3a"
+  },
+  {
+    "path": "01-skedaret-ne-root/municipalities.py",
+    "bytes": 3935,
+    "sha256": "f8ee6a706e8b8347fbf6e6e7637dcee750e9b97317d43b47c7b65cf841fa5762"
+  },
+  {
+    "path": "01-skedaret-ne-root/feeds_output.py",
+    "bytes": 2571,
+    "sha256": "1554ba9838d64a064eb7b152e9febc2e6fbb03c868879a70a547b06383fe4f66"
+  },
+  {
+    "path": "01-skedaret-ne-root/article_content.py",
+    "bytes": 5253,
+    "sha256": "3aa1336e17967f740706c66b3c8d999a386f8217cfbed3a5ded2675b972eefa5"
+  },
+  {
+    "path": "01-skedaret-ne-root/keds_notice.py",
+    "bytes": 1134,
+    "sha256": "aba12351b244091634bed680d994e2eeb33f1a3d61b698f2d7180405eb9b4237"
+  },
+  {
+    "path": "01-skedaret-ne-root/request_pages_build.py",
+    "bytes": 1333,
+    "sha256": "049cda55ebc0399f4a6f1ed1856c30a8204b813ee5ffdaa7d25b8e68671a7f78"
+  },
+  {
+    "path": "01-skedaret-ne-root/image_health.py",
+    "bytes": 4187,
+    "sha256": "70ec24c50d586c07de9dd9ddd645e62f7b1a9990c26d7cbeb3e4a8283278574a"
+  },
+  {
+    "path": "01-skedaret-ne-root/photo-unavailable.svg",
+    "bytes": 635,
+    "sha256": "26144087cdda5f6c05aae4838f6ad03722e6d8b0d3be2daaacae521f2ba1ec62"
+  },
+  {
+    "path": "01-skedaret-ne-root/image-health.html",
+    "bytes": 833,
+    "sha256": "5ec6506496e6c305d82b8ac6c38d86a1a0e0a942cf9669a5815e48c59d8d40ff"
+  },
+  {
+    "path": "01-skedaret-ne-root/image-health.js",
+    "bytes": 2975,
+    "sha256": "a4b14a6b4c88e1b61b28aab7468b55e7081cff2617d82918a7eec900f84b77ff"
+  },
+  {
+    "path": "01-skedaret-ne-root/image-health.css",
+    "bytes": 701,
+    "sha256": "89371af150eadfcca13a0fe7f25cf6f29ce4afadc05fcce3d75e65aacd1c82bf"
+  },
+  {
+    "path": "01-skedaret-ne-root/robot_report.py",
+    "bytes": 1977,
+    "sha256": "5fbfdd15b801e21fe9e90bbafcbe34c9e3dc95452cf7b928cedfcdb1f2b8481b"
+  },
+  {
+    "path": "01-skedaret-ne-root/publish_facebook.py",
+    "bytes": 1698,
+    "sha256": "6b116ae26651e2930bb46852cc7ba32293311abd03a801bf632f0e0379b296ae"
+  },
+  {
+    "path": "01-skedaret-ne-root/daily_services.py",
+    "bytes": 6637,
+    "sha256": "481acbd83c2192d21adae4db8fa94a33a3f775cb58731f7e0ac32f6b3508a482"
+  },
+  {
+    "path": "01-skedaret-ne-root/monitor_health.py",
+    "bytes": 1983,
+    "sha256": "e341598a6e7379a0f77fca86583ea3aad5344492533d8e86384b86ab9b1c1386"
+  },
+  {
+    "path": "01-skedaret-ne-root/requirements.txt",
+    "bytes": 57,
+    "sha256": "356c89bc6953bed5aea173dbe8a1113a345cc2def7d21eb3a4f57442d14b808f"
+  },
+  {
+    "path": "01-skedaret-ne-root/package.json",
+    "bytes": 662,
+    "sha256": "a4c1c0f3ee575972f88c6d0ca75ddbf0154cebd05708156350dfd2cada319f00"
+  },
+  {
+    "path": "01-skedaret-ne-root/package-lock.json",
+    "bytes": 37463,
+    "sha256": "ac91410babfca8ba3ab8be7fda2a5660c226d481b4712b1c2368f7b17a73748d"
+  },
+  {
+    "path": "01-skedaret-ne-root/tailwind.config.cjs",
+    "bytes": 148,
+    "sha256": "a5ce84cf14359c02a7505e5247f930f7dfcaf3cb062cb8641a7f20e83db33b8e"
+  },
+  {
+    "path": "01-skedaret-ne-root/fonts/inter-latin.woff2",
+    "bytes": 48256,
+    "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+  },
+  {
+    "path": "01-skedaret-ne-root/fonts/OFL.txt",
+    "bytes": 4377,
+    "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/tailwind.css",
+    "bytes": 59,
+    "sha256": "cc1a7ad0d019ddb1d32d0ecb588ba0ac26ce41d8625dd6c366348b25f83a28ec"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/check_site.cjs",
+    "bytes": 26137,
+    "sha256": "d4602bc0e68e38f5b1adf2f4de65c50ea19d242ee1eeeab9404f74e68c11f11c"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/check_votes.cjs",
+    "bytes": 3783,
+    "sha256": "031a293a2ea22208825c7fe259308cf7d220859334edd6646de2f5c6582c79b2"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/check_admin_access.cjs",
+    "bytes": 4745,
+    "sha256": "d20aa92009d6367ced545f30b39f4ed5b3467f720beb553d950dd3be3b4003b1"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/prepare_current_publication.py",
+    "bytes": 1403,
+    "sha256": "42ddf30cd529aeb51ef600c78389523ca26c476572e2cb9a82122bb2be867ff2"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/repair_published_articles.py",
+    "bytes": 3378,
+    "sha256": "d2d91f70552fbb4e9b7b39df33bbee59a162e368173174160ea67640c94f007b"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/check_photos.py",
+    "bytes": 621,
+    "sha256": "299bab6d9789dcb53e9e7f53a5a087daf9d8c1803320d952c7930c1c57795368"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/repair_font_styles.py",
+    "bytes": 717,
+    "sha256": "9629f440626bef9b4ba3fa6b75fc99ae53f4771b7af041a495d8b90de617687b"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/upgrade_legacy_articles.py",
+    "bytes": 1901,
+    "sha256": "20325cfdd70f3189d74f27518adc3346ef2cae655bbfcf3f133d8fe55fceccf3"
+  },
+  {
+    "path": "01-skedaret-ne-root/tools/check_markup.cjs",
+    "bytes": 1371,
+    "sha256": "dc5a76025d2a1c4df6ad26b4e9d1ba98fd78fed68b22623edce49cb68f85c5ba"
+  },
+  {
+    "path": "02-workflows-ne-dotgithub-workflows/update.yml",
+    "bytes": 3108,
+    "sha256": "b9f458f102c7300036e7450097b1e4e99d418a9eb251139fd6127dc360423954"
+  },
+  {
+    "path": "02-workflows-ne-dotgithub-workflows/daily-services.yml",
+    "bytes": 2071,
+    "sha256": "e408594cf3996fa45f66d8638f365646a86b16e183300f64e779040918fdded4"
+  },
+  {
+    "path": "02-workflows-ne-dotgithub-workflows/prepare-current-publication.yml",
+    "bytes": 1303,
+    "sha256": "7bba21a2a6c5026179935d3c54fd1a8d11a6cbfa572412908866fa2d370eb42f"
+  },
+  {
+    "path": "02-workflows-ne-dotgithub-workflows/repair-published-articles.yml",
+    "bytes": 2057,
+    "sha256": "76cb591150f78adb73b7eb7b38e647e6b0fa4729df46f793aaf71179fbaeb229"
+  },
+  {
+    "path": "02-workflows-ne-dotgithub-workflows/check-photos.yml",
+    "bytes": 1363,
+    "sha256": "2a735798d4abb07307633badedea086a80c7d660970ca0302eac06478cec6443"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_archive_output.py",
+    "bytes": 1585,
+    "sha256": "72a63e04116d56ab89366112b4a3c302b98fb94202e00ca79e79f6c1582f23d3"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_article_content.py",
+    "bytes": 5153,
+    "sha256": "7f1826bbc18f96c60f65f0e57d4829150c1f9bf0f2f28f6b40ea49867785f224"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_automation.py",
+    "bytes": 6269,
+    "sha256": "ab56b425236832559469237f7e2c3540852de078d05b180a354020228b64a033"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_bot_flow.py",
+    "bytes": 6553,
+    "sha256": "936807ec152255752748f32df2ab55636f33ce931844a2b87055f5c3d51d7f74"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_daily_services.py",
+    "bytes": 6252,
+    "sha256": "3dcb606e836fd98e242b4f60a79d99d9469dc64893f039d09faa69bf0b51d548"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_editorial.py",
+    "bytes": 3580,
+    "sha256": "d07cbd5cda1dc4ce50698dedf4c52f502f380f706b71fd5d58646fd56aace7b7"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_featured_image.py",
+    "bytes": 2058,
+    "sha256": "7389cf1252e13c30c7b2cced9d06c2f37f411344481bb4f161e8c857bb101784"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_homepage_output.py",
+    "bytes": 1844,
+    "sha256": "549cb00b3d3435ea733c9d3f6881cadd71f80f98c79a9bfd66d12df01c71788c"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_image_health.py",
+    "bytes": 3410,
+    "sha256": "79f6ca7e4b3290b7ecbdf98dfd383fd9d698a5182b4f05e007c0812a4d433d77"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_keds_notice.py",
+    "bytes": 1074,
+    "sha256": "6736aab23caaa80092459880e5f29a6a9f7c2541c3240a2caa30747f21fd1f66"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_monitor_health.py",
+    "bytes": 1342,
+    "sha256": "20b40eb42525fa579c953a804093e86e11391e23a2c75144615394698c723a9d"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_news_time.py",
+    "bytes": 1321,
+    "sha256": "c561fe021b3495416144174247927979c96dfc7934128cc6b9d3e0d2bd726cbb"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_news_utils.py",
+    "bytes": 3058,
+    "sha256": "871b927e5a885ba46ddc14d45ff33302321329e4fdec83eebba86ec3927645c4"
+  },
+  {
+    "path": "01-skedaret-ne-root/test_pages_build.py",
+    "bytes": 985,
+    "sha256": "5cf52e3af79e1cd6da9f7f1de1a3882d2ed7213b73cbcc2136403de22e6a7d24"
+  }
+]

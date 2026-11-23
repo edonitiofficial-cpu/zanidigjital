@@ -1,0 +1,42 @@
+name: Kontrollo fotografitë dhe fontet
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: zani-digjital-news
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Riparo vetëm mbetjen e fontit dhe kontrollo fotografitë
+        run: |
+          python tools/repair_font_styles.py
+          python tools/check_photos.py --limit 30
+      - name: Ruaj raportin dhe korrigjimin CSS
+        id: save
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Actions"
+          git add image-health.json index.html lajme/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Kontrollo fotografite dhe riparo fontet pa ndryshuar lajmet"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Nise publikimin
+        if: ${{ steps.save.outputs.changed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python request_pages_build.py

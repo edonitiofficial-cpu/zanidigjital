@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3XJ36058R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F3XJ36058R');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zani Digjital | Lajmet e Fundit nga Kosova dhe Bota</title>
+    
+    <meta name="description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit nga politika, ekonomia, sporti dhe teknologjia në Zani Digjital.">
+    <meta name="keywords" content="lajme, kosovë, politikë, sport, teknologji, zani digjital, ekonomi">
+    <link rel="canonical" href="https://zanidigjital.com">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zanidigjital.com/">
+    <meta property="og:title" content="Zani Digjital | Lajmet e Fundit">
+    <meta property="og:description" content="Portali më inovativ i lajmeve në Kosovë. Ndiqni lajmet e fundit 24/7.">
+    <meta property="og:image" content="https://zanidigjital.com/zanidigjital.png">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="/zanidigjitalfavicon.png">
+
+    <link rel="stylesheet" href="/utilities.css">
+    <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onload="window.dispatchEvent(new Event('supabase-ready'))" onerror="window.dispatchEvent(new Event('supabase-failed'))"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; overscroll-behavior-y: auto; overflow-x: clip; }
+        .shimmer { background: #f6f7f8; background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%); background-repeat: no-repeat; background-size: 800px 100%; display: inline-block; position: relative; animation: placeholderShimmer 1s linear infinite forwards; }
+        @keyframes placeholderShimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
+        .glass-dark { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .marquee-container { overflow: hidden; white-space: nowrap; width: 100%; display: flex; align-items: center; }
+        .marquee-content { display: inline-block; animation: marquee 65s linear infinite; padding-left: 100%; }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-in { animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+    <link rel="stylesheet" href="/site.css">
+    <script src="/site.js"></script>
+    <script src="/news-feed.js" defer></script>
+    <script src="/site-widgets.js" defer></script>
+    <script src="/daily-services.js" defer></script>
+<link rel="preload" as="font" href="/fonts/inter-latin.woff2" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts.css">
+<link rel="preconnect" href="https://wsrv.nl">
+</head>
+<body class="text-gray-900 antialiased bg-[#F8F9FA]">
+  <a class="skip-link" href="#main-content">Kalo te lajmet</a>
+
+  <div class="relative w-full min-h-screen">
+      
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200 w-full">
+        <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center max-w-[1100px] mx-auto">
+                <a href="/" class="flex-shrink-0 mb-4 md:mb-0">
+                    <img src="/zanidigjital.png" alt="ZaniDigjital Logo" class="h-16 object-contain" onerror="this.src='https://via.placeholder.com/200x50/ffffff/000000?text=ZANI+DIGJITAL+LOGO'">
+                </a>
+                <div class="w-full md:w-auto overflow-x-auto no-scrollbar">
+                    <nav id="nav-menu" class="flex md:justify-center gap-4 sm:gap-6 font-semibold text-gray-600 whitespace-nowrap px-2 md:px-0 pb-2 md:pb-0">
+                        <a href="/" id="link-ballina" class="text-black border-b-2 border-black pb-1">Ballina</a>
+                        <a href="/?kategoria=Lajme" id="link-Lajme" class="hover:text-black transition pb-1">Lajme</a>
+                        <a href="/?kategoria=Politikë" id="link-Politikë" class="hover:text-black transition pb-1">Politikë</a>
+                        <a href="/?kategoria=Ekonomi" id="link-Ekonomi" class="hover:text-black transition pb-1">Ekonomi</a>
+                        <a href="/?kategoria=Sport" id="link-Sport" class="hover:text-black transition pb-1">Sport</a>
+                        <a href="/?kategoria=Teknologji" id="link-Teknologji" class="hover:text-black transition pb-1">Teknologji</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 xl:px-8 flex justify-center items-start gap-6 xl:gap-8 w-full relative">
+        
+        <!-- Sidebar Majtas - RRËSHQITËS (Sticky) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-left-container"></aside>
+
+        <main id="main-content" class="w-full max-w-[1100px] flex-1 min-w-0 py-8 space-y-12">
+            <section>
+                <div class="news-toolbar">
+                    <h1 id="section-title" class="text-2xl font-black uppercase tracking-wide">NË VËMENDJE</h1>
+                    <form id="news-search-form" class="news-search" role="search">
+                        <label for="news-search" class="sr-only">Kërko në lajme</label>
+                        <input id="news-search" type="search" placeholder="Kërko lajme…" maxlength="150">
+                        <button type="submit">Kërko</button>
+                    </form>
+                </div>
+                <div class="municipality-filter">
+                    <label for="municipality-select">Lajmet e komunës</label>
+                    <select id="municipality-select"><option value="">Të gjitha komunat</option></select>
+                    <span id="municipality-note">Sipas vendeve të përmendura në titull ose hyrje.</span>
+                    <label class="remember-municipality"><input id="municipality-remember" type="checkbox"> Mbaje mend komunën në këtë pajisje</label>
+                </div>
+                <p id="news-status" class="news-status" role="status" aria-live="polite"></p>
+                <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]"><!-- featured:start --><!-- featured:end -->
+                </div>
+            </section>
+
+            <div id="banner-top-container" class="w-full"></div>
+
+            <section id="daily-services" aria-labelledby="daily-services-title">
+                <div class="services-heading">
+                    <h2 id="daily-services-title">Në shërbim të qytetarëve</h2>
+                    <p>Moti në Kosovë dhe njoftimet për energjinë.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card weather-card" aria-labelledby="weather-title">
+                        <div class="service-card-head">
+                            <div><span class="service-label">Meteo Kosova</span><h3 id="weather-title">Moti në Kosovë</h3></div>
+                            <span class="service-icon weather-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 6.5 19 5M5 19l1.5-1.5M17 25h9a4 4 0 0 0 0-8 6 6 0 0 0-11-1 4.5 4.5 0 0 0 2 9Z"/></svg></span>
+                        </div>
+                        <p id="weather-status" class="service-status" role="status">Duke ngarkuar parashikimin…</p>
+                        <div id="weather-content"></div>
+                        <a id="weather-source" href="https://www.meteokosova.com/" target="_blank" rel="noopener noreferrer" class="service-source">Shiko parashikimin te Meteo Kosova ↗</a>
+                    </article>
+                    <article class="service-card energy-card" aria-labelledby="keds-title">
+                        <div class="service-card-head">
+                            <div><span class="service-label">KEDS · njoftime zyrtare</span><h3 id="keds-title">Punime në rrjet</h3></div>
+                            <span class="service-icon energy-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m18 3-12 15h9l-1 11 12-16h-9l1-10Z"/></svg></span>
+                        </div>
+                        <p class="service-intro">Kontrollo vendbanimet dhe oraret e ndërprerjeve të planifikuara.</p>
+                        <div class="service-filters">
+                            <label for="keds-region">Rajoni<select id="keds-region" disabled><option>Zgjedh rajonin</option></select></label>
+                            <label for="keds-date">Dita<select id="keds-date" disabled><option>Zgjedh ditën</option></select></label>
+                        </div>
+                        <p id="keds-status" class="service-status" role="status">Duke ngarkuar njoftimet…</p>
+                        <div id="keds-content" aria-live="polite"></div>
+                        <a href="https://www.keds-energy.com/shq/punime-ne-rrjet/njoftime-per-punime-ne-rrjet/" target="_blank" rel="noopener noreferrer" class="service-source">Shiko njoftimet te KEDS ↗</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Seksioni FLASH i zhvendosur lart, në mes të Në Vëmendje dhe Të Fundit -->
+            <section class="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white flex items-center">
+                <div class="bg-red-600 text-white text-sm font-black px-4 py-3 z-10 whitespace-nowrap shadow-lg">FLASH</div>
+                <div class="marquee-container bg-white text-gray-800 py-3 font-semibold text-sm">
+                    <div id="ticker-content" class="marquee-content space-x-12">Duke ngarkuar lajmet...</div>
+                </div><button id="ticker-pause" type="button" class="ticker-pause" aria-pressed="false" aria-label="Ndalo ose vazhdo shiritin e lajmeve">Pauzë</button>
+            </section>
+
+            <section class="border-t border-gray-300 pt-8 mt-8">
+                <h2 class="text-2xl font-black mb-6 uppercase tracking-wide flex items-center">
+                    <span class="bg-black text-white px-3 py-1 rounded-lg">Të fundit</span>
+                </h2>
+                <div id="te-fundit-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><!-- latest:start --><!-- latest:end -->
+                </div>
+                <div class="mt-10 flex justify-center">
+                    <button id="news-more" type="button" class="px-8 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg text-sm tracking-wide">Lexo më shumë</button>
+                </div>
+            </section>
+
+            <section class="border-t border-gray-300 pt-8 mt-8">
+                <div class="relative z-0 p-6 md:p-10 rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-50 -z-20"></div>
+                    <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                    <div class="flex justify-between items-center mb-8 relative z-10">
+                        <h2 class="text-2xl font-black uppercase tracking-wide text-gray-900">PUNA</h2>
+                        <div class="flex gap-2 hidden md:flex">
+                            <button id="btn-jobs-left" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                            <button id="btn-jobs-right" class="p-2 bg-white/50 backdrop-blur-md rounded-full hover:bg-black hover:text-white border border-gray-200 transition cursor-pointer shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                        </div>
+                    </div>
+                    <div id="jobs-carousel" class="flex overflow-x-auto gap-6 no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth relative z-10">
+                        <p class="text-gray-500 font-medium py-4">Duke kërkuar për vende të lira pune...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="banner-middle-container" class="w-full"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-gray-300 pt-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-black uppercase">Fjala jote</h2>
+                    <p class="text-gray-500 mb-6 font-medium">Temat e ditës, mendimi yt.</p>
+                    <div id="poll-container"><p class="text-gray-500 font-medium text-center py-4">Duke ngarkuar sondazhin...</p></div>
+                </div>
+
+                <div class="glass-dark text-white p-8 rounded-2xl flex flex-col justify-center relative overflow-hidden shadow-xl">
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <h2 class="text-2xl font-black uppercase relative z-10">Lajmet ma t’reja, direkt n’telefon.</h2>
+                    <p class="text-gray-300 mt-2 mb-6 font-medium relative z-10">Abonohu dhe mos e hup asnjë lajm që ka rëndësi.</p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 relative z-10">
+                        <input type="email" id="nl-email" required placeholder="Shkruaj emailin tënd..." class="w-full px-4 py-3 rounded-xl bg-white/90 text-black font-medium focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner">
+                        <button type="submit" id="nl-btn" class="bg-red-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-red-700 transition whitespace-nowrap shadow-lg">Abonohu</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar Djathtas - RRËSHQITËS VETËM NË BALLINË (Sticky) -->
+        <aside class="hidden xl:block w-[300px] shrink-0 pt-8 sticky top-28 z-10" id="sidebar-right-container"></aside>
+    </div>
+
+    <!-- POP-UP REKLAMA -->
+    <div id="mobile-popup" class="fixed bottom-4 left-0 w-full z-[100] flex justify-center px-4 pointer-events-none transition-all duration-500 transform translate-y-[150%] opacity-0 md:hidden">
+        <div class="relative pointer-events-auto shadow-2xl rounded-xl overflow-hidden max-w-[400px] w-full bg-transparent">
+            <button onclick="mbyllMobileAd()" class="absolute top-1 right-1 bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm z-10 border border-white/20 shadow-md">&times;</button>
+            <a id="mobile-popup-link" href="#" target="_blank" class="block">
+                <img id="mobile-popup-img" src="" class="w-full h-auto max-h-[120px] object-cover" alt="Reklamë">
+            </a>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12 w-full">
+        <div class="max-w-[1800px] mx-auto px-4 text-center text-gray-500 font-medium">
+            <p>&copy; 2026 Zani Digjital. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+  </div>
+
+    <script>
+        function getCatStyles(cat) {
+            return ({'Sport':['bg-green-600','text-green-600'],'Politikë':['bg-red-600','text-red-600'],'Teknologji':['bg-blue-600','text-blue-600'],'Tech':['bg-blue-600','text-blue-600'],'Ekonomi':['bg-yellow-600','text-yellow-600']})[cat] || ['bg-black','text-black'];
+        }
+        function krijoSlug(value) {
+            return String(value || '').toLowerCase().replace(/ë/g,'e').replace(/ç/g,'c').replace(/[^a-z0-9 -]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').replace(/^-+|-+$/g,'');
+        }
+        document.addEventListener('DOMContentLoaded', () => loadNews());
+    </script>
+</body>
+</html>
