@@ -12,96 +12,13 @@
       "Gjilan"
     ],
     "dates": [
-      "2026-11-24",
       "2026-11-25",
       "2026-11-26",
       "2026-11-27",
-      "2026-11-28"
+      "2026-11-28",
+      "2026-11-29"
     ],
     "notices": [
-      {
-        "region": "Prishtinë",
-        "date": "2026-11-24",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS TS 110/10(20)kV Prishtina 7 Në daljen 10 kV J25 PR7 Dalja Nr. 3 do të ndërpritet: TS 10/0.4 kV 19000074196-Lagjja e Spitalit 2 nga ora 10:00 deri 11:00 Vendet: 120. L. e Spitalit Arsyeja: Energjizimi i daljeve të reja.\nNga TS TS 35/10kV Badovci Në daljen 10 kV J02 Graçanica 1 do të ndërpritet: TS 10/0.4 kV 10014004061-Graçanica 5 (Blina e vjetër) nga ora 12:00 deri 15:30 Vendet: 293. Esat Mekuli Arsyeja: Energjizimi i daljeve të reja.",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "11:00",
-            "locations": "120. L. e Spitalit",
-            "reason": "Energjizimi i daljeve të reja."
-          },
-          {
-            "start": "12:00",
-            "end": "15:30",
-            "locations": "293. Esat Mekuli",
-            "reason": "Energjizimi i daljeve të reja."
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Pejë",
-        "date": "2026-11-24",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Prizren",
-        "date": "2026-11-24",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS TS 35/10 kV Zhuri do të ndërpritet: Dalja 10 kV J04 Hoqa e Qytetit me kod 30035005 nga ora 10:00 deri 15:00 Vendet: Zhur, Lubiqevë, Lez, Leskovec, Jeshkovë, Hoçë e Qytetit, Billushë Arsyeja: Pastrimi i trasesë",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "15:00",
-            "locations": "Zhur, Lubiqevë, Lez, Leskovec, Jeshkovë, Hoçë e Qytetit, Billushë",
-            "reason": "Pastrimi i trasesë"
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Ferizaj",
-        "date": "2026-11-24",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Mitrovicë",
-        "date": "2026-11-24",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS DS 10 kV Shupkovci I Në daljen 10 kV J02 Betonjerka do të ndërpritet:\nTS 10/0.4 kV 70000104006-Lipa - Rahovë e Re\nTS 10/0.4 kV 70000104007-Lipë-Pompat\nTS 10/0.4 kV 70000104027-Boletin\nTS 10/0.4 kV 70000104028-Zhazh 1\nTS 10/0.4 kV 70000104029-Zhazh 2\nTS 10/0.4 kV 70000104030-Vllahi e Vjetër\nTS 10/0.4 kV 70000104031-Vllahi e Re\nTS 10/0.4 kV 70000104032-Zijaq\nTS 10/0.4 kV 70000104033-Dedi\nTS 10/0.4 kV 70000104034-Zabergjë\nTS 10/0.4 kV 70000104035-Selac 1\nTS 10/0.4 kV 70000104036-Selac 2\nTS 10/0.4 kV 70000104037-Selac 3\nTS 10/0.4 kV 70000104038-Maxher\nTS 10/0.4 kV 70000104039-Melenic 1\nTS 10/0.4 kV 70000104040-Melenic 2\nTS 10/0.4 kV 70000104041-Te Kulla - I. Boletinit\nTS 10/0.4 kV 70000104042-Pompat e Ujit\nTS 10/0.4 kV 70000104043-Mani - Trans\nTS 10/0.4 kV 70000104044-Te Shtalla-Boletin\nTS 10/0.4 kV 70000104046-Rahovë .I. Kulla\nTS 10/0.4 kV 70000104047-Rahovë .II. nga ora 10:00 deri 15:00 Vendet: Kelmendë - Lipë, Lipë, Boletin, Zhazhë, Zhazhë, Vllahi, Vllahi, Zijaq, Dedi, Zabergjë, Selac, Selac, Selac, Maxher, Melenic, Melenic, Boletin, Boletin, Zhazhë, Boletin, Rahovë, Rahovë Arsyeja: Pastrimi i trasesë",
-        "outages": [
-          {
-            "start": "10:00",
-            "end": "15:00",
-            "locations": "Kelmendë - Lipë, Lipë, Boletin, Zhazhë, Zhazhë, Vllahi, Vllahi, Zijaq, Dedi, Zabergjë, Selac, Selac, Selac, Maxher, Melenic, Melenic, Boletin, Boletin, Zhazhë, Boletin, Rahovë, Rahovë",
-            "reason": "Pastrimi i trasesë"
-          }
-        ],
-        "status": "notice"
-      },
-      {
-        "region": "Gjakovë",
-        "date": "2026-11-24",
-        "text": "",
-        "outages": [],
-        "status": "none"
-      },
-      {
-        "region": "Gjilan",
-        "date": "2026-11-24",
-        "text": "Punime të domosdoshme për sigurinë e sistemit\nNga TS TS 35/10 kV Gjilani II do të ndërpritet: Dalja 10 kV J06 Kufca me kod 60061006 nga ora 10:30 deri 14:00 Vendet: TS Poredini, Kufca, Kufca 1, Melcë, Draganca, Makreshi në Hyrje, Manastiri, Makreshi, Makresh i Epërm, Kufca, Makresh i Epërm, Makresh, Manastiri 2, Dragancë, TS-privat Ilmi Bajram Krasniqi, TS-privat Enver Zylfiu, TS-privat Dibran Mehmeti, TS-privat ,,Labi Alegro'' shpk, TS-privat Adem Ibrahimi Arsyeja: Rregullimi i shtyllave të thyera",
-        "outages": [
-          {
-            "start": "10:30",
-            "end": "14:00",
-            "locations": "TS Poredini, Kufca, Kufca 1, Melcë, Draganca, Makreshi në Hyrje, Manastiri, Makreshi, Makresh i Epërm, Kufca, Makresh i Epërm, Makresh, Manastiri 2, Dragancë, TS-privat Ilmi Bajram Krasniqi, TS-privat Enver Zylfiu, TS-privat Dibran Mehmeti, TS-privat ,,Labi Alegro'' shpk, TS-privat Adem Ibrahimi",
-            "reason": "Rregullimi i shtyllave të thyera"
-          }
-        ],
-        "status": "notice"
-      },
       {
         "region": "Prishtinë",
         "date": "2026-11-25",
@@ -207,16 +124,66 @@
       {
         "region": "Prishtinë",
         "date": "2026-11-26",
-        "text": "",
-        "outages": [],
-        "status": "none"
+        "text": "Punime të domosdoshme për siguri të sistemit\n1. Nga TS TS 110/10(20)kV Prishtina 7 do të ndërprehet:\nDalja 10 kV J23 Pr7 Dalja Nr.1 me Kod 19000072\nnga ora 11:00 deri 11:15 dhe 15:45 deri 16:00\nVendet: 97.Rr.Lord Bajroni, 30.Rr.Gazmend Zajmi \"4A\" SH.P.K .B/31-32, 17.Rr.Agim Ramadani, 112. Rr. Anton Çetta, 103.Rr.Mitrovica, 102.Rr.Ali Pashë Tepelena Obj. BanesorNr41-42, 102.Rr.Ali Pashë Tepelena, 101. Rr. Arhitekt. Karll Gega\nArsyeja: Nderrimi i kthinave\n2. Nga TS TS 110/10(20)kV Prishtina 2 do të ndërprehet:\nDalja 10 kV J03 Pr2 Dalja Nr.1 me Kod 11000072\nnga ora 11:00 deri 11:15 dhe 15:45 deri 16:00\nVendet: Laxha e Muhaxherve, Arkitekt Karl Gega, 97.Rr.Qamile Jaka, 82.Rr.Gustav Majer 11, 82.Rr.Gustav Majer, 80.Rr.Shaban Palluzha 3, 80.Rr.Shaban Palluzha, 72.Rr.Tringë Smajli, 72. Rr.Nëna Terezë 37/A 54/12, 72. Rr.Nëna Terezë 37/A 29/21, 24.Rr.Rrustem Statovci Nr-1, 24.Rr.Rrustem Statovci Hyr.14, 24.Rr.Rrustem Statovci, 24. Rr. Hamëz Jashari nr 18/10, 24. Rr. Hamëz Jashari, 24 Maj bll-4-24, 201.Kalabria pn, 17.Rr.Agim Ramadani, 104.Rr.Abdyl Frashëri, 101. Rr. Arhitekt. Karll Gega\nArsyeja: Nderrimi i kthinave\n3. Nga TS TS 110/10(20)kV Prishtina 2\nNë Daljen 10 kV J03 PR2 Dalja Nr.1 me Kod 11000072 do të ndërprehet:\n1. TS 10/0.4 kV 11000072134-Gustave Majer 4 ( Avni Maxhuni në Tringë Is\n2. TS 10/0.4 kV 11000072164-Gustav Maier 6 ( shemsi pllana)\nnga ora 11:00 deri 16:00\nVendet: 72. Rr.Nëna Terezë 37/A 54/12, 72.Rr.Tringë Smajli\nArsyeja: Nderrimi i kthinave\n1. Nga TS TS 110/10(20)kV Prishtina 7 do të ndërprehet:\nDalja 10 kV J19 Pr7 Dalja Nr.5 me Kod 19000076\nnga ora 10:00 deri 10:30 deri ora 15:15 deri 15:45\nVendet: 347.Ukshin Kovaçica 101, 346.Abdullah Presheva S.Plus-, 345.Theodor Muzaka BurimiC.Hy.I-8, 341.Rr.Jakov Xoxa Mati 1 D/39, 340.Muharrem Fejza Luledielli, 340.Muharrem Fejza C-12, 340.Muharrem Fejza, 338.Beçir Kastrati Ndert.-J' Ob-1, 337.Mbreti Genc Objek D/39, 336.Lotë Vaku Hyrja -D/1 Nr-1, 336.Lotë Vaku, 335.Kerem Levton L7-ob1, 335.Kerem Levton Hy.25 K.3 Nr10, 120. L. e Spitalit\nArsyeja: Nderrimi i kthinave\n2. Nga TS TS 110/10(20)kV Prishtina 2 do të ndërprehet:\nDalja 10 kV J19 Pr2 Dalja Nr.5 me Kod 11000076\nnga ora 10:00 deri 10:30 deri ora 15:15 deri 15:45\nVendet: Valbona-Mati I, Mati I 1, Mat-1 A-01-Kat-2-Bll-A, Isuf Sokoli, Bedri Berisha \"alko group\" ob B, Afrim Zhitia Bll.3 - H.6, 71 Matiqan, 344.Ahmet Koronica L -A/10, 344.Ahmet Koronica, 342.Ndue Përlleshi Urban L., 342.Ndue Përlleshi Mati I, 342.Ndue Përlleshi Ll.IV, 342.Ndue Përlleshi Lin P.Bll.IV/11, 342.Ndue Përlleshi Labi in.Ob.I-K.P.2, 342.Ndue Përlleshi Hyr.B-Kat.I/11, 342.Ndue Përlleshi Alko-A3, 342.Ndue Përlleshi Alko Imex ob-2-LA/10, 342.Ndue Përlleshi Alb visi. Hy.A/30, 342.Ndue Përlleshi, 340.Muharrem Fejza te objekti Mozaik, 340.Muharrem Fejza Nderimi, 340.Muharrem Fejza Hy-8, 340.Muharrem Fejza\nArsyeja: Nderrimi i kthinave\n3. Nga TS TS 110/10(20)kV Prishtina 2\nNë Daljen 10 kV J10 PR2 Dalja Nr.5 do të ndërprehet:\nTS 10/0.4 kV 11000076237-AAC Gorup\"sh.p.k Cenë Krasniqi\nnga ora 10:00 deri 15:45\nVendet: Afrim Zhitia Bll.3 - H.6\nArsyeja: Nderrimi i kthinave",
+        "outages": [
+          {
+            "start": "11:00",
+            "end": "11:15",
+            "locations": "97.Rr.Lord Bajroni, 30.Rr.Gazmend Zajmi \"4A\" SH.P.K .B/31-32, 17.Rr.Agim Ramadani, 112. Rr. Anton Çetta, 103.Rr.Mitrovica, 102.Rr.Ali Pashë Tepelena Obj. BanesorNr41-42, 102.Rr.Ali Pashë Tepelena, 101. Rr. Arhitekt. Karll Gega",
+            "reason": "Nderrimi i kthinave 2."
+          },
+          {
+            "start": "11:00",
+            "end": "11:15",
+            "locations": "Laxha e Muhaxherve, Arkitekt Karl Gega, 97.Rr.Qamile Jaka, 82.Rr.Gustav Majer 11, 82.Rr.Gustav Majer, 80.Rr.Shaban Palluzha 3, 80.Rr.Shaban Palluzha, 72.Rr.Tringë Smajli, 72. Rr.Nëna Terezë 37/A 54/12, 72. Rr.Nëna Terezë 37/A 29/21, 24.Rr.Rrustem Statovci Nr-1, 24.Rr.Rrustem Statovci Hyr.14, 24.Rr.Rrustem Statovci, 24. Rr. Hamëz Jashari nr 18/10, 24. Rr. Hamëz Jashari, 24 Maj bll-4-24, 201.Kalabria pn, 17.Rr.Agim Ramadani, 104.Rr.Abdyl Frashëri, 101. Rr. Arhitekt. Karll Gega",
+            "reason": "Nderrimi i kthinave 3."
+          },
+          {
+            "start": "11:00",
+            "end": "16:00",
+            "locations": "72. Rr.Nëna Terezë 37/A 54/12, 72.Rr.Tringë Smajli",
+            "reason": "Nderrimi i kthinave 1."
+          },
+          {
+            "start": "10:00",
+            "end": "10:30",
+            "locations": "347.Ukshin Kovaçica 101, 346.Abdullah Presheva S.Plus-, 345.Theodor Muzaka BurimiC.Hy.I-8, 341.Rr.Jakov Xoxa Mati 1 D/39, 340.Muharrem Fejza Luledielli, 340.Muharrem Fejza C-12, 340.Muharrem Fejza, 338.Beçir Kastrati Ndert.-J' Ob-1, 337.Mbreti Genc Objek D/39, 336.Lotë Vaku Hyrja -D/1 Nr-1, 336.Lotë Vaku, 335.Kerem Levton L7-ob1, 335.Kerem Levton Hy.25 K.3 Nr10, 120. L. e Spitalit",
+            "reason": "Nderrimi i kthinave 2."
+          },
+          {
+            "start": "10:00",
+            "end": "10:30",
+            "locations": "Valbona-Mati I, Mati I 1, Mat-1 A-01-Kat-2-Bll-A, Isuf Sokoli, Bedri Berisha \"alko group\" ob B, Afrim Zhitia Bll.3 - H.6, 71 Matiqan, 344.Ahmet Koronica L -A/10, 344.Ahmet Koronica, 342.Ndue Përlleshi Urban L., 342.Ndue Përlleshi Mati I, 342.Ndue Përlleshi Ll.IV, 342.Ndue Përlleshi Lin P.Bll.IV/11, 342.Ndue Përlleshi Labi in.Ob.I-K.P.2, 342.Ndue Përlleshi Hyr.B-Kat.I/11, 342.Ndue Përlleshi Alko-A3, 342.Ndue Përlleshi Alko Imex ob-2-LA/10, 342.Ndue Përlleshi Alb visi. Hy.A/30, 342.Ndue Përlleshi, 340.Muharrem Fejza te objekti Mozaik, 340.Muharrem Fejza Nderimi, 340.Muharrem Fejza Hy-8, 340.Muharrem Fejza",
+            "reason": "Nderrimi i kthinave 3."
+          },
+          {
+            "start": "10:00",
+            "end": "15:45",
+            "locations": "Afrim Zhitia Bll.3 - H.6",
+            "reason": "Nderrimi i kthinave"
+          }
+        ],
+        "status": "notice"
       },
       {
         "region": "Pejë",
         "date": "2026-11-26",
-        "text": "",
-        "outages": [],
-        "status": "none"
+        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 110/10(20) kV Peja 2 do të ndërprehet:\nDalja 10 kV J02 UTVA me Kod 51000009\nnga ora 10:30 deri 11:00\nVendet: Bekim Berisha\nArsyeja: Shkyqje e konsumatorit per borgj\nNga TS TS 110/10(20)kV Istogu do të ndërprehet:\nDalja 10 kV Vrella me Kod 54000002\nnga ora 10:00 deri 11:00\nVendet: Vrellë, Vrell, Stupë, Studenicë, Studenic, Sine, Rexhë murati, Lubozhdë, Lubozhd, Lagjia e shqiponjave, Kamenicë, Izet Shatri Vrellë, Istog I Vogël, Istog, Hysni Zajmi 12, Gorijeq, Cerrcë, Cërcë, Burimit, Bajram Gashi 9, Bajram Gashi, Ali fetahu\nArsyeja: Rikycja e konsumatorit ne TM",
+        "outages": [
+          {
+            "start": "10:30",
+            "end": "11:00",
+            "locations": "Bekim Berisha",
+            "reason": "Shkyqje e konsumatorit per borgj"
+          },
+          {
+            "start": "10:00",
+            "end": "11:00",
+            "locations": "Vrellë, Vrell, Stupë, Studenicë, Studenic, Sine, Rexhë murati, Lubozhdë, Lubozhd, Lagjia e shqiponjave, Kamenicë, Izet Shatri Vrellë, Istog I Vogël, Istog, Hysni Zajmi 12, Gorijeq, Cerrcë, Cërcë, Burimit, Bajram Gashi 9, Bajram Gashi, Ali fetahu",
+            "reason": "Rikycja e konsumatorit ne TM"
+          }
+        ],
+        "status": "notice"
       },
       {
         "region": "Prizren",
@@ -242,15 +209,28 @@
       {
         "region": "Mitrovicë",
         "date": "2026-11-26",
-        "text": "",
-        "outages": [],
-        "status": "none"
+        "text": "Punime të domosdoshme për siguri të sistemit\n1. Nga TS TS 110/10 kV Mitrovica II\nNë Daljen 10 kV J06 Shala do të ndërprehet:\n1. TS 10/0.4 kV 70000101015-Rashan-2-Shkolla\n2. TS 10/0.4 kV 70000101016-Rashan.1\n3. TS 10/0.4 kV 70000101017-Rashan 3\n4. TS 10/0.4 kV 70000101018-Tersten\n5. TS 10/0.4 kV 70000101026-Bajgor-Beqiri-Fejzullahu\nnga ora 10:00 deri 15:00\nVendet: Rashan, Tersten, Bajgorë\nArsyeja: Pastrim i trasesë",
+        "outages": [
+          {
+            "start": "10:00",
+            "end": "15:00",
+            "locations": "Rashan, Tersten, Bajgorë",
+            "reason": "Pastrim i trasesë"
+          }
+        ],
+        "status": "notice"
       },
       {
         "region": "Gjakovë",
         "date": "2026-11-26",
-        "text": "Punime në projekte investive\nNga TS TS 35/10 kV Gjakova I do të ndërprehet:\nDalja 10 kV Ereniku me Kod 80080011\nnga ora 10:00 deri 18:00\nVendet: Qerim, Fehmi Agani\nArsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
+        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 110/35/10 kV Rahoveci do të ndërprehet:\nDalja 10 kV J17 Opterusha me Kod 82000010\nnga ora 10:00 deri 15:00\nVendet: Opterushë, Nagavc, Hoçë e Vogël, Hoçë e Madhe, Celinë, Brestoc\nArsyeja: Pastrim i trasesë\nPunime në projekte investive\nNga TS TS 35/10 kV Gjakova I do të ndërprehet:\nDalja 10 kV Ereniku me Kod 80080011\nnga ora 10:00 deri 18:00\nVendet: Qerim, Fehmi Agani\nArsyeja: Realizimi i punimeve sipas projektit Feeder 2.",
         "outages": [
+          {
+            "start": "10:00",
+            "end": "15:00",
+            "locations": "Opterushë, Nagavc, Hoçë e Vogël, Hoçë e Madhe, Celinë, Brestoc",
+            "reason": "Pastrim i trasesë Punime në projekte investive"
+          },
           {
             "start": "10:00",
             "end": "18:00",
@@ -263,16 +243,54 @@
       {
         "region": "Gjilan",
         "date": "2026-11-26",
-        "text": "",
-        "outages": [],
-        "status": "none"
+        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 35/10 kV Rrafshina do të ndërprehet:\nDalja 10 kV J10 Begunca me Kod 61067010\nnga ora 10:00 deri 15:00\nVendet: Beguncë -Hyrje, Beguncë-F.Sportit, Beguncë-te qeshmja, Lubishtë-hyrje, Lubishtë-Xhamia, Te Dani, Te Iliri, Beguncë, Beguncë\nArsyeja: Pastrim i trasesë",
+        "outages": [
+          {
+            "start": "10:00",
+            "end": "15:00",
+            "locations": "Beguncë -Hyrje, Beguncë-F.Sportit, Beguncë-te qeshmja, Lubishtë-hyrje, Lubishtë-Xhamia, Te Dani, Te Iliri, Beguncë, Beguncë",
+            "reason": "Pastrim i trasesë"
+          }
+        ],
+        "status": "notice"
       },
       {
         "region": "Prishtinë",
         "date": "2026-11-27",
-        "text": "",
-        "outages": [],
-        "status": "none"
+        "text": "Punime të domosdoshme për siguri të sistemit\nNga TS TS 220/10kV Drenasi do të ndërprehet:\nDalja 10 kV J13 Shtrubullova me Kod 16100004\nnga ora 10:00 deri 11:00\nVendet: Rr.Ajet Rrukiqi LOK 6, Llapushnik, Krajkov, Fsh. Shtrubullov, Fsh. Lapushnik, Fsh. Krajkov, DrenasIII, Drenas, Damanek, Adem Jashari\nArsyeja: Demontimi i kabllove pasive XHE nga NS 220/10 kV Drenas\nPunime në projekte investive\nNga TS TS 35/10kV Besia do të ndërprehet:\nDalja 10 kV Prugovci me Kod 10013012\nnga ora 09:00 deri 12:00\nVendet: Rimanishtë, Prugovc, Lebanë, Fsh.Lebanë afër udhëkryqit, Fsh. Rimanisht, Fsh. Lebanë, Fsh .Rimanisht, F.prugovc, Besi\nArsyeja: Punime në linje. Kompania Kos Construction.\nPunime nga pala e tretë\nNga TS TS 35/20 kV Fushe Kosova II do të ndërprehet:\nDalja 10 kV J04 Dalja F.K nr.9 me Kod 10012282\nDalja 10 kV J04 Dalja F.K nr.10 me Kod 10012182\nnga ora 08:00 deri 08:15 dhe nga ora 16:45 deri 17:00\nVendet: Zona Industriale, Nëna Terezë, N. Terezë, Lidhja e Pejes, K Pole, Hysen Gjakolli Hyr-I-, Dardania-B & B group nr.26, Dardania B1, Dardania A19 H2B-lokal, Dardania, Dardan.BB-6/9-hy-2 Hyr.II /83, Arberia H3 c2 nr/11 B44, Apollonija, Apollonia A20 H5, Apollonia A20, Abëria-M.Sllovenia H-8/lokal 7, 376.Rr.Rexhep Krasniqi EXDC-2 Lokali -1, 19.Bulevardi Dëshmorët e Kombit 70/B te ndih e shpej, 17 Shkurti\nArsyeja: Realizimi i punimeve elektrike për kyçjen e konsumatorit të ri, Besart Shabani – Orient Construction SH.P.K., në Fushë Kosovë, në përputhje me Pëlqimin Elektroenergjetik (Lënda nr. 252 [IV] 2026, TIC 2341047) dhe Zgjidhjen Teknike të aprovua\n2. Nga TS TS 35/20 kV Fushe Kosova II\nNë Daljen 10 kV J04 Dalja F.K nr.9 me Kod 10012282 do të ndërprehet:\nTS 10/0.4 kV 10012282148-Qazim Sylaj \"Qami construction\" sh.p.k.\nnga ora 08:00 deri 17:00\nVendet: Abedin Sogojeva\nArsyeja: Realizimi i punimeve elektrike për kyçjen e konsumatorit të ri, Besart Shabani – Orient Construction SH.P.K., në Fushë Kosovë, në përputhje me Pëlqimin Elektroenergjetik (Lënda nr. 252 [IV] 2026, TIC 2341047) dhe Zgjidhjen Teknike të aprovua",
+        "outages": [
+          {
+            "start": "10:00",
+            "end": "11:00",
+            "locations": "Rr.Ajet Rrukiqi LOK 6, Llapushnik, Krajkov, Fsh. Shtrubullov, Fsh. Lapushnik, Fsh. Krajkov, DrenasIII, Drenas, Damanek, Adem Jashari",
+            "reason": "Demontimi i kabllove pasive XHE"
+          },
+          {
+            "start": "09:00",
+            "end": "12:00",
+            "locations": "Rimanishtë, Prugovc, Lebanë, Fsh.Lebanë afër udhëkryqit, Fsh. Rimanisht, Fsh. Lebanë, Fsh .Rimanisht, F.prugovc, Besi",
+            "reason": "Punime në linje. Kompania Kos Construction. Punime nga pala e tretë"
+          },
+          {
+            "start": "08:00",
+            "end": "08:15",
+            "locations": "",
+            "reason": ""
+          },
+          {
+            "start": "16:45",
+            "end": "17:00",
+            "locations": "Zona Industriale, Nëna Terezë, N. Terezë, Lidhja e Pejes, K Pole, Hysen Gjakolli Hyr-I-, Dardania-B & B group nr.26, Dardania B1, Dardania A19 H2B-lokal, Dardania, Dardan.BB-6/9-hy-2 Hyr.II /83, Arberia H3 c2 nr/11 B44, Apollonija, Apollonia A20 H5, Apollonia A20, Abëria-M.Sllovenia H-8/lokal 7, 376.Rr.Rexhep Krasniqi EXDC-2 Lokali -1, 19.Bulevardi Dëshmorët e Kombit 70/B te ndih e shpej, 17 Shkurti",
+            "reason": "Realizimi i punimeve elektrike për kyçjen e konsumatorit të ri, Besart Shabani – Orient Construction SH.P.K., në Fushë Kosovë, në përputhje me Pëlqimin Elektroenergjetik (Lënda nr. 252 [IV] 2026, TIC 2341047) dhe Zgjidhjen Teknike të aprovua 2."
+          },
+          {
+            "start": "08:00",
+            "end": "17:00",
+            "locations": "Abedin Sogojeva",
+            "reason": "Realizimi i punimeve elektrike për kyçjen e konsumatorit të ri, Besart Shabani – Orient Construction SH.P.K., në Fushë Kosovë, në përputhje me Pëlqimin Elektroenergjetik (Lënda nr. 252 [IV] 2026, TIC 2341047) dhe Zgjidhjen Teknike të aprovua"
+          }
+        ],
+        "status": "notice"
       },
       {
         "region": "Pejë",
@@ -361,19 +379,75 @@
       {
         "region": "Gjilan",
         "date": "2026-11-28",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Prishtinë",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Pejë",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Prizren",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Ferizaj",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Mitrovicë",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjakovë",
+        "date": "2026-11-29",
+        "text": "",
+        "outages": [],
+        "status": "none"
+      },
+      {
+        "region": "Gjilan",
+        "date": "2026-11-29",
         "text": "",
         "outages": [],
         "status": "none"
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-24",
-    "updated_at": "2026-11-24T21:32:38.110255+01:00",
-    "checked_at": "2026-11-24T21:32:38.110255+01:00"
+    "collected_on": "2026-11-25",
+    "updated_at": "2026-11-25T21:32:19.532564+01:00",
+    "checked_at": "2026-11-25T21:32:19.532564+01:00"
   },
   "weather": {
     "source_url": "https://www.meteokosova.com/",
     "forecasts": [
+      {
+        "title": "Parashikimi i motit për të mërkurën, 25.11.2026",
+        "date": "2026-11-25",
+        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-merkuren-25-11-2026/",
+        "published_at": "2026-11-24T21:31:06+00:00",
+        "excerpt": "Të mërkurën parashikohet mot me diell dhe vranësira të pakta të shtresave të larta në orët e mëngjesit, ndërsa si pasojë e kthjellimeve gjatë natës, do të ketë edhe acar. Në orët vijuese pritet vranësirat të dendësohen, duke sjellë reshje të reja, kryesisht në orët e vona të mbrëmjes."
+      },
       {
         "title": "Parashikimi i motit për të martën, 24.11.2026",
         "date": "2026-11-24",
@@ -401,18 +475,11 @@
         "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-shtunen-21-11-2026/",
         "published_at": "2026-11-20T20:31:29+00:00",
         "excerpt": "Të shtunën parashikohet që gjatë orëve të para të 24-orëshit të arrijë një sistem i ri, i cili do të jetë aktiv deri në orët e mëngjesit. Lokalisht priten rrebeshe shiu, të cilat në momente të caktuara mund të jenë intensive, të shoqëruara me shkarkesa rrufesh, sidomos në zonat jugore dhe jugperëndimore."
-      },
-      {
-        "title": "Parashikimi i motit për të premten, 20.11.2026",
-        "date": "2026-11-20",
-        "url": "https://www.meteokosova.com/parashikimi-i-motit-per-te-premten-20-11-2026/",
-        "published_at": "2026-11-19T23:22:52+00:00",
-        "excerpt": "Të premten parashikohet që gjatë orëve të para të 24-orëshit të ketë ndonjë rrebesh të izoluar shiu në lokalitete të caktuara. Dita do të vijojë me diell dhe vranësira të pakta, ndërsa në ndonjë rajon mund të ketë ndonjë rrebesh të izoluar, sidomos në jug të vendit."
       }
     ],
     "status": "ok",
-    "collected_on": "2026-11-24",
-    "updated_at": "2026-11-24T21:32:38.110255+01:00",
-    "checked_at": "2026-11-24T21:32:38.110255+01:00"
+    "collected_on": "2026-11-25",
+    "updated_at": "2026-11-25T21:32:19.532564+01:00",
+    "checked_at": "2026-11-25T21:32:19.532564+01:00"
   }
 }
