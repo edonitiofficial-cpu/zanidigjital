@@ -1,5 +1,225 @@
 [
   {
+    "titulli": "Pse nuk duhet ta ndezim dritën e fortë nëse zgjohemi gjatë natës?",
+    "permbajtja": "Edhe një veprim që zgjat vetëm pak sekonda mund të ndikojë në ritmin biologjik dhe cilësinë e pushimit gjatë natës\nRëndësia e gjumit cilësor për shëndetin është e njohur, megjithatë shumë njerëz i kushtojnë pak vëmendje zakoneve që mund ta çrregullojnë atë. Përveç respektimit të orarit të gjumit, rëndësi të veçantë kanë edhe kushtet në të cilat flemë.\nDarío Acuña-Castroviejo, profesor emeritus i fiziologjisë në Universitetin e Granadës, paralajmëron për një zakon të përhapur që mund të ndikojë negativisht në gjumë: ndezjen e dritës së fortë gjatë vajtjes në banjë natën.\nSi ndikon drita në prodhimin e melatoninës?\nSipas profesorit, edhe ekspozimi i shkurtër ndaj dritës së bardhë gjatë natës mund të ndikojë në sekretimin e melatoninës, hormonit që rregullon ciklin gjumë-zgjim.\nVeçanërisht problematike është komponentja blu e dritës, e cila mund të pengojë sekretimin natyror të këtij hormoni dhe të çrregullojë ritmin cirkadian të organizmit.\nPrandaj, nëse zgjoheni gjatë natës për të shkuar në banjë, rekomandohet të përdorni ndriçim të zbehtë, me nuanca të ngrohta. Në vend të ndezjes së dritës kryesore, preferohet një llambë me intensitet të ulët ose ndriçim nate, por i mjaftueshëm për të lëvizur në mënyrë të sigurt.\nProfesori këshillon gjithashtu të flini në një dhomë sa më të errët. Edhe burimet e vogla të dritës, si ekranet e ndriçuara të orëve digjitale, rekomandohet të largohen ose të orientohen në drejtim të kundërt nga shtrati.\nFoto: Lutron\nPse duhet ta kufizoni përdorimin e telefonit në mbrëmje?\nTë paktën një orë para gjumit, rekomandohet të kufizoni përdorimin e televizorit, telefonit celular dhe pajisjeve të tjera elektronike me ekran.\nNëse ju pëlqen të lexoni para gjumit, preferoni librat e shtypur dhe ndriçimin e butë.\nTelefonin celular është mirë ta mbani larg shtratit, në mënyrë që njoftimet dhe tundimi për të kontrolluar rrjetet sociale të mos ju pengojnë pushimin.\nNjë mjedis i qetë, pa stimuj të panevojshëm, krijon kushte më të favorshme për relaksimin e sistemit nervor dhe përgatitjen e organizmit për gjumë.\nRespektimi i një orari të rregullt është i rëndësishëm, por po aq rëndësi ka edhe sjellja jonë para gjumit dhe gjatë zgjimeve të natës.\nNdryshimet e vogla në këto zakone mund të na ndihmojnë të biem më lehtë në gjumë, të ruajmë ritmin natyror biologjik dhe të përmirësojmë cilësinë e pushimit. /Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Edhe një veprim që zgjat vetëm pak sekonda mund të ndikojë në ritmin biologjik dhe cilësinë e pushimit gjatë natës"
+      },
+      {
+        "type": "paragraph",
+        "text": "Rëndësia e gjumit cilësor për shëndetin është e njohur, megjithatë shumë njerëz i kushtojnë pak vëmendje zakoneve që mund ta çrregullojnë atë. Përveç respektimit të orarit të gjumit, rëndësi të veçantë kanë edhe kushtet në të cilat flemë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Darío Acuña-Castroviejo, profesor emeritus i fiziologjisë në Universitetin e Granadës, paralajmëron për një zakon të përhapur që mund të ndikojë negativisht në gjumë: ndezjen e dritës së fortë gjatë vajtjes në banjë natën."
+      },
+      {
+        "type": "paragraph",
+        "text": "Si ndikon drita në prodhimin e melatoninës?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas profesorit, edhe ekspozimi i shkurtër ndaj dritës së bardhë gjatë natës mund të ndikojë në sekretimin e melatoninës, hormonit që rregullon ciklin gjumë-zgjim."
+      },
+      {
+        "type": "paragraph",
+        "text": "Veçanërisht problematike është komponentja blu e dritës, e cila mund të pengojë sekretimin natyror të këtij hormoni dhe të çrregullojë ritmin cirkadian të organizmit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Prandaj, nëse zgjoheni gjatë natës për të shkuar në banjë, rekomandohet të përdorni ndriçim të zbehtë, me nuanca të ngrohta. Në vend të ndezjes së dritës kryesore, preferohet një llambë me intensitet të ulët ose ndriçim nate, por i mjaftueshëm për të lëvizur në mënyrë të sigurt."
+      },
+      {
+        "type": "paragraph",
+        "text": "Profesori këshillon gjithashtu të flini në një dhomë sa më të errët. Edhe burimet e vogla të dritës, si ekranet e ndriçuara të orëve digjitale, rekomandohet të largohen ose të orientohen në drejtim të kundërt nga shtrati."
+      },
+      {
+        "type": "paragraph",
+        "text": "Foto: Lutron"
+      },
+      {
+        "type": "image",
+        "url": "https://telegrafi.com/media-library/image.jpg?id=68787533&width=980",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "type": "paragraph",
+        "text": "Pse duhet ta kufizoni përdorimin e telefonit në mbrëmje?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Të paktën një orë para gjumit, rekomandohet të kufizoni përdorimin e televizorit, telefonit celular dhe pajisjeve të tjera elektronike me ekran."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nëse ju pëlqen të lexoni para gjumit, preferoni librat e shtypur dhe ndriçimin e butë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Telefonin celular është mirë ta mbani larg shtratit, në mënyrë që njoftimet dhe tundimi për të kontrolluar rrjetet sociale të mos ju pengojnë pushimin."
+      },
+      {
+        "type": "paragraph",
+        "text": "Një mjedis i qetë, pa stimuj të panevojshëm, krijon kushte më të favorshme për relaksimin e sistemit nervor dhe përgatitjen e organizmit për gjumë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Respektimi i një orari të rregullt është i rëndësishëm, por po aq rëndësi ka edhe sjellja jonë para gjumit dhe gjatë zgjimeve të natës."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ndryshimet e vogla në këto zakone mund të na ndihmojnë të biem më lehtë në gjumë, të ruajmë ritmin natyror biologjik dhe të përmirësojmë cilësinë e pushimit. /Telegrafi/"
+      }
+    ],
+    "kategoria": "Lajme",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68787532&width=980",
+    "koha": "27/11/2026 23:47",
+    "published_at": "2026-11-27T23:47:20.193065+01:00",
+    "source_published_at": "2026-11-27T22:37:49Z",
+    "link_origjinal": "https://telegrafi.com/pse-nuk-duhet-ta-ndezim-driten-e-forte-nese-zgjohemi-gjate-nates/",
+    "slug": "pse-nuk-duhet-ta-ndezim-driten-e-forte-nese-zgjohemi-gjate-nates",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/pse-nuk-duhet-ta-ndezim-driten-e-forte-nese-zgjohemi-gjate-nates/",
+        "titulli": "Pse nuk duhet ta ndezim dritën e fortë nëse zgjohemi gjatë natës?"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Kryesia e Kuvendit mblidhet më 1 dhjetor, në rend dite interpelanca me Kurtin për dialogun me ShBA-në",
+    "permbajtja": "Kryesia e Kuvendit të Kosovës do të mbajë mbledhjen e radhës të martën, më 1 dhjetor 2026, duke filluar nga ora 13:00, në sallën C-301.\nSipas njoftimit, në këtë mbledhje pritet të shqyrtohet propozimi i rendit të ditës për seancën plenare të radhës, e cila përmban gjithsej 19 pika.\nNdër çështjet kryesore që pritet të trajtohen janë votimi i marrëveshjeve ndërkombëtare me Francën, përfshirë marrëveshjen për ekstradim dhe atë për ndihmë të ndërsjellë juridike në çështjet penale.\nPo ashtu, në rend dite janë edhe projektligjet për ratifikimin e Konventës së Lubjanës-Hagës për bashkëpunim ndërkombëtar në hetimin dhe ndjekjen e krimeve ndërkombëtare, si dhe dy marrëveshje kredie për përmirësimin e sistemit shëndetësor në Kosovë.\nKuvendi pritet të shqyrtojë edhe një sërë projektligjesh që lidhen me sistemin e drejtësisë, përfshirë rekrutimin, vlerësimin e performancës dhe përgjegjësitë disiplinore të gjyqtarëve dhe prokurorëve, si dhe ndryshimet në ligjet për Këshillin Prokurorial dhe Këshillin Gjyqësor të Kosovës.\nNjë nga pikat me interes politik është edhe interpelanca me kryeministrin Albin Kurti lidhur me suspendimin e dialogut strategjik Kosovë-SHBA, përgjegjësinë politike të Qeverisë dhe, siç thuhet në kërkesë, cenimin e partneritetit strategjik me Shtetet e Bashkuara të Amerikës.\nNë rend dite janë gjithashtu rishqyrtimi i Ligjit për Këshillin e Sigurisë së Republikës së Kosovës, raporti financiar vjetor i buxhetit për vitin 2025, Raporti për gjendjen e mjedisit në Kosovë për vitin 2025 dhe raporti vjetor i Komisionit të Pavarur për Miniera dhe Minerale.\nMbledhja do të nisë me miratimin e procesverbalit të mbledhjes së mëparshme të Kryesisë së Kuvendit.",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/09/kryesia-mbledhja-kuvendi-.png",
+    "koha": "27/11/2026 23:47",
+    "published_at": "2026-11-27T23:47:25.376868+01:00",
+    "source_published_at": "2026-11-27T22:46:20Z",
+    "link_origjinal": "https://indeksonline.net/kryesia-e-kuvendit-mblidhet-me-1-dhjetor-ne-rend-dite-interpelanca-me-kurtin-per-dialogun-me-shba-ne/",
+    "slug": "kryesia-e-kuvendit-mblidhet-me-1-dhjetor-ne-rend-dite-interpelanca-me-kurtin-per-dialogun-me-shba-ne",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/kryesia-e-kuvendit-mblidhet-me-1-dhjetor-ne-rend-dite-interpelanca-me-kurtin-per-dialogun-me-shba-ne/",
+        "titulli": "Kryesia e Kuvendit mblidhet më 1 dhjetor, në rend dite interpelanca me Kurtin për dialogun me ShBA-në"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "KEK-u i jep kontratë mbi 300 mijë euro për pllaka të mullinjve",
+    "permbajtja": "Korporata Energjetike e Kosovës ka dhënë kontratë për furnizim me pllaka për mullinj, për blloqet A3, A4 dhe A5 të termocentralit Kosova A.\nSipas dokumentit, operatori ekonomik që është shpërblyer me këtë kontratë është “ELSAM” SHPK, sakaq kontrata ka vlerë prej 343 mijë e 179 euro e 40 centë, shkruan IndeksOnline.\nNë procedurën e prokurimit, e cila ishte zhvilluar me metodën e hapur dhe kriterin e çmimit më të ulët, është pranuar vetëm një tender.\nFurnizimi është paraparë të realizohet në depon e termocentralit Kosova A.\nPllakat e mullinjve në termocentrale shërbejnë për bluarjen e qymyrit, në mënyrë që ai të shndërrohet në grimca të imëta dhe të mund të përdoret në procesin e prodhimit të energjisë elektrike.\nMë poshtë detaje:",
+    "content_blocks": [],
+    "kategoria": "Ekonomi",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/01/obiliq-kek-rryma-4-.jpg",
+    "koha": "27/11/2026 23:47",
+    "published_at": "2026-11-27T23:47:40.583633+01:00",
+    "source_published_at": "2026-11-27T22:44:52Z",
+    "link_origjinal": "https://indeksonline.net/kek-u-i-jep-kontrate-mbi-300-mije-euro-per-pllaka-te-mullinjve/",
+    "slug": "kek-u-i-jep-kontrate-mbi-300-mije-euro-per-pllaka-te-mullinjve",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/kek-u-i-jep-kontrate-mbi-300-mije-euro-per-pllaka-te-mullinjve/",
+        "titulli": "KEK-u i jep kontratë mbi 300 mijë euro për pllaka të mullinjve"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "Telekomi i Kosovës blen dy iPhone 18 ProMax, do t’i dhurojë përmes një loje shpërblyese",
+    "permbajtja": "Telekomi i Kosovës ka nënshkruar kontratë për furnizim me dy telefona të modelit iPhone 18 Pro Max Burgundy, me kapacitet prej 256 GB.\nSipas njoftimit për nënshkrimin e kontratës, pajisjet do të përdoren për një lojë shpërblyese (Giveaway), e cila do të organizohet në rrjetet sociale zyrtare të VALA-s, shkruan IndeksOnline.\nKjo fushatë parashihet të zhvillohet gjatë periudhës së Bartshmërisë së Numrave, me qëllim të ruajtjes së klientëve ekzistues, tërheqjes së klientëve të rinj, rritjes së numrit të ndjekësve dhe angazhimit në platformat digjitale.\nVlera e parashikuar e kontratës ishte 3 mijë e 498 euro, ndërsa ajo është nënshkruar me kompaninë SIA TECH L.L.C. në vlerë prej 3 mijë e 186 eurosh.\nKontrata është nënshkruar më 23 nëntor 2026. Në procedurën e prokurimit kanë marrë pjesë tre tenderues dhe të tre kanë qenë të përgjegjshëm./IndeksOnline/",
+    "content_blocks": [],
+    "kategoria": "Teknologji",
+    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/77.png",
+    "koha": "27/11/2026 23:47",
+    "published_at": "2026-11-27T23:47:50.016171+01:00",
+    "source_published_at": "2026-11-27T22:38:15Z",
+    "link_origjinal": "https://indeksonline.net/telekomi-i-kosoves-blen-dy-iphone-18-promax-do-ti-dhuroje-permes-nje-loje-shperblyese/",
+    "slug": "telekomi-i-kosoves-blen-dy-iphone-18-promax-do-ti-dhuroje-permes-nje-loje-shperblyese",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://indeksonline.net/telekomi-i-kosoves-blen-dy-iphone-18-promax-do-ti-dhuroje-permes-nje-loje-shperblyese/",
+        "titulli": "Telekomi i Kosovës blen dy iPhone 18 ProMax, do t’i dhurojë përmes një loje shpërblyese"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [],
+    "featured_rank": 3,
+    "selection_reasons": [
+      "Freskia: 39.73/40",
+      "Në ballinën e burimit: +12",
+      "Tema: Teknologji",
+      "Larmi burimesh dhe temash"
+    ]
+  },
+  {
+    "titulli": "Putini po përdor “agresion diplomatik” kundër Perëndimit – thotë lideri i opozitës çeke",
+    "permbajtja": "Mbështetja për Ukrainën është e rëndësishme për Republikën Çeke dhe për të gjithë Evropën, pasi Putini po përdor “agresionin diplomatik” përmes kërkesave të tij të hapura dhe nuk do të ndalet me kaq.\nMartin Kupka, lideri i opozitës çeke dhe kreu i Partisë Demokratike Qytetare (ODS), e tha këtë në një intervistë për mediat ukrainase, përcjell Telegrafi.\n“Mbështetja për Ukrainën është e rëndësishme për Republikën Çeke dhe për të gjithë Evropën. Ajo nuk është vetëm një shprehje kyçe e solidaritetit dhe një demonstrim praktik i këtij solidariteti, por edhe një kusht jashtëzakonisht i rëndësishëm për të ardhmen e sigurt të Evropës”, ka thënë politikani çek.\nAi theksoi se për të ishte krejtësisht e qartë se, nëse Vladimir Putini nuk ndalet në kufijtë e Ukrainës, ai do të vazhdojë më tej.\nPutini madje as nuk e fsheh këtë, vuri në dukje deputeti çek.\nAi kujtoi se një nga kërkesat e parashtruara në kuadër të të ashtuquajturave negociata paqeje, ishte rikthimi në sistemin evropian të sigurisë që ekzistonte para vitit 1997.\nMe fjalë të tjera, kjo do të nënkuptonte praktikisht një kthim në situatën e vitit 1997, kur Republika Çeke, Polonia dhe Hungaria nuk ishin ende anëtare të NATO-s, ndonëse që atëherë, 13 vende të tjera i janë bashkuar Aleancës.\n“Kjo është, në thelb, një thirrje për t'u rikthyer në një model të NATO-s pa 16 anëtarë të rëndësishëm. Kjo nuk është asgjë më pak se një shfaqje e drejtpërdrejtë e agresionit diplomatik... Dikush mund të mendojë se kërkesa të tilla nuk mund të merren seriozisht, e megjithatë ato po paraqiten me seriozitet të plotë. Dhe është thelbësore të sqarohet se çfarë fshihet pas tyre... Është krejtësisht e qartë se, kur një agresor shpreh vullnetin dhe qëllimet e tij të vërteta kaq hapur dhe pa ekuivoke, të gjithë duhet të qëndrojnë vigjilentë”, theksoi Kupka.\nAi shtoi se kjo kërkesë jo vetëm që është e papranueshme për shumicën dërrmuese të njerëzve në Republikën Çeke, por shërben edhe si dëshmi e qartë e agresivitetit të Vladimir Putinit dhe konfirmim i qëllimeve të tij të vërteta.",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Mbështetja për Ukrainën është e rëndësishme për Republikën Çeke dhe për të gjithë Evropën, pasi Putini po përdor “agresionin diplomatik” përmes kërkesave të tij të hapura dhe nuk do të ndalet me kaq."
+      },
+      {
+        "type": "paragraph",
+        "text": "Martin Kupka, lideri i opozitës çeke dhe kreu i Partisë Demokratike Qytetare (ODS), e tha këtë në një intervistë për mediat ukrainase, përcjell Telegrafi."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Mbështetja për Ukrainën është e rëndësishme për Republikën Çeke dhe për të gjithë Evropën. Ajo nuk është vetëm një shprehje kyçe e solidaritetit dhe një demonstrim praktik i këtij solidariteti, por edhe një kusht jashtëzakonisht i rëndësishëm për të ardhmen e sigurt të Evropës”, ka thënë politikani çek."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ai theksoi se për të ishte krejtësisht e qartë se, nëse Vladimir Putini nuk ndalet në kufijtë e Ukrainës, ai do të vazhdojë më tej."
+      },
+      {
+        "type": "paragraph",
+        "text": "Putini madje as nuk e fsheh këtë, vuri në dukje deputeti çek."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ai kujtoi se një nga kërkesat e parashtruara në kuadër të të ashtuquajturave negociata paqeje, ishte rikthimi në sistemin evropian të sigurisë që ekzistonte para vitit 1997."
+      },
+      {
+        "type": "paragraph",
+        "text": "Me fjalë të tjera, kjo do të nënkuptonte praktikisht një kthim në situatën e vitit 1997, kur Republika Çeke, Polonia dhe Hungaria nuk ishin ende anëtare të NATO-s, ndonëse që atëherë, 13 vende të tjera i janë bashkuar Aleancës."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Kjo është, në thelb, një thirrje për t'u rikthyer në një model të NATO-s pa 16 anëtarë të rëndësishëm. Kjo nuk është asgjë më pak se një shfaqje e drejtpërdrejtë e agresionit diplomatik... Dikush mund të mendojë se kërkesa të tilla nuk mund të merren seriozisht, e megjithatë ato po paraqiten me seriozitet të plotë. Dhe është thelbësore të sqarohet se çfarë fshihet pas tyre... Është krejtësisht e qartë se, kur një agresor shpreh vullnetin dhe qëllimet e tij të vërteta kaq hapur dhe pa ekuivoke, të gjithë duhet të qëndrojnë vigjilentë”, theksoi Kupka."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ai shtoi se kjo kërkesë jo vetëm që është e papranueshme për shumicën dërrmuese të njerëzve në Republikën Çeke, por shërben edhe si dëshmi e qartë e agresivitetit të Vladimir Putinit dhe konfirmim i qëllimeve të tij të vërteta."
+      }
+    ],
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68787348&width=980",
+    "koha": "27/11/2026 23:47",
+    "published_at": "2026-11-27T23:47:58.402484+01:00",
+    "source_published_at": "2026-11-27T22:25:01Z",
+    "link_origjinal": "https://telegrafi.com/putini-po-perdor-agresion-diplomatik-kunder-perendimit-thote-lideri-i-opozites-ceke/",
+    "slug": "putini-po-perdor-agresion-diplomatik-kunder-perendimit-thote-lideri-i-opozites-ceke",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/putini-po-perdor-agresion-diplomatik-kunder-perendimit-thote-lideri-i-opozites-ceke/",
+        "titulli": "Putini po përdor “agresion diplomatik” kundër Perëndimit – thotë lideri i opozitës çeke"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
     "titulli": "Dy gjigantët italianë i vihen pas Donnarummas, i cili mund të largohet nga City",
     "permbajtja": "Koha e Gianluigi Donnarummas te Manchester City mund të përfundojë pas vetëm dy sezonesh, pasi kapiteni i Italisë thuhet se po has vështirësi për ta bindur trajnerin Enzo Maresca.\nSipas “The Athletic”, përcjellë nga “CalcioMercato”, Manchester City po shqyrton mundësinë e një ndryshimi të plotë në repartin e portierëve gjatë verës së ardhshme, pavarësisht se Donnarumma ka kontratë deri në vitin 2030. Edhe portieri rezervë, Gerónimo Rulli, mund të largohet nga klubi.\nDonnarumma iu bashkua Cityt në vitin 2025, menjëherë pas triumfit në Ligën e Kampionëve me Paris Saint-Germain. Megjithatë, largimi i Pep Guardiolës dhe ardhja e Enzo Marescas kanë ndryshuar situatën. Sipas raportimit, 27-vjeçari nuk përshtatet me filozofinë e Marescas dhe ngadalëson qarkullimin e topit nga prapavija, gjë që trajneri italian e kërkon nga skuadra e tij.\nPortieri italian është kritikuar gjithashtu për disa gabime në ndeshjet kundër PSG-së, Leipzigut dhe Aston Villas këtë sezon, ndonëse ka regjistruar edhe disa pritje të rëndësishme. Goli i parë i Rasmus Højlundit për Napolin, në barazimin 2-2 të së martës, përfundoi në rrjetë pasi topi i rrëshqiti nga duart Donnarummas.\nNjë transferim i mundshëm nuk do të ishte aspak i lirë. Vlera e Donnarummas llogaritet rreth 45-50 milionë euro, ndërsa ai përfiton rreth 12 milionë euro neto në sezon te Manchester City, faktorë këta që kufizojnë numrin e klubeve të interesuara për shërbimet e tij.\nNë mesin e skuadrave që janë përmendur si destinacione të mundshme janë Juventusi dhe Interi.\n“Bianconerët” transferuan Guglielmo Vicario nga Tottenham gjatë kësaj vere, por prej kohësh kanë shfaqur interesim për numrin një të Italisë.\nNdërkohë, Interi, i cili aktualisht mbështetet te Josep Martínez dhe Ivan Provedel, po përcjell disa alternativa për pozitën e portierit, në kuadër të planeve për të ardhmen.",
     "content_blocks": [],
@@ -39,14 +259,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 3,
-    "selection_reasons": [
-      "Freskia: 39.87/40",
-      "Në ballinën e burimit: +12",
-      "Tema: Politikë",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Porsche-ja ka gati veturën elektrike",
@@ -67,14 +280,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 5,
-    "selection_reasons": [
-      "Freskia: 39.63/40",
-      "Në ballinën e burimit: +12",
-      "Tema: Teknologji",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Tre figura të krishtera flasin për UFO-t në 2027, pretendimet mbeten të paverifikuara",
@@ -878,7 +1084,14 @@
       }
     ],
     "source_count": 1,
-    "komunat": []
+    "komunat": [],
+    "featured_rank": 5,
+    "selection_reasons": [
+      "Freskia: 37.65/40",
+      "Në ballinën e burimit: +12",
+      "Tema: Sport",
+      "Larmi burimesh dhe temash"
+    ]
   },
   {
     "titulli": "Pamje të pazakonta në Poloni, një tifoz futet me trotinet elektrik në fushë dhe ndërpret ndeshjen",
@@ -1652,7 +1865,7 @@
     "komunat": [],
     "featured_rank": 2,
     "selection_reasons": [
-      "Freskia: 36.91/40",
+      "Freskia: 36.5/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Ekonomia familjare: +14",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -2379,7 +2592,14 @@
     ],
     "source_count": 3,
     "komunat": [],
-    "last_seen_at": "2026-11-27T23:17:20.573309+01:00"
+    "last_seen_at": "2026-11-27T23:17:20.573309+01:00",
+    "featured_rank": 4,
+    "selection_reasons": [
+      "Freskia: 34.78/40",
+      "Burime të ndryshme: +16",
+      "Tema: Politikë",
+      "Larmi burimesh dhe temash"
+    ]
   },
   {
     "titulli": "Reali i bën homazhe emocionuese Marc Marquezit pas njoftimit për tërheqjen nga garat",
@@ -2674,10 +2894,15 @@
       {
         "url": "https://www.gazetaexpress.com/nje-i-ri-shqiptar-vritet-gjate-nje-operacioni-te-policise-ne-itali/",
         "titulli": "Një i ri shqiptar vritet gjatë një operacioni të Policisë në Itali"
+      },
+      {
+        "url": "https://telegrafi.com/nje-i-ri-shqiptar-vritet-gjate-nje-operacioni-te-policise-ne-itali/",
+        "titulli": "Një i ri shqiptar vritet gjatë një operacioni të Policisë në Itali"
       }
     ],
-    "source_count": 1,
-    "komunat": []
+    "source_count": 2,
+    "komunat": [],
+    "last_seen_at": "2026-11-27T23:47:45.627872+01:00"
   },
   {
     "titulli": "Lladrovci: 28 Nëntori është ditë feste, kujtese e krenarie për kombin",
@@ -2864,7 +3089,7 @@
     },
     "featured_rank": 1,
     "selection_reasons": [
-      "Freskia: 33.93/40",
+      "Freskia: 33.52/40",
       "Në ballinën e burimit: +12",
       "Ndikim te qytetarët — Shërbime publike: +18",
       "Referencë e qartë në Kosovë/komunë: +6",
@@ -3381,16 +3606,7 @@
       "Pejë",
       "Prishtinë"
     ],
-    "last_seen_at": "2026-11-27T20:17:23.548282+01:00",
-    "featured_rank": 4,
-    "selection_reasons": [
-      "Freskia: 33.25/40",
-      "Burime të ndryshme: +8",
-      "Ndikim te qytetarët — Shërbime publike: +18",
-      "Referencë e qartë në Kosovë/komunë: +6",
-      "Tema: Shërbime publike",
-      "Larmi burimesh dhe temash"
-    ]
+    "last_seen_at": "2026-11-27T20:17:23.548282+01:00"
   },
   {
     "titulli": "Për nder të 28 Nëntorit, binjakëzohen Mitrovica me Vlorën",
@@ -231212,100 +231428,6 @@
       {
         "url": "https://telegrafi.com/tre-administratore-marrin-drejtimin-e-alta-bankes-sllaveski-siguron-se-kursimet-jane-te-mbrojtura/",
         "titulli": "Tre administratorë marrin drejtimin e Alta bankës, Sllaveski siguron se kursimet janë të mbrojtura"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Enver Hasani për gazetën malazeze: S’ka udhëheqës të gjithë shqiptarëve në rajon",
-    "permbajtja": "Në opinionin politik të rajonit po shtrohet gjithnjë e më shpesh çështja e rivalitetit ndërmjet politikanëve kryesorë shqiptarë, veçanërisht kryeministrit të Shqipërisë, Edi Rama, dhe kryeministrit të Kosovës, Albin Kurti. Qasjet e tyre të ndryshme ndaj bashkëpunimit rajonal, marrëdhënieve me fqinjët dhe aleatët perëndimorë nxisin diskutime nëse pas mosmarrëveshjeve politike qëndron edhe një luftë për ndikim më të gjerë ndër shqiptarët që jetojnë në disa shtete të Ballkanit.\n– Siç shihet, kjo nuk ka të bëjë aspak me marrjen e udhëheqjes mbarëshqiptare nga ndonjëri prej tyre: as nga Sali Berisha, as nga Edi Rama, as nga Ali Ahmeti, as nga Albin Kurti – tha në një intervistë për gazetën malazeze “Dan” prof. dr. Enver Hasani.\nHasani vlerëson se mosmarrëveshjet politike ndërmjet udhëheqësve shqiptarë nuk përbëjnë një luftë për udhëheqjen mbarëshqiptare, se ideja e bashkimit kombëtar sot është kryesisht retorikë politike dhe se NATO-ja mbetet garantuesi kryesor i stabilitetit në Ballkan.\nHasani, profesor i rregullt i së drejtës ndërkombëtare dhe marrëdhënieve ndërkombëtare në Fakultetin Juridik të Universitetit të Prishtinës, ish-kryetar i Gjykatës Kushtetuese të Kosovës, ish-rektor i Universitetit të Prishtinës dhe ish-dekan i Fakultetit Juridik, ish-drejtues i Zyrës për Marrëdhënie me Jashtë të Qeverisë së Kosovës dhe pjesëmarrës në negociatat e paqes në Rambuje në vitin 1999, konsideron se protestat e fundit e kanë dobësuar ndjeshëm Edi Ramën. Ai jep vlerësime të ashpra për marrëdhëniet ndërmjet kryeministrit shqiptar dhe Albin Kurtit dhe hedh poshtë mundësinë që ndonjëri prej politikanëve kryesorë shqiptarë të përfaqësojë sot të gjithë shqiptarët në rajon.\n• Si i vlerësoni protestat e fundit dhe tensionet politike në Shqipëri? A mund ta dobësojnë ato seriozisht pozitën e Edi Ramës dhe ndikimin e tij politik në rajon?\nEnver Hasani: Sigurisht që e kanë dobësuar ndjeshëm. Gjasat janë të vogla që Edi Rama të mbijetojë politikisht protestat dhe trazirat që po vazhdojnë. Arsyeja pse ai nuk jep dorëheqje dhe nuk dëshiron një qeveri teknike që do të organizonte zgjedhje të reja është frika, e cila është reale, nga SPAK-u (Struktura e Posaçme kundër Korrupsionit dhe Krimit të Organizuar në Republikën e Shqipërisë).\nPërmasat e korrupsionit dhe të trafikut të narkotikëve gjatë kohës së Edi Ramës kanë arritur përmasa galopante, një dukuri që duhet vënë nën kontroll, sepse rrezikon proceset e tjera rajonale. Një situatë përafërsisht e ngjashme ekziston edhe në Serbi.\n• A ekziston vërtet rivalitet ndërmjet Edi Ramës dhe Albin Kurtit për udhëheqjen politike të shqiptarëve në rajon? Sa ndikim kanë ata jashtë kufijve të Shqipërisë dhe Kosovës?\nEnver Hasani: Absolutisht jo. Ajo që duket si rivalitet ndërmjet tyre, në thelb, është politika e Albin Kurtit nga pozitat e një kompleksi klasik të inferioritetit intelektual që ai ndien në raport me Edi Ramën.\nEdi Rama ka talent artistik dhe njohuri të jashtëzakonshme në fusha të tjera, gjë që nuk është rasti me Albin Kurtin, njohuritë e të cilit lidhen me të majtën ekstreme dhe me literaturën që në thelb është antiliberale dhe antiperëndimore, para së gjithash antiamerikane.\nEdi Rama është jashtëzakonisht ekstravagant, gjë që shihet nga sjellja e tij në forumet evropiane dhe të tjera, prandaj Albini e shmang, sepse Rama, sa herë që janë takuar, e ka poshtëruar, duke e trajtuar si inferior dhe të papjekur.\nNdikimi i Edi Ramës në rajon nuk mbështetet aspak në panshqiptarizëm, sepse Edi Rama ka qenë dhe mbetet mbështetësi më besnik i politikës euroatlantike në të dyja anët e kufirit, në të gjitha aspektet e saj: politik, të sigurisë dhe ushtarak, ekonomik dhe kulturor.\nKy fakt e ka shtyrë Albin Kurtin të ndjekë një politikë të kundërt me atë të Edi Ramës në fushën e politikës së jashtme dhe të sigurisë, si edhe në fushat ekonomike, ushtarake, kulturore dhe të tjera.\n• Çfarë roli kanë sot Sali Berisha dhe Ali Ahmeti në politikën mbarëshqiptare? A kanë ambicie dhe ndikim për t’u paraqitur si përfaqësues politikë të shqiptarëve jashtë shteteve ku veprojnë?\nEnver Hasani: Sali Berisha nuk ka pasur kurrë ndikim jashtë kufijve të Kosovës. Një herë e provoi këtë, në vitin 1996, dhe pësoi një disfatë të rëndë në përplasjen me Rugovën.\nAli Ahmeti, ndërkaq, ashtu si e gjithë udhëheqja e UÇK-së, kanë qenë ndjekës të verbër të së majtës shqiptare, fillimisht të Fatos Nanos, e më pas të Edi Ramës. Kjo gjendje vazhdon edhe sot.\nPërplasjet ndërmjet Ali Ahmetit dhe Albin Kurtit janë pasojë refleksive e rivalitetit që Albin Kurti ka me Edi Ramën, i cili bazohet në kompleksin e theksuar të inferioritetit të zotit Kurti, që e përshkrova më parë. Duke luftuar kundër Ali Ahmetit, Albin Kurti lufton kundër aleatit të Edi Ramës, me të cilin nuk ka pasur kurrë guximin të përballet hapur.\nNë vend të Kurtit, Edi Ramën e sulmojnë rryma të tjera të së majtës në Kosovë, të cilat kanë një orientim të theksuar neojugosllav dhe proserb dhe që, në nivel konceptual, diktojnë çdo dimension, deri në mikromenaxhim, të politikës së jashtme dhe të brendshme të zotit Albin Kurti.\nSiç shihet, kjo nuk ka të bëjë aspak me marrjen e udhëheqjes mbarëshqiptare nga ndonjëri prej tyre: as nga Sali Berisha, as nga Edi Rama, as nga Ali Ahmeti, as nga Albin Kurti.\n• A vëreni sot një ringjallje të idesë së “Shqipërisë së Madhe” në diskursin politik shqiptar, apo bëhet kryesisht fjalë për retorikë politike? A ekziston një projekt i mirëfilltë politik në këtë drejtim?\nEnver Hasani: Kurrë! Albin Kurti e ka përdorur këtë kartë në mënyrë fiktive, ashtu siç ka përdorur dhe vazhdon të përdorë nacionalizmin e së majtës ekstreme ndaj komunitetit vendas, në funksion të ruajtjes së votave dhe pushtetit politik. Asnjëherë, në diskursin e tij politik që kur ka ardhur në pushtet, nuk ka shprehur dëshirën të merret me projektin e bashkimit kombëtar.\nPërkundrazi, zoti Kurti, në vitin 2023 në Ohër, pranoi autonominë politike-territoriale për serbët në Kosovë, nën ndikimin e fortë të rrymave projugosllave dhe proserbe në Kosovë, të cilat kanë ndikim të madh mbi të. Kjo tani është një detyrim ndërkombëtar i Kosovës, të cilin Kosova herët a vonë do ta zbatojë.\nNë këtë kuptim, projekti i bashkimit kombëtar të shqiptarëve vazhdon të ekzistojë si ide, ashtu siç ndodh edhe me popujt e tjerë të Ballkanit, por mbahet gjallë në prapaskenë dhe jashtë pushtetit politik vendor. Ai mbijeton më shumë si diskurs demagogjik, si diçka që kultivohet në mungesë të ideve të tjera konkrete për qytetarët.\nPër ringjalljen e idesë së bashkimit kombëtar shqiptar nevojiten dekada. Për momentin, askush nuk e merr seriozisht.\n• A mund të ekzistojë një udhëheqës i vetëm politik i të gjithë shqiptarëve që jetojnë në shtete të ndryshme, pa cenuar sovranitetin dhe institucionet e atyre shteteve?\nEnver Hasani: Kurrë! Një gjë e tillë është iluzore. Çdo ndërhyrje nga jashtë, nga Shqipëria në Kosovë dhe anasjelltas, lidhet ekskluzivisht me orientimet institucionale të dy shteteve në politikën e jashtme. Ndërsa Shqipëria ka qenë jashtëzakonisht e afërt me çdo aspekt të politikës amerikane dhe të politikës së Bashkimit Evropian, Kosova ka ndjekur dhe vazhdon të ndjekë rrugën e konfrontimit. Kjo nuk ka të bëjë aspak me udhëheqjen mbarëshqiptare.\nKosova dhe Shqipëria janë dy shtete\n• A mund të ekzistojë një udhëheqës i vetëm politik i të gjithë shqiptarëve që jetojnë në shtete të ndryshme, pa cenuar sovranitetin dhe institucionet e atyre shteteve?\nEnver Hasani: Kurrë! Një gjë e tillë është iluzore. Çdo ndërhyrje nga jashtë, nga Shqipëria në Kosovë dhe anasjelltas, lidhet ekskluzivisht me orientimet institucionale të dy shteteve në politikën e jashtme. Ndërsa Shqipëria ka qenë jashtëzakonisht e afërt me çdo aspekt të politikës amerikane dhe të politikës së Bashkimit Evropian, Kosova ka ndjekur dhe vazhdon të ndjekë rrugën e konfrontimit. Kjo nuk ka të bëjë aspak me udhëheqjen mbarëshqiptare.\nNATO-ja është ombrella e sigurisë e Ballkanit\n• Si i vlerësoni marrëdhëniet aktuale në rajon, veçanërisht ndërmjet Shqipërisë, Kosovës, Serbisë, Malit të Zi dhe Maqedonisë së Veriut?\nEnver Hasani: Pika e referimit dhe kriteri për gjithçka në Ballkan janë siguria dhe stabiliteti. Në këtë aspekt, marrëdhëniet ndërmjet vendeve të Ballkanit, me përjashtim të Serbisë, janë të shkëlqyera. Madje as Serbia, në politikën e saj të jashtme, nuk ka shfaqur ndonjë agresivitet të fortë ushtarak dhe të sigurisë që do të rrezikonte ekzistencën e ndonjë shteti fqinj dhe stabilitetin më të gjerë rajonal. Arsyeja për këtë është prania e NATO-s në rajon. Ajo përbën ombrellën e sigurisë dhe ushtarake që ka mundësuar zhvillimin e përgjithshëm të Ballkanit.",
-    "kategoria": "Politikë",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/10/enver-hasani-600x360-1.png",
-    "koha": "03/11/2026 19:02",
-    "link_origjinal": "https://indeksonline.net/enver-hasani-per-gazeten-malazeze-ska-udheheqes-te-gjithe-shqiptareve-ne-rajon/",
-    "slug": "enver-hasani-per-gazeten-malazeze-ska-udheheqes-te-gjithe-shqiptareve-ne-rajon",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/enver-hasani-per-gazeten-malazeze-ska-udheheqes-te-gjithe-shqiptareve-ne-rajon/",
-        "titulli": "Enver Hasani për gazetën malazeze: S’ka udhëheqës të gjithë shqiptarëve në rajon"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "MPB mori pjesë në operacionin ndërkombëtar për shkatërrimin e rrjetit kriminal të mashtrimeve me investime",
-    "permbajtja": "Departamenti për Shtypjen e Krimit të Organizuar dhe të Rëndë pranë Byrosë për Siguri Publike, në koordinim me Prokurorinë Themelore Publike për Ndjekjen e Krimit të Organizuar dhe Korrupsionit, mori pjesë në një operacion të koordinuar ndërkombëtar, i cili kishte për qëllim shkatërrimin e një rrjeti kriminal transnacional të përfshirë në mashtrime të organizuara me investime përmes internetit.\nSiç njoftojnë nga MPB, operacioni u realizua në kuadër të bashkëpunimit ndërkombëtar policor dhe gjyqësor, me mbështetjen dhe koordinimin e Europolit dhe Eurojust-it, ndërsa në të morën pjesë organet kompetente nga Gjermania, Qiproja, Finlanda, Shqipëria, Izraeli, Kosova dhe Maqedonia.\n\"Si rezultat i aktiviteteve të koordinuara, në vende të ndryshme janë arrestuar shtatë persona të dyshuar, janë kryer bastisje në 17 lokacione dhe janë sekuestruar më shumë se 100 serverë, si dhe prova dhe pajisje të tjera elektronike që lidhen me aktivitetet kriminale\".\n\"Sipas të dhënave të deritanishme, dëmi financiar i konstatuar tejkalon katër milionë euro, ndërsa viktima të mundshme janë identifikuar në të paktën 50 shtete\".\n\"Pjesëmarrja në këtë operacion ndërkombëtar përbën edhe një konfirmim të kontributit aktiv të Ministrisë së Punëve të Brendshme në përpjekjet e përbashkëta për zbulimin dhe shtypjen e krimit të organizuar, si dhe për avancimin e bashkëpunimit ndërkombëtar policor\", thonë nga MPB.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.png?id=68583515&width=980",
-    "koha": "03/11/2026 18:46",
-    "link_origjinal": "https://telegrafi.com/mpb-mori-pjese-ne-operacionin-nderkombetar-per-shkaterrimin-e-rrjetit-kriminal-te-mashtrimeve-me-investime/",
-    "slug": "mpb-mori-pjese-ne-operacionin-nderkombetar-per-shkaterrimin-e-rrjetit-kriminal-te-mashtrimeve-me-investime",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/mpb-mori-pjese-ne-operacionin-nderkombetar-per-shkaterrimin-e-rrjetit-kriminal-te-mashtrimeve-me-investime/",
-        "titulli": "MPB mori pjesë në operacionin ndërkombëtar për shkatërrimin e rrjetit kriminal të mashtrimeve me investime"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Kosova dhe Gjermania thellojnë bashkëpunimin, mbi 2 milionë euro për aftësimin profesional dhe projekte të reja",
-    "permbajtja": "Kosova dhe Gjermania kanë zhvilluar konsultimet zyrtare për Bashkëpunimin për Zhvillim, duke diskutuar projektet e realizuara, prioritetet e ardhshme dhe investimet në disa sektorë me rëndësi për vendin.\nTakimet janë mbajtur nga 26 deri më 30 tetor, ndërsa bashkëpunimi mes dy vendeve përfshin tri fusha kryesore: zhvillimin e qëndrueshëm ekonomik, energjinë dhe klimën, si dhe qeverisjen e mirë.\nDelegacioni gjerman udhëhiqej nga Dr. Micong Klimes, përfaqësuese e Ministrisë Federale për Bashkëpunim Ekonomik dhe Zhvillim (BMZ).\nNë përbërje të tij ishin edhe Daniel Alker, drejtor i Bashkëpunimit për Zhvillim në Ambasadën Gjermane, Markus Delfs, drejtor i GIZ-it për Kosovën, dhe Moritz Remé, shef i zyrës së KfW-së, së bashku me përfaqësues të tjerë të këtyre institucioneve.\nGjatë vizitës, delegacioni gjerman zhvilloi takime me ministritë partnere të Kosovës, ku u diskutua për projektet aktuale, mundësitë e reja të bashkëpunimit dhe prioritetet për periudhën e ardhshme.\nNjë nga fushat ku është konkretizuar mbështetja gjermane është zhvillimi i aftësive profesionale.\nPërmes Fondit Rajonal të Sfidave janë ndarë 2.1 milionë euro për pesë projekte të trajnimit profesional në sektorë si teknologjia e informacionit dhe komunikimit, siguria kibernetike dhe përpunimi i ushqimit, shkruan\nNë kuadër të projekteve për punësim dhe sipërmarrje, 99 pjesëmarrës janë trajnuar në fushën e agrobiznesit dhe energjisë diellore, ndërsa pesë prej tyre kanë përfituar grante për zhvillimin e ideve të tyre të biznesit.\nMbështetja gjermane përfshin edhe sektorin e energjisë, përmes forcimit të Fondit të Efiçiencës së Energjisë së Kosovës dhe zgjerimit të investimeve në kursimin e energjisë dhe burimet e pastra.\nNjë tjetër projekt përfshin pesë komuna të rajonit të Dukagjinit, të cilat po mbështeten në zhvillimin e një sistemi të integruar dhe të qëndrueshëm për menaxhimin e mbeturinave.\nPërveç takimeve institucionale, përfaqësuesja e BMZ-së mori pjesë edhe në Forumin e Tretë Ekonomik Kosovaro-Gjerman, ku u diskutua për rolin e diasporës së biznesit kosovar në Gjermani dhe potencialin e saj për të nxitur investimet dhe për të forcuar lidhjet ekonomike ndërmjet dy vendeve.\nNë përfundim të konsultimeve, pala gjermane riafirmoi përkushtimin për vazhdimin e partneritetit me Kosovën, me fokus në përmirësimin e kushteve të jetesës, zhvillimin ekonomik dhe mbështetjen e rrugës së vendit drejt Bashkimit Evropian.",
-    "kategoria": "Politikë",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68583481&width=980",
-    "koha": "03/11/2026 18:46",
-    "link_origjinal": "https://telegrafi.com/kosova-dhe-gjermania-thellojne-bashkepunimin-mbi-2-milione-euro-per-aftesimin-profesional-dhe-projekte-te-reja/",
-    "slug": "kosova-dhe-gjermania-thellojne-bashkepunimin-mbi-2-milione-euro-per-aftesimin-profesional-dhe-projekte-te-reja",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/kosova-dhe-gjermania-thellojne-bashkepunimin-mbi-2-milione-euro-per-aftesimin-profesional-dhe-projekte-te-reja/",
-        "titulli": "Kosova dhe Gjermania thellojnë bashkëpunimin, mbi 2 milionë euro për aftësimin profesional dhe projekte të reja"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Asambleja Parlamentare e NATO-s: Ka përmirësim të sigurisë në Kosovë, por duhet të ecë së bashku me progresin politik",
-    "permbajtja": "Përmirësimi i sigurisë në Kosovë duhet të krijojë hapësirë për ripërtëritjen e progresit politik, forcimin e institucioneve demokratike dhe rritjen e besimit ndërmjet komuniteteve, përfunduan parlamentarët e NATO-s pas një misioni faktmbledhës në Prishtinë, më 28–29 tetor, njoftoi Asambleja Parlamentare e NATO-s.\nPor, ndonëse mjedisi i sigurisë është përmirësuar, Asambleja thekson se “tensionet e vazhdueshme dhe kërcënimet hibride vazhdojnë të paraqesin sfida për stabilitetin afatgjatë”.\n“Anëtarët e Komitetit Politik të Asamblesë Parlamentare të NATO-s shqyrtuan synimin e Kosovës për ta thelluar integrimin euroatlantik dhe për të kontribuar më shumë në sigurinë rajonale dhe atë të Aleatëve. Kryeministri Albin Kurti dhe zyrtarë të tjerë të lartë paraqitën prioritetet strategjike të Kosovës, përfshirë rritjen e investimeve në mbrojtje, prokurimin dhe rekrutimin, si dhe përpjekjet për forcimin e trajnimit dhe ndërveprueshmërisë së Forcës së Sigurisë së Kosovës (FSK) me forcat aleate. Liderët e Kosovës ritheksuan se anëtarësimi në NATO mbetet një prioritet strategjik dhe vunë në pah mbështetjen e vazhdueshme politike dhe praktike të vendit për Ukrainën. Diskutimet gjatë gjithë misionit faktmbledhës theksuan gjithashtu konsensusin e fortë në të gjithë spektrin politik dhe shoqërinë e Kosovës në mbështetje të anëtarësimit në NATO dhe bashkëpunimit të ngushtë me Aleancën”, thuhet në një komunikatë të lëshuar nga Asambleja Parlamentare e NATO-s.\nDelegacioni i NATO-s që ishte me mision faktmbledhës në Kosovë, u tha se ka shqyrtuar zhvillimet në mjedisin e sigurisë dhe se Aleanca ka nisur optimizimin gradual të pozicionimit të misionit paqeruajtës, NATO.\n“Delegacioni shqyrtoi zhvillimet në mjedisin e sigurisë dhe rolin e vazhdueshëm të NATO-s në Kosovë, përfshirë gjatë një vizite në Shtabin e KFOR-it. KFOR-i vazhdon të luajë një rol thelbësor në ruajtjen e një mjedisi të sigurt dhe të qetë, si dhe të lirisë së lëvizjes për të gjitha komunitetet. NATO-ja ka nisur një optimizim gradual të pozicionimit të KFOR-it, të bazuar në kushtet në terren, në dritën e përmirësimit të situatës së sigurisë, duke ruajtur njëkohësisht aftësinë për ta përshtatur praninë e saj në rast se kushtet përkeqësohen”, thuhet në komunikatë.\nPor, Asambleja Parlamentare e NATO-s tha se progresi në fushën e sigurisë dhe ai politik duhet të ecin së bashku.\n“Në të njëjtën kohë, diskutimet gjatë gjithë misionit faktmbledhës nënvizuan se përparimi në fushën e sigurisë dhe ai politik duhet të ecin përpara së bashku. Dialogu ndërmjet Beogradit dhe Prishtinës, i lehtësuar nga BE-ja, mbetet thelbësor për stabilitetin e qëndrueshëm rajonal. Përparimi në normalizim dhe zbatimi i zotimeve ekzistuese do të jenë kyç në të ardhmen e parashikueshme”, thuhet në komunikatë.\nAsamblja Parlamentare e NATO-s tha se “Kosova tani ka një mundësi për të çuar përpara reformat politike, për t’i forcuar institucionet demokratike dhe për t’iu afruar aspiratave të saj euroatlantike”.\n“Diskutimet gjatë misionit faktmbledhës nxorën në pah prioritetet, përfshirë forcimin e sundimit të ligjit, mbikëqyrjen parlamentare dhe llogaridhënien institucionale, si dhe rritjen e besimit te komunitetet joshumicë përmes mbrojtjes efektive të të drejtave gjuhësore dhe pronësore, pjesëmarrjes politike dhe qasjes në shërbimet publike”, thuhet në komunikatë.\n“Delegacioni i Nënkomitetit për Marrëdhëniet Transatlantike (PCTR) dhe Nënkomitetit për Partneritetet e NATO-s (PCNP) vizitoi Prishtinën më 28–29 tetor. Përveç kryeministrit Kurti, anëtarët u takuan me ministra kyç, udhëheqës parlamentarë nga partitë e shumicës dhe të pakicës, përfaqësues të komuniteteve joshumicë, zyrtarë të KFOR-it, UNMIK-ut dhe EULEX-it, si dhe ekspertë të pavarur dhe përfaqësues të shoqërisë civile”, përfundon komunikata e Asamblesë Parlamentare të NATO-s.",
-    "kategoria": "Politikë",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/11/ah.png",
-    "koha": "03/11/2026 18:46",
-    "link_origjinal": "https://www.gazetaexpress.com/asambleja-parlamentare-e-nato-s-ka-permiresim-te-sigurise-ne-kosove-por-duhet-te-ece-se-bashku-me-progresin-politik-1-1/",
-    "slug": "asambleja-parlamentare-e-nato-s-ka-permiresim-te-sigurise-ne-kosove-por-duhet-te-ece-se-bashku-me-progresin-politik",
-    "eshte_balline": false,
-    "komunat": [
-      "Prishtinë"
-    ],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/asambleja-parlamentare-e-nato-s-ka-permiresim-te-sigurise-ne-kosove-por-duhet-te-ece-se-bashku-me-progresin-politik-1-1/",
-        "titulli": "Asambleja Parlamentare e NATO-s: Ka përmirësim të sigurisë në Kosovë, por duhet të ecë së bashku me progresin politik"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Rama: VV paska thanë se ka dashni për Prishtinën, hajde të bojmë sallën koncertale, veç nënshkrimi i ministres ka mbet",
-    "permbajtja": "Kryetari i Prishtinës, Përparim Rama, përmes një postimi në Facebook, i ka kërkuar VV’së që ta bëjnë sallën koncertale, pasi nga kjo parti kanë thënë se ‘’kanë dashni për Prishtinën’’.\nRama, ka shkruar edhe se projekti për këtë sallë është gati, dhe se, ka mbetur vetëm nënshkrimi i ministres së Kulturës.\nPostimi:\nVetëvendosje paska thanë se ka dashni për Prishtinën!\nMirë!\nHajde ta bojmë SALLËN KONCERTALE 🎶\nProjekti është gati!\nUNDP-ja është e gatshme me na ndihmu!\nKa mbetë veç një nënshkrim, ai i ministres së Kulturës.\nHajde t’ua japim artistëve një skenë të dinjitetshme në zemër të Prishtinës.\nUrdhnoni!",
-    "kategoria": "Politikë",
-    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/05/perparim-rama-2.jpg",
-    "koha": "03/11/2026 18:46",
-    "link_origjinal": "https://www.gazetaexpress.com/rama-vv-paska-thane-se-ka-dashni-per-prishtinen-hajde-te-bojme-sallen-koncertale-vec-nenshkrimi-i-ministres-ka-mbet/",
-    "slug": "rama-vv-paska-thane-se-ka-dashni-per-prishtinen-hajde-te-bojme-sallen-koncertale-vec-nenshkrimi-i-ministres-ka-mbet",
-    "eshte_balline": false,
-    "komunat": [
-      "Prishtinë"
-    ],
-    "burime": [
-      {
-        "url": "https://www.gazetaexpress.com/rama-vv-paska-thane-se-ka-dashni-per-prishtinen-hajde-te-bojme-sallen-koncertale-vec-nenshkrimi-i-ministres-ka-mbet/",
-        "titulli": "Rama: VV paska thanë se ka dashni për Prishtinën, hajde të bojmë sallën koncertale, veç nënshkrimi i ministres ka mbet"
       }
     ],
     "source_count": 1
