@@ -1,5 +1,248 @@
 [
   {
+    "titulli": "Hakerët depërtojnë në platformën qendrore të Forcave Ajrore Amerikane, frikë për rrjedhjen e të dhënave të ndjeshme ushtarake",
+    "permbajtja": "Një sulm kibernetik ka goditur platformën kryesore cloud të Forcave Ajrore të Shteteve të Bashkuara, të njohur si Cloud One, duke ngritur shqetësime për sigurinë e të dhënave sensitive ushtarake, përfshirë informacionet mbi personelin, logjistikën dhe operacionet taktike.\nSipas Reuters, e cila citon pesë persona të njohur me çështjen, ndërhyrja u zbulua gjatë muajit të fundit, në kuadër të punimeve për përmirësimin e sistemit. Deri më tani, nuk është identifikuar autori i sulmit dhe nuk dihet nëse hakerët kanë arritur të vjedhin të dhëna.\nPlatforma Cloud One, e krijuar në vitin 2017, mbështetet në shërbimet teknologjike të Microsoft, Amazon, Oracle dhe Alphabet. Ajo përdoret për funksione të rëndësishme, nga administrimi i të dhënave të personelit dhe pagesave deri te mirëmbajtja ushtarake dhe gjurmimi i armatimeve në më shumë se 200 baza të Forcave Ajrore amerikane në mbarë botën.\nSulmi ka shkaktuar ndërprerje në funksionimin e platformës. Sipas medias, janë pezulluar migrimi i disa aplikacioneve administrative drejt Cloud One dhe përditësimet e aplikacioneve ekzistuese. Disa përdoruesve u janë hequr gjithashtu të drejtat e administratorit.\nNjë prej burimeve tha se sulmuesit mund të kenë shfrytëzuar një dobësi softuerike për të depërtuar në të ashtuquajturin “control plane”, pjesa qendrore që administron infrastrukturën cloud. Në teori, një akses i tillë mund të mundësojë monitorimin e sistemeve të avionëve ushtarakë dhe lëvizjen e pjesëve rezervë, megjithëse nuk ka prova se këto të dhëna janë aksesuar në këtë rast.\nPër hetimin e incidentit është përfshirë edhe Cyber Command, struktura kibernetike e ushtrisë amerikane, e cila po vlerëson përmasat e dëmit. /Panorama",
+    "content_blocks": [],
+    "kategoria": "Teknologji",
+    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/11/scc-2.jpg",
+    "koha": "27/11/2026 15:17",
+    "published_at": "2026-11-27T15:17:22.106931+01:00",
+    "source_published_at": "2026-11-27T14:11:03Z",
+    "link_origjinal": "https://www.gazetaexpress.com/hakeret-depertojne-ne-platformen-qendrore-te-forcave-ajrore-amerikane-frike-per-rrjedhjen-e-te-dhenave-te-ndjeshme-ushtarake/",
+    "slug": "hakeret-depertojne-ne-platformen-qendrore-te-forcave-ajrore-amerikane-frike-per-rrjedhjen-e-te-dhenave-te-ndjeshme-ushtarake",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://www.gazetaexpress.com/hakeret-depertojne-ne-platformen-qendrore-te-forcave-ajrore-amerikane-frike-per-rrjedhjen-e-te-dhenave-te-ndjeshme-ushtarake/",
+        "titulli": "Hakerët depërtojnë në platformën qendrore të Forcave Ajrore Amerikane, frikë për rrjedhjen e të dhënave të ndjeshme ushtarake"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "​Arrestohet zyrtari i Postës në Rahovec, dyshohet se përvetësoi mbi 10 mijë euro",
+    "permbajtja": "Një zyrtar i Postës në Rahovec u arrestua me dyshimin se ka përvetësuar mbi 10 mijë euro nga qarkullimi ditor i dy zyrave postare.\nSipas një njoftimi për media ai dyshohet për veprën penale “përvetësim në detyrë”.\nPolicia e Kosovës bëri të ditur se Drejtoria për Hetimin e Krimeve Ekonomike dhe Korrupsionit, njësia në Gjakovë, ka pranuar informacione se një person i dyshuar ka dështuar të raportonte mjetet e qarkullimit ditor për dy pika postare në komunën e Rahovecit, të cilat dyshohet se i kishte përvetësuar në mënyrë të kundërligjshme.\n“Sipas informatave të pranuara i dyshuari mashkull kosovar nga datat 19 dhe 20.10.2026 kishte përvetësuar nga qarkullimi ditor i zyrave postare shumën prej 10,146.12€ (dhjetë mijë e njëqind e dyzet e gjashtë euro e dymbëdhjetë cent)”, thuhet në njoftim.\nBazuar në autorizimin e pranuar nga Prokuroria Themelore Gjakovë nga njësitë përkatëse policore janë ndërmarrë veprimeve hetimore në drejtim të zbardhjes së rastit, ku si rrjedhojë janë siguruar prova që dëshmojnë se i dyshuari ka kryer veprën penale “Përvetësim në detyrë”.\nI dyshuari thuhet se është intervistuar në prezencën e avokatit dhe me aktvendim të prokurorit kompetent ndaj tij është caktuar masa e ndalimit për 48 orë. /Telegrafi/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Një zyrtar i Postës në Rahovec u arrestua me dyshimin se ka përvetësuar mbi 10 mijë euro nga qarkullimi ditor i dy zyrave postare."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sipas një njoftimi për media ai dyshohet për veprën penale “përvetësim në detyrë”."
+      },
+      {
+        "type": "paragraph",
+        "text": "Policia e Kosovës bëri të ditur se Drejtoria për Hetimin e Krimeve Ekonomike dhe Korrupsionit, njësia në Gjakovë, ka pranuar informacione se një person i dyshuar ka dështuar të raportonte mjetet e qarkullimit ditor për dy pika postare në komunën e Rahovecit, të cilat dyshohet se i kishte përvetësuar në mënyrë të kundërligjshme."
+      },
+      {
+        "type": "paragraph",
+        "text": "“Sipas informatave të pranuara i dyshuari mashkull kosovar nga datat 19 dhe 20.10.2026 kishte përvetësuar nga qarkullimi ditor i zyrave postare shumën prej 10,146.12€ (dhjetë mijë e njëqind e dyzet e gjashtë euro e dymbëdhjetë cent)”, thuhet në njoftim."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bazuar në autorizimin e pranuar nga Prokuroria Themelore Gjakovë nga njësitë përkatëse policore janë ndërmarrë veprimeve hetimore në drejtim të zbardhjes së rastit, ku si rrjedhojë janë siguruar prova që dëshmojnë se i dyshuari ka kryer veprën penale “Përvetësim në detyrë”."
+      },
+      {
+        "type": "paragraph",
+        "text": "I dyshuari thuhet se është intervistuar në prezencën e avokatit dhe me aktvendim të prokurorit kompetent ndaj tij është caktuar masa e ndalimit për 48 orë. /Telegrafi/"
+      },
+      {
+        "type": "embed",
+        "url": "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FKosovoPolice%2Fposts%2Fpfbid0Y6wJFLhw9yDi4vPsgpfftgzo1vnNW3eZ6fkn2tFUAmYLQXHV6oAk3NTksdwi9p3vl&show_text=true&width=500",
+        "label": "Shiko videon te burimi"
+      }
+    ],
+    "kategoria": "Ekonomi",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68784807&width=980",
+    "koha": "27/11/2026 15:17",
+    "published_at": "2026-11-27T15:17:25.857421+01:00",
+    "source_published_at": "2026-11-27T14:03:08Z",
+    "link_origjinal": "https://telegrafi.com/arrestohet-zyrtari-i-postes-ne-rahovec-dyshohet-se-pervetesoi-mbi-10-mije-euro/",
+    "slug": "arrestohet-zyrtari-i-postes-ne-rahovec-dyshohet-se-pervetesoi-mbi-10-mije-euro",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/arrestohet-zyrtari-i-postes-ne-rahovec-dyshohet-se-pervetesoi-mbi-10-mije-euro/",
+        "titulli": "​Arrestohet zyrtari i Postës në Rahovec, dyshohet se përvetësoi mbi 10 mijë euro"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [
+      "Rahovec"
+    ],
+    "featured_rank": 4,
+    "selection_reasons": [
+      "Freskia: 39.59/40",
+      "Në ballinën e burimit: +12",
+      "Tema: Ekonomi",
+      "Larmi burimesh dhe temash"
+    ]
+  },
+  {
+    "titulli": "Llapi në super formë, e mposht Malishevën dhe largohet nga zona e rrezikshme",
+    "permbajtja": "Llapi e ka shënuar edhe fitoren e tretë rresht në Superligë.\nLlapjanët triumfuan në udhëtim ndaj vendit të dytë, Malishevës me rezultat 2:3, në kuadër të javës së 15-të në elitën e futbollit kosovar.\nKjo fitore e ngrit Llapin në vendin e tetë me 14 pikë dhe gjendet tani në zonën e barazhit, dy pikë larg Drenicës që tani pozicionohet e parafundit.\nNë anën tjetër, Malisheva mbetet e dyta me 30 pikë dhe tani Prishtina ka mundësinë të largohet në +8 në rast fitoreje këtë xhiro.",
+    "content_blocks": [],
+    "kategoria": "Sport",
+    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/11/Screenshot_1-10.png",
+    "koha": "27/11/2026 15:17",
+    "published_at": "2026-11-27T15:17:30.123323+01:00",
+    "source_published_at": "2026-11-27T14:03:06Z",
+    "link_origjinal": "https://www.gazetaexpress.com/llapi-ne-super-forme-e-mposht-malisheven-dhe-largohet-nga-zona-e-rrezikshme/",
+    "slug": "llapi-ne-super-forme-e-mposht-malisheven-dhe-largohet-nga-zona-e-rrezikshme",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://www.gazetaexpress.com/llapi-ne-super-forme-e-mposht-malisheven-dhe-largohet-nga-zona-e-rrezikshme/",
+        "titulli": "Llapi në super formë, e mposht Malishevën dhe largohet nga zona e rrezikshme"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [
+      "Malishevë"
+    ]
+  },
+  {
+    "titulli": "Aleanca bën homazhe në Prekaz në prag të 28 Nëntorit",
+    "permbajtja": "Aleanca ka bërë homazhe në Kompleksin Memorial “Adem Jashari” në Prekaz, në prag të 28 Nëntorit, për të nderuar sakrificën e familjes Jashari dhe të gjithë atyre që ranë për lirinë e Kosovës.\nPërmes një postimi në Facebook, Aleanca ka vlerësuar se Prekazi i jep kësaj date një kuptim edhe më të thellë, duke e cilësuar sakrificën e familjes Jashari, të udhëhequr nga komandanti legjendar Adem Jashari, si një nga kapitujt më të lavdishëm të historisë së re të Kosovës.\nNë mesazhin e saj, Aleanca ka theksuar se kujtesa historike nuk duhet të mbetet vetëm nderim për të kaluarën, por edhe obligim për ndërtimin e institucioneve të forta, ruajtjen e unitetit dhe punën për një Kosovë ku liria, drejtësia dhe dinjiteti i qytetarëve janë vlera të pacenueshme.",
+    "content_blocks": [],
+    "kategoria": "Politikë",
+    "imazhi": "https://www.gazetaexpress.com/wp-content/uploads/2026/11/aaa-8.jpg",
+    "koha": "27/11/2026 15:17",
+    "published_at": "2026-11-27T15:17:42.771842+01:00",
+    "source_published_at": "2026-11-27T13:48:11Z",
+    "link_origjinal": "https://www.gazetaexpress.com/aleanca-ben-homazhe-ne-prekaz-ne-prag-te-28-nentorit/",
+    "slug": "aleanca-ben-homazhe-ne-prekaz-ne-prag-te-28-nentorit",
+    "eshte_balline": false,
+    "burime": [
+      {
+        "url": "https://www.gazetaexpress.com/aleanca-ben-homazhe-ne-prekaz-ne-prag-te-28-nentorit/",
+        "titulli": "Aleanca bën homazhe në Prekaz në prag të 28 Nëntorit"
+      }
+    ],
+    "source_count": 1,
+    "komunat": []
+  },
+  {
+    "titulli": "​Ja 16 kushtet e Speciales për Jakup Krasniqin për vizitë bashkëshortes në gjendje të rënduar shëndetësore",
+    "permbajtja": "Një njoftim i publikuar nga Gjykata Speciale në Hagë në lidhje me vizitën e Jakup Krasniqit ditë më parë në familjen e tij në Prishtinë, për shkak të bashkëshortes në gjendje të rënduar shëndetësore, nxori në pah edhe disa detaje shtesë.\nSpecialja bëri të ditur se Krasniqi, kishte paraqitur kërkesë që përgjatë vizitës katërditore në Prishtinë të lejohej të qëndronte vazhdimisht në shtëpinë e tij me familjen.\nZyra e Prokurorit të Specializuar e kishte kundërshtuar këtë kërkesë, duke përcaktuar gjithsej 16 kushte strikte sigurie nën të cilat do të lejohej vizita te familjarët dhe bashkëshortja e tij që është në gjendje të rënduar shëndetësore.\nKushtet e propozuara nga Prokuroria ishin:\na. KRASNIQI duhet të qëndrojë gjatë gjithë kohës në paraburgimin e Dhomave të Specializuara të Kosovës (DhSK);\nb. KRASNIQI duhet të mbahet në paraburgim në Kosovë, në objektet e paraburgimit të DhSK-së, gjatë gjithë kohës kur nuk është duke e realizuar vizitën;\nc. KRASNIQI duhet të jetë gjatë gjithë kohës nën shoqërimin e zyrtarëve përcjellës;\nd. Zyrtarët përcjellës kanë diskrecionin që të marrin çdo vendim që e konsiderojnë të nevojshëm lidhur me vizitën nën kujdestari, bazuar në sigurinë operacionale, përfshirë edhe ndërprerjen e parakohshme të vizitës;\ne. KRASNIQI nuk lejohet të qëndrojë vetëm me asnjë person në asnjë moment dhe duhet të jetë vazhdimisht brenda fushëpamjes dhe dëgjueshmërisë së zyrtarëve përcjellës;\nf. KRASNIQI nuk lejohet të takohet apo të ketë çfarëdo kontakti me persona të paautorizuar në lokacionin ose lokacionet e përcaktuara dhe të miratuara paraprakisht;\ng. Të gjithë personat e paautorizuar duhet të largohen nga lokacioni i caktuar për vizitën gjatë gjithë kohëzgjatjes së saj;\nh. KRASNIQI nuk lejohet të ketë qasje në pajisje komunikimi, laps dhe letër, apo në çfarëdo mjeti tjetër komunikimi, përveç atyre që i mundësohen nga DhSK-ja;\ni. KRASNIQI nuk lejohet t’i dorëzojë apo të pranojë sende nga asnjë person;\nj. KRASNIQI, anëtarët e familjes së tij, bashkëpunëtorët dhe mbrojtësi i tij duhet të përmbahen nga informimi i çfarëdo pale të tretë për vizitën, para dhe gjatë gjithë qëndrimit të tij në Kosovë;\nk. Mbrojtësi duhet t’i informojë anëtarët e familjes së KRASNIQIT, me të cilët ai është i autorizuar të takohet, për detyrimin e tyre që të mos zbulojnë faktin e lirimit të përkohshëm apo ndonjë hollësi tjetër lidhur me të. Gjithashtu, nuk lejohet asnjë kontakt me mediat apo deklaratë publike lidhur me këtë çështje;\nl. KRASNIQI nuk lejohet të diskutojë çështjen e tij me askënd, përveçse me mbrojtësin e tij;\nm. KRASNIQI nuk lejohet të ketë asnjë kontakt, të drejtpërdrejtë apo të tërthortë, apo të ndërhyjë në çfarëdo mënyre te viktimat ose dëshmitarët, si dhe nuk lejohet të ndërhyjë në asnjë mënyrë në procedurat gjyqësore apo në administrimin e drejtësisë;\nn. KRASNIQI nuk duhet të kërkojë qasje të drejtpërdrejtë në dokumente dhe as të shkatërrojë prova;\no. KRASNIQI duhet t’i përmbahet rreptësisht çdo urdhri të mëtejshëm të Trupit Gjykues që ndryshon kushtet e vizitës së tij nën kujdestari ose e ndërpret atë;\np. Çdo shkelje e këtyre kushteve nga KRASNIQI, mbrojtësi i tij apo anëtarët e familjes së tij do të rezultojë në ndërprerjen e menjëhershme të lirimit të përkohshëm. /KP/",
+    "content_blocks": [
+      {
+        "type": "paragraph",
+        "text": "Një njoftim i publikuar nga Gjykata Speciale në Hagë në lidhje me vizitën e Jakup Krasniqit ditë më parë në familjen e tij në Prishtinë, për shkak të bashkëshortes në gjendje të rënduar shëndetësore, nxori në pah edhe disa detaje shtesë."
+      },
+      {
+        "type": "paragraph",
+        "text": "Specialja bëri të ditur se Krasniqi, kishte paraqitur kërkesë që përgjatë vizitës katërditore në Prishtinë të lejohej të qëndronte vazhdimisht në shtëpinë e tij me familjen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Zyra e Prokurorit të Specializuar e kishte kundërshtuar këtë kërkesë, duke përcaktuar gjithsej 16 kushte strikte sigurie nën të cilat do të lejohej vizita te familjarët dhe bashkëshortja e tij që është në gjendje të rënduar shëndetësore."
+      },
+      {
+        "type": "paragraph",
+        "text": "Kushtet e propozuara nga Prokuroria ishin:"
+      },
+      {
+        "type": "paragraph",
+        "text": "a. KRASNIQI duhet të qëndrojë gjatë gjithë kohës në paraburgimin e Dhomave të Specializuara të Kosovës (DhSK);"
+      },
+      {
+        "type": "paragraph",
+        "text": "b. KRASNIQI duhet të mbahet në paraburgim në Kosovë, në objektet e paraburgimit të DhSK-së, gjatë gjithë kohës kur nuk është duke e realizuar vizitën;"
+      },
+      {
+        "type": "paragraph",
+        "text": "c. KRASNIQI duhet të jetë gjatë gjithë kohës nën shoqërimin e zyrtarëve përcjellës;"
+      },
+      {
+        "type": "paragraph",
+        "text": "d. Zyrtarët përcjellës kanë diskrecionin që të marrin çdo vendim që e konsiderojnë të nevojshëm lidhur me vizitën nën kujdestari, bazuar në sigurinë operacionale, përfshirë edhe ndërprerjen e parakohshme të vizitës;"
+      },
+      {
+        "type": "paragraph",
+        "text": "e. KRASNIQI nuk lejohet të qëndrojë vetëm me asnjë person në asnjë moment dhe duhet të jetë vazhdimisht brenda fushëpamjes dhe dëgjueshmërisë së zyrtarëve përcjellës;"
+      },
+      {
+        "type": "paragraph",
+        "text": "f. KRASNIQI nuk lejohet të takohet apo të ketë çfarëdo kontakti me persona të paautorizuar në lokacionin ose lokacionet e përcaktuara dhe të miratuara paraprakisht;"
+      },
+      {
+        "type": "paragraph",
+        "text": "g. Të gjithë personat e paautorizuar duhet të largohen nga lokacioni i caktuar për vizitën gjatë gjithë kohëzgjatjes së saj;"
+      },
+      {
+        "type": "paragraph",
+        "text": "h. KRASNIQI nuk lejohet të ketë qasje në pajisje komunikimi, laps dhe letër, apo në çfarëdo mjeti tjetër komunikimi, përveç atyre që i mundësohen nga DhSK-ja;"
+      },
+      {
+        "type": "paragraph",
+        "text": "i. KRASNIQI nuk lejohet t’i dorëzojë apo të pranojë sende nga asnjë person;"
+      },
+      {
+        "type": "paragraph",
+        "text": "j. KRASNIQI, anëtarët e familjes së tij, bashkëpunëtorët dhe mbrojtësi i tij duhet të përmbahen nga informimi i çfarëdo pale të tretë për vizitën, para dhe gjatë gjithë qëndrimit të tij në Kosovë;"
+      },
+      {
+        "type": "paragraph",
+        "text": "k. Mbrojtësi duhet t’i informojë anëtarët e familjes së KRASNIQIT, me të cilët ai është i autorizuar të takohet, për detyrimin e tyre që të mos zbulojnë faktin e lirimit të përkohshëm apo ndonjë hollësi tjetër lidhur me të. Gjithashtu, nuk lejohet asnjë kontakt me mediat apo deklaratë publike lidhur me këtë çështje;"
+      },
+      {
+        "type": "paragraph",
+        "text": "l. KRASNIQI nuk lejohet të diskutojë çështjen e tij me askënd, përveçse me mbrojtësin e tij;"
+      },
+      {
+        "type": "paragraph",
+        "text": "m. KRASNIQI nuk lejohet të ketë asnjë kontakt, të drejtpërdrejtë apo të tërthortë, apo të ndërhyjë në çfarëdo mënyre te viktimat ose dëshmitarët, si dhe nuk lejohet të ndërhyjë në asnjë mënyrë në procedurat gjyqësore apo në administrimin e drejtësisë;"
+      },
+      {
+        "type": "paragraph",
+        "text": "n. KRASNIQI nuk duhet të kërkojë qasje të drejtpërdrejtë në dokumente dhe as të shkatërrojë prova;"
+      },
+      {
+        "type": "paragraph",
+        "text": "o. KRASNIQI duhet t’i përmbahet rreptësisht çdo urdhri të mëtejshëm të Trupit Gjykues që ndryshon kushtet e vizitës së tij nën kujdestari ose e ndërpret atë;"
+      },
+      {
+        "type": "paragraph",
+        "text": "p. Çdo shkelje e këtyre kushteve nga KRASNIQI, mbrojtësi i tij apo anëtarët e familjes së tij do të rezultojë në ndërprerjen e menjëhershme të lirimit të përkohshëm. /KP/"
+      }
+    ],
+    "kategoria": "Politikë",
+    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68784779&width=980",
+    "koha": "27/11/2026 15:17",
+    "published_at": "2026-11-27T15:17:46.543839+01:00",
+    "source_published_at": "2026-11-27T13:50:41Z",
+    "link_origjinal": "https://telegrafi.com/ja-16-kushtet-e-speciales-per-jakup-krasniqin-per-vizite-bashkeshortes-ne-gjendje-te-renduar-shendetesore/",
+    "slug": "ja-16-kushtet-e-speciales-per-jakup-krasniqin-per-vizite-bashkeshortes-ne-gjendje-te-renduar-shendetesore",
+    "eshte_balline": true,
+    "burime": [
+      {
+        "url": "https://telegrafi.com/ja-16-kushtet-e-speciales-per-jakup-krasniqin-per-vizite-bashkeshortes-ne-gjendje-te-renduar-shendetesore/",
+        "titulli": "​Ja 16 kushtet e Speciales për Jakup Krasniqin për vizitë bashkëshortes në gjendje të rënduar shëndetësore"
+      }
+    ],
+    "source_count": 1,
+    "komunat": [
+      "Prishtinë"
+    ],
+    "featured_rank": 1,
+    "selection_reasons": [
+      "Freskia: 39.25/40",
+      "Në ballinën e burimit: +12",
+      "Ndikim te qytetarët — Shëndetësi: +14",
+      "Referencë e qartë në Kosovë/komunë: +6",
+      "Tema: Shëndetësi",
+      "Larmi burimesh dhe temash"
+    ],
+    "hero_image": {
+      "source": "https://telegrafi.com/media-library/image.jpg?id=68784779&width=980",
+      "small": "/news-images/f74e3bd2c24f9f9a-480.webp",
+      "large": "/news-images/f74e3bd2c24f9f9a-1000.webp"
+    }
+  },
+  {
     "titulli": "Llapi merr një fitore të madhe me rikthim në udhëtim te Malisheva",
     "permbajtja": "Llapi ka marrë tri pikë të mëdha në udhëtim te Malisheva duke fituar me rezultat 3-2 në ndeshjen e vlefshme për javën e 15-të në Albi Mall Superligën e Kosovës.\nEkipi i Tahir Batatinës ka fituar një ndeshje të madhe në “Liman Gegaj”, duke ardhur nga disavantazhi i pjesës së parë për të fituar në ndeshjen e dytë dhe për të shkuar në një seri prej tri fitoreve radhazi.\nPjesa e parë e ndeshjes u karakterizua me lojë më të mirë të vendasve, të cilët përveç rasteve arritën t’i shënojnë edhe dy gola, kundrejt një të mysafirëve.\nGoli i parë i ndeshjes erdhi pas 23 minutave lojë me anë të Xhemal Ibishit, i cili shënoi për 1-0, por pas vetëm dy minutave ishte Fiton Ademi, i cili barazoi shifrat në 1-1.\nNë minutën e 40-të, vendasit arritën të gjejnë përsëri golin me anë të Kreshnik Ukës, i cili shënoi për 2-1 dhe dërgoi Malishevën në pushim me epërsi të merituar.\nNë pjesën e dytë, Llapi u tregua skuadër më e fortë, krijoi më shumë dhe arriti të shënoj edhe dy gola për të fituar ndeshjen dhe tri pikët shumë të vlefshme.\nIshte përsëri Ademi, i cili në minutën e 61-të shënoi për 2-2, ndërsa në minutën e 82-të ishte Pjero Skaric që shënoi për fitoren e Llapit 3-2.\nPas kësaj fitore, Llapi ikën nga pozita e nëntë në të tetën me 14 pikë, ndërsa Malisheva mbetet e dyta me 30 pikë.\nNë ndeshjen e ardhshme, Malisheva luan në udhëtim te Ballkani, ndërsa Llapi e pret Drenicën. /Telegrafi/",
     "content_blocks": [
@@ -86,7 +329,7 @@
     "komunat": [],
     "featured_rank": 5,
     "selection_reasons": [
-      "Freskia: 39.96/40",
+      "Freskia: 39.54/40",
       "Në ballinën e burimit: +12",
       "Tema: Teknologji",
       "Larmi burimesh dhe temash"
@@ -1720,9 +1963,9 @@
     ],
     "source_count": 1,
     "komunat": [],
-    "featured_rank": 4,
+    "featured_rank": 3,
     "selection_reasons": [
-      "Freskia: 36.61/40",
+      "Freskia: 36.19/40",
       "Ndikim te qytetarët — Arsim: +14",
       "Tema: Arsim",
       "Larmi burimesh dhe temash"
@@ -2136,15 +2379,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 2,
-    "selection_reasons": [
-      "Freskia: 35.48/40",
-      "Në ballinën e burimit: +12",
-      "Ndikim te qytetarët — Shëndetësi: +14",
-      "Tema: Shëndetësi",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Dembel, mendjemadh, vulgar - e vërteta për Ian Flemingun",
@@ -3758,7 +3993,15 @@
       }
     ],
     "source_count": 1,
-    "komunat": []
+    "komunat": [],
+    "featured_rank": 2,
+    "selection_reasons": [
+      "Freskia: 32.24/40",
+      "Në ballinën e burimit: +12",
+      "Ndikim te qytetarët — Ekonomia familjare: +14",
+      "Tema: Ekonomia familjare",
+      "Larmi burimesh dhe temash"
+    ]
   },
   {
     "titulli": "Egjipti e futi në listën e organizatave terroriste, në Kosovë fondacioni nuk figuron në regjistra",
@@ -3907,16 +4150,7 @@
       "source": "https://telegrafi.com/media-library/image.webp?id=68784125&width=980",
       "small": "/news-images/04f821284a47ae57-480.webp",
       "large": "/news-images/04f821284a47ae57-1000.webp"
-    },
-    "featured_rank": 1,
-    "selection_reasons": [
-      "Freskia: 31.98/40",
-      "Në ballinën e burimit: +12",
-      "Burime të ndryshme: +8",
-      "Ndikim te qytetarët — Ekonomia familjare: +14",
-      "Tema: Ekonomia familjare",
-      "Larmi burimesh dhe temash"
-    ]
+    }
   },
   {
     "titulli": "Ekskluzive: Kush janë tre “bossat” e arrestuar dje në Prishtinë, iu sekuestruan pasuri mbi 1 milion euro",
@@ -6031,15 +6265,7 @@
       }
     ],
     "source_count": 1,
-    "komunat": [],
-    "featured_rank": 3,
-    "selection_reasons": [
-      "Freskia: 28.09/40",
-      "Në ballinën e burimit: +12",
-      "Ndikim te qytetarët — Shërbime publike: +18",
-      "Tema: Shërbime publike",
-      "Larmi burimesh dhe temash"
-    ]
+    "komunat": []
   },
   {
     "titulli": "Skena të tmerrshme në Marsejë: Huliganët sulmuan tifozët e Levskit",
@@ -226871,101 +227097,6 @@
       {
         "url": "https://telegrafi.com/a-eshte-gjermania-zgjedhja-me-e-mire-krasniqi-flet-per-sfidat-atje-dhe-mundesite-ne-kosove/",
         "titulli": "A është Gjermania zgjedhja më e mirë? Krasniqi flet për sfidat atje dhe mundësitë në Kosovë"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Hakerët ua kthejnë frigoriferët në furra, miliona euro ushqime hidhen në mbeturina",
-    "permbajtja": "Dhjetëra supermarkete në shtatë shtete evropiane janë goditur nga një sulm kibernetik që ka vënë jashtë funksionit sistemet e frigoriferëve dhe ngrirësve, duke shkaktuar dëme të mëdha materiale dhe humbje të produkteve ushqimore.\nSulmi ka prekur dyqane në Belgjikë, Luksemburg, Suedi, Irlandë, Holandë, Estoni dhe Finlandë.\nNë Belgjikë dhe Luksemburg janë prekur rreth 40 supermarkete të rrjetit Delhaize, ndërsa probleme janë raportuar edhe në dyqanet e disa zinxhirëve të tjerë tregtarë.\nSipas kompanisë belge Sabcobel, e cila prodhon disa nga pajisjet e prekura, sulmuesit kanë ndryshuar funksionimin e avulluesve të frigoriferëve, duke i kaluar në modalitetin e shkrirjes së akullit. Kjo ka bërë që temperatura brenda pajisjeve të rritet ndjeshëm dhe produktet ushqimore të prishen.\nNë disa dyqane, temperaturat raportohet se kanë arritur deri në 50 gradë Celsius.\nVetëm në një filial të Delhaize në Hoeilaart të Belgjikës, humbjet nga produktet e dëmtuara janë vlerësuar në rreth 100 mijë euro, pa përfshirë dëmet nga mbyllja e përkohshme e dyqanit.\nNë Suedi janë prekur disa dyqane të rrjeteve ICA dhe Coop, ndërsa në Irlandë sulmi ka prekur 13 supermarkete të rrjetit SuperValu. Probleme janë raportuar edhe në dyqane në Holandë, Finlandë dhe Estoni.\nKompania Sabcobel ka bërë të ditur se ka punuar për shkëputjen nga rrjeti të pajisjeve të prekura, ndërsa autoritetet e sigurisë kibernetike në Belgjikë dhe Suedi po e monitorojnë situatën, shkruan BBC.\nDeri më tani nuk dihet se kush qëndron prapa sulmit. Hetimet po zhvillohen, ndërsa shqetësimi kryesor mbetet siguria e sistemeve frigoriferike që menaxhohen përmes internetit.\nNgjarja vjen pas një incidenti të ngjashëm në Francë, në fillim të tetorit, kur qindra supermarkete u përballën me probleme të ngjashme dhe u detyruan të asgjësonin produkte ushqimore me vlerë miliona euro.",
-    "kategoria": "Teknologji",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/dc300800-d6c6-11f1-ac20-7783925c811f.jpg.webp",
-    "koha": "03/11/2026 10:32",
-    "link_origjinal": "https://indeksonline.net/hakeret-uadd-kthejne-frigoriferet-ne-furra-miliona-euro-ushqime-hidhen-ne-mbeturina/",
-    "slug": "hakeret-ua-kthejne-frigoriferet-ne-furra-miliona-euro-ushqime-hidhen-ne-mbeturina",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/hakeret-uadd-kthejne-frigoriferet-ne-furra-miliona-euro-ushqime-hidhen-ne-mbeturina/",
-        "titulli": "Hakerët ua kthejnë frigoriferët në furra, miliona euro ushqime hidhen në mbeturina"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Kjo është arsyeja pse ministrja Pacolli sot është në Gjykatë",
-    "permbajtja": "Ministrja e Ambientit, Fitore Pacolli është paraqitur sot në Gjykatë. Burime të Indeksonline bëjnë të ditur se Pacolli pas pak do të ket seancë ndaj analistit, Azdren Shala.\nPacolli e kishte paditur për shpifje në studiot televizive.",
-    "kategoria": "Politikë",
-    "imazhi": "https://indeksonline.net/wp-content/uploads/2026/11/882744165_1452210470191729_5660252879238178310_n.jpg",
-    "koha": "03/11/2026 10:32",
-    "link_origjinal": "https://indeksonline.net/kjo-eshte-arsyeja-pse-ministrja-pacolli-sot-eshte-ne-gjykate/",
-    "slug": "kjo-eshte-arsyeja-pse-ministrja-pacolli-sot-eshte-ne-gjykate",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://indeksonline.net/kjo-eshte-arsyeja-pse-ministrja-pacolli-sot-eshte-ne-gjykate/",
-        "titulli": "Kjo është arsyeja pse ministrja Pacolli sot është në Gjykatë"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Tri raste të dhunës ndaj grave në rajonin e Pejës, dy të dyshuar në mbajtje dhe një në kërkim",
-    "permbajtja": "Tri raste të dhunës në familje janë raportuar në rajonin e Pejës dhe në Klinë, ku viktima kanë qenë gra kosovare.\nSipas raportit të Policisë së Kosovës, rasti i parë është regjistruar më 1 nëntor, rreth orës 14:00, në Pejë. Një grua ka raportuar se është sulmuar fizikisht nga një person. Viktima ka pranuar trajtim mjekësor, ndërsa i dyshuari ndodhet në kërkim policor.\nNjë tjetër rast është raportuar po në Pejë, të njëjtën ditë, rreth orës 15:55. Në këtë rast, një person është arrestuar nën dyshimin për kanosje dhe ushtrim të dhunës ndaj një gruaje.\nNuk raportohet për persona të lënduar, ndërsa pas intervistimit, me vendim të prokurorit, i dyshuari është dërguar në mbajtje.\nNdërkaq, më 2 nëntor, rreth orës 14:45, një rast i dhunës në familje është raportuar edhe në Klinë. I dyshuari është arrestuar dhe, pas intervistimit, me vendim të prokurorit është dërguar në mbajtje.\nTë tri rastet janë raportuar nga Policia e Kosovës dhe po trajtohen nga organet kompetente.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=58303146&width=980",
-    "koha": "03/11/2026 10:16",
-    "link_origjinal": "https://telegrafi.com/tri-raste-te-dhunes-ndaj-grave-ne-rajonin-e-pejes-dy-te-dyshuar-ne-mbajtje-dhe-nje-ne-kerkim/",
-    "slug": "tri-raste-te-dhunes-ndaj-grave-ne-rajonin-e-pejes-dy-te-dyshuar-ne-mbajtje-dhe-nje-ne-kerkim",
-    "eshte_balline": true,
-    "komunat": [
-      "Klinë",
-      "Pejë"
-    ],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/tri-raste-te-dhunes-ndaj-grave-ne-rajonin-e-pejes-dy-te-dyshuar-ne-mbajtje-dhe-nje-ne-kerkim/",
-        "titulli": "Tri raste të dhunës ndaj grave në rajonin e Pejës, dy të dyshuar në mbajtje dhe një në kërkim"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Stuhia lë mijëra njerëz pa energji elektrike në disa pjesë të Brazilit - pamjet tregojnë kaosin e krijuar",
-    "permbajtja": "Një stuhi e fuqishme përfshiu qytetin e Maringas, në jug të Brazilit, herët të hënën, duke rrëzuar pemë dhe shtylla elektrike, duke bllokuar trafikun dhe duke lënë mijëra prona pa energji elektrike.\nSipas Sistemit të Teknologjisë dhe Monitorimit Mjedisor të Paranës (Simepar), shpejtësia e erës arriti në 81 kilometra në orë, ndërsa sasia e reshjeve të shiut, nga mesnata deri në orën 06:15 të mëngjesit, ishte 39,8 milimetra.\nSipas kompanisë energjetike të Paranës, \"Copel\", më shumë se 82.200 njësi konsumatore mbetën pa energji elektrike të hënën në mëngjes, çka preku rreth 34 për qind të qytetit të Maringas.\nQUARTEL DO CORPO DE BOMBEIROS DE MARINGÁ ATINGIDOO temporal que passou por Maringá causou grande destruição e um dos locais que acabou sendo destruído foi a sede do quartel do Corpo de Bombeiros de Maringá.📹 @plantao_maringa https://t.co/RD502ZIcIH\n— Pinga Fogo FM (@PingaFogoFM) November 2, 2026\nPemët e rrëzuara bllokuan rrugët, dëmtuan automjetet e parkuara dhe goditën murin e një kishe.\nStuhia shkaktoi dëme edhe në ndërtesa, çati, semaforë dhe një pikë karburanti. Mes objekteve të prekura ishte edhe selia e shërbimit zjarrfikës të qytetit.\nSipas mediave lokale, kryetari i bashkisë së Maringas, Silvio Barros, shpalli gjendjen e fatkeqësisë publike për të përshpejtuar masat e emergjencës dhe ndihmën për banorët e prekur.\nEkipet e infrastrukturës bashkiake, të mirëmbajtjes urbane dhe të mbrojtjes civile u angazhuan për të hequr pemët e rrëzuara, për të pastruar rrugët dhe për të vlerësuar dëmet.\nDepois de Santa Catarina, foi a vez do Paraná: granizo, vendaval e um possível tornado deixaram um rastro de destruição de Marquinho a Maringá entre o domingo (1º) e a madrugada desta segunda-feira (2).Em Maringá, no Norte do estado, a tempestade chegou por volta das 3h, no feriado de Finados. Moradores falam em tornado, mas o Simepar ainda não confirmou o fenômeno. As rajadas chegaram a 81 km/h.O Plano Clima Adaptação foi aprovado em março de 2026, coordenado pelo Ministério do Meio Ambiente e pelo Ministério de Ciência, Tecnologia e Inovação, e prevê 16 planos setoriais, incluindo Cidades e Redução de Riscos de Desastres .  https://t.co/r3rHSgutl4…\n— Lampião Flusser (@op19tz34ju8tfv) November 2, 2026\nAutoritetet u bënë thirrje banorëve që të qëndrojnë larg pemëve të rrëzuara dhe linjave elektrike të dëmtuara, për shkak të rrezikut të goditjeve elektrike.\nStuhia preku edhe bashki të tjera në shtetin e Paranës, ku u dëmtuan shtëpi dhe u ndërpre furnizimi me energji elektrike.\nAutoritetet vazhduan vlerësimin e dëmeve dhe koordinimin e operacioneve për rimëkëmbjen.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=68581185&width=980",
-    "koha": "03/11/2026 10:16",
-    "link_origjinal": "https://telegrafi.com/stuhia-le-mijera-njerez-pa-energji-elektrike-ne-disa-pjese-te-brazilit-pamjet-tregojne-kaosin-e-krijuar/",
-    "slug": "stuhia-le-mijera-njerez-pa-energji-elektrike-ne-disa-pjese-te-brazilit---pamjet-tregojne-kaosin-e-krijuar",
-    "eshte_balline": true,
-    "komunat": [],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/stuhia-le-mijera-njerez-pa-energji-elektrike-ne-disa-pjese-te-brazilit-pamjet-tregojne-kaosin-e-krijuar/",
-        "titulli": "Stuhia lë mijëra njerëz pa energji elektrike në disa pjesë të Brazilit - pamjet tregojnë kaosin e krijuar"
-      }
-    ],
-    "source_count": 1
-  },
-  {
-    "titulli": "Arrestohet një person në Pejë nën dyshimin për ngacmim seksual",
-    "permbajtja": "Një person është arrestuar në Pejë, nën dyshimin për ngacmim seksual ndaj një gruaje.\nSipas raportit të Policisë së Kosovës, rasti ka ndodhur më 2 nëntor 2026, ndërsa lidhur me të janë intervistuar viktima dhe një dëshmitare, të dyja femra kosovare.\nGjatë kontrollit në banesën e të dyshuarit, policia ka sekuestruar si prova materiale një laptop dhe dy telefona celularë.\nMe vendim të prokurorit, i dyshuari është dërguar në mbajtje.\nRasti është duke u trajtuar nga organet kompetente.",
-    "kategoria": "Lajme",
-    "imazhi": "https://telegrafi.com/media-library/image.jpg?id=66779633&width=980",
-    "koha": "03/11/2026 10:16",
-    "link_origjinal": "https://telegrafi.com/arrestohet-nje-person-ne-peje-nen-dyshimin-per-ngacmim-seksual/",
-    "slug": "arrestohet-nje-person-ne-peje-nen-dyshimin-per-ngacmim-seksual",
-    "eshte_balline": true,
-    "komunat": [
-      "Pejë"
-    ],
-    "burime": [
-      {
-        "url": "https://telegrafi.com/arrestohet-nje-person-ne-peje-nen-dyshimin-per-ngacmim-seksual/",
-        "titulli": "Arrestohet një person në Pejë nën dyshimin për ngacmim seksual"
       }
     ],
     "source_count": 1
